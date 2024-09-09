@@ -14,8 +14,23 @@
 require get_template_directory() . '/functions/project/local-variable.php'; 
 require get_template_directory() . '/functions/project/hash.php'; 
 require get_template_directory() . '/functions/project/enqueues.php'; 
+
+// Custom post types + custom taxonomies
 require get_template_directory() . '/functions/project/post-types.php'; 
 require get_template_directory() . '/functions/project/taxonomies.php'; 
 
+// Custom ACF fields
+require get_template_directory() . '/functions/project/custom/acf/index.php'; 
+
+// Custom endpoints
+require get_template_directory() . 'functions/project/utilities/endpoints/index.php'; 
+
+//Functions specific for this project
+require get_template_directory() . '/functions/project/custom/utilities/manage-columns.php';
+require get_template_directory() . '/functions/project/custom/utilities/set-cookie.php';
+require get_template_directory() . '/functions/project/custom/utilities/login-logo.php';
+require get_template_directory() . '/functions/project/custom/utilities/redirect-cpt.php';
+require get_template_directory() . '/functions/project/custom/utilities/get-spacing.php';
+require get_template_directory() . '/functions/project/custom/utilities/remove-editor.php';
 
 ?>

@@ -10,5 +10,6 @@
 
 require get_template_directory() . '/functions/default/cronjob.php'; 
 require get_template_directory() . '/functions/default/cleanHouse.php'; 
+require get_template_directory() . '/functions/default/blocks/block-cta.php'; 
 
 ?>

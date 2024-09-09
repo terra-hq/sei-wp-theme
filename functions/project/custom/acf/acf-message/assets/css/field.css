@@ -1,0 +1,9 @@
+/**
+ * Included when fields of this type are rendered for editing by publishers.
+ */
+
+.acf-field-message .acf-input {
+    background-color: #F6F4EE;
+    padding: 1rem;
+    color: #F01840;
+}
