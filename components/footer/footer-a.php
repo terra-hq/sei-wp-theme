@@ -1,42 +1,65 @@
-<section class="c--footer-a">
+<footer class="c--footer-a">
     <div class="f--container">
-        <div class="f--row">
-            <div class="f--col-5 f--col-tabletm-12">
-                <h3 class="c--footer-a__title">
-                    <?php echo get_field('footer_title', 'option') ?>
-                </h3>
-                <p class="c--footer-a__subtitle">
-                    <?php echo get_field('footer_subtitle', 'option') ?>
-                </p>
-            </div>
-            <div class="f--col-6 f--col-tabletm-12 f--offset-1 f--offset-tabletm-0">
-                <div class="c--form-a">
-                    <?php $form_shortcode = get_field('footer_form', 'option');
-                    if ($form_shortcode) {
-                        echo do_shortcode($form_shortcode);
-                    } ?>
+        <div class="c--footer-a__hd">
+            <div class="f--row">
+                <div class="f--col-12">
+                    <?php $title = '';
+                    $footer_titles = get_field('footer_title', 'option');
+                    if ($footer_titles) {
+                        foreach ($footer_titles as $footer_title) {
+                            $sentence = $footer_title['sentence'];
+                            $italic = $footer_title['italic'];
+                            if ($italic) {
+                                $title .= '<span class="f--font-b">' . esc_html($sentence) . '</span> ';
+                            } else {
+                                $title .= esc_html($sentence) . ' ';
+                            }
+                        }
+                    }
+                    if ($title && get_field('footer_link', 'option')) : ?>
+                        <a href="<?php echo esc_url(get_field('footer_link', 'option')); ?>" class="c--footer-a__hd__link"><?php echo $title; ?></a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-    </div>
-    <hr class="c--footer-a__dash">
-    <div class="f--container">
-        <div class="f--row">
-            <div class="f--col-12">
-                <div class="c--footer-a__wrapper">
-                    <img src="<?php echo get_field('footer_logo', 'option')['url'] ?>" sizes="(max-width: 810px) 50vw, 33vw" alt="footer logo" class="c--footer-a__wrapper__logo">
-                    <div class="c--footer-a__wrapper__list-group">
-                        <?php if (get_field('privacy_link', 'option')) : ?>
-                            <a href="<?php echo get_field('privacy_link', 'option')['url'] ?>" target="_blank" rel="noreferrer noopener" class="c--footer-a__wrapper__list-group__link">
-                                <?php echo get_field('privacy_link', 'option')['title'] ?>
-                            </a>
+        <div class="c--footer-a__bd">
+            <div class="f--row f--gap-a u--justify-content-space-between">
+                <div class="f--col-7 f--col-tabletl-6 f--col-tabletm-8 f--col-tabletm-12">
+                    <div class="c--form-a js--hubspot-script--footer" data-form-id=<?php echo get_field('form_id', 'option') ?> data-portal-id=<?php echo get_field('form_portal_id', 'option') ?>>
+                    </div>
+                </div>
+                <?php $navigation_links = get_field('navigation_links', 'option');
+                if ($navigation_links) : ?>
+                    <div class="f--col-5 f--col-tabletm-12">
+                        <nav class="c--nav-c">
+                            <?php foreach ($navigation_links as $navEach) : ?>
+                                <a href="<?php echo $navEach['link']['url'] ?>" <?= get_target_link($navEach['link']['target'], $navEach['link']['title'] )?> class="c--nav-c__item"><?php echo $navEach['link']['title'] ?></a>
+                            <?php endforeach; ?>
+                        </nav>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="c--footer-a__ft">
+            <div class="c--footer-a__ft__wrapper">
+                <div class="f--row f--gap-c">
+                    <div class="f--col-9 f--col-tabletl-8 f--col-tabletm-12">
+                        <?php $extra_links = get_field('extra_links', 'option');
+                        if ($extra_links) : ?>
+                            <nav class="c--footer-a__ft__wrapper__list-group c--nav-d">
+                                <?php foreach ($extra_links as $eachExtra) : ?>
+                                    <a href="<?php echo $eachExtra['link']['url'] ?>" <?= get_target_link($eachExtra['link']['target'], $eachExtra['link']['title'] )?> class="c--nav-d__item"><?php echo $eachExtra['link']['title'] ?></a>
+                                <?php endforeach; ?>
+                            </nav>
                         <?php endif; ?>
-                        <p class="c--footer-a__wrapper__list-group__list-item">
-                            © <?php echo get_field('copyright_text', 'option') ?> <?php echo date('Y') ?>
-                        </p>
+                        <p class="f--font-j f--color-a">Copyright © <?php echo date('Y') ?> <?php echo get_field('copyright', 'option') ?></p>
+                    </div>
+                    <div class="f--col-3 f--col-tabletl-4 f--col-tabletm-12">
+                        <?php $socialCustomClass = 'c--footer-a__ft__wrapper__item-right' ?>
+                        <?php include(locate_template('components/social/social-a.php', false, false)); ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</footer>

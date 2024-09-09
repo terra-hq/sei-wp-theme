@@ -1,8 +1,3 @@
-<?php
-/*
-Template Name: Modules
-*/
-?>
 <?php get_header() ?>
 
 <?php $heros = get_field('heros');
