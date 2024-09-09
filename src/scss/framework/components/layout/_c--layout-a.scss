@@ -1,0 +1,38 @@
+.c--layout-a {
+
+    &__content {
+        @media all and ($viewport-type: $tablets) {
+            margin: 0 auto;
+            padding-right: 1em;
+            padding-left: 1em;
+            width: 90%;
+            max-width: $g-container-width;
+        }
+        @media all and ($viewport-type:$mobile) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__media-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: $measure * 4;
+
+        &--second {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__media {
+            @extend .u--display-block;
+            overflow: hidden;
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+
+            @media all and ($viewport-type: $tablets) {
+                height: 320px;
+            }
+        }
+    }
+}

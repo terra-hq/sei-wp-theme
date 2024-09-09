@@ -1,0 +1,23 @@
+.g--card-04 {
+    @include make-card-04();
+    @include make-card-04-modifier(
+        $card-options: (
+            "align": left,
+            "back-items": no
+        ),
+        $item-primary-options: (
+            "className": f--font-c,
+        ),
+        $list-group-item-options: (
+            "className": f--font-e,
+        ),
+        $media-options: (
+            "aspect-ratio": 1 1,
+            "object-fit": contain,
+            "height": 64px,
+            "object-position": left center,
+            "width": 64px,
+            "first": yes,
+        ),
+    );
+}

@@ -1,0 +1,61 @@
+.g--btn-01 {
+    @include make-btn-01();
+    @include make-btn-01-modifier(
+        $background-options: (
+            "background-color": map-get($color-options, a),
+        ),
+        $hover-options: (
+            "background-color": map-get($color-options, b),
+            "color": map-get($color-options, a),
+        ),
+        $border-options: (
+            "border-color": map-get($color-options, a),
+            "border-width": 1px,
+            "border-style": solid,
+        ),
+        $font-options: (
+            "color": map-get($color-options, b),
+            "className": f--font-d,
+        ),
+    );
+    &--second {
+        @include make-btn-01-modifier(
+            $background-options: (
+                "background-color": map-get($color-options, a),
+            ),
+            $border-options: (
+                "border-color": map-get($color-options, a),
+                "border-width": 1px,
+                "border-style": solid,
+            ),
+            $hover-options: (
+                "background-color": map-get($color-options, b),
+                "color": map-get($color-options, a),
+            ),
+            $font-options: (
+                "color": map-get($color-options, b),
+                "className": f--font-e,
+            ),
+        );
+    }
+    &--third {
+        @include make-btn-01-modifier(
+            $background-options: (
+                "background-color": map-get($color-options, b),
+            ),
+            $border-options: (
+                "border-color": map-get($color-options, b),
+                "border-width": 1px,
+                "border-style": solid,
+            ),
+            $hover-options: (
+                "background-color": map-get($color-options, a),
+                "color": map-get($color-options, b),
+            ),
+            $font-options: (
+                "color": map-get($color-options, a),
+                "className": f--font-d,
+            ),
+        );
+    }
+}

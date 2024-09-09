@@ -1,0 +1,7 @@
+# Ignore .DS_Store files
+.DS_Store
+
+# Other ignore patterns
+node_modules/
+dist/
+lib/

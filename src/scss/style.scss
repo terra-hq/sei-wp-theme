@@ -1,0 +1,70 @@
+//* Reset, GC
+@import "./src/scss/framework/_var/_vars.scss";
+@import "./src/scss/framework/_mixins/mixins.scss";
+@import '@terrahq/gc/library';
+@import '@terrahq/wysiwyg/wordpress';
+@import '@scssFoundation/reset/_reset.scss';
+@import '@scssFoundation/_foundation.scss'; 
+@import '@scssUtilities/_utilities.scss';
+@import "@scss/global-components/vars.scss";
+
+//* Preloader
+@import '@scssComponents/preloader/_c--preloader-a.scss';
+
+//* transition
+@import '@scssComponents/transition/_c--transition-a.scss';
+
+//* header
+@import '@scssComponents/header/_c--header-a.scss';
+
+//* accordion
+@import '@scssComponents/accordion/_c--accordion-a.scss';
+@import "@scss/global-components/accordion/_g--accordion-02";
+
+//* arrow
+@import '@scssComponents/arrow/_c--arrow-a.scss';
+
+//* btn
+@import "@scss/global-components/btn/_g--btn-01";
+
+//* card
+@import "@scss/global-components/card/_g--card-04";
+
+//* cta
+@import '@scssComponents/cta/_c--cta-a.scss';
+
+//* content
+@import '@scssComponents/content/_c--content-a.scss';
+
+//* form
+@import '@scssComponents/form/_c--form-a.scss';
+
+//* hero
+@import '@scssComponents/hero/_c--hero-a.scss';
+
+//* layout
+@import '@scssComponents/layout/_c--layout-a.scss';
+@import "@scss/global-components/layout/_g--layout-01";
+
+//* lazy
+@import "@scss/global-components/lazy/_g--lazy-01";
+
+//* link
+@import "@scss/global-components/link/_g--link-01";
+
+//* marquee
+@import '@scssComponents/marquee/_c--marquee-a.scss';
+
+//* media
+@import '@scssComponents/media/_c--media-a.scss';
+@import '@scssComponents/media/_c--media-b.scss';
+
+//* slider
+@import '@scssComponents/slider/_c--slider-a.scss';
+@import "@scss/framework/components/slider/_tiny-slider";
+
+//* testimonials
+@import '@scssComponents/testimonials/_c--testimonials-a.scss';
+
+//* footer
+@import '@scssComponents/footer/_c--footer-a.scss';

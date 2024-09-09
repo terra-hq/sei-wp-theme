@@ -1,0 +1,81 @@
+/* Font library */
+
+.f--font-a {
+    @include make-font-a();
+}
+
+.f--font-b {
+    @include make-font-b();
+}
+
+.f--font-c {
+    @include make-font-c();
+}
+
+.f--font-d {
+    @include make-font-d();
+}
+
+.f--font-e {
+    @include make-font-e();
+}
+
+.f--font-f { 
+    @include make-font-f();
+}
+
+/* ================================================= Here import the Fonts */
+
+@font-face {
+    font-family: 'Nacelle';
+    src: url('#{$base-path}/fonts/Nacelle-Regular.woff2') format('woff2'),
+         url('#{$base-path}/fonts/Nacelle-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nacelle';
+    src: url('#{$base-path}/fonts/Nacelle-Bold.woff2') format('woff2'),
+         url('#{$base-path}/fonts/Nacelle-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libre Caslon Condensed';
+    src: url('#{$base-path}/fonts/LibreCaslonCondensed-Regular.woff2') format('woff2'),
+         url('#{$base-path}/fonts/LibreCaslonCondensed-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libre Caslon Condensed';
+    src: url('#{$base-path}/fonts/LibreCaslonCondensed-Bold.woff2') format('woff2'),
+         url('#{$base-path}/fonts/LibreCaslonCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libre Caslon Condensed';
+    src: url('#{$base-path}/fonts/LibreCaslonCondensed-Italic.woff2') format('woff2'),
+         url('#{$base-path}/fonts/LibreCaslonCondensed-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libre Caslon Condensed';
+    src: url('#{$base-path}/fonts/LibreCaslonCondensed-BoldItalic.woff2') format('woff2'),
+         url('#{$base-path}/fonts/LibreCaslonCondensed-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}

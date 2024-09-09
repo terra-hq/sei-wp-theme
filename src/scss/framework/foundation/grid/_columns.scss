@@ -1,0 +1,178 @@
+/* columns*/
+/* offset */
+/* order first & last */
+
+/*Start loop columns*/
+$available-columns: (
+    // 2,
+    3,
+    4,
+    5,
+    6,
+    //7,
+    8,
+    // 9,
+    // 10,
+    12,
+);
+
+$columns-breakpoints: (
+  all: $all,
+//   desktop: $desktop,
+//   laptop: $laptop,
+   tabletl: $tabletl,
+  tabletm: $tabletm,
+   tablets: $tablets,
+//   mobile: $mobile,
+);
+@mixin build-columns ($size,$bkpt,$availablecolumns) {
+    @for $i from 1 through $columns {
+        @if ($size == 'all') {
+            @each $column in $availablecolumns {
+                @if $i == $column {
+                    .f--col-#{$column}{
+                        @include make-col($column);
+                    } 
+                }
+            }
+        }@else{
+            @each $column in $availablecolumns {
+                @if $i == $column {
+                    .f--col-#{$size}-#{$column}{
+                        @media all and (#{$viewport-type}: #{$bkpt}){
+                            $value: calc((100% / #{$columns})*#{$column});
+                            flex: 0 0 $value;
+                            max-width: $value;  
+                            transition: $time-a;
+                        }
+                    }
+                }
+            }
+        }        
+    }
+}
+// Build Columns
+@if variable-exists(columns-breakpoints) {
+    @each $size, $bkpt in $columns-breakpoints {
+        @include build-columns($size,$bkpt,$available-columns);
+    }
+}
+@else {
+    @each $size, $bkpt in $breakpoints-grid {
+        @include build-columns($size,$bkpt,$available-columns);
+    }
+}
+/* End Responsive Columns */
+
+/* Start Responsive Offset */
+$available-offset: (
+    0,
+    1,
+);
+
+$offset-breakpoints: (
+  all: $all,
+//   desktop: $desktop,
+//   laptop: $laptop,
+//   tabletl: $tabletl,
+  tabletm: $tabletm,
+//   tablets: $tablets,
+//   mobile: $mobile,
+);
+@mixin build-offset ($size,$bkpt,$availableoffset) {
+    @for $i from 0 through $columns {
+        @if ($size == 'all') {
+            @each $offset in $availableoffset {
+                @if $i == $offset {
+                    .f--offset-#{$offset}{
+                        @include make-offset($offset);
+                    } 
+                }
+            }
+        }@else{
+            @each $offset in $availableoffset {
+                @if $i == $offset {
+                    .f--offset-#{$size}-#{$offset}{
+                        @media all and (#{$viewport-type}: #{$bkpt}){
+                            @include make-offset($offset);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@if variable-exists(offset-breakpoints) {
+    @each $size, $bkpt in $offset-breakpoints {
+        @include build-offset($size,$bkpt, $available-offset);
+    }
+}
+@else {
+    @each $size, $bkpt in $breakpoints-grid {
+        @include build-offset($size,$bkpt, $available-offset);
+    }
+}
+/* End Responsive Offset */
+
+/* Start Responsive Order */
+$available-order: (
+    1,
+);
+
+$order-breakpoints: (
+  all: $all,
+//   desktop: $desktop,
+//   laptop: $laptop,
+  tabletl: $tabletl,
+//   tabletm: $tabletm,
+//   tablets: $tablets,
+//   mobile: $mobile,
+);
+
+@mixin build-order ($size,$bkpt,$availableorder) {
+    @for $i from 0 through $columns {
+        @if ($size == 'all') {
+            @each $order in $availableorder {
+                @if $i == $order {
+                    .f--order-#{$order}{
+                        @include make-order($order);
+                    } 
+                }
+            }
+        }@else{
+            @each $order in $availableorder {
+                @if $i == $order {
+                    .f--order-#{$size}-#{$order}{
+                        @media all and (#{$viewport-type}: #{$bkpt}){
+                            @include make-order($order);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if ($size == 'all') {
+        .f--order-first{
+            order: -1;  
+        }
+    }@else{
+        .f--order-#{$size}-first{
+            @media all and (#{$viewport-type}: #{$bkpt}){
+                order: -1; 
+            }
+        }
+    }
+}
+
+@if variable-exists(order-breakpoints) {
+    @each $size, $bkpt in $order-breakpoints {
+        @include build-order($size,$bkpt, $available-order);
+    }
+}
+@else {
+    @each $size, $bkpt in $breakpoints-grid {
+        @include build-order($size,$bkpt, $available-order);
+    }
+}
+/* End Responsive Order */

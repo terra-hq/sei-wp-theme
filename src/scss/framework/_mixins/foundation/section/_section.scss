@@ -1,0 +1,31 @@
+@mixin make-section-a() {
+    padding: $measure * 15 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 10 0;
+    }
+}
+
+@mixin make-section-b() {
+    padding: 0 0 $measure * 15 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: 0 0 $measure * 10 0;
+    }
+}
+
+@mixin make-section-c() {
+    padding: $measure * 15 0 $measure * 10 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 10 0 $measure * 7 0;
+    }
+}
+
+@mixin make-section-d() {
+    padding: $measure * 10 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 7 0;
+    }
+}

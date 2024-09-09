@@ -1,0 +1,170 @@
+.c--content-a {
+    @include make-content ();
+    @include make-content-modifier (
+      $headings-options: (
+        "h2": (
+          "className": f--font-b,
+          "margin-bottom": $measure*4,
+        ),
+        "h3": (
+          "className": f--font-c u--font-bold u--font-style-italic,
+          "margin-bottom": $measure*4,
+          "padding-top": $measure,
+        ),
+        "h4": (
+          "className": f--font-c,
+          "margin-bottom": $measure*3,
+          "padding-top": $measure,
+        ),
+        "h5": (
+          "className": f--font-c,
+          "margin-bottom": $measure*3,
+          "padding-top": $measure,
+        ),
+        "h6": (
+          "className": f--font-c,
+          "margin-bottom": $measure*3,
+          "padding-top": $measure,
+        ),
+      ),
+      $image-options: (
+        "object-fit": cover,
+        "max-height": 500px,
+        "margin-bottom": $measure*4,
+        "caption": (
+          "className": f--font-f u--font-bold,
+          "padding-top": $measure*2,
+          "text-align": right,
+        ),
+      ),
+      $link-options: (
+        "className": g--link-01,
+      ),
+      $lists-options: (
+        "number-font": (
+          "color": map-get($color-options, a),
+          "font-weight": 500,
+          "className": f--font-e,
+        ),
+        "first-number-width": 14px,
+        "first-level-number-color": map-get($color-options, a),
+        "first-level-artwork-width": 8px,
+        "first-level-artwork-top": 8px,
+        "first-level-artwork-background": map-get($color-options, a),
+        "first-level-artwork-border-radius": 50%,
+        "second-level-number-color": map-get($color-options, a),
+        "second-level-artwork-width": 8px,
+        "second-level-artwork-top": 8px,
+        "second-level-artwork-background": map-get($color-options, a),
+        "second-level-artwork-border-radius": 50%,
+        "third-level-number-color": map-get($color-options, a),
+        "third-level-artwork-width": 8px,
+        "third-level-artwork-top": 8px,
+        "third-level-artwork-background": map-get($color-options, a),
+        "third-level-artwork-border-radius": 50%,
+        "margin-bottom": $measure*4,
+        "font-styles": (
+          "className": f--font-e,
+          "margin-bottom": $measure,
+        ),
+      ),
+      $paragraphs-options: (
+        "className": f--font-e,
+        "margin-bottom": $measure * 4,
+        "margin-bottom-before-lists": $measure * 4,
+      ),
+      $quote-options: (
+        "padding": $measure*3 0,
+        "margin-top": $measure,
+        "margin-bottom": $measure*4,
+        "border": (
+          "border-color": map-get($color-options, a),
+          "border-radius": 0,
+          "border-style": solid,
+          "border-width": 1px 0,
+        ),
+        "paragraph": (
+          "className": f--font-d,
+        ),
+        "cite": (
+          "className": f--font-d,
+          "padding-top": $measure*3,
+        ),
+      ),
+      $footnote-options: (
+        "className": f--font-f,
+        "margin-bottom": $measure * 2,
+      ),
+      $highlighted-options: (
+        "className": f--font-d,
+        "margin-bottom": $measure * 4,
+      ),
+      $btn-options: (
+        "className": g--btn-01,
+        "margin-bottom": $measure*4,
+      ),
+      $columns-options: (
+        "breakpoint": $tablets,
+        "margin-bottom": $measure*4,
+      ),
+      $separator-options: (
+        "margin": 0 auto $measure*4,
+        "width": 100%,
+        "color": map-get($color-options, a),
+        "height": 1px,
+      ),
+      $table-options: (
+        "header-font-styles": (
+          "className": f--font-e f--color-b,
+        ),
+        "body-font-styles": (
+          "className": f--font-e,
+        ),
+        "caption": (
+          "className": f--font-f u--font-bold,
+          "padding-top": $measure*2,
+          "text-align": right,
+        ),
+        "margin-bottom": $measure*4,
+        "header-cells-padding": $measure*2,
+        "body-cells-padding": $measure $measure * 2,
+        "header-border": (
+          "border-width": 1px,
+          "border-style": solid,
+          "border-color": map-get($color-options, a)
+        ),
+        "header-background": map-get($color-options, a),
+        "body-border": (
+          "border-width": 1px,
+          "border-style": solid,
+          "border-color": map-get($color-options, a)
+        ),
+        "body-background": map-get($color-options, b),
+      ),
+      $video-options: (
+        "margin-bottom": $measure*4,
+      ),
+      $utilities-options: (
+        "media-text-aligned-margin-x": $measure*4,
+      )
+    );
+
+    //Bigger paragraphs
+    &--second {
+        @include make-content-modifier (
+            $paragraphs-options: (
+                "line-height": 1.4,
+                "font-size": 1.5rem,
+                
+            ),
+        );
+
+        @media all and ($viewport-type: $tablets) {
+            @include make-content-modifier (
+                $paragraphs-options: (
+                    "font-size": 1.25rem,
+                ),
+            );
+        }
+    }
+}

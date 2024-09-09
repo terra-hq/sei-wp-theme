@@ -1,0 +1,56 @@
+.c--hero-a {
+    @extend .f--background-b;
+
+    &__title {
+        @extend .f--font-a;
+
+        &__artwork {
+            font-style: italic;
+        }
+    }
+
+    &__content {
+        @extend .c--content-a;
+        @extend .c--content-a--second;
+        @extend .f--mb-3;
+    }
+
+    &__link {
+        @extend .g--btn-01;
+        width: fit-content;
+        @media all and ($viewport-type:$mobile) {
+            width: 100%;
+        }
+
+        &--is-mobile {
+            display: none;
+
+            @media all and ($viewport-type:$tablets) {
+                display: block;
+            }
+        }
+
+        &--is-desktop {
+            @media all and ($viewport-type:$tablets) {
+                display: none;
+            }
+        }
+
+
+    }
+
+    &__media {
+        @extend .f--mt-10;
+        @extend .f--mt-tablets-8;
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+
+        @media all and ($viewport-type: $tablets) {
+            width: 100vw;
+            height: 320px;
+            aspect-ratio: 5/3;
+        }
+
+    }
+}

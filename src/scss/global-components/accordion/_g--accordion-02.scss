@@ -1,0 +1,30 @@
+.g--accordion-02 {
+    @include make-accordion-02();
+    @include make-accordion-02-modifier(
+        $border-options: (
+            "border-width": 0 0 1px 0,
+            "border-style": solid,
+            "border-color": map-get($color-options, a),
+        ),
+        $item-primary-options: (
+            "className": f--font-c f--color-a,
+        ),
+        $icon-options: (
+            "fill": map-get($color-options, a),
+            "width": 26px,
+        ),
+        $custom-options: (
+            ".g--accordion-02__hd": (
+                "column-gap": $measure * 3,
+                
+            ),
+            ".g--accordion-02__hd__item-primary": (
+                "width": calc(100% - #{$measure*3} - 26px)
+            ),
+        ),
+    );
+
+    .g--accordion-02__bd__content {
+        @extend .c--content-a;
+    }
+}

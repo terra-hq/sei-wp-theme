@@ -1,0 +1,44 @@
+{
+  "name": "wp-vite-starter-2024",
+  "version": "1.0.0",
+  "description": "vite starter",
+  "main": "index.js",
+  "scripts": {
+    "virtual": "cross-env NODE_ENV=virtual vite",
+    "local": "NODE_ENV=local vite build",
+    "build": "NODE_ENV=production vite build"
+  },
+  "author": "andresclua@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gulp": "^5.0.0",
+    "gulp-sftp-up4": "^0.1.8",
+    "minimist": "^1.2.8",
+    "sass": "^1.77.2",
+    "ssh2-sftp-client": "^10.0.3",
+    "vite": "^5.2.12",
+    "vite-plugin-live-reload": "^3.0.3"
+  },
+  "dependencies": {
+    "@andresclua/debounce-throttle": "^1.0.1",
+    "@andresclua/infinite-marquee-gsap": "^0.0.8",
+    "@andresclua/jsutil": "^4.0.4",
+    "@swup/debug-plugin": "^4.0.4",
+    "@swup/head-plugin": "^2.2.0",
+    "@swup/js-plugin": "^3.1.1",
+    "@swup/scripts-plugin": "^2.1.0",
+    "@teamthunderfoot/anchor-to": "^0.0.10",
+    "@terrahq/collapsify": "^0.0.19",
+    "@terrahq/gc": "file:terrahq-gc-0.0.6.tgz",
+    "@terrahq/helpers": "^0.0.53",
+    "@terrahq/wysiwyg": "file:terrahq-wysiwyg-0.0.2.tgz",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "blazy": "^1.8.2",
+    "boostify": "^0.0.13",
+    "dotenv": "^16.4.5",
+    "gsap": "^3.12.5",
+    "swup": "^4.6.1",
+    "vue": "^3.4.31"
+  }
+}

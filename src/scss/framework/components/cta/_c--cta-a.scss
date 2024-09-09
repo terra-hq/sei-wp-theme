@@ -1,0 +1,24 @@
+.c--cta-a {
+    @extend .f--background-a; 
+    padding: $measure*9 0;
+    @media all and ($viewport-type:$tablets) {
+        padding: $measure*8 0;
+    }
+    &__wrapper {
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        @extend .f--gap-d;  
+        &__title {
+            @extend .f--font-b;
+            @extend .f--color-b; 
+        }
+        &__subtitle {
+            @extend .f--font-e;
+            @extend .f--color-b; 
+        }
+    }
+    &__link {
+        @extend .g--btn-01;
+        @extend .g--btn-01--third;
+    }
+}

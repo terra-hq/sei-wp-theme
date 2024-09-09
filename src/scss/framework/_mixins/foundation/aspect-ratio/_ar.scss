@@ -1,0 +1,10 @@
+@mixin make-ar($size: default) {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    @if $size == "default" {
+    } @else {
+        aspect-ratio: $size;
+    }
+}

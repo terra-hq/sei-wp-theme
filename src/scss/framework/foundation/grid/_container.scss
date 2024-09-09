@@ -1,0 +1,27 @@
+// container
+// container fluid
+// container fluid responsive
+.f--container {
+  @include make-container();
+  @media all and ($viewport-type: $laptop){
+    max-width: 90%;
+  }
+  @media all and ($viewport-type: $mobile){
+    max-width: 95%;
+  }
+  &--fluid {
+    @include make-container-fluid();
+  }
+
+  &-tabletl--fluid {
+    @media all and ($viewport-type: $tabletl) {
+      @include make-container-fluid();
+    }
+  }
+
+  &-mobile--fluid {
+    @media all and ($viewport-type: $tablets) {
+      @include make-container-fluid();
+    }
+  }
+}

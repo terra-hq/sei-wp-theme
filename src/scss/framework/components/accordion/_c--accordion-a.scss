@@ -1,0 +1,103 @@
+.c--accordion-a {
+    @extend .u--overflow-hidden;
+    border-bottom: 1px solid map-get($color-options, a);
+    padding: $measure * 4 $measure * 2;
+
+    &__hd {
+        @extend .u--display-flex;
+        @extend .u--align-items-center;
+        width: 100%;
+        gap: $measure * 2;
+
+        @media all and ($viewport-type: $tablets) {
+            flex-wrap: wrap;
+            gap: 0;
+
+            &__badge {
+                flex: 100%;
+            }
+
+            &__title {
+                flex: 90%;
+            }
+
+            &__icon {
+                flex: 10%;
+                margin-left: $measure * 2;
+            }
+        }
+
+        &__badge {
+            @extend .u--display-block;
+            @extend .f--font-c;
+            @extend .f--color-a;
+            @extend .u--font-bold;
+            @extend .u--font-style-italic;
+            pointer-events: none;
+            text-align: left;
+            min-width: 18%;
+
+            @media all and ($viewport-type: $tablets) {
+                min-width: unset;
+            }
+        }
+
+        &__title {
+            @extend .u--display-block;
+            @extend .f--font-c;
+            @extend .f--color-a;
+            pointer-events: none;
+            text-align: left;
+        }
+
+        &__icon {
+            @extend .u--position-relative;
+            @extend .u--display-block;
+            pointer-events: none;
+            width: 26px;
+            height: 26px;
+            margin-left: auto;
+            &::before,
+            &::after {
+                @extend .u--position-absolute;
+                content: '';
+                @extend .f--background-a;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &::before {
+                width: 26px;
+                height: 2px;
+            }
+            &::after {
+                width: 2px;
+                height: 26px;
+                opacity: 1;
+                transition: opacity $time-b $ease-standard-a;
+            }
+        }
+        &--is-active &{
+            &__icon {
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__bd {
+        margin-left: calc(18% + 16px);
+
+        @media all and ($viewport-type: $tablets) {
+            margin-left: 0;
+        }
+
+        &__content {
+            padding-top: $measure * 3;
+            @extend .c--content-a;
+        }
+
+    }
+
+}

@@ -1,0 +1,48 @@
+$font-weight-values: (
+  // thin: 100,
+  // extralight: 200,
+  // light: 300,
+  // regular: 400,
+  // medium: 500,
+  // semibold: 600,
+  bold: 700,
+  // extrabold: 800,
+  // black: 900,
+);
+
+$font-weight-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+  
+  @mixin font-weight-utility($font-weight-prop, $breakpoints) {
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @if ($breakpoint-value == 0) {
+        @each $name, $property in $font-weight-prop {
+          .u--font-#{$name} {
+            font-weight: $property;
+          }
+        }
+      } @else {
+        @media screen and ($viewport-type: $breakpoint-value) {
+          @each $name, $property in $font-weight-prop {
+            .u--font-#{$breakpoint-name}-#{$name} {
+              font-weight: $property;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+@if variable-exists(font-weight-breakpoints) {
+  @include font-weight-utility($font-weight-values, $font-weight-breakpoints);
+}
+@else {
+  @include font-weight-utility($font-weight-values, $breakpoints-grid);
+}

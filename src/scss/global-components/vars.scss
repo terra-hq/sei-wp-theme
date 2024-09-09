@@ -1,0 +1,56 @@
+//* GLOBAL VARIABLES
+$g-viewport-type: max-width; //* It's used for mediaqueries; max-width (desktop first) or min-with (mobile first)
+$g-measure: 0.5rem; //* Measurement on which the spaces are based. All spaces are multiples of this number
+$g-container-class: f--container; //* The class used for the container
+$g-row-class: f--row; //* The class used for the row
+$g-row-remove-gutter-class: f--row--remove-gutter; //* The class used for the row without gutter. If that class doesn't exist, you can use the same one as for a normal row
+$g-transition-duration: 0.3s; //* The duration of all hover transitions
+$g-transition-timing-function: cubic-bezier(
+    0.2,
+    0,
+    0.38,
+    0.9
+); //* The function of all hover transitions (linear, ease, ease-in-ot...)
+
+//* accordion
+$accordion-padding: $g-measure*4 $g-measure*2 $g-measure*3; //* The padding for accordion button
+
+//* btn
+$btn-padding: $g-measure $g-measure * 3; //* The padding for buttons that have space around them
+$btn-icon-gap: $g-measure; //* The space between icon and text in buttons with icon
+$btn-full-width-breakpoint: 580px; //* The breakpoint at which we want buttons with padding should either expand to 100% width of the parent or stop being 100% width. If you never want them to be 100% width, you can omit this variable.
+
+//* pill
+$pill-padding: $g-measure $g-measure * 2; //* The padding for pills that have space around them
+
+//* form fields
+$form-margin-bottom: $g-measure * 3; //* The margin-bottom for form fields
+$input-padding: $g-measure * 0.5 $g-measure; //* The padding for form fields (input, textarea, select...) that have space around them
+$file-btn-padding: $g-measure * 0.5 $g-measure * 3; //* The padding for the button of input type file
+
+//* card
+$card-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all cards
+$card-item-list-gap: $g-measure; //* The space between all possible lists in cards. Possible lists refer to the last text element of all cards containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
+$card-media-text-space: $g-measure * 2; //* The spacing between text and media items (videos, images, etc.) in all cards
+$card-media-text-space-responsive: $g-measure * 2; //* The spacing between text and media items in all cards from the breakpoint specified in $card-spaces-breakpoint onward
+
+//* CTA
+$cta-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in CTAs. Possible lists refer to the last text element of all CTAs containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
+$cta-outside-container-col-class: (f--col-9 f--col-desktop-8);
+$cta-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all CTAs when the 'container' is set to 'no'
+$cta-inside-container-padding: $g-measure * 15 $g-measure * 10; //* The padding for the CTAs when the 'container' is set to 'no'. This variable can be a single number, a list of numbers, a class, or a list of classes
+$cta-inside-container-padding-responsive: $g-measure * 10 $g-measure * 7; //* The padding for the CTAs when the 'container' is set to 'no' from the breakpoint specified in $cta-spaces-breakpoint onward
+$cta-outside-container-padding-y: $g-measure * 20; //* The top and bottom padding for the CTAs when the 'container' is set to 'yes'. This must be a single number
+$cta-outside-container-padding-y-responsive: $g-measure * 10; //* The top and bottom padding for the CTAs when the 'container' is set to 'yes' from the breakpoint specified in $cta-spaces-breakpoint onward
+
+//* layout
+$layout-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all layouts
+$layout-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in layouts. Possible lists refer to the last text element of all layouts containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
+
+//* hero
+$hero-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all heroes
+$hero-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in heroes. Possible lists refer to the last text element of all heroes containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
+
+//* 404
+$error-404-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all 404
+$error-404-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in 404. Possible lists refer to the last text element of all heroes containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)

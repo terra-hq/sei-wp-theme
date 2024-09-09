@@ -1,0 +1,28 @@
+.g--link-01 {
+    @include make-link-01();
+    @include make-link-01-modifier(
+        $hover-options: (
+            "text-decoration-color": transparent,
+        ),
+        $font-options: (
+            "color": map-get($color-options, a),
+            "text-decoration": underline,
+            "text-decoration-color": map-get($color-options, a),
+            "text-underline-position": under,
+        ),
+    );
+    &--second {
+        @include make-link-01-modifier(
+        $hover-options: (
+            "text-decoration-color": transparent,
+        ),
+        $font-options: (
+            "color": map-get($color-options, b),
+            "text-decoration": underline,
+            "text-decoration-color": map-get($color-options, b),
+            "text-underline-position": under,
+        ),
+    );
+            
+    }
+}

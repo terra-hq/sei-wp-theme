@@ -1,0 +1,156 @@
+.c--form-a {
+    @media all and ($viewport-type: $tabletm) {
+       margin-top: $measure * 5;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-column-gap: $measure * 4;
+        grid-row-gap: $measure * 3; 
+
+        >p {
+            margin: 0;
+            
+        }
+
+        >p:nth-child(6){
+            @extend .u--display-flex;
+            @extend .u--align-items-center;
+            @extend .u--justify-content-flex-end;
+            @extend .u--flex-direction-column;
+        }
+
+        >p:nth-child(2) {grid-area: 1 / 1 / 2 / 2;}
+        >p:nth-child(3) {grid-area: 1 / 2 / 2 / 3;}
+        >p:nth-child(4) {grid-area: 2 / 1 / 3 / 3;}
+        >p:nth-child(5) {grid-area: 3 / 1 / 4 / 3;}
+        >p:nth-child(6) {grid-area: 4 / 1 / 5 / 3;}
+        >div:nth-child(7) {grid-area: 5 / 1 / 6 / 3;}
+
+        @media all and ($viewport-type: $mobile) {
+            display: flex;
+            flex-direction: column;
+            gap: $measure * 4;
+        }
+    }
+
+    label {
+        @extend .f--font-e;
+        @extend .f--color-b;
+        display: block;
+    }
+
+    input:not(input[type="submit"]):not(input[type="checkbox"]), textarea {
+        @extend .f--background-a;
+        @extend .f--font-e;
+        @extend .f--color-b;
+        width: 100%;
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        border-color: map-get($color-options, b);
+        padding: $measure * .5;
+        margin-top: $measure ;
+    }
+
+    input:not(input[type="submit"]):not(input[type="checkbox"]) {
+        height: 24px;
+    }
+    
+    textarea {
+        resize: none;
+        height: 80px;
+    }
+
+    .wpcf7-acceptance {
+        .wpcf7-list-item {
+            margin-left: 0;
+            label {
+                @extend .u--display-flex;
+                @extend .u--align-items-center;
+                gap: $measure;
+
+                span {
+                    @extend .u--display-block;
+                    @extend .f--font-f;
+                }
+            }
+        }
+    }
+
+    input[type="checkbox"] {
+        @extend .u--display-block;
+        @extend .u--position-relative;
+        width: 16px;
+        height: 16px;
+        border: 1px solid map-get($color-options, b);
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        &::before {
+            @extend .u--position-absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background-color: map-get($color-options, b);
+            opacity: 0;
+            clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+            transition: opacity $time-a $ease-entrance-a;
+        }
+        &:checked::before {
+            opacity: 1;
+        }
+    }
+
+    input[type="submit"] {
+        @extend .g--btn-01;
+        @extend .g--btn-01--third;
+        width: fit-content;
+        margin-left: auto;
+        @media all and ($viewport-type:$mobile) {
+            width: 100%;
+        }
+    }
+
+    .wpcf7-spinner {
+        @extend .u--display-block;
+        margin: $measure auto 0;
+    }
+
+    .wpcf7-not-valid-tip {
+        @extend .f--font-f;
+        color: #F89BAC;
+        margin-top: $measure;
+    }
+
+    .wpcf7-response-output {
+        @extend .f--font-f;
+        @extend .f--color-b;
+        padding: $measure $measure * 2 !important;
+        margin: 0!important;
+        border: 1px solid map-get($color-options, b)!important;
+        @extend .u--position-relative;
+        top: -$measure*3; // to avoid the grid gap spacing
+        @media all and ($viewport-type:$mobile) {
+            top: -$measure*4;
+        }
+    }
+
+    //autofill
+    input,
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 50px rgba(255, 255, 255, 0) inset !important;
+        background-color: transparent;
+        background-clip: text;
+        -webkit-text-fill-color: map-get($color-options,b) !important;
+
+    }
+}
