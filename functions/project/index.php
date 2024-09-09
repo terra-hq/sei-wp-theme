@@ -14,6 +14,8 @@
 require get_template_directory() . '/functions/project/local-variable.php'; 
 require get_template_directory() . '/functions/project/hash.php'; 
 require get_template_directory() . '/functions/project/enqueues.php'; 
+require get_template_directory() . '/functions/project/post-types.php'; 
+require get_template_directory() . '/functions/project/taxonomies.php'; 
 
 
 ?>
