@@ -1,0 +1,1 @@
+<?php include(locate_template('components/layout/layout-b.php', false, false)); ?>

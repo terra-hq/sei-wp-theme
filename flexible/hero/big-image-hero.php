@@ -1,0 +1,1 @@
+<?php include(locate_template('components/hero/hero-d.php', false, false)); ?>
