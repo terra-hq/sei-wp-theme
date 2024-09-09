@@ -1,81 +1,56 @@
 .c--footer-a {
-    @extend .f--background-a;
-    padding: $measure * 10 0 $measure * 5;
-
-    @media all and ($viewport-type: $tablets) {
-        padding: $measure * 9 0 $measure * 5;
-    }
-
-    &__title {
-        @extend .f--font-a;
-        @extend .f--color-b;
-        margin-bottom: $measure * 3;
-    }
-
-    &__subtitle {
-        @extend .f--font-e;
-        @extend .f--color-b;
-    }
-
-    &__dash {
-        @extend .f--background-b;
-        margin: $measure * 10 0 $measure * 5;
-        width: 100%;
-        height: 1px;
-
-        @media all and ($viewport-type: $tablets) {
-            margin: $measure * 9 0 $measure * 5;
+    @extend .f--background-c;
+    @extend .u--width-100;
+    @extend .c--curve-a;
+    &__hd {
+        padding: $measure*8 0 $measure*4;
+        &__link {
+            @extend .f--font-a;
+            @extend .g--link-01;
+            @extend .g--link-01--seventh;
         }
     }
-
-    &__wrapper {
-        @extend .u--display-flex;
-        @extend .u--align-items-center;
-        @extend .u--justify-content-space-between;
-        flex-wrap: wrap;
-        gap: $measure * 5;
-
+    &__bd {
+        padding: 0 0 calc(#{$measure*8} + #{$measure*3});
         @media all and ($viewport-type: $tablets) {
-            justify-content: flex-end;
+            padding: 0 0 calc(#{$measure*4} + #{$measure});
         }
-
-        &__logo {
-            width: auto;
-            height: 100%;
-            max-height: 74px;
-
+    }
+    &__ft {
+        @extend .c--curve-a;
+        &::before {
+            background-color: map-get($color-options, i);
+            top: -$measure*3;
             @media all and ($viewport-type: $tablets) {
-                max-height: 63px;
+                top: -$measure;
             }
         }
-
-        &__list-group {
-            @extend .u--display-flex;
-            @extend .u--align-items-center;
-            gap: $measure * 10;
-
-            &__link,
-            &__list-item {
-                @extend .f--font-e;
-                @extend .f--color-b;
+        &__wrapper {
+            background-color: inherit;
+            @extend .c--curve-a;
+            padding: $measure*7 0;
+            @media all and ($viewport-type: $tablets) {
+                padding: $measure*4 0 $measure*7;
             }
-
-            &__link {
-                text-decoration-color: transparent;
-                transition: text-decoration-color $time-b $ease-entrance-a;
-
-                &:hover {
-                    text-decoration-color: map-get($color-options, b);
+            &::before {
+                width: calc(100% + 8px);
+                background-color: map-get($color-options, k);
+                top: calc(-#{$measure*3} + 1px);
+                @media all and ($viewport-type: $tablets) {
+                    top: calc(-#{$measure} + 1px);
                 }
             }
-
-            @media all and ($viewport-type: $tablets) {
-                justify-content: flex-end;
-                flex: 100%;
+            &__list-group {
+                margin-bottom: $measure*2;
+                @media all and ($viewport-type: $tablets) {
+                    margin-bottom: $measure*3;
+                }
             }
-
-            @media all and ($viewport-type: $mobile) {
-                gap: $measure * 2;
+            &__item-right {
+                @extend .u--justify-content-flex-end;
+                @media all and ($viewport-type: $tabletm) {
+                    justify-content: flex-start;
+                }
             }
         }
     }

@@ -1,0 +1,47 @@
+.c--zoom-section-b {
+    @extend .u--position-absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    // width: calc(100% + 24px*2); // * when the image is zoomed it's without border-radius, the border-radius is 24px
+    @extend .u--height-100;
+    @extend .u--width-100;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__media-wrapper {
+        // @extend .u--position-relative;
+        margin: 0 auto;
+        padding-right: 1em;
+        padding-left: 1em;
+        width: 100%;
+        max-width: calc(#{$g-container-width} - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
+        height: calc(100% - #{$zoomPadingDesktop}*2);
+        min-height: calc(100% - #{$zoomPadingDesktop}*2);
+        // clip-path: inset(0% 0% 0% 0% round 24px);
+        clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); //* we need clip-path to don't add position-relative but not show all the image
+        @media all and ($viewport-type: 2000px){
+          max-width: calc(95vw - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
+        }
+        @media all and ($viewport-type: $tablets) {
+            height: calc(100% - #{$zoomPadingTablets}*2);
+            min-height: calc(100% - #{$zoomPadingTablets}*2);
+        }
+        &__media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            @extend .u--height-100;
+            object-fit: cover;
+        }
+        // no animation option
+        @media all and ($viewport-type:$tablets) {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}

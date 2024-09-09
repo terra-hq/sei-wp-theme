@@ -1,0 +1,40 @@
+$letter-spacing-values: (
+  a: 4.16px,
+);
+
+$letter-spacing-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+  
+  @mixin letter-spacing-utility($letter-spacing-prop, $breakpoints) {
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @if ($breakpoint-value == 0) {
+        @each $name, $property in $letter-spacing-prop {
+          .u--letter-spacing-#{$name} {
+            letter-spacing: $property;
+          }
+        }
+      } @else {
+        @media screen and ($viewport-type: $breakpoint-value) {
+          @each $name, $property in $letter-spacing-prop {
+            .u--letter-spacing-#{$breakpoint-name}-#{$name} {
+              letter-spacing: $property;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+@if variable-exists(letter-spacing-breakpoints) {
+  @include letter-spacing-utility($letter-spacing-values, $letter-spacing-breakpoints);
+}
+@else {
+  @include letter-spacing-utility($letter-spacing-values, $breakpoints-grid);
+}

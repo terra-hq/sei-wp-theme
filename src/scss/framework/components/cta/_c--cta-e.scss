@@ -1,0 +1,75 @@
+.c--cta-e {
+    @extend .u--display-block;
+    @extend .f--background-c;
+    @extend .u--position-relative;
+    margin: 0 $measure * 2;
+    text-decoration: none;
+
+    &__bg-items {
+        @extend .u--position-absolute;
+        top: 0;
+        left: 0;
+        @extend .u--width-100;
+        @extend .u--height-100;
+        object-fit: cover;
+        opacity: 1;
+        transition: opacity $time-b $ease-entrance-a;
+        z-index: 1;
+    }
+
+    &__wrapper {
+        @extend .u--position-relative;
+        display: grid;
+        place-content: center;
+        padding: $measure * 2;
+        gap: $measure * 3;
+        aspect-ratio: 1/1;
+        z-index: 2;
+
+        &__icon {
+            @extend .u--position-relative;
+            margin: auto;
+            width: 26px;
+            height: 26px;
+            border: 1px solid map-get($color-options, a);
+            border-radius: 50%;
+
+            &::after {
+                content: "";
+                @extend .u--position-absolute;
+                background: map-get($color-options, a);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 2px;
+                height: 14px;
+            }
+
+            &::before {
+                content: "";
+                @extend .u--position-absolute;
+                background: map-get($color-options, a);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 14px;
+                height: 2px;
+            }
+        }
+
+        &__title {
+            @extend .f--font-g;
+            @extend .u--font-medium;
+            @extend .f--color-a;
+            @extend .u--text-center;
+        }
+    }
+    // hover effect from tablets
+    @media all and (min-width: 811px) {
+        &:hover & {
+            &__bg-items {
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.c--wrapper-b {
+    @extend .u--width-100;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $measure * 4;
+
+    @media all and ($viewport-type: $tabletl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media all and ($viewport-type: $tabletm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media all and ($viewport-type: $tablets) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+   
+
+    &--second {
+        column-gap: $measure * 4;
+        row-gap: $measure * 7;
+
+        @media all and ($viewport-type: $tablets) {
+            row-gap: $measure * 4;
+        }
+    }
+
+    &--third {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: $measure * 3;
+        row-gap: $measure * 3;
+        @media all and ($viewport-type:$tabletm) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media all and ($viewport-type:$tablets) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media all and ($viewport-type: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

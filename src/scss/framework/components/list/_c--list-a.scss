@@ -1,0 +1,6 @@
+.c--list-a {
+    @extend .u--display-flex;
+    flex-wrap: wrap;
+    gap: $measure*2;
+    &__item {}
+}

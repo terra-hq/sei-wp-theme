@@ -1,0 +1,26 @@
+.c--btn-a {
+    @extend .u--display-flex;
+    @extend .u--align-items-center;
+    @extend .u--justify-content-center;
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    border: 1px solid map-get($color-options, a);
+    background-color: transparent;
+    transition: background-color $time-b $ease-standard-a, border-color $time-b $ease-standard-a;
+    @media all and ($viewport-type: $tablets) {
+        width: 61px;
+        height: 61px;
+    }
+    svg {
+        height: 24px;
+        width: auto;
+        path {}
+    }
+    @media (hover: hover) {
+        &:hover {
+            border-color: map-get($color-options, d);
+            background-color: map-get($color-options, d);
+        }
+    }
+}

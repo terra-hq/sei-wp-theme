@@ -1,0 +1,46 @@
+.g--form-input-icon-01 {
+    @include make-form-input-icon-01();
+    @include make-form-input-icon-01-modifier(
+        $artwork-options: (
+            "background-image": url(@img/search.svg),
+            "width": 18px,
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, a),
+        ),
+        $background-autofill-options: (
+            "background-color": map-get($color-options, a),
+        ),
+        $border-options: (
+            "border-color": map-get($color-options, b),
+            "border-radius": 0,
+            "border-width": 0 0 1px,
+            "border-style": solid,
+        ),
+        $font-options: (
+            "color": map-get($color-options, b),
+            "font-weight": 300,
+            "className": f--font-g,
+        ),
+        $placeholder-options: (
+            "color": rgba(map-get($color-options, b), .6),
+            "font-weight": 300,
+            "className": f--font-g,
+        ),
+        $custom-options: (
+            "&::after": (
+                "right": auto,
+                "left": $measure,
+            ),
+            ".g--form-input-icon-01__artwork": (
+                "class": u--position-absolute,
+                "top": 50%,
+                "right": $measure,
+                "transform": translateY(-50%)
+            ),
+            ".g--form-input-icon-01__item": (
+                "padding-left": calc(1rem + #{$measure} + 18px),
+            ),
+        ),
+    );
+}

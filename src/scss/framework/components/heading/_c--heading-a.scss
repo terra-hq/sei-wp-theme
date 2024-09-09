@@ -1,0 +1,33 @@
+.c--heading-a {
+    &__title {
+        @extend .f--font-e;
+        @extend .u--font-medium;
+    }
+
+    &__btn {
+        @extend .g--btn-03;
+        @extend .g--btn-03--second;
+        margin-top: auto;
+        margin-left: auto;
+
+        &--is-centered {
+            margin-left: 0;
+        }
+    }
+
+    @media all and ($viewport-type: $tablets) {
+        &__btn {
+            margin-left: unset;
+        }
+    }
+
+    &--large & {
+        &__title {
+            @extend .f--font-c;
+        }
+    }
+
+    &--second {
+        @extend .f--background-b;
+    }
+}

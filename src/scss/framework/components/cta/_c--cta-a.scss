@@ -1,24 +1,45 @@
 .c--cta-a {
-    @extend .f--background-a; 
-    padding: $measure*9 0;
-    @media all and ($viewport-type:$tablets) {
-        padding: $measure*8 0;
-    }
+    background-color: map-get($color-options, d);
+
     &__wrapper {
-        @extend .u--display-flex;
-        @extend .u--flex-direction-column;
-        @extend .f--gap-d;  
-        &__title {
-            @extend .f--font-b;
-            @extend .f--color-b; 
+        padding: $measure * 8 0;
+
+        &__media {
+            width: 100%;
+            height: auto;
+            max-height: 30px;
+            object-fit: contain;
+            object-position: center center;
+            margin-bottom: $measure * 2;
         }
+
+        &__subtitle,
+        &__category {
+            @extend .u--display-block;
+            @extend .f--color-a;
+            @extend .u--font-light;
+            @extend .u--text-center;
+        }
+
         &__subtitle {
-            @extend .f--font-e;
-            @extend .f--color-b; 
+            @extend .f--font-g;
         }
-    }
-    &__link {
-        @extend .g--btn-01;
-        @extend .g--btn-01--third;
+
+        &__title {
+            @extend .f--font-e;
+            @extend .f--color-a;
+            @extend .u--font-medium;
+            @extend .u--text-center;
+            margin: $measure 0;
+        }
+
+        &__category {
+            @extend .f--font-i;
+        }
+
+        &__btn {
+            @extend .g--btn-03;
+            margin: $measure * 3 auto 0;
+        }
     }
 }

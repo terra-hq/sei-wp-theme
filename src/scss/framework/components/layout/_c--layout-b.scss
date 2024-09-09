@@ -1,0 +1,40 @@
+.c--layout-b {
+
+    &__title {
+        @extend .f--font-e;
+        @extend .u--font-medium;
+    }
+
+    &__content {
+        @extend .c--content-a;
+        margin-top: $measure*2;
+        @media all and ($viewport-type:$tabletl) {
+            margin-top: 0;
+        }
+    }
+
+    &__btn {
+        margin-top: $measure * 5;
+        @extend .g--btn-01;
+
+        @media all and (max-width: $tabletm) {
+            margin-top: $measure * 4;
+        }
+    }
+
+    &--large & {
+        &__title {
+            @extend .f--font-c;
+        }
+    }
+
+    &--second & {
+        &__title {
+            @extend .f--color-a;
+        }
+
+        &__content {
+            @extend .c--content-a--second-color;
+        }
+    }
+}

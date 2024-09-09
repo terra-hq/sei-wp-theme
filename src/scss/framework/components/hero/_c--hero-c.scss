@@ -1,0 +1,55 @@
+.c--hero-c {
+    @extend .u--width-100;
+    background-color: map-get($color-options, d);
+    padding: $measure*19 0 $measure*22;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure*15 0 $measure*11;
+    }
+    &__hd {
+        margin-bottom: $measure*10;
+    }
+    &__title {
+        @extend .f--font-c;
+        @extend .f--color-a;
+        @media all and ($viewport-type: $tabletl) {
+            margin-bottom: $measure * 5;
+        }
+        &__artwork {
+            @extend .f--font-d;
+        }
+    }
+    &__subtitle {
+        @extend .f--font-f;
+        @extend .f--color-a;
+        margin-bottom: $measure*2;
+    }
+    &--second {
+        @extend .u--display-flex;
+        @extend .u--align-items-flex-end;
+        min-height: 550px;
+        @media all and ($viewport-type: $mobile) {
+            min-height: initial;
+        }
+    }
+    &--second & {
+        &__title {
+            @media all and ($viewport-type: $tabletl) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--third {
+        padding-top: $measure*27;
+        @media all and ($viewport-type: $tablets) {
+            padding-top: $measure*13;
+        }
+    }
+    
+    & + section {
+        @extend .c--curve-a;
+    }
+}

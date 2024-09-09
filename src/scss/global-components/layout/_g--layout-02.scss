@@ -1,0 +1,39 @@
+.g--layout-02 {
+    @include make-layout-02();
+    @include make-layout-02-modifier(
+        $layout-options: (
+            "align": left,
+            "breakpoint-full-width": $tablets
+            
+        ),
+        $item-primary-options: (
+            "color": map-get($color-options, c),
+            "className": f--font-i u--font-medium u--text-uppercase u--letter-spacing-a,
+        ),
+        $item-secondary-options: (
+            "className": c--content-a c--content-a--third-text,
+        ),
+        $list-group-item-options: (
+            "className": g--btn-01,
+        ),
+        $custom-options: (
+            ".g--layout-02__wrapper__content__item-secondary": (
+                margin-bottom: 0,
+            ),
+            ".g--layout-02__wrapper__content__list-group": (
+                margin-top: $measure*4,
+            ),
+        ),
+    );
+
+    &--second {
+        @include make-layout-02-modifier(
+            $item-primary-options: (
+                "color": map-get($color-options, a),
+            ),
+            $item-secondary-options: (
+                "className": c--content-a c--content-a--second-color,
+            ),
+        );
+    }
+}

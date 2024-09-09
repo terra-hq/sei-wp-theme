@@ -1,0 +1,35 @@
+.c--bg-b {
+    min-height: 70vh;
+    @extend .u--position-relative;
+    @extend .u--overflow-hidden;
+    &__media-wrapper {
+        @extend .u--display-flex;
+        @extend .u--position-absolute;
+        bottom: -275px;
+        left: -150px;
+        width: 600px;
+        @media all and ($viewport-type: $tabletm) {
+            display: none;
+        }
+        &__media {
+            object-fit: contain;
+            @extend .u--width-100;
+            @extend .u--height-100;
+        }
+    }
+    &--second {
+        padding-bottom: $measure * 15;
+    }
+    &--third & {
+        &__media-wrapper {
+            bottom: -350px;
+            left: auto;
+            right: -40px;
+        }
+    }
+    &--fourth & {
+        &__media-wrapper {
+            bottom: -350px;
+        }
+    }
+}

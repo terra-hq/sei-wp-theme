@@ -1,0 +1,126 @@
+.c--form-d {
+    @extend .f--background-a;
+    padding: $measure * 7 $measure * 5;
+
+    form {
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+
+        label > span {
+            @extend .f--font-j;
+            color: rgba(map-get($color-options, b), 0.6);
+            // @extend .u--font-light;
+        }
+    
+        input:not([type="checkbox"]):not([type="submit"]), select, textarea {
+            @extend .u--width-100;
+            @extend .f--font-i;
+            @extend .u--font-light;
+            color: map-get($color-options, b) !important;
+            background: transparent !important;
+            padding: $measure $measure $measure 0;
+            border-width: 0 0 1px 0;
+            border-color: map-get($color-options, b);
+            border-radius: 0;
+            border-style: solid;
+        }
+
+        input[type="submit"] {
+            margin-top: $measure * 2;
+            @extend .g--btn-01;
+        }
+
+        textarea {
+            width: 100% !important;
+            resize: none !important;
+            min-height: $measure * 15;
+        }
+
+        .hs-fieldtype-select > .input {
+            @extend .u--position-relative;
+
+            &::after {
+                @extend .u--position-absolute;
+                @extend .u--display-block;
+                pointer-events: none;
+                content: "";
+                width: 11px;
+                height: 11px;
+                top: 50%;
+                right: $measure * 2;
+                border-bottom: 1px solid map-get($color-options, c);
+                border-right: 1px solid map-get($color-options, c);
+                transform: rotate(45deg) translateY(-100%);
+            }
+        }
+
+        .hs-error-msg {
+            @extend .f--font-j;
+            @extend .f--color-c;
+            margin-bottom: 0;
+            margin-top: $measure;
+        }
+        .hs-error-msgs {
+            li {
+                label {
+                    @extend .f--font-j;
+                    @extend .f--color-c;
+                    margin-bottom: 0;
+                    margin-top: $measure;
+                    a {
+                        cursor: pointer;
+                        @extend .g--link-01;
+                        @extend .g--link-01--second;
+                    }
+                }
+            }
+        }
+
+        .hs-fieldtype-booleancheckbox {
+            order: 1;
+            @media all and ($viewport-type:$tablets) {
+                max-width: 100%;
+            }
+        }
+        .hs-recaptcha {
+            // width: 100%;
+            order: 1;
+            margin-bottom: 0;
+        }
+    
+        .hs_error_rollup {
+            @extend .u--display-none;
+        }
+
+        .submitted-message {
+            @extend .f--font-g;
+            @extend .f--color-k;
+            @extend .u--font-light;
+        }
+
+        fieldset.form-columns-2, fieldset.form-columns-1 {
+            @extend .u--width-100;
+            @extend .u--display-flex;
+            max-width: 100%;
+            gap: $measure * 3;
+            margin-bottom: $measure * 3;
+
+            .field {
+                flex: 1;
+
+                .input {
+                    margin: 0;
+                }
+            }
+
+            @media all and ($viewport-type: $mobile) {
+                flex-direction: column;
+
+                .field {
+                    flex: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

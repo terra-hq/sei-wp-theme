@@ -1,0 +1,121 @@
+.c--media-c {
+    @extend .u--position-sticky;
+    @extend .u--display-flex;
+    @extend .u--align-items-flex-end;
+    aspect-ratio: 1 / 1;
+    padding-top: $measure*10;
+    top: 100px;
+    &__media {
+        @extend .f--ar;
+        @extend .u--position-absolute;
+        @extend .u--height-100;
+        object-fit: cover;
+        z-index: 0;
+    }
+    &__wrapper {
+        @extend .u--position-relative;
+        @extend .u--display-flex;
+        @extend .u--width-100;
+        z-index: 1;
+        background: rgba(map-get($color-options, a), 0.06);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        padding: $measure*7 $measure*4 $measure*2;
+        font-size: 1rem;
+        @media all and ($viewport-type: $tabletl) {
+            padding: $measure*5 $measure*2 $measure*5;
+        }
+        @media all and ($viewport-type: $tabletm) {
+            font-size: .75rem;
+        }
+        @media all and ($viewport-type: $tablets) {
+            font-size: 1rem;
+        }
+        @media all and ($viewport-type: $mobile) {
+            font-size: .86rem;
+        }
+        &__item-left {
+            width: 40%;
+            padding-right: $measure*2;
+            &__media {
+                @extend .u--display-block;
+                @extend .u--width-100;
+                max-width: 170px;
+                height: auto;
+                object-fit: contain;
+                margin-bottom: $measure*2;
+            }
+            &__item {
+                @extend .u--display-flex;
+                @extend .u--align-items-center;
+                &__title {
+                    @extend .f--color-a;
+                    @extend .u--font-medium;
+                    margin-right: $measure;
+                    width: fit-content;
+                    font-size: 1.26963em;
+                    line-height: 1.1;
+                }
+                &__media-wrapper {
+                    @extend .u--position-relative;
+                    width: fit-content;
+                    &__media {
+                        @extend .u--display-block;
+                        @extend .u--width-100;
+                        @extend .u--height-100;
+                        opacity: .5;
+                        max-width: 65px;
+                    }
+                    &__artwork {
+                        @extend .u--display-block;
+                        @extend .u--position-absolute;
+                        @extend .u--overflow-hidden;
+                        @extend .u--height-100;
+                        top: 0;
+                        left: 0;
+                        width: calc(var(--rate)*20%);
+                        &__media {
+                            @extend .u--display-block;
+                            @extend .u--height-100;
+                            width: auto;
+                            max-width: none;
+                        }
+                    }
+                }
+            }
+        }
+        &__item-right {
+            width: 60%;
+            padding-left: $measure*2;
+            @media all and ($viewport-type: $tabletl) {
+                padding-left: 0;
+            }
+            @media all and ($viewport-type: $tablets) {
+                padding-left: $measure*2;
+            }
+            @media all and ($viewport-type: $mobile) {
+                padding-left: 0;
+            }
+            &__item {
+                @extend .u--display-flex;
+                @extend .u--align-items-center;
+                &:not(:last-child) {
+                    margin-bottom: $measure*2;
+                }
+                &__title {
+                    @extend .f--color-a;
+                    @extend .u--font-semibold;
+                    margin-right: $measure*2;
+                    font-size: 2.68169em;
+                    line-height: 1;
+                }
+                &__subtitle {
+                    @extend .f--color-a;
+                    @extend .u--font-medium;
+                    font-size: 0.89388em;
+                    line-height: 1.2;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+$height-values:(
+  40,
+  50,
+  100
+);
+
+$height-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+
+@mixin height-utility($height-value, $breakpoints){
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @if($breakpoint-value == 0) {
+      @each $value in $height-value {
+        .u--height-#{$value}{
+          height: #{$value}#{"%"};
+        }
+      }
+    }@else{
+      @media screen and ($viewport-type: $breakpoint-value) {
+        @each $value in $height-value {
+          .u--height-#{$breakpoint-name}-#{$value}{
+            height: #{$value}#{"%"};
+          }
+        }
+      }
+    }
+  }
+}
+
+@if variable-exists(height-breakpoints) {
+  @include height-utility($height-values,$height-breakpoints)
+}
+@else {
+  @include height-utility($height-values,$breakpoints-grid)
+}

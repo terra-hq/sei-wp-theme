@@ -2,60 +2,52 @@
     @include make-btn-01();
     @include make-btn-01-modifier(
         $background-options: (
-            "background-color": map-get($color-options, a),
-        ),
-        $hover-options: (
-            "background-color": map-get($color-options, b),
-            "color": map-get($color-options, a),
+            "background-color": map-get($color-options, c),
         ),
         $border-options: (
-            "border-color": map-get($color-options, a),
+            "border-color": map-get($color-options, c),
+            "border-radius": $g-measure*10,
             "border-width": 1px,
             "border-style": solid,
         ),
+        $hover-options: (
+            "background-color": map-get($color-options, a),
+            "color": map-get($color-options, c),
+        ),
         $font-options: (
-            "color": map-get($color-options, b),
-            "className": f--font-d,
+            "className": f--font-i f--color-a u--font-semibold,
         ),
     );
     &--second {
         @include make-btn-01-modifier(
             $background-options: (
-                "background-color": map-get($color-options, a),
+                "background-color": transparent,
             ),
             $border-options: (
                 "border-color": map-get($color-options, a),
-                "border-width": 1px,
-                "border-style": solid,
             ),
             $hover-options: (
-                "background-color": map-get($color-options, b),
-                "color": map-get($color-options, a),
-            ),
-            $font-options: (
-                "color": map-get($color-options, b),
-                "className": f--font-e,
+                "background-color": map-get($color-options, a),
+                "color": map-get($color-options, d),
             ),
         );
     }
     &--third {
         @include make-btn-01-modifier(
             $background-options: (
-                "background-color": map-get($color-options, b),
-            ),
-            $border-options: (
-                "border-color": map-get($color-options, b),
-                "border-width": 1px,
-                "border-style": solid,
+                "background-color": transparent,
             ),
             $hover-options: (
-                "background-color": map-get($color-options, a),
-                "color": map-get($color-options, b),
+                "background-color": map-get($color-options, c),
+                "color": map-get($color-options, a),
             ),
             $font-options: (
-                "color": map-get($color-options, a),
-                "className": f--font-d,
+                "className": f--color-c,
             ),
         );
+    }
+
+    &--is-hidden {
+        display: none;
     }
 }

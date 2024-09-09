@@ -1,0 +1,47 @@
+.g--card-06 {
+    @include make-card-06();
+    @include make-card-06-modifier(
+        $card-options: (
+            "align": center,
+            //"aspect-ratio": 1 1
+            ),
+        $item-primary-options: ("className": f--font-j f--color-b,
+            "font-weight": 300,
+        ),
+        // $item-primary-hover-options: (
+        //     "color": #cacaca,
+        //     "transform": translateX(-8px),
+        //     "text-decoration-color": #cacaca,
+        //     "opacity": 1
+        // ),
+        $item-secondary-options: ("className": f--font-h f--color-c,
+        ),
+        $list-group-item-options: ("className": f--font-i f--color-i,
+        ),
+        $media-options: (
+            "object-fit": contain,
+            "object-position": center,
+            "height": 56px,
+            "width": auto,
+            "first": yes,
+            "hide": no,
+        ),
+        // $media-hover-options: (
+        //     "background-color": #000000,
+        //     "background-image": linear-gradient(90deg, map-get($color-options, h) 0%, map-get($color-options, i) 100%),
+        //     "background-position": center center,
+        //     "background-size": 100% 50%,
+        //     "border-color": #638c1d,
+        //     "border-radius": 0,
+        //     "box-shadow": 4px 3px 0px 0px #fefefe,
+        //     "transform": translateY(-8px),
+        // ),
+
+        $custom-options: (".g--card-06__media-wrapper": (
+                "display": flex,
+                "flex-wrap": wrap,
+                "align-content": end,
+            ),
+        ),
+    );
+}

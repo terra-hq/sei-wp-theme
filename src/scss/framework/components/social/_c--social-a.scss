@@ -1,0 +1,16 @@
+.c--social-a {
+    @extend .u--display-flex;
+    gap: $measure $measure*3;
+    &__item {
+        @extend .c--icon-a;
+    }
+    &--second {
+        gap: $measure $measure*.5;
+    }
+    &--second & {
+        gap: $measure $measure*20;
+        &__item {
+            @extend .c--icon-a--second;
+        }
+    }
+}

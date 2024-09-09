@@ -1,0 +1,92 @@
+.g--btn-03 {
+    @include make-btn-03();
+    @include make-btn-03-modifier(
+        $artwork-options: (
+            "fill": map-get($color-options, a),
+            "first": yes,
+        ),
+        $background-options: (
+            "background-color": transparent,
+        ),
+        $border-options: (
+            "border-color": map-get($color-options, a),
+            "border-radius": $measure * 5,
+            "border-width": 1px,
+            "border-style": solid,
+        ),
+        $hover-options: (
+            "fill": map-get($color-options, c),
+            "background-color": map-get($color-options, a),
+            "color": map-get($color-options, c),
+            "icon-transform": translateX($g-measure*.5),
+        ),
+        $font-options: (
+            "className": f--font-g f--color-a,
+        ),
+        $custom-options: (
+            "parent": (
+                "height": fit-content,
+            ),
+        )
+    );
+    &--second {
+        @include make-btn-03-modifier(
+            $artwork-options: (
+                "fill": map-get($color-options, a),
+                "first": yes,
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, c),
+            ),
+            $border-options: (
+                "border-color": map-get($color-options, c),
+            ),
+            $hover-options: (
+                "background-color": transparent,
+                "color": map-get($color-options, c),
+                "fill": map-get($color-options, c),
+            )
+        );
+    }
+    &--third {
+        @include make-btn-03-modifier(
+            $artwork-options: (
+                "fill": map-get($color-options, c),
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, a),
+            ),
+            $hover-options: (
+                "fill": map-get($color-options, a),
+                "background-color": transparent,
+                "color": map-get($color-options, a),
+            ),
+            $font-options: (
+                "color": map-get($color-options, c),
+            )
+        );
+    }
+    // red with load more icon
+    &--fourth {
+        @include make-btn-03-modifier(
+            $artwork-options: (
+                "fill": map-get($color-options, a),
+                "first": yes,
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, c),
+            ),
+            $border-options: (
+                "border-color": map-get($color-options, c),
+            ),
+            $hover-options: (
+                "background-color": transparent,
+                "color": map-get($color-options, c),
+                "fill": map-get($color-options, c),
+                "stroke": map-get($color-options, c),
+                "icon-transform": translateX(0),
+            )
+        );
+    }
+
+}

@@ -1,0 +1,32 @@
+.c--stats-a {
+    background-color: map-get($color-options, j);
+    @extend .u--width-100;
+    @extend .u--display-flex;
+    @extend .u--flex-direction-column;
+    @extend .u--justify-content-flex-start;
+    row-gap: $measure*2;
+    padding: 200px $measure*5 $measure*7;
+    @media all and ($viewport-type:$tabletm) {
+        padding: $measure * 15 $measure*4 $measure*7;
+    }
+    @media all and ($viewport-type:$tablets) {
+        padding: $measure*7 $measure*5;
+    }
+    &__title,
+    &__subtitle {
+        @extend .f--color-a;
+    }
+    &__title {
+        @extend .f--font-c;
+    }
+    &__subtitle {
+        @extend .f--font-g;
+        @extend .u--font-light;
+    }
+    &--second {
+        background-color: map-get($color-options, k);
+    }
+    &--third {
+        background-color: map-get($color-options, l);
+    }
+}

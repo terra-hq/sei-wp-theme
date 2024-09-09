@@ -1,0 +1,30 @@
+.c--hero-d {
+    @extend .u--position-relative;
+    overflow: hidden;
+    padding: $zoomPadingDesktop*2 0;
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure*20 0 $measure*11;
+    }
+    &__wrapper {
+        @extend .u--position-relative;
+        @extend .u--display-flex;
+        @extend .u--justify-content-center;
+        @extend .u--width-100;
+        flex-direction: column;
+        gap: $measure*3;
+        z-index: 1;
+
+        &__title {
+            @extend .f--font-c;
+            @extend .f--color-a;
+            max-width: 560px;
+        }
+
+        &__subtitle {
+            @extend .f--font-g;
+            @extend .u--font-light;
+            @extend .f--color-a;
+            max-width: 450px;
+        }
+    }
+}

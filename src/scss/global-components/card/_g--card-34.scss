@@ -1,0 +1,120 @@
+.g--card-34 {
+    @include make-card-34();
+    @include make-card-34-modifier(
+        $card-options: (
+            "back-items": yes,
+            "breakpoint": $tablets,
+        ),
+        $background-options: (
+            "background-color": map-get($colorbg-options, c),
+        ),
+        $item-primary-options: (
+            "className": f--font-e f--color-a,
+        ),
+        $item-secondary-options: (
+            "className": f--font-i f--color-a,
+        ),
+        $list-group-item-options: (
+            "className": g--btn-01,
+        ),
+        $media-options: (
+            "hide-on-breakpoint": yes,
+
+        ),
+        $custom-options: (
+            ".g--card-34__wrapper": (
+                "display": flex,
+                "flex-direction": column,
+                "justify-content": center,
+                "padding": $g-measure * 15 $g-measure * 12,
+            ),
+            ".g--card-34__media-wrapper__overlay": (
+                "position": absolute,
+                "top": 0,
+                "left": 0,
+                "width": 100%,
+                "height": 100%,
+                "background": linear-gradient(180deg, rgba(42, 28, 48, 0.00) 0%, rgba(42, 28, 48, 0.80) 86.42%),
+            ),
+            ".g--card-34__media-wrapper__media": (
+                "position": absolute,
+                "object-position": top,
+            ),
+            ".g--card-34__media-wrapper__wrapper": (
+                "position": absolute,
+                "display": flex,
+                "flex-direction": column,
+                "row-gap": $g-measure*3,
+                "align-items": center,
+                "justify-content": center,
+                "width": 100%,
+                "height": auto,
+                "bottom": 0,
+                "z-index": 1,
+                "padding": $g-measure*5,
+                "border-top": 1px solid rgba(255, 255, 255, 0.10),
+                "background": rgba(255, 255, 255, 0.03),
+                "backdrop-filter": blur(6px),
+                "-webkit-backdrop-filter": blur(6px)
+
+            ),
+            ".g--card-34__media-wrapper__wrapper__media": (
+                "width": 100%,
+                "height": auto,
+                "max-width": 90px
+            ),
+            ".g--card-34__media-wrapper__wrapper__title": (
+                "font-size": 1.125rem,
+                "font-weight": 500,
+                "line-height": 1.3,
+                "font-family": $type-a,
+                "color": $color-a,
+                "text-align": center,
+                "max-width": 300px
+            ),
+        )
+    );
+    @media all and ($viewport-type: $tabletm) {
+        @include make-card-34-modifier(
+            $custom-options: (
+                ".g--card-34__wrapper": (
+                    "padding": $g-measure * 10,
+                ),
+            )
+        );
+    }
+    @media all and ($viewport-type: $tabletm) {
+        @include make-card-34-modifier(
+            $custom-options: (
+                ".g--card-34__wrapper": (
+                    "padding": $g-measure * 5,
+                ),
+            )
+        );
+    }
+    @media all and ($viewport-type: $tablets) {
+        @include make-card-34-modifier(
+            $custom-options: (
+                ".g--card-34__media-wrapper": (
+                    height: 450px,
+                ),
+                ".g--card-34__media-wrapper__wrapper__title": (
+                    "font-size": 1rem,
+                ),
+            )
+        );
+    }
+    &--second {
+        @include make-card-34-modifier(
+            $background-options: (
+                "background-color": map-get($colorbg-options, a),
+            ),
+            $item-primary-options: (
+                "color": map-get($color-options, b),
+            ),
+            $item-secondary-options: (
+                "color": map-get($color-options, b),
+            )
+        );
+    }
+}

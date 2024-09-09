@@ -111,3 +111,26 @@
     height: 10px;
     float: left;
   }
+
+  .tns-nav {
+    @extend .u--display-flex;
+    @extend .u--justify-content-center;
+    @extend .u--align-items-center;
+    gap: $measure * 2;
+    margin-top: $measure * 8;
+
+    @media all and ($viewport-type: $tablets) {
+      margin-top: $measure * 4;
+    }
+
+    button {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: map-get($color-options, i);
+
+      &.tns-nav-active {
+        background-color: map-get($color-options, c);
+      }
+    }
+  }

@@ -1,0 +1,48 @@
+.c--icon-a {
+    @extend .f--background-b;
+    display: grid;
+    place-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    transition: background-color $time-b $ease-standard-a;
+    svg {
+        @extend .u--width-100;
+        @extend .u--height-100;
+        max-width: 20px;
+        max-height: 20px;
+        path {
+            stroke: map-get($color-options, k);
+            transition: stroke $time-b $ease-standard-a;
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: map-get($color-options, k);
+            svg {
+                path {
+                    stroke: map-get($color-options, m);
+                }
+            }
+        }
+    }
+    &--second {
+        background: transparent;
+        svg {
+            path {
+                stroke: map-get($color-options, c);
+            }
+        }
+        @media (hover: hover) {
+            &:hover {
+                background-color: map-get($color-options, c);
+                svg {
+                    path {
+                        stroke: map-get($color-options, m);
+                    }
+                }
+            }
+        }
+    }
+}

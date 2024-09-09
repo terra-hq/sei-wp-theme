@@ -1,38 +1,50 @@
 .c--layout-a {
-
-    &__content {
+    @extend .u--position-relative;
+    &__title {
+        @extend .f--font-i;
+        @extend .u--text-uppercase;
+        @extend .u--font-medium;
+        @extend .f--color-c;
+        letter-spacing: 4.16px;
+        margin-bottom: $measure*4;
+    }
+    &__subtitle {
+        @extend .f--font-e;
+        margin-bottom: $measure * 5;
         @media all and ($viewport-type: $tablets) {
-            margin: 0 auto;
-            padding-right: 1em;
-            padding-left: 1em;
-            width: 90%;
-            max-width: $g-container-width;
+            margin-bottom: $measure * 3;
         }
-        @media all and ($viewport-type:$mobile) {
-            width: 100%;
-            max-width: 100%;
+    }
+    &__content {
+        margin-bottom: $measure * 5;
+        @media all and ($viewport-type: $tablets) {
+            margin-bottom: $measure * 4;
+        }
+    }
+    &__btn {
+        @extend .g--btn-01;
+    }
+    &__media-wrapper {
+        @extend .u--display-tablets-none;
+        @extend .u--overflow-hidden;
+        top: 0;
+        right: 0;
+        width: 40vw;
+        @extend .u--height-100;;
+        position: absolute !important;
+        @media all and ($viewport-type: $tabletm) {
+            width: calc(40vw + 80px);
+        }
+        &__media {
+            @extend .u--display-block;
+            @extend .u--width-100;
+            @extend .u--height-100;
+            object-fit: contain;
+            transform: translateX(90px);
         }
     }
 
-    &__media-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: $measure * 4;
-
-        &--second {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        &__media {
-            @extend .u--display-block;
-            overflow: hidden;
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-
-            @media all and ($viewport-type: $tablets) {
-                height: 320px;
-            }
-        }
+    &--second {
+        @extend .f--background-b;
     }
 }

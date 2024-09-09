@@ -1,0 +1,143 @@
+.c--filter-a {
+    @extend .u--position-relative;
+    @extend .u--width-100;
+    max-width: 300px;
+    margin-left: auto;
+
+    &__artwork {
+        @extend .u--position-absolute;
+        @extend .g--spinner-01;
+        top: 50%;
+        left: -$measure * 4;
+        transform: translateY(-50%);
+
+        &--is-hidden {
+            display: none !important;
+        }
+    }
+
+    &__item {
+        @extend .u--position-relative;
+        @extend .u--width-100;
+
+        >select {
+            @extend .u--display-block;
+            @extend .u--width-100;
+            @extend .f--font-i;
+            @extend .f--color-i;
+            @extend .u--font-light;
+            background-color: transparent;
+            padding: $measure $measure * 2;
+            border-radius: 100px;
+            border: 1px solid map-get($color-options, i);
+            transition: all $time-b linear;
+
+            &:focus {
+
+                @extend .f--color-b;
+                border: 1px solid map-get($color-options, c);
+            }
+            &:not([data-chosen='all'])  {
+                
+                @extend .f--color-b;
+                border: 1px solid map-get($color-options, c);
+            }
+        }
+
+        &:hover {
+            &>select {
+                border: 1px solid map-get($color-options, c);
+            }
+        }
+
+        &::after {
+            @extend .u--position-absolute;
+            @extend .u--display-block;
+            pointer-events: none;
+            content: "";
+            width: 11px;
+            height: 11px;
+            top: 50%;
+            right: $measure * 3;
+            border-bottom: 1px solid map-get($color-options, c);
+            border-right: 1px solid map-get($color-options, c);
+            transform: rotate(45deg) translateY(-100%);
+        }
+    }
+
+    @media all and ($viewport-type: $tablets) {
+        margin-left: 0;
+
+        &__artwork {
+            left: unset;
+            right: -$measure * 4;
+        }
+    }
+
+    @media all and ($viewport-type: $mobile) {
+        max-width: 100%;
+        margin-left: 0;
+
+        &__artwork {
+            position: static;
+            transform: none;
+            margin: $measure * 2 auto 0;
+        }
+    }
+
+    &--second {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    &--third {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    &--third & {
+        &__item {
+            &::after {
+                transform: none;
+                border: none;
+                background-image: url(@img/search-red.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right center;
+                height: 100%;
+                top: 0;
+                right: $measure*2;
+                width: 20px;
+            }
+
+            >input {
+                @extend .u--display-block;
+                @extend .u--width-100;
+                @extend .f--font-i;
+                @extend .f--color-i;
+                @extend .u--font-light;
+                background-color: transparent;
+                padding: $measure calc(#{$measure} + 20px + #{$measure*2}) $measure $measure * 2;
+                border-radius: 100px;
+                border: 1px solid map-get($color-options, i);
+                transition: all $time-b linear;
+
+                &:focus {
+
+                    border: 1px solid map-get($color-options, c);
+                    @extend .f--color-b;
+
+                    &::placeholder{
+                        @extend .f--color-b;
+
+                    }
+                }
+            }
+            &:hover {
+                &>input {
+                    border: 1px solid map-get($color-options, c);
+                }
+            }
+        }
+    }
+}

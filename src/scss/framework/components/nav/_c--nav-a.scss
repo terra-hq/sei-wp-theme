@@ -1,0 +1,33 @@
+.c--nav-a {
+    &__list-group {
+        @extend .u--display-flex;
+        //gap: $measure*3;
+        align-items: center;
+
+        &__item {
+            &__link {
+                @extend .u--display-block;
+                @extend .f--font-e;
+                @extend .f--color-b;
+                text-decoration: none;
+                margin-left: $measure*4;
+                svg {
+                    @extend .u--display-block;
+                    path {
+                        transition: stroke $time-b $ease-standard-a;
+                    }
+                }
+                @media (hover: hover) {
+                    &:hover {
+                        svg {
+                            path {
+                                stroke: map-get($color-options, c);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

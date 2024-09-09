@@ -1,0 +1,76 @@
+.c--card-i {
+    @extend .u--position-relative;
+    @extend .u--display-flex;
+    min-height: 500px;
+    flex: 1;
+    @media all and ($viewport-type:$tablets) {
+        min-height: unset;
+    }
+
+    &__bg-items {
+        @extend .u--position-absolute;
+        top: 0;
+        left: 0;
+        @extend .u--width-100;
+        @extend .u--height-100;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    &__wrapper {
+        @extend .u--position-relative;
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        @extend .u--justify-content-flex-start;
+        @extend .u--width-100;
+        z-index: 2;
+        padding: $measure * 5;
+
+        @media all and ($viewport-type: $tablets) {
+            padding: $measure * 5 $measure * 3;
+        }
+
+        &__hd {
+            @extend .u--display-flex;
+            @extend .u--justify-content-space-between;
+            @extend .u--align-items-center;
+            gap: $measure * 2;
+            margin-bottom: $measure * 8;
+
+            @media all and ($viewport-type: $tablets) {
+                margin-bottom: $measure * 5;
+            }
+
+
+            &__title {
+                @extend .f--font-i;
+                @extend .f--color-a;
+                @extend .u--font-medium;
+                @extend .u--letter-spacing-a;
+                @extend .u--text-uppercase;
+            }
+
+            &__link {
+                @extend .g--btn-01;
+                width: fit-content;
+                white-space: nowrap;
+            }
+        }
+
+        &__bd {
+            @extend .u--display-flex;
+            flex-wrap: wrap;
+            gap: $measure * 2;
+
+            &__item {
+                @extend .g--pill-01;
+                @extend .g--pill-01--fourth;
+                width: fit-content;
+            }
+        }
+    }
+
+    &--second {
+        @extend .f--background-c;
+    }
+}

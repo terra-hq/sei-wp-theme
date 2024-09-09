@@ -1,0 +1,82 @@
+.g--hero-03 {
+    @include make-hero-03();
+    @include make-hero-03-modifier(
+        $hero-options: (
+            "top-extra-space": $measure*12,
+            "breakpoint-bigger-columns": $tablets,
+            "breakpoint-full-width": $mobile,
+            "back-items": no,
+        ),
+        $background-options: (
+            "background-class": f--background-b,
+        ),
+        $item-primary-options: (
+            "className": f--font-c,
+        ),
+        $custom-options: (
+            ".g--hero-03__bg-items": (
+                "background-image": url(@img/swirl.png),
+                "background-repeat": no-repeat,
+                "background-size": contain,
+                "background-position": right bottom,
+                "width": 33.33%,
+                "top": auto,
+                "left": auto,
+                "right": -$measure*4,
+                "bottom": -$measure*16,
+            ),
+            ".g--hero-03__ft-items__wrapper": (
+                "padding-bottom": $measure*10,
+            ),
+        )
+    );
+    @media all and ($viewport-type: $tablets) {
+        @include make-hero-03-modifier(
+            $hero-options: (
+                "top-extra-space": 0,
+            ),
+            $custom-options: (
+                ".g--hero-03__ft-items__wrapper": (
+                    "padding-top": $measure*13,
+                    "padding-bottom": $measure*25,
+                ),
+                ".g--hero-03__bg-items": (
+                    "width": 50%,
+                    "top": 100%,
+                    "background-position": center top,
+                    "bottom": auto,
+                    "transform": translateY(-$measure*20),
+                )
+            )
+        );
+    }
+    @media all and ($viewport-type: $mobile) {
+        @include make-hero-03-modifier(
+            $custom-options: (
+                ".g--hero-03__bg-items": (
+                    "width": 100%,
+                    "right": 0,
+                )
+            )
+        );
+    }
+    &--second {
+        @include make-hero-03-modifier(
+            $hero-options: (
+                "back-items": no,
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, a),
+            ),
+        );
+        @media all and ($viewport-type: $tablets) {
+            @include make-hero-03-modifier(
+                $custom-options: (
+                    ".g--hero-03__ft-items__wrapper": (
+                        "padding-bottom": $measure*7,
+                    ),
+                )
+            );
+        }
+    }
+}

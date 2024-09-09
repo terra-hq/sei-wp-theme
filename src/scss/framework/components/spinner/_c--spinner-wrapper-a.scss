@@ -1,0 +1,17 @@
+.c--spinner-wrapper-a {
+    @extend .u--position-relative;
+    @media all and ($viewport-type:$mobile) {
+        width: 100%;
+    }
+    &__item {
+        @extend .u--position-absolute;
+        top: 50%;
+        left: calc(100% + #{$measure*2});
+        transform: translateY(-50%);
+        @media all and ($viewport-type:$mobile) {
+            left: 50%;
+            top: calc(100% + #{$measure*2});
+            transform: translateX(-50%);
+        }
+    }
+}

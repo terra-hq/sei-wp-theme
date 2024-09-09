@@ -1,0 +1,40 @@
+$z-index-values:(
+  1
+);
+
+$z-index-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+
+@mixin z-index-utility($z-index-value, $breakpoints){
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @if($breakpoint-value == 0) {
+      @each $value in $z-index-value {
+        .u--z-index-#{$value}{
+          z-index: $value;
+        }
+      }
+    }@else{
+      @media screen and ($viewport-type: $breakpoint-value) {
+        @each $value in $z-index-value {
+          .u--z-index-#{$breakpoint-name}-#{$value}{
+            z-index: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if variable-exists(z-index-breakpoints) {
+  @include z-index-utility($z-index-values,$z-index-breakpoints)
+}
+@else {
+  @include z-index-utility($z-index-values,$breakpoints-grid)
+}

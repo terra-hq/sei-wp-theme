@@ -1,0 +1,29 @@
+.c--nav-b {
+    @extend .u--display-flex;
+    @extend .u--align-items-center;
+    gap: $measure*4;
+
+    @media all and ($viewport-type: $tabletm) {
+
+        gap: $measure*3;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__item {
+        @media all and ($viewport-type: $tabletm) {
+            position: relative;
+        }
+
+        &__link {
+            @extend .f--font-i;
+            @extend .u--font-semibold;
+            @extend .g--link-01;
+
+            @media all and ($viewport-type: $tabletm) {
+                @include make-font-h();
+            }
+        }
+    }
+
+}

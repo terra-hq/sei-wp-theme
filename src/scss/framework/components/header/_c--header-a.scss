@@ -1,83 +1,57 @@
 .c--header-a {
-    @extend .f--background-b;
     @extend .u--position-fixed;
-    border-bottom: 1px solid map-get($color-options, a);
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    
-    &__wrapper {
-        @extend .u--display-flex;
-        @extend .u--align-items-center;
-        @extend .u--justify-content-space-between;
-        padding: $measure * 4 0;
-        gap: $measure * 4;
+    @extend .f--container;
+    top: $measure*4;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    opacity: 0;
 
-        &__brand {
-            &__logo {
-                width: auto;
-                height: 100%;
-                max-height: 77px;
-    
-                @media all and ($viewport-type: $tabletm) {
-                    max-height: 55px;
-                }
-    
-                @media all and ($viewport-type: $mobile) {
-                    max-height: 45px;
+    @media all and ($viewport-type: $tablets) {
+        top: 0;
+        max-width: 100%;
+        background-color: map-get($color-options, a);
+    }
+
+    &__wrapper {
+        @extend .f--background-a;
+        @extend .u--display-flex;
+        @extend .u--justify-content-space-between;
+        @extend .u--position-relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% + #{$measure*4}*2);
+        padding: $measure*2 $measure*4;
+        @media all and ($viewport-type: $tabletl) {
+            width: calc(100% + #{$measure*2}*2);
+            padding: $measure*2;
+        }
+        @media all and ($viewport-type: $tablets) {
+            width: 100%;
+            padding: $measure*2 2.5vw;
+        }
+        
+        &__hd{
+            @extend .u--display-flex;
+            align-items: center;
+            &__link{
+                margin-right: $measure*8;
+                align-self: center;
+                &__media{
+                    display: block;
                 }
             }
         }
-
-        &__list-group {
+        &__bd{
             @extend .u--display-flex;
-            @extend .u--align-items-center;
-            gap: $measure * 10;
-
-            @media all and ($viewport-type: $tabletl) {
-                gap: $measure * 8;
-            }
-
-            @media all and ($viewport-type: $tablets) {
-                gap: $measure * 3;
-            }
-
-            &__list-item {
-                @extend .f--font-e;
-                @extend .f--color-a;
-                width: fit-content;
-                white-space: nowrap;
-                text-decoration-color: transparent;
-                transition: text-decoration-color $time-b $ease-entrance-a;
-
-                &:hover {
-                    text-decoration-color: map-get($color-options, a);
-                }
-            }
-
-            &__btn {
-                @extend .g--btn-01;
-                @extend .g--btn-01--second;
-
-                &__icon {
-                    display: none;
-                }
-
-                @media all and ($viewport-type: $tablets) {
-                    padding: 0 !important;
-                    border: 0 !important;
-                    background-color: transparent !important;
-
-                    &__content {
-                        display: none;
-                    }
-
-                    &__icon {
-                        display: block;
-                        width: 23px;
-                        height: 23px;
-                    }
+            flex-grow: revert;
+            flex-shrink: revert;
+            align-items: center;
+            &__link{
+                margin-right: $measure*8;
+                align-self: center;
+                &__media{
+                    display: block;
                 }
             }
         }

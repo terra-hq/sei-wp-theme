@@ -1,0 +1,21 @@
+.c--card-k {
+
+    &__wrapper {
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        gap: $measure * 2;
+
+        &__title {
+            @extend .f--font-g;
+            @extend .u--font-medium;
+        }
+
+        &__content {
+            @extend .c--content-a;
+            @extend .u--font-light;
+            & > p{
+                margin-bottom: 0!important;
+            }
+        }
+    }
+}

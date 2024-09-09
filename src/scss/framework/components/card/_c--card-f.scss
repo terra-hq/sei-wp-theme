@@ -1,0 +1,53 @@
+.c--card-f {
+    @extend .u--display-flex;
+    @extend .u--justify-content-center;
+    @extend .u--align-items-center; 
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: rgba(map-get($color-options, b), 0.2);
+
+    &__wrapper {
+        @extend .u--display-flex;
+        flex-direction: column;
+        gap: $measure;
+        padding-bottom: $measure * 2;
+        width: calc(100% - 28px);
+
+        &__subtitle {
+            @extend .f--font-i;
+            @extend .f--color-c;
+            @extend .u--font-semibold;
+        }
+
+        &__title {
+            @extend .f--font-g;
+            @extend .f--color-b;
+            @extend .u--font-medium;
+            opacity: 0.7;
+            transition: opacity $time-b $ease-standard-a, color $time-b $ease-standard-a;
+        }
+    }
+
+    &__artwork {
+        opacity: 0;
+        width: 28px;
+        transition: opacity $time-b $ease-standard-a;
+    }
+
+    @media (hover: hover) {
+        &:hover & {
+            &__wrapper {
+                &__title {
+                    color: map-get($color-options, c);
+                    opacity: 1;
+                }
+            }
+            &__artwork {
+                opacity: 1;
+            }
+            
+        }
+    }
+}

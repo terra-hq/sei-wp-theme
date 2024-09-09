@@ -1,0 +1,94 @@
+.c--dropdown-a {
+    @extend .f--background-a;
+    @extend .u--position-absolute;
+    @extend .u--width-100;
+    left: 0;
+    top: 100%;
+    max-height: 0;
+    overflow: auto;
+    //opacity: 0;
+    @media all and ($viewport-type: $tabletm) {
+        max-height: none;
+        position: relative;
+        top: auto;
+    }
+
+    &__content {
+        @extend .u--display-flex;
+        @extend .u--justify-content-space-between;
+        padding: $measure*8 $measure*4 $measure*6;
+        row-gap: $measure*4;
+        flex-wrap: wrap;
+        @media all and ($viewport-type: $tabletm) {
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            gap: $measure*2 $measure*4;
+        }
+
+        &__item {
+            width: calc(33.33% - (#{$measure*4}*2 / 3));
+            min-height: 150px;
+            &:first-child {
+                padding-top: $measure*2;
+            }
+            &:last-child {
+                padding-bottom: $measure*2;
+            }
+            @media all and ($viewport-type: $tabletm) {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    
+        &__wrapper {
+            @extend .u--display-grid;
+            grid-template-columns: repeat(4, auto);
+            width: calc((100% / 5)*4 - #{$measure*4});
+            gap: $measure*2 $measure*4;
+            @media all and ($viewport-type: $tabletm) {
+                padding: $measure*2 $measure*4 0 $measure*2;
+                width: 100%;
+                grid-template-columns: repeat(1, auto);        
+                max-height: 350px;
+            }
+            &__item {
+                @extend .u--display-block;
+                @extend .g--link-01;
+                @media all and ($viewport-type: $tablets) {
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        & .scrollbar-track-y{
+            width:5px;
+        }
+        & .scrollbar-thumb-y{
+            width:5px;
+        }
+    }
+
+    &--second & {
+        &__content {
+            &__item {
+                width: calc(100% / 5);
+            }
+        }
+    }
+
+    &--third {
+        position: relative;
+        top: auto;
+    }
+    &--third & {
+        &__content {
+            padding: 0;
+            &__wrapper {
+                padding: $measure*2 0 0 $measure*2;
+                width: 100%;
+                grid-template-columns: repeat(1, auto);
+            }
+        }
+    }
+}

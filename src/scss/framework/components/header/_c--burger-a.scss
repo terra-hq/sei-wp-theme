@@ -1,0 +1,21 @@
+.c--burger-a {
+    width: 46px;
+    position: relative;
+    text-align: right;
+    margin-left: $measure*3;
+    svg {
+        @extend .u--display-block;
+        path {
+            transition: stroke $time-b $ease-standard-a;
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+            svg {
+                path {
+                    stroke: map-get($color-options, c);
+                }
+            }
+        }
+    }
+}

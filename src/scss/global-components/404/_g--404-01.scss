@@ -1,0 +1,46 @@
+.g--404-01 {
+    @include make-404-01();
+    @include make-404-01-modifier(
+        $error-404-options: (
+            "align": center,
+            "top-extra-space": $g-measure*9,
+            //"breakpoint-bigger-columns": 1024px,
+            "breakpoint-full-width": 580px,
+        ),
+        $background-options: (
+            "background-class": f--background-a,
+        ),
+
+        $item-primary-options: (
+            "className": f--font-c f--color-b,
+        ),
+        $item-secondary-options: (
+            "className": f--font-g f--color-b u--font-light,
+        ),
+        $custom-options: (
+            "parent": (
+                "position": relative,
+                "padding-bottom": 30vw
+            ),
+            ".g--404-01__wrapper": (
+                "z-index": 2
+            ),
+            ".g--404-01__wrapper__content": (
+                "padding-bottom": 0
+            ),
+            ".g--404-01__media-wrapper": (
+                "position": absolute,
+                "bottom": 0,
+                "z-index": 0,
+                "pointer-events": none
+            ),
+        )
+
+    );
+    &__wrapper__content {
+        padding-bottom: $measure*2!important;
+        @media all and ($viewport-type:$tablets) {
+            padding-bottom: $measure*4!important;
+        }
+    }
+}

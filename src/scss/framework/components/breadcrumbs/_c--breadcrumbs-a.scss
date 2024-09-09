@@ -1,0 +1,58 @@
+.c--breadcrumbs-a {
+    @extend .u--display-flex;
+    &__item {
+        @extend .u--display-block;
+        @extend .u--position-relative;
+        @extend .f--color-c;
+        text-decoration: none;
+        transition: color $time-b $ease-standard-a;
+        &:not(:last-child) {
+            margin-right: $measure*3;
+            &::after {
+                content: '/';
+                @extend .u--display-block;
+                @extend .u--position-absolute;
+                @extend .f--color-c;
+                top: 0;
+                right: -$measure*1.5;
+                transform: translateX(50%);
+                opacity: .6;
+            }
+        }
+    }
+    a.c--breadcrumbs-a__item,
+    button.c--breadcrumbs-a__item {
+        color: rgba(map-get($color-options, c), .6);
+
+        @media (hover: hover) {
+            &:hover {
+                color: map-get($color-options, c);
+            }
+        }
+    }
+    @media all and ($viewport-type: $mobile) {
+        flex-wrap: wrap;
+    }
+    &--second {
+        a.c--breadcrumbs-a__item,
+        button.c--breadcrumbs-a__item {
+            color: rgba(map-get($color-options, a), .6);
+            @media (hover: hover) {
+                &:hover {
+                    color: map-get($color-options, a);
+                }
+            }
+        }
+    }
+    &--second & {
+
+        &__item {
+            color: map-get($color-options, a);
+            &:not(:last-child) {
+                &::after {
+                    @extend .f--color-a;
+                }
+            }
+        }
+    }
+}

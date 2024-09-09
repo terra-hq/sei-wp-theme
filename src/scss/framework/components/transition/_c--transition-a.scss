@@ -1,24 +1,41 @@
 .c--transition-a {
+    @extend .u--width-100;
     @extend .u--position-fixed;
-    @extend .u--display-none;
-    left: 0;
     top: 0;
-    width: 100%;
-    max-width: 100vw;
-    height: 100vh;
-    z-index: 1500;
-    pointer-events: none;
-
-    &__item {
-        @extend .f--background-a;
-        height: 50%;
-
-        &--first {
-            transform: translateY(-100%);
+    left: 0;
+	z-index: 1000;
+	pointer-events: none;
+	@extend .u--height-100;
+    &__media-wrapper {
+        @extend .u--position-absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &__media {
+            @extend .u--display-block;
+            width: auto;
+            height: 150px;
+            opacity: 0;
+            animation: rotateSwirl 2s ease-in-out infinite;
         }
-
-        &--second {
-            transform: translateY(100%);
+    }
+    &__artwork {
+        @extend .u--width-100;
+        @extend .u--height-100;
+        path {
+            fill: map-get($color-options, k);
         }
+    }
+}
+
+@keyframes rotateSwirl {
+    0% {
+        transform: rotate(0deg);
+    }
+    90% {
+        transform: rotate(720deg);
+    }
+    100% {
+        transform: rotate(720deg);
     }
 }

@@ -1,0 +1,40 @@
+$opacity-values: (
+    6: .6,
+);
+
+$opacity-breakpoints: (
+   all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+//   tabletm: $tabletm,
+//   tablets: $tablets,
+  // mobile: $mobile,
+);
+
+@mixin opacity-utility($opacity-prop, $breakpoints) {
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+        @if ($breakpoint-value == 0) {
+            @each $name, $property in $opacity-prop {
+                .u--opacity-#{$name} {
+                    opacity: $property;
+                }
+            }
+        } @else {
+            @media screen and ($viewport-type: $breakpoint-value) {
+                @each $name, $property in $opacity-prop {
+                    .u--opacity-#{$breakpoint-name}-#{$name} {
+                        opacity: $property;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@if variable-exists(opacity-breakpoints) {
+    @include opacity-utility($opacity-values, $opacity-breakpoints);
+  }
+@else {
+    @include opacity-utility($opacity-values, $breakpoints-grid);
+}

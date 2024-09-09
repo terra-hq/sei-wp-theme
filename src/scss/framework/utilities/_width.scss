@@ -1,0 +1,42 @@
+$width-values:(
+  40,
+  50,
+  100
+);
+
+$width-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+
+@mixin width-utility($width-value, $breakpoints){
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @if($breakpoint-value == 0) {
+      @each $value in $width-value {
+        .u--width-#{$value}{
+          width: #{$value}#{"%"};
+        }
+      }
+    }@else{
+      @media screen and ($viewport-type: $breakpoint-value) {
+        @each $value in $width-value {
+          .u--width-#{$breakpoint-name}-#{$value}{
+            width: #{$value}#{"%"};
+          }
+        }
+      }
+    }
+  }
+}
+
+@if variable-exists(width-breakpoints) {
+  @include width-utility($width-values,$width-breakpoints)
+}
+@else {
+  @include width-utility($width-values,$breakpoints-grid)
+}

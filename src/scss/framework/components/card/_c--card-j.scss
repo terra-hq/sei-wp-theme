@@ -1,0 +1,120 @@
+.c--card-j {
+    @extend .f--background-c;
+    @extend .u--position-sticky;
+    top: 96px;
+    margin-left: $measure * 4;
+    @media all and ($viewport-type: $tabletl) {
+        margin-left: 0;
+    }
+
+    &__wrapper {
+        padding: $measure * 4;
+
+        @media all and ($viewport-type: $tabletm) {
+            display: flex;
+            gap: $measure * 5;
+            justify-content: space-between;
+        }
+
+        @media all and ($viewport-type: $mobile) {
+            flex-direction: column;
+            gap: $measure * 5;
+        }
+
+        &__item-left {
+            &__title {
+                @extend .f--font-f;
+                @extend .f--color-a;
+                @extend .u--font-medium;
+            }
+    
+            &__subtitle {
+                @extend .f--font-h;
+                @extend .f--color-a;
+                @extend .u--font-light;
+                margin-top: $measure * 2;
+            }
+
+            @media all and ($viewport-type: $tabletm) {
+                flex: 1;
+                max-width: 350px;
+            }
+        }
+
+        &__item-right {
+            @extend .u--display-flex;
+            gap: $measure * 3;
+            margin-top: $measure * 5;
+
+            @media all and ($viewport-type: $tabletl) {
+                flex-direction: column;
+            }
+
+            @media all and ($viewport-type: $tabletm) {
+                flex-direction: row;
+                flex: 1;
+                max-width: 350px;
+                margin-top: 0;
+            }
+
+            @media all and ($viewport-type: $mobile) {
+                gap: $measure * 2;
+            }
+
+
+            &__item-left {
+                flex: 1;
+
+                &__media {
+                    background-color: rgba(map-get($color-options, h), 0.2);
+                    aspect-ratio: 1 / 1;
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    object-position: top center;
+
+                    @media all and ($viewport-type: $tabletl) {
+                        width: 50%;
+                    }
+
+                    @media all and ($viewport-type: $tabletm) {
+                        width: 100%;
+                        min-width: 88px;
+                    }
+
+                    @media all and ($viewport-type: $mobile) {
+                        width: 100%;
+                    }
+
+                }
+            }
+
+            &__item-right {
+                flex: 2;
+
+                &__title {
+                    @extend .f--font-g;
+                    @extend .f--color-a;
+                    @extend .u--font-medium;
+                    margin-bottom: $measure * 3;
+                }
+
+                &__link {
+                    @extend .u--display-block;
+                    @extend .g--link-01;
+                    @extend .g--link-01--third;
+                    @extend .f--font-h;
+                    @extend .f--color-a;
+                    @extend .u--font-medium;
+                    margin-bottom: $measure;
+                }
+
+                &__content {
+                    @extend .c--content-a;
+                    @extend .c--content-a--second-color;
+                    padding-top: $measure;
+                }
+            }
+        }
+    }
+}

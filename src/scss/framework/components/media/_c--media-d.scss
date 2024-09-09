@@ -1,0 +1,6 @@
+.c--media-d {
+    @extend .f--ar;
+    @media all and ($viewport-type:$mobile) {
+        max-width: 60%;
+    }
+}

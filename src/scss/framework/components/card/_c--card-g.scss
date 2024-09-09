@@ -1,0 +1,91 @@
+.c--card-g {
+    @extend .f--background-c;
+    @extend .u--display-flex;
+    height: 100%;
+
+    &__wrapper {
+        @extend .u--display-flex;
+        gap: $measure * 7;
+        padding: $measure * 10 $measure * 7;
+
+        @media all and ($viewport-type: $tablets) {
+            flex-direction: column;
+            gap: $measure * 5;
+            padding: $measure * 5;
+    
+        }
+        &__item-left {
+            flex: 21%;
+            @media all and ($viewport-type: $desktop) {
+                flex: 24%;
+            }
+            @media all and ($viewport-type: $tablets) {
+                flex: unset;
+            }
+
+
+            &__media {
+                aspect-ratio: 1 / 1;
+                background-color: rgba(map-get($color-options, h), 0.2);
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                object-position: top center;
+
+                @media all and ($viewport-type: $tablets) {
+                    width: 40%;
+                }
+
+                @media all and ($viewport-type: $mobile) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__item-right {
+            @extend .u--display-flex;
+            @extend .u--flex-direction-column;
+            flex: calc(79% - #{$measure * 7});
+            @media all and ($viewport-type: $desktop) {
+                flex: calc(76% - #{$measure * 7});
+            }
+            @media all and ($viewport-type: $tablets) {
+                flex: unset;
+            }
+
+            &__title {
+                @extend .f--font-i;
+                @extend .f--color-a;
+                @extend .u--font-medium;
+                @extend .u--letter-spacing-a;
+                @extend .u--text-uppercase;
+                margin-bottom: $measure * 3;
+            }
+
+            &__content {
+                @extend .f--font-f;
+                @extend .f--color-a;
+                @extend .u--font-light;
+            }
+
+            &__ft {
+                @extend .u--display-flex;
+                @extend .u--flex-direction-column;
+                margin-top: $measure * 5;
+                gap: $measure / 2;
+
+                &__title {
+                    @extend .f--font-g;
+                    @extend .f--color-a;
+                    @extend .u--font-medium;
+                }
+
+                &__subtitle {
+                    @extend .f--font-h;
+                    @extend .f--color-a;
+                    @extend .u--font-light;
+                }
+            }
+        }
+    }
+}

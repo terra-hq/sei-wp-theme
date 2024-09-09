@@ -1,0 +1,78 @@
+.c--card-b {
+    @extend .u--display-flex;
+    @extend .u--width-100;
+    background-color: map-get($color-options, d);
+    padding: $measure*7 $measure*6;
+    gap: $measure*5 $measure*9;
+    flex-wrap: wrap;
+    @media all and ($viewport-type: $tabletm) {
+        padding: $measure*5 $measure*4;
+    }
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure*4 $measure*3;
+    }
+    &__wrapper {
+        @extend .u--display-flex;
+        flex-direction: column;
+        width: 50%;
+        @media all and ($viewport-type: $tabletm) {
+            width: 100%;
+        }
+        &__title {
+            @extend .f--font-f;
+            @extend .f--color-a;
+            margin-bottom: $measure*3;
+        }
+        &__content {
+            @extend .u--overflow-auto;
+            margin-bottom: $measure*5;
+            // max-height: 100%;
+            // @media all and ($viewport-type: $tabletm) {
+            //     max-height: 150px;
+            // }
+        }
+        &__btn {
+            margin-top: auto;
+            @extend .g--btn-03;
+        }
+    }
+    &__media-wrapper {
+        @extend .u--display-flex;
+        @extend .u--justify-content-center;
+        @extend .u--align-items-center;
+        width: calc(50% - #{$measure*9});
+        @media all and ($viewport-type: $tabletm) {
+            width: 100%;
+            order: -1;
+            justify-content: flex-start;
+            display: none;
+        }
+        @media all and ($viewport-type: $mobile) {
+            display: block;
+        }
+        &__media {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            max-height: 400px;
+            @media all and ($viewport-type: $tablets) {
+                max-width: 200px;
+                max-height: 200px;
+            }
+        }
+    }
+    &--second {}
+    &--second & {
+        &__wrapper {
+            width: 100%;
+            &__content {
+                @media all and ($viewport-type: $tabletm) {
+                    max-height: none;
+                }
+            }
+        }
+        &__media-wrapper {
+            @extend .u--display-none;
+        }
+    }
+}

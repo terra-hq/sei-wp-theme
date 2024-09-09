@@ -6,34 +6,32 @@
     padding: 0;
     border: none;
     scroll-behavior: smooth;
+    font-synthesis: none;
 }
 
 :focus {
     outline: 0;
 }
 *:focus-visible {
-    outline: 1px solid map-get($color-options, a);
+    outline: 1px solid map-get($color-options, c);
 }
 
 html {
     overscroll-behavior: none;
-    @extend .f--background-b;
+    font-size: 16px;
 }
 
 body {
-    @extend .f--background-b;
-    @extend .f--font-e;
-    @extend .f--color-a;
+    @extend .f--background-a;
+    @extend .f--font-i;
+    @extend .f--color-b;
 }
 
-main {
-    padding-top: $headerDesktop;
-    @media all and ($viewport-type: $tabletm) {
-        padding-top: $headerTabletm;
-    }
-    @media all and ($viewport-type: $mobile) {
-        padding-top: $headerMobile;
-    }
+//* background-color: inherit to have the curve with the section background
+main,
+#main-content,
+section {
+    background-color: inherit;
     // i explorer
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         display: block;
@@ -108,7 +106,7 @@ button {
 // remove dotted outline/border in Firefox
 select:-moz-focusring {
     color: transparent !important;
-    text-shadow: 0 0 0 $color-a !important;
+    text-shadow: 0 0 0 $color-c !important;
 }
 
 input:-webkit-autofill,
@@ -120,10 +118,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    border: 1px solid map-get($color-options, b);
     -webkit-text-fill-color: map-get($color-options, b);
     color: map-get($color-options, b);
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-box-shadow: 0 0 0px 1000px map-get($color-options, a) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -131,3 +128,14 @@ select:-webkit-autofill:focus {
 .grecaptcha-badge {
     display: none;
 }
+
+//scrollbar reset
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background-color: rgba(0, 0, 0, .2);
+  }

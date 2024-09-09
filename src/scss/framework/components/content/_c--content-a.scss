@@ -1,102 +1,91 @@
+//falta 2 cta
 .c--content-a {
     @include make-content ();
+    //* default: black text Paragraph small (font-i)
     @include make-content-modifier (
       $headings-options: (
         "h2": (
-          "className": f--font-b,
+          "className": f--font-e,
           "margin-bottom": $measure*4,
+          "padding-top": $measure*4,
         ),
         "h3": (
-          "className": f--font-c u--font-bold u--font-style-italic,
-          "margin-bottom": $measure*4,
-          "padding-top": $measure,
+          "className": f--font-f,
+          "margin-bottom": $measure*3,
+          "padding-top": $measure*3,
         ),
         "h4": (
-          "className": f--font-c,
+          "className": f--font-g,
           "margin-bottom": $measure*3,
           "padding-top": $measure,
         ),
         "h5": (
-          "className": f--font-c,
+          "className": f--font-i u--font-medium u--text-uppercase u--letter-spacing-a f--color-c,
           "margin-bottom": $measure*3,
           "padding-top": $measure,
         ),
         "h6": (
-          "className": f--font-c,
-          "margin-bottom": $measure*3,
+          "className": f--font-i u--font-medium u--text-uppercase u--letter-spacing-a,
+          "margin-bottom": $measure*2,
           "padding-top": $measure,
         ),
       ),
       $image-options: (
-        "object-fit": cover,
-        "max-height": 500px,
-        "margin-bottom": $measure*4,
+        "margin-bottom": $measure*3,
         "caption": (
-          "className": f--font-f u--font-bold,
+          "className": f--font-i,
           "padding-top": $measure*2,
           "text-align": right,
         ),
       ),
       $link-options: (
-        "className": g--link-01,
+        "className": c--link-a,
       ),
       $lists-options: (
         "number-font": (
-          "color": map-get($color-options, a),
-          "font-weight": 500,
-          "className": f--font-e,
+          "className": f--font-i,
         ),
-        "first-number-width": 14px,
-        "first-level-number-color": map-get($color-options, a),
-        "first-level-artwork-width": 8px,
-        "first-level-artwork-top": 8px,
-        "first-level-artwork-background": map-get($color-options, a),
-        "first-level-artwork-border-radius": 50%,
-        "second-level-number-color": map-get($color-options, a),
-        "second-level-artwork-width": 8px,
-        "second-level-artwork-top": 8px,
-        "second-level-artwork-background": map-get($color-options, a),
-        "second-level-artwork-border-radius": 50%,
-        "third-level-number-color": map-get($color-options, a),
-        "third-level-artwork-width": 8px,
-        "third-level-artwork-top": 8px,
-        "third-level-artwork-background": map-get($color-options, a),
-        "third-level-artwork-border-radius": 50%,
+        "first-number-width": 10px,
+        "first-level-number-color": map-get($color-options, b),
+        "first-level-artwork-width": 6px,
+        "first-level-artwork-top": 6px,
+        "first-level-artwork-background": map-get($color-options, c),
+        "first-level-artwork-border-radius": 100%,
         "margin-bottom": $measure*4,
         "font-styles": (
-          "className": f--font-e,
+          "className": f--font-i,
           "margin-bottom": $measure,
         ),
       ),
       $paragraphs-options: (
-        "className": f--font-e,
-        "margin-bottom": $measure * 4,
-        "margin-bottom-before-lists": $measure * 4,
+        "className": f--font-i,
+        "margin-bottom": $measure * 3,
+        "bold-font-weight": 600,
       ),
       $quote-options: (
         "padding": $measure*3 0,
         "margin-top": $measure,
         "margin-bottom": $measure*4,
         "border": (
-          "border-color": map-get($color-options, a),
-          "border-radius": 0,
+          "border-color": rgba(map-get($color-options, b), .6),
           "border-style": solid,
           "border-width": 1px 0,
         ),
         "paragraph": (
-          "className": f--font-d,
+          "className": f--font-g u--font-light,
         ),
         "cite": (
-          "className": f--font-d,
+          "font-style": normal,
+          "className": f--font-h,
           "padding-top": $measure*3,
         ),
       ),
       $footnote-options: (
-        "className": f--font-f,
+        "className": f--font-j,
         "margin-bottom": $measure * 2,
       ),
       $highlighted-options: (
-        "className": f--font-d,
+        "className": f--font-h,
         "margin-bottom": $measure * 4,
       ),
       $btn-options: (
@@ -108,63 +97,152 @@
         "margin-bottom": $measure*4,
       ),
       $separator-options: (
-        "margin": 0 auto $measure*4,
-        "width": 100%,
-        "color": map-get($color-options, a),
+        "margin": $measure*4 auto,
+        "color": rgba(map-get($color-options, b), .6),
         "height": 1px,
       ),
       $table-options: (
         "header-font-styles": (
-          "className": f--font-e f--color-b,
+          "className": f--font-i u--font-semibold f--color-a,
         ),
         "body-font-styles": (
-          "className": f--font-e,
+          "className": f--font-i,
         ),
         "caption": (
-          "className": f--font-f u--font-bold,
+          "className": f--font-i,
           "padding-top": $measure*2,
           "text-align": right,
         ),
         "margin-bottom": $measure*4,
         "header-cells-padding": $measure*2,
         "body-cells-padding": $measure $measure * 2,
-        "header-border": (
-          "border-width": 1px,
-          "border-style": solid,
-          "border-color": map-get($color-options, a)
-        ),
-        "header-background": map-get($color-options, a),
-        "body-border": (
-          "border-width": 1px,
-          "border-style": solid,
-          "border-color": map-get($color-options, a)
-        ),
-        "body-background": map-get($color-options, b),
+        "header-background": map-get($color-options, k),
+        "body-background": map-get($color-options, m),
+        "odd-rows-background": map-get($color-options, a),
       ),
       $video-options: (
-        "margin-bottom": $measure*4,
+        "margin-bottom": $measure*3,
       ),
       $utilities-options: (
-        "media-text-aligned-margin-x": $measure*4,
+        "media-text-aligned-margin-x": $measure*5
       )
+      
     );
 
-    //Bigger paragraphs
-    &--second {
-        @include make-content-modifier (
-            $paragraphs-options: (
-                "line-height": 1.4,
-                "font-size": 1.5rem,
-                
-            ),
-        );
+    .g--card-07 {
+      margin-bottom: $measure*4;
+    }
 
-        @media all and ($viewport-type: $tablets) {
-            @include make-content-modifier (
-                $paragraphs-options: (
-                    "font-size": 1.25rem,
-                ),
-            );
+    @media all and ($viewport-type:$tablets) {
+      @include make-content-modifier (
+        $headings-options: (
+          "h2": (
+            "margin-bottom": $measure*3,
+            "padding-top": $measure*3,
+          ),
+        ),
+      );
+
+    }
+
+    @media all and ($viewport-type:$mobile) {
+      @include make-content-modifier (
+        $custom-options: (
+          ".wp-block-table": (
+            "overflow-x": scroll
+          ),
+          ".wp-block-table > table": (
+            "width": max-content,
+            "max-width": 200vw
+          ),
+          ".wp-block-table table td": (
+            "max-width": 95vw
+          )
+        ),
+      );
+
+    }
+
+    //* second: white text
+    &--second-color {
+        @include make-content-modifier (
+          $headings-options: (
+            "h2": (
+              "className": f--color-a,
+            ),
+            "h3": (
+                "className": f--color-a,
+            ),
+            "h4": (
+                "className": f--color-a,
+            ),
+            "h6": (
+                "className": f--color-a,
+            ),
+          ),
+          $image-options: (
+            "caption": (
+                "className": f--color-a,
+            ),
+          ),
+          $link-options: (
+            "className": c--link-a c--link-a--second,
+          ),
+          $lists-options: (
+            "number-font": (
+                "className": f--color-a,
+            ),
+            "first-level-number-color": map-get($color-options, a),
+            "font-styles": (
+                "className": f--color-a,
+            ),
+          ),
+          $paragraphs-options: (
+            "className": f--color-a,
+          ),
+          $quote-options: (
+            "border": (
+              "border-color": map-get($color-options, i),
+            ),
+            "paragraph": (
+                "className": f--color-a,
+            ),
+            "cite": (
+                "className": f--color-a,
+            ),
+          ),
+          $footnote-options: (
+            "className": f--color-a,
+          ),
+          $highlighted-options: (
+            "className": f--color-a,
+          ),
+          $separator-options: (
+            "color": map-get($color-options, m),
+          ),
+          $table-options: (
+            "odd-rows-background": map-get($color-options, m),
+          ),
+        );
+    }
+
+    //* Paragraph medium (font-h)
+    &--second-text {
+        > p,
+        ul:not([class]) li,
+        ol:not([class]) li,
+        ol:not([class]) > li::before {
+           @include make-font-h(300);
         }
+    }
+
+    //* Paragraph large (font-g)
+    &--third-text {
+         > p,
+         ul:not([class]) li,
+         ol:not([class]) li,
+         ol:not([class]) > li::before {
+            @include make-font-g(300);
+         }
     }
 }

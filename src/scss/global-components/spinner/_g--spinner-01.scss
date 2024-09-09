@@ -1,0 +1,11 @@
+.g--spinner-01 {
+    @include make-spinner-01();
+    @include make-spinner-01-modifier(
+        $artwork-options: (
+            "fill": map-get($color-options, c),
+        //     "stroke": #cecece,
+            "width": 20px,
+            "height": 20px,
+        ),
+    );
+}

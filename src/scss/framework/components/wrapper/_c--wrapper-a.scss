@@ -1,0 +1,41 @@
+.c--wrapper-a {
+    @media all and ($viewport-type: $tabletm) {
+        display: flex;
+        gap: $measure * 4;
+        >a {
+            flex: 1;        
+        }
+        >hr {
+            display: none;
+        }
+    }
+
+    @media all and ($viewport-type: $mobile) {
+        display: block;
+        >hr {
+            display: block;
+        }
+    }
+
+    &--second {
+        display: grid;
+        gap: $measure * 4;
+        grid-template-columns: 1fr;
+
+        @media all and ($viewport-type: $tabletm) {
+            grid-template-columns: repeat(2, 1fr);
+            >a {
+                flex: unset;        
+            }
+            >hr {
+                display: none;
+            }
+        }
+        @media all and ($viewport-type: $mobile) {
+            grid-template-columns: 1fr;
+            >hr {
+                display: block;
+            }
+        }
+    }
+}

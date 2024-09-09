@@ -1,0 +1,60 @@
+.g--card-07 {
+    @include make-card-07();
+    @include make-card-07-modifier(
+        $card-options: (
+            "back-items": no
+        ),
+        $background-options: (
+            "background-class": f--background-c,
+        ),
+        $item-primary-options: (
+            "className": f--font-g f--color-a,
+        ),
+        $list-group-item-options: (
+            "className": g--btn-03,
+        ),
+    );
+    &--second {
+        @include make-card-07-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, a),
+            ),
+            $item-primary-options: (
+                "className": f--color-b,
+            ),
+        );
+    }
+    &--third {
+        @include make-card-07-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, m),
+            ),
+            $item-primary-options: (
+                "className": f--color-b,
+            ),
+            $list-group-item-options: (
+                "className": f--font-h f--color-b,
+                "font-weight": 300,
+            ),
+            $list-group-item-hover-options: (
+                "background-color": transparent,
+                "color": map-get($color-options, b),
+            ),
+            $custom-options: (
+                ".g--card-07__ft-items__list-group__item": (
+                    "background-color": transparent,
+                    "border-radius": 0px,
+                    "border-width": 0px,
+                    "text-align": left,
+                    "padding": 0,
+                )
+            ),
+        );
+    }
+}

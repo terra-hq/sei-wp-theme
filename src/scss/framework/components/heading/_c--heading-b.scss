@@ -1,0 +1,45 @@
+.c--heading-b {
+    @extend .f--row ;
+    @extend .u--justify-content-space-between ;
+    @extend .u--align-items-center ;
+    @extend .f--sp-b ;
+    @extend .f--gap-c ;
+    @extend .g--link-01;
+
+    &__wrapper {
+        @extend .f--col-6 ;
+        @extend .f--col-tabletm-8 ;
+        @extend .f--col-mobile-12 ;
+        @extend .f--order-mobile-2;
+
+        &__title {
+            @extend .f--font-e ;
+            @extend .f--mb-2;
+        }
+
+        &__subtitle {
+            @extend .f--font-i;
+        }
+
+        &__btn {
+            @extend .g--btn-01;
+            @extend .f--mt-3;
+
+            @media all and (pointer: fine) {
+                display: none !important;
+            }
+        }
+
+    }
+
+    &__media-wrapper {
+        @extend .f--col-2;
+        @extend .f--col-tabletm-3 ;
+        @extend .f--col-mobile-8 ;
+        @extend .f--order-mobile-1;
+
+        &__media {
+            @extend .c--media-d;
+        }
+    }
+}

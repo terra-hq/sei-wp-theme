@@ -1,16 +1,16 @@
 @mixin make-section-a() {
-    padding: $measure * 15 0;
+    padding: $measure * 22 0;
 
     @media all and ($viewport-type: $tablets) {
-        padding: $measure * 10 0;
+        padding: $measure * 15 0;
     }
 }
 
 @mixin make-section-b() {
-    padding: 0 0 $measure * 15 0;
+    padding: 0 0 $measure * 15;
 
     @media all and ($viewport-type: $tablets) {
-        padding: 0 0 $measure * 10 0;
+        padding: 0 0 $measure * 10;
     }
 }
 

@@ -1,0 +1,80 @@
+.c--hero-e {
+    @extend .u--position-relative;
+    // display: flex;
+    overflow: hidden;
+    padding: $zoomPadingDesktop 0;
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 13 0 $measure * 5;
+    }
+    &__wrapper {
+        @extend .u--position-relative;
+        @extend .u--display-flex;
+        @extend .u--justify-content-space-between;
+        @extend .u--align-items-center;
+        @extend .u--width-100;
+        @extend .f--container;
+        flex-wrap: wrap;
+        z-index: 1;
+        &__item-left {
+            @extend .u--width-50;
+            padding: $measure*11 $measure*4.5 $measure*11 $measure*10;
+            @media all and ($viewport-type: $tabletl) {
+                padding: $measure*11 $measure*4 $measure*11 $measure*10;
+                width: 60%;
+            }
+            @media all and ($viewport-type: $tabletm) {
+                padding: $measure*5 $measure*3;
+                width: 100%;
+            }
+            @media all and ($viewport-type: $tablets) {
+                padding: 0;
+            }
+            &__title {
+                @extend .f--font-c;
+                margin-bottom: $measure*3;
+            }
+            &__subtitle {
+                margin-bottom: $measure * 7;
+                @media all and ($viewport-type: $tablets) {
+                    margin-bottom: $measure * 4;
+                }
+            }
+        }
+        &__item-right {
+            @extend .f--background-a;
+            @extend .u--display-flex;
+            @extend .u--justify-content-center;
+            @extend .u--align-items-center;
+            width: calc(50% - #{$measure*5});
+            max-width: 400px;
+            aspect-ratio: 1 / 1;
+            padding: $measure*5;
+            margin-right: $measure*5;
+            margin-top: $measure*5;
+            margin-bottom: $measure*5;
+            @media all and ($viewport-type: $tabletl) {
+                width: calc(40% - #{$measure*5});
+            }
+            @media all and ($viewport-type: $tabletm) {
+                margin-top: 0;
+                margin-right: auto;
+                margin-left: auto;
+                margin-bottom: $measure*5;
+                max-width: none;
+                aspect-ratio: auto;
+                width: calc(100% - #{$measure*3}*2);
+            }
+            @media all and ($viewport-type: $tablets) {
+                margin: 0;
+                width: 100%;
+            }
+            &__media {
+                @extend .u--display-block;
+                @extend .u--width-100;
+                height: auto;
+                object-fit: contain;
+                max-width: 350px;
+            }
+        }
+    }
+}

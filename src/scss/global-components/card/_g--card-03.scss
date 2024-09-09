@@ -1,0 +1,50 @@
+.g--card-03 {
+    @include make-card-03();
+    @include make-card-03-modifier(
+        $card-options: (
+            "back-items": no
+        ),
+        $background-options: (
+            "background-class": f--background-e,
+        ),
+        $hover-options: (
+            "background-color": map-get($color-options, c),
+        ),
+        $item-primary-options: (
+            "className": f--font-i f--color-a,
+        ),
+        $list-group-item-options: (
+            "className": f--font-i f--color-a u--font-semibold,
+        ),
+        $list-group-item-list-options: (
+            "aligned-at-bottom": "yes",
+        ),
+        $media-options: (
+            "height": auto,
+            "width": 100%,
+            "max-width": 180px,
+            "first": yes,
+        ),
+    );
+    &--second {
+        @include make-card-03-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($colorbg-options, c)
+            ),
+        );
+
+    }
+    &--third {
+        @include make-card-03-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($colorbg-options, d)
+            ),
+        );
+    }
+}

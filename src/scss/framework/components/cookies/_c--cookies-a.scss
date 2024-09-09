@@ -1,0 +1,55 @@
+.c--cookies-a {
+    @extend .u--position-fixed;
+    background-color: map-get($color-options, d);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    &__wrapper {
+        @extend .u--display-flex;
+        @extend .u--align-items-center;
+        @extend .u--justify-content-center;
+        padding: $measure * 1.5;
+        gap: $measure * 3;
+
+        @media all and ($viewport-type: $tablets) {
+            flex-direction: column;
+            gap: $measure * 1.5;
+        }
+
+        &__item-left {
+            @extend .f--font-h;
+            @extend .f--color-a;
+            @extend .u--font-light;
+            @media all and ($viewport-type: $tablets) {
+                text-align: center;
+            }
+        }
+
+        &__item-right {
+            @extend .u--display-flex;
+            @extend .u--align-items-center;
+            gap: $measure * 3;
+
+            &__link {
+                @extend .f--font-i;
+                @extend .f--color-a;
+                @extend .u--font-light;
+                @extend .g--link-01;
+                @extend .g--link-01--third;
+                white-space: nowrap;
+
+                &:hover {
+                    color: map-get($color-options, a) !important;
+                    text-decoration-color: transparent !important;
+                }
+            }
+
+            &__btn {
+                @extend .g--btn-01;
+                @extend .g--btn-01--second;
+            }
+        }
+    }
+}

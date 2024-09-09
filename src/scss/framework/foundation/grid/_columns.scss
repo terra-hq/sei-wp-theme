@@ -1,29 +1,28 @@
 /* columns*/
 /* offset */
 /* order first & last */
-
 /*Start loop columns*/
 $available-columns: (
-    // 2,
+    2,
     3,
     4,
     5,
     6,
-    //7,
+    7,
     8,
-    // 9,
-    // 10,
+    9,
+    10,
     12,
 );
 
 $columns-breakpoints: (
-  all: $all,
-//   desktop: $desktop,
-//   laptop: $laptop,
-   tabletl: $tabletl,
-  tabletm: $tabletm,
-   tablets: $tablets,
-//   mobile: $mobile,
+    all: $all,
+    desktop: $desktop,
+    laptop: $laptop,
+    tabletl: $tabletl,
+    tabletm: $tabletm,
+    tablets: $tablets,
+    mobile: $mobile,
 );
 @mixin build-columns ($size,$bkpt,$availablecolumns) {
     @for $i from 1 through $columns {
@@ -68,13 +67,14 @@ $columns-breakpoints: (
 $available-offset: (
     0,
     1,
+    4,
 );
 
 $offset-breakpoints: (
-  all: $all,
+   all: $all,
 //   desktop: $desktop,
 //   laptop: $laptop,
-//   tabletl: $tabletl,
+  tabletl: $tabletl,
   tabletm: $tabletm,
 //   tablets: $tablets,
 //   mobile: $mobile,
@@ -118,16 +118,17 @@ $offset-breakpoints: (
 /* Start Responsive Order */
 $available-order: (
     1,
+    2
 );
 
 $order-breakpoints: (
-  all: $all,
+//   all: $all,
 //   desktop: $desktop,
 //   laptop: $laptop,
-  tabletl: $tabletl,
+//   tabletl: $tabletl,
 //   tabletm: $tabletm,
 //   tablets: $tablets,
-//   mobile: $mobile,
+  mobile: $mobile,
 );
 
 @mixin build-order ($size,$bkpt,$availableorder) {

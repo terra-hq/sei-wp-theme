@@ -1,0 +1,82 @@
+.g--card-01 {
+    @include make-card-01();
+    @include make-card-01-modifier(
+        $card-options: (
+            "align": left,
+            "min-height": 500px,
+            "back-items": no
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, j),
+        ),
+        $item-primary-options: (
+            "className": c--content-a c--content-a--second-color c--content-a--third-text,
+        ),
+        $media-options: (
+            "aspect-ratio": 1 1,
+            "background-color": transparent,
+            "object-fit": contain,
+            "object-position": left,
+            "width": 58px,
+            "height": 58px,
+            "first": yes,
+        ),
+        $custom-options: (
+            ".g--card-01__ft-items__media-wrapper" : (
+                "margin-bottom": $g-measure*2
+            ),
+            ".g--card-01__ft-items__item-primary" : (
+                "margin-top": auto,
+            ),
+        ),
+    );
+
+    @media all and ($viewport-type: $tabletl) {
+        @include make-card-01-modifier(
+            $card-options: (
+                "min-height": 380px,
+            ),
+        );
+    }
+
+    @media all and ($viewport-type: $tabletm) {
+        @include make-card-01-modifier(
+            $card-options: (
+                "min-height": unset,
+            ),
+        );
+    }
+
+    @media all and ($viewport-type: $mobile) {
+        @include make-card-01-modifier(
+            $custom-options: (
+                ".g--card-01__ft-items__media-wrapper" : (
+                    "width": $g-measure*6,
+                    "height": $g-measure*6
+                ),
+            ),
+        );
+    }
+
+    &--second {
+        @include make-card-01-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, k),
+            ),
+        );
+    }
+
+    &--third {
+        @include make-card-01-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, l),
+            ),
+        );
+    }
+}

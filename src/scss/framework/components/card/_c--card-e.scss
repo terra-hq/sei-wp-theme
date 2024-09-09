@@ -1,0 +1,87 @@
+.c--card-e {
+    @extend .u--display-flex;
+    @extend .u--flex-direction-column;
+    text-decoration: none;
+    padding: $measure * 3;
+    background-color: transparent;
+    transition: background-color $time-b $ease-standard-a;
+    @extend .u--width-100;
+    @media all and ($viewport-type: $mobile) {
+        background-color: rgba(map-get($color-options, h), 0.1);
+    }
+    @media all and (pointer: coarse) and (hover: none) {
+        background-color: rgba(map-get($color-options, h), 0.1);
+    }
+    &__title {
+        @extend .f--font-g;
+        @extend .f--color-b;
+        margin-bottom: $measure * 2;
+        transition: color $time-b $ease-standard-a;
+    }
+    &__subtitle {
+        @extend .f--font-i;
+        @extend .f--color-b;
+        transition: color $time-b $ease-standard-a;
+        @media all and ($viewport-type:$mobile) {
+            margin-bottom: $measure*2;
+        }
+        @media all and (pointer: coarse) and (hover: none) {
+            margin-bottom: $measure*2;
+        }
+    }
+    // on touchable devices
+    &__link {
+        @extend .g--btn-01;
+        @extend .g--btn-01--third;
+        display: none;
+        margin-top: auto;
+        @media (hover: hover) {
+            // no hover effect
+            &:hover {
+                background-color: inherit;
+                color: map-get($color-options, c);
+            }
+        }
+        // @media all and ($viewport-type: $mobile) {
+        //     display: block;
+        // }
+        @media all and (pointer: coarse) and (hover: none) {
+            display: block;
+        }
+    }
+
+
+}
+
+a.c--card-e,
+button.c--card-e {
+    @media (hover: hover) {
+        &:hover {
+            background-color: rgba(map-get($color-options, h), 0.1);
+        }
+        &:hover .c--card-e {
+            &__title {
+                color: map-get($color-options, c);
+            }
+            &__subtitle {
+                color: map-get($color-options, c);
+            }
+        }
+    }
+}
+a.c--card-e--third,
+button.c--card-e--third {
+    @media (hover: hover) {
+        &:hover {
+            background-color: map-get($color-options, d);
+        }
+        &:hover .c--card-e {
+            &__title {
+                color: map-get($color-options, a);
+            }
+            &__subtitle {
+                color: map-get($color-options, a);
+            }
+        }
+    }
+}

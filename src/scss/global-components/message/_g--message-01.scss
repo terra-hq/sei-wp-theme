@@ -1,0 +1,19 @@
+.g--message-01 {
+    @include make-message-01();
+    @include make-message-01-modifier(
+        $border-options: (
+            "border-color": map-get($color-options, h),
+            "border-width": 1px,
+            "border-style": solid,
+        ),
+        $item-primary-options: (
+            "font-weight": 300,
+            "className": f--font-g,
+        ),
+        $custom-options: (
+            ".g--message-01__artwork": (
+                "margin": 0 auto $measure*2,
+            ),
+        ),
+    );
+}

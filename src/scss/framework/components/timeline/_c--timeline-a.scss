@@ -1,0 +1,87 @@
+.c--timeline-a {
+    @extend .u--position-relative;
+    max-width: 66.66%;
+    margin-left: auto;
+    margin-bottom: $measure * 8;
+
+    @media all and ($viewport-type: $tabletl) {
+        max-width: 80%;
+    }
+
+    @media all and ($viewport-type: $tabletm) {
+        max-width: 95%;
+    }
+
+    &::before {
+        @extend .u--position-absolute;
+        content: "";
+        top: 30px;
+        left: 0;
+        transform: translateX(-50%);
+        width: 2px;
+        height: calc(100% - var(--bottom-value, 0px));
+        background: var(--finish-color-value, map-get($color-options, a));
+        z-index: 1;
+    }
+
+    &::after {
+        @extend .u--position-absolute;
+        content: "";
+        top: 30px;
+        left: 0;
+        transform: translateX(-50%);
+        width: 2px;
+        height: var(--loading-value, 0px);
+        background: map-get($color-options, c);
+        z-index: 2;
+    }
+
+    &__item {
+        @extend .u--position-relative;
+        z-index: 3;
+
+        &::before {
+            @extend .u--position-absolute;
+            content: "";
+            top: 10%;
+            left: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--color-value, map-get($color-options, a));
+            background: var(--color-value, map-get($color-options, j));
+        }
+
+        &__wrapper {
+            margin-left: $measure * 15;
+            margin-top: $measure * 8;
+            padding: 0 $measure * 2 $measure * 8;
+            opacity: var(--opacity-value, 0.3);
+            max-width: 640px;
+
+            @media all and ($viewport-type: $tablets) {
+                margin-left: $measure * 10;
+            }
+
+            @media all and ($viewport-type: $mobile) {
+                margin-left: $measure * 5;
+                margin-top: $measure * 5;
+            }
+
+            &__date {
+                @extend .u--display-block;
+                @extend .f--font-d;
+                @extend .f--color-a;
+                margin-bottom: $measure * 3;
+            }
+
+            &__content {
+                @extend .f--font-g;
+                @extend .f--color-a;
+                @extend .u--font-light;
+            }
+        }
+
+    }
+}

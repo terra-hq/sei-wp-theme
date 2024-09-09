@@ -1,0 +1,9 @@
+.c--divider-a {
+    width: 100%;
+    height: 1px;
+    background-color: map-get($color-options, j);
+
+    &--second {
+        background-color: map-get($color-options, a);
+    }
+}

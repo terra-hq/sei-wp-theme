@@ -1,52 +1,7 @@
 .c--slider-a {
-    @extend .u--position-relative;
-    @extend .u--display-block;
-    @extend .u--overflow-hidden;
-    .tns-ovh {
-        overflow: visible;
-    }
+    overflow: hidden;
     &__wrapper {
-        @extend .u--display-flex;
         opacity: 0;
-        &__item {
-            display: flex !important;
-            transition: none;
-        }
-    }
-    &__controls {
-        @extend .u--position-absolute;
-        @extend .u--display-flex;
-        @extend .u--align-items-center;
-        @extend .u--justify-content-space-between;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        max-width: 1268px;
-        padding: 0 $measure * 4;
-
-        @media all and ($viewport-type:$laptop) {
-            max-width: 88%;
-        }
-
-        @media all and ($viewport-type:$tabletl) {
-            max-width: 100%;
-        }
-
-        @media all and ($viewport-type:$tabletm) {
-            padding: 0 $measure * 2;
-        }
-
-        @media all and ($viewport-type:$mobile) {
-            top: 30%;
-        }
-        &__btn {
-            @extend .c--arrow-a;
-            
-            &--reverse {
-                transform: rotate(180deg);
-                border-color: map-get($color-options , a);
-            }
-        }
+        display: flex;
     }
 }

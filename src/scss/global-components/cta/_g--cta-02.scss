@@ -1,0 +1,47 @@
+.g--cta-02 {
+    @include make-cta-02();
+    @include make-cta-02-modifier(
+        $cta-options: (
+            "align": center,
+            "back-items": yes,
+            "container": yes
+        ),
+        $background-options: (
+            "background-position": center,
+        ),
+        $item-primary-options: (
+            "className": f--font-c f--color-a,
+        ),
+        $list-group-item-options: (
+            "className": g--btn-03,
+        ),
+        $custom-options: (
+          ".g--cta-02__bg-items": (
+            "object-fit": cover
+          ),
+        )
+    );
+    &--second {
+        @include make-cta-02-modifier(
+        $item-primary-options: (
+            "className": f--font-e,
+        ),
+        
+    );    
+    }
+    &--second & {
+        &__ft-items {
+            padding-top: $measure*7!important;
+            padding-bottom: $measure*7!important;  
+        }
+    }
+    &__ft-items {
+        &__content {
+            @media all and ($viewport-type:$tablets) {
+                flex: 0 0 calc((100% / 12)* 12)!important;
+                max-width: calc((100% / 12)* 12)!important;
+            }
+        }
+    }
+   
+}

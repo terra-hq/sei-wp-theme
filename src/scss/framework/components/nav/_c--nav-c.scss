@@ -1,0 +1,13 @@
+.c--nav-c {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+    gap: $measure*2 $measure*4;
+    &__item {
+        @extend .u--display-block;
+        @extend .f--font-i;
+        @extend .g--link-01;
+        @extend .g--link-01--eighth;
+    }
+}

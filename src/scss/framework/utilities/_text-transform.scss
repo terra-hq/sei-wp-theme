@@ -1,0 +1,40 @@
+$text-transform-values: (
+  uppercase: uppercase,
+);
+
+$text-transform-breakpoints: (
+  all: $all,
+  // desktop: $desktop,
+  // laptop: $laptop,
+  // tabletl: $tabletl,
+  // tabletm: $tabletm,
+  // tablets: $tablets,
+  // mobile: $mobile,
+);
+  
+  @mixin text-transform-utility($text-transform-prop, $breakpoints) {
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @if ($breakpoint-value == 0) {
+        @each $name, $property in $text-transform-prop {
+          .u--text-#{$name} {
+            text-transform: $property;
+          }
+        }
+      } @else {
+        @media screen and ($viewport-type: $breakpoint-value) {
+          @each $name, $property in $text-transform-prop {
+            .u--text-#{$breakpoint-name}-#{$name} {
+              text-transform: $property;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+@if variable-exists(text-transform-breakpoints) {
+  @include text-transform-utility($text-transform-values, $text-transform-breakpoints);
+}
+@else {
+  @include text-transform-utility($text-transform-values, $breakpoints-grid);
+}

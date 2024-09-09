@@ -5,28 +5,54 @@
 /* Colors */
 
 /* Core Colors */
-$color-a: #1E4687;
-$color-b: #F7F2EB;
+$color-a: #FFFFF8;
+$color-b: #141018;
+$color-c: #F01840;
+$color-d: #C01830;
+$color-e: #901226;
+$color-f: #600C1C;
+$color-g: #300810;
+$color-h: #D0C8C8;
+$color-i: #A0949E;
+$color-j: #705E74;
+$color-k: #402848;
+$color-l: #2A1C30;
+// $color-m: #D0C8C833;
+$color-m: #F6F4EE;
 
 $color-options: (
     a: $color-a,
     b: $color-b,
+    c: $color-c,
+    d: $color-d,
+    e: $color-e,
+    f: $color-f,
+    g: $color-g,
+    h: $color-h,
+    i: $color-i,
+    j: $color-j,
+    k: $color-k,
+    l: $color-l,
+    m: $color-m,
 );
 
 $colorbg-options: (
     a: $color-a,
-    b: $color-b,   
+    b: $color-m,
+    c: $color-k,
+    d: $color-l,
+    e: $color-j,
+    f: $color-c,
 );
 
-$gradient-a: linear-gradient(90deg, map-get($color-options, f) 0%, map-get($color-options, d) 100%);
 
 /* Typography */
-$type-a:'Nacelle', sans-serif;
-$type-b:'Libre Caslon Condensed', sans-serif;
+$type-a: "AT Lang Gothic", sans-serif;
+$type-b: "AT Lang", serif;
 
 /* Grid */
 //Container
-$g-container-width: 1300px;
+$g-container-width: 1900px;
 
 $all: 0;
 $desktop: 1700px;
@@ -61,7 +87,7 @@ $viewport-layouts: (
 );
 $columns: 12;
 $gutter-width: 32px;
-$half-gutter-width: $gutter-width * 0.5;
+$half-gutter-width: $gutter-width / 2;
 $gutter-compensation: -1 * $half-gutter-width;
 
 // Use for almost all Uitlities:
@@ -83,8 +109,8 @@ $breakpoints-grid: (
 // Measure
 $measure: 0.5rem; /* 0.5rem = 8px */
 
-// border
-$border-radius-a: $measure;
+// border-radius
+$border-radius-a: 2px;
 
 // Time
 $time-a: 0.1s; // Micro-interactions such as button and toggle
@@ -99,7 +125,5 @@ $ease-entrance-b: cubic-bezier(0.4, 0.14, 0.3, 1); //expresive
 $ease-exit-a: cubic-bezier(0.2, 0, 1, 0.9); //productive
 $ease-exit-b: cubic-bezier(0.4, 0.14, 1, 1); //expresive
 
-// header
-$headerDesktop: 141px;
-$headerTabletm: 120px;
-$headerMobile: 110px;
+$zoomPadingDesktop: $measure*15; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In desktop
+$zoomPadingTablets: $measure*12; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In responsive

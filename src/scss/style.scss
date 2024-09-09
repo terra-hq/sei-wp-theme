@@ -9,62 +9,185 @@
 @import "@scss/global-components/vars.scss";
 
 //* Preloader
-@import '@scssComponents/preloader/_c--preloader-a.scss';
+@import "@scss/framework/components/preloader/_c--preloader-a";
 
 //* transition
-@import '@scssComponents/transition/_c--transition-a.scss';
+@import "@scss/framework/components/transition/_c--transition-a";
 
 //* header
-@import '@scssComponents/header/_c--header-a.scss';
+@import "@scss/framework/components/header/_c--header-a";
 
 //* accordion
-@import '@scssComponents/accordion/_c--accordion-a.scss';
-@import "@scss/global-components/accordion/_g--accordion-02";
+@import "@scss/framework/components/accordion/_c--accordion-a";
+@import "@scss/framework/components/accordion/_c--accordion-b";
 
-//* arrow
-@import '@scssComponents/arrow/_c--arrow-a.scss';
+//* background
+@import "@scss/framework/components/background/_c--bg-a";
+@import "@scss/framework/components/background/_c--bg-b";
+
+//* brand
+@import "@scss/framework/components/header/_c--brand-a";
 
 //* btn
+@import "@scss/framework/components/btn/_c--btn-a";
 @import "@scss/global-components/btn/_g--btn-01";
+@import "@scss/global-components/btn/_g--btn-03";
+
+//* breadcrumbs
+@import "@scss/framework/components/breadcrumbs/_c--breadcrumbs-a";
+
+//* burger
+@import "@scss/framework/components/header/_c--burger-a";
+
+//* border
+@import "@scss/framework/components/border/_c--border-a";
 
 //* card
+@import "@scss/framework/components/card/_c--card-a";
+@import "@scss/framework/components/card/_c--card-b";
+@import "@scss/framework/components/card/_c--card-c";
+@import "@scss/framework/components/card/_c--card-d";
+@import "@scss/framework/components/card/_c--card-e";
+@import "@scss/framework/components/card/_c--card-f";
+@import "@scss/framework/components/card/_c--card-g";
+@import "@scss/framework/components/card/_c--card-h";
+@import "@scss/framework/components/card/_c--card-i";
+@import "@scss/framework/components/card/_c--card-j";
+@import "@scss/framework/components/card/_c--card-k";
+@import "@scss/framework/components/card/_c--card-l";
+@import "@scss/global-components/card/_g--card-01";
+@import "@scss/global-components/card/_g--card-03";
 @import "@scss/global-components/card/_g--card-04";
-
-//* cta
-@import '@scssComponents/cta/_c--cta-a.scss';
+@import "@scss/global-components/card/_g--card-06";
+@import "@scss/global-components/card/_g--card-07";
+@import "@scss/global-components/card/_g--card-09";
+@import "@scss/global-components/card/_g--card-24";
+@import "@scss/global-components/card/_g--card-33";
+@import "@scss/global-components/card/_g--card-34";
 
 //* content
-@import '@scssComponents/content/_c--content-a.scss';
+@import "@scss/framework/components/content/_c--content-a";
+
+//* cookies
+@import "@scss/framework/components/cookies/_c--cookies-a";
+
+//* cta
+@import "@scss/framework/components/cta/_c--cta-a";
+@import "@scss/framework/components/cta/_c--cta-b";
+@import "@scss/framework/components/cta/_c--cta-d";
+@import "@scss/framework/components/cta/_c--cta-e";
+@import "@scss/global-components/cta/_g--cta-02";
+
+//* curve
+@import "@scss/framework/components/curve/_c--curve-a";
+
+//* divider
+@import "@scss/framework/components/divider/_c--divider-a";
+
+//* dropdown
+@import "@scss/framework/components/header/_c--dropdown-a";
+
+//* filter
+@import "@scss/framework/components/form/_c--filter-a";
 
 //* form
-@import '@scssComponents/form/_c--form-a.scss';
+@import "@scss/framework/components/form/_c--form-a";
+@import "@scss/framework/components/form/_c--form-b";
+@import "@scss/framework/components/form/_c--form-d";
+
+//* footer
+@import "@scss/framework/components/footer/_c--footer-a";
+
+//* form-fields
+@import "@scss/global-components/form-fields/_g--input-icon-01";
+
+//* heading
+@import "@scss/framework/components/heading/_c--heading-a";
+@import "@scss/framework/components/heading/_c--heading-b";
 
 //* hero
-@import '@scssComponents/hero/_c--hero-a.scss';
+@import "@scss/framework/components/hero/_c--hero-a";
+@import "@scss/framework/components/hero/_c--hero-b";
+@import "@scss/framework/components/hero/_c--hero-c";
+@import "@scss/framework/components/hero/_c--hero-d";
+@import "@scss/framework/components/hero/_c--hero-e";
+@import "@scss/framework/components/hero/_c--hero-h";
+@import "@scss/global-components/hero/_g--hero-03";
+@import "@scss/global-components/hero/_g--hero-04";
+
+//* icon
+@import "@scss/framework/components/icon/_c--icon-a";
 
 //* layout
-@import '@scssComponents/layout/_c--layout-a.scss';
-@import "@scss/global-components/layout/_g--layout-01";
+@import "@scss/global-components/layout/_g--layout-02";
+@import "@scss/framework/components/layout/_c--layout-a";
+@import "@scss/framework/components/layout/_c--layout-b";
+@import "@scss/framework/components/layout/_c--layout-c";
 
 //* lazy
 @import "@scss/global-components/lazy/_g--lazy-01";
 
 //* link
+@import "@scss/framework/components/link/_c--link-a";
+@import "@scss/framework/components/link/_c--back-link-a";
 @import "@scss/global-components/link/_g--link-01";
 
-//* marquee
-@import '@scssComponents/marquee/_c--marquee-a.scss';
+//* list
+@import "@scss/framework/components/list/_c--list-a";
 
 //* media
-@import '@scssComponents/media/_c--media-a.scss';
-@import '@scssComponents/media/_c--media-b.scss';
+@import "@scss/framework/components/media/_c--media-a";
+@import "@scss/framework/components/media/_c--media-b";
+@import "@scss/framework/components/media/_c--media-c";
+@import "@scss/framework/components/media/_c--media-d";
+
+//* message
+@import "@scss/global-components/message/_g--message-01";
+
+//* nav
+@import "@scss/framework/components/nav/_c--nav-a";
+@import "@scss/framework/components/nav/_c--nav-b";
+@import "@scss/framework/components/nav/_c--nav-c";
+@import "@scss/framework/components/nav/_c--nav-d";
+
+//* overlay
+@import "@scss/framework/components/header/_c--overlay-a";
+@import "@scss/framework/components/header/_c--overlay-b";
+@import "@scss/framework/components/overlay/_c--overlay-c";
+
+//* pill
+@import "@scss/global-components/pill/_g--pill-01";
+
+//* search
+@import "@scss/framework/components/header/_c--search-a";
+
+//* sidenav
+@import "@scss/framework/components/nav/_c--sidenav-a";
 
 //* slider
-@import '@scssComponents/slider/_c--slider-a.scss';
+@import "@scss/framework/components/slider/_c--slider-a";
 @import "@scss/framework/components/slider/_tiny-slider";
 
-//* testimonials
-@import '@scssComponents/testimonials/_c--testimonials-a.scss';
+//* social
+@import "@scss/framework/components/social/_c--social-a";
 
-//* footer
-@import '@scssComponents/footer/_c--footer-a.scss';
+//* spinner
+@import "@scss/framework/components/spinner/_c--spinner-wrapper-a";
+@import "@scss/global-components/spinner/_g--spinner-01";
+
+//* stats
+@import "@scss/framework/components/stats/_c--stats-a";
+
+//* timeline
+@import "@scss/framework/components/timeline/_c--timeline-a";
+
+//* wrapper
+@import "@scss/framework/components/wrapper/_c--wrapper-a";
+@import "@scss/framework/components/wrapper/_c--wrapper-b";
+
+//* zoom-section
+@import "@scss/framework/components/zoom-section/_c--zoom-section-a";
+@import "@scss/framework/components/zoom-section/_c--zoom-section-b";
+
+//* 404
+@import "@scss/global-components/404/_g--404-01";

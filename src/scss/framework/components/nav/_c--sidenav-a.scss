@@ -1,0 +1,74 @@
+.c--sidenav-a {
+    @extend .f--background-a;
+    position: fixed;
+    overflow: auto;
+    right: -200%;
+    min-width: 350px;
+    @extend .u--height-100;
+    z-index: 8;
+    @media all and ($viewport-type: $mobile) {
+        width: 100%;
+        min-width: 0;
+    }
+
+    &__link {
+        position: absolute;
+        padding: $measure*4;
+        right: 0;
+        top:20px;
+        svg {
+            @extend .u--display-block;
+            path {
+                transition: stroke $time-b $ease-standard-a;
+            }
+        }
+        @media all and ($viewport-type: $tablets) {
+            top: 0;
+            padding: $measure*2.5;
+        }
+        @media (hover: hover) {
+            &:hover {
+                svg {
+                    path {
+                        stroke: map-get($color-options, c);
+                    }
+                }
+            }
+        }
+    }
+
+    &__list-group {
+        @extend .u--display-flex;
+        flex-direction: column;
+        gap: $measure*3;
+        padding: $measure*12 $measure*5 $measure*7 $measure*5;
+        @media all and ($viewport-type: $tablets) {
+            padding: $measure*7 $measure*2.5 $measure*4;
+        }
+        
+        &__item{
+            @extend .u--position-relative;
+            &__link{
+                @extend .f--font-h;
+                @extend .g--link-01;
+                &--second {
+                    @extend .g--btn-03;
+                    @extend .g--btn-03--second;
+                    transition: background-color $time-b $ease-standard-a;
+                    span {
+                        @extend .f--color-a;
+                        transition: color $time-b $ease-standard-a;
+                    }
+                    @media (hover: hover) {
+                        &:hover {
+                            span {
+                                color: map-get($color-options, c);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

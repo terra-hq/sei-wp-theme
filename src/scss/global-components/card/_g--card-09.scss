@@ -1,0 +1,82 @@
+.g--card-09 {
+    @include make-card-09();
+    @include make-card-09-modifier(
+        $card-options: (
+            "align": left,
+            "min-height": 500px,
+            "back-items": no
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, d),
+        ),
+        $item-primary-options: (
+            "className": f--font-g f--color-a u--font-medium,
+        ),
+        $item-secondary-options: (
+            "className": f--font-h f--color-a u--font-light,
+        ),
+        $list-group-item-options: (
+            "className": g--btn-03,
+        ),
+        $list-group-item-list-options: (
+            "aligned-at-bottom": "yes",
+        ),
+    );
+
+    @media all and ($viewport-type: $laptop) {
+        @include make-card-09-modifier(
+            $card-options: (
+                "min-height": 420px,
+            ),
+        );
+    }
+
+    @media all and ($viewport-type: $tablets) {
+        @include make-card-09-modifier(
+            $card-options: (
+                "min-height": unset,
+            ),
+            $custom-options : (
+                ".g--card-09__ft-items__item-primary" : (
+                    "margin-bottom": $measure*3,
+                ),
+                ".g--card-09__ft-items__item-secondary" : (
+                    "margin-bottom": $measure*4,
+                ),
+            ),
+        );
+    }
+
+    &--second {
+        @include make-card-09-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, e),
+            ),
+        );
+    }
+
+    &--third {
+        @include make-card-09-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, f),
+            ),
+        );
+    }
+
+    &--fourth {
+        @include make-card-09-modifier(
+            $card-options: (
+                "back-items": no
+            ),
+            $background-options: (
+                "background-color": map-get($color-options, g),
+            ),
+        );
+    }
+}

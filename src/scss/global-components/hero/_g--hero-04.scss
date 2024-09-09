@@ -1,0 +1,54 @@
+.g--hero-04 {
+    @include make-hero-04();
+    @include make-hero-04-modifier(
+         $hero-options: (
+            "back-items": no,
+            "top-extra-space": $measure*4.5,
+         ),
+        $background-options: (
+            "background-class": f--background-a,
+        ),
+        $item-primary-options: (
+            "className": f--font-c f--color-b,
+        ),
+        $list-group-item-options: (
+            "className": f--font-g f--color-b u--font-light,
+        ),
+        $custom-options: (
+           ".g--hero-04__ft-items__wrapper": (
+                "padding-top": $measure*19.5,
+                "padding-bottom": $measure*10
+           ),
+        ),
+    );
+    @media all and (min-width: 1571px) {
+        @include make-hero-04-modifier(
+           $custom-options: (
+              ".g--hero-04__ft-items__wrapper__content": (
+                   "width": 60%
+              )
+           ),
+       );
+    }
+    @media all and ($viewport-type:$tabletl) {
+        @include make-hero-04-modifier(
+           $custom-options: (
+              ".g--hero-04__ft-items__wrapper__content": (
+                   "width": 70%
+              )
+           ),
+       );
+    }
+    @media all and ($viewport-type:$tablets) {
+        @include make-hero-04-modifier(
+            $custom-options: (
+                ".g--hero-04__ft-items__wrapper": (
+                    "padding-top": $measure*15,
+                ),
+               ".g--hero-04__ft-items__wrapper__content": (
+                    "width": 100%
+               )
+            ),
+        );
+    }
+}

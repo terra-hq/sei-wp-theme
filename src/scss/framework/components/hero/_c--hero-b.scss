@@ -1,0 +1,83 @@
+.c--hero-b {
+    @extend .u--position-relative;
+    // display: flex;
+    overflow: hidden;
+    padding: $zoomPadingDesktop 0;
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure*15 0 $measure*11;
+    }
+    &__wrapper {
+        @extend .u--position-relative;
+        @extend .u--display-flex;
+        @extend .u--justify-content-space-between;
+        @extend .u--align-items-center;
+        @extend .u--width-100;
+        @extend .f--container;
+        flex-wrap: wrap;
+        z-index: 1;
+        &__item-left {
+            @extend .u--width-50;
+            padding: $measure*11 $measure*4.5 $measure*11 $measure*10;
+            @media all and ($viewport-type: $tabletl) {
+                padding: $measure*11 $measure*4 $measure*11 $measure*10;
+                width: 60%;
+            }
+            @media all and ($viewport-type: $tabletm) {
+                padding: $measure*11 $measure*10;
+                width: 100%;
+            }
+            @media all and ($viewport-type: $tablets) {
+                padding: $measure*4 $measure*3;
+            }
+            &__title {
+                @extend .f--font-c;
+                margin-bottom: $measure*3;
+            }
+            &__subtitle {
+                margin-bottom: $measure * 7;
+                @media all and ($viewport-type: $tablets) {
+                    margin-bottom: $measure * 4;
+                }
+            }
+            &__list-group {
+                @extend .u--display-flex;
+                flex-wrap: wrap;
+                gap: $measure*1.5 $measure;
+                &__item {
+                    @extend .g--pill-01;
+                }
+            }
+        }
+        &__item-right {
+            @extend .u--width-40;
+            padding: $measure*11 $measure*10 $measure*11 $measure*4.5;
+            @media all and ($viewport-type: $tabletl) {
+                padding: $measure*11 $measure*10 $measure*11 $measure*4;
+            }
+            @media all and ($viewport-type: $tabletm) {
+                padding: 0 $measure*10;
+                width: 60%;
+                margin: 0 auto;
+            }
+            @media all and ($viewport-type: $tablets) {
+                padding: 0 $measure*3;
+            }
+            @media all and ($viewport-type: $mobile) {
+                width: 100%;
+            }
+            &__media {
+                @extend .u--display-block;
+                height: 420px;
+                width: auto;
+                @media all and ($viewport-type: $tabletm) {
+                    height: auto;
+                }
+            }
+        }
+    }
+    &--second {
+        @media all and ($viewport-type:$mobile) {
+            padding-top: $measure*11;
+        }
+    }
+}

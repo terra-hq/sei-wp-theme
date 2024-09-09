@@ -1,0 +1,237 @@
+.c--form-b {
+    @extend .u--position-sticky;
+    @extend .u--overflow-hidden;
+    @extend .f--background-c;
+    @extend .u--width-100;
+    padding: $measure*6 $measure*4;
+    top: 100px;
+    &::before {
+        content: '';
+        @extend .u--position-absolute;
+        @extend .u--width-100;
+        @extend .u--height-100;
+        min-height: 600px;
+        top: 0;
+        left: 0;
+        background-image: url(@img/form_b.webp);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        z-index: 0;
+        @media all and ($viewport-type: $tabletm) {
+            min-height: 750px;
+        }
+        @media all and ($viewport-type: $tablets) {
+            min-height: 550px;
+        }
+        @media all and ($viewport-type: $mobile) {
+            min-height: 650px;
+        }
+    }
+    &__title {
+        @extend .f--font-f;
+        @extend .f--color-a;
+        @extend .f--sp-c;
+        @extend .u--position-relative;
+        z-index: 1;
+    }
+    .hs-form {
+        @extend .u--position-relative;
+        @extend .u--width-100;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        column-gap: $measure * 2;
+        z-index: 1;
+        .hs-form-field {
+            @extend .u--width-100;
+            margin-bottom: $measure*3;
+            position: relative;
+            label {
+                @extend .f--font-j;
+                @extend .f--color-a;
+                @extend .u--display-block;
+                margin-bottom: $measure*.5;
+                span {
+                    @extend .f--font-j;
+                }
+            }
+            .input {
+                margin: 0;
+                input {
+                    @extend .u--display-block;
+                    width: 100% !important;
+                    padding: $measure $measure $measure 0;
+                    background-color: transparent !important;
+                    border-width: 0 0 1px;
+                    border-color: map-get($color-options, a);
+                    border-style: solid;
+                    border-radius: 0;
+                    opacity: 1;
+                    color: map-get($color-options, a) !important;
+                    transition: opacity $time-b $ease-standard-a, border-color $time-b $ease-standard-a;
+                    @extend .f--font-h;
+                    @extend .u--font-light;
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover,
+                    &:-webkit-autofill:focus {
+                        -webkit-text-fill-color: map-get($color-options, h);
+                        -webkit-box-shadow: 0 0 0px 1000px rgba(map-get($color-options, k), 0) inset;
+                        background-color: transparent !important;
+                        background-clip: text;
+                    }
+                    &::placeholder {
+                        @extend .f--font-h;
+                        @extend .f--color-a;
+                        @extend .u--font-light;
+                    }
+                    &.invalid,
+                    &.error {
+                        border-color: map-get($color-options, c);
+                    }
+                }
+                .inputs-list {
+                    @extend .u--display-flex;
+                    list-style: none;
+                    flex-wrap: wrap;
+                    .hs-form-booleancheckbox {
+                        label {
+                            @extend .u--position-relative;
+                            margin-bottom: 0;
+                            input {
+                                @extend .u--position-absolute;
+                                @extend .u--width-100;
+                                opacity: 0;
+                                cursor: pointer;
+                                left: 0;
+                                top: 0;
+                                @extend .u--height-100;
+                                z-index: 0;
+                                padding: 0;
+                                &:checked ~ span::after {
+                                    opacity: 1;
+                                }
+                            }
+                            span {
+                                @extend .u--position-relative;
+                                @extend .u--display-block;
+                                // @extend .u--align-items-center;
+                                @extend .f--font-j;
+                                cursor: pointer;
+                                padding-left: calc(#{$measure*1.5} + #{$measure*2});
+                                a {
+                                    @extend .g--link-01;
+                                    @extend .g--link-01--sixth;
+                                }
+                                .hs-form-required,
+                                span {
+                                    display: inline;
+                                    padding-left: 0;
+                                    &::before {
+                                        content: none;
+                                    }
+                                }
+                                &::before {
+                                    content: "";
+                                    @extend .u--position-absolute;
+                                    left: 0;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    border: 1px solid map-get($color-options, h);
+                                    height: $measure*2;
+                                    width: $measure*2;
+                                }
+                                &::after {
+                                    content: "";
+                                    opacity: 0;
+                                    @extend .u--position-absolute;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    left: calc(#{$measure*2}*.5);
+                                    width: calc(#{$measure*2}*.6);
+                                    height: calc(#{$measure*2}*.6);
+                                    max-width: calc(#{$measure*2} - 4px);
+                                    max-height: calc(#{$measure*2} - 4px);
+                                    background-color: map-get($color-options, h);
+                                    transition: opacity $time-b $ease-standard-a;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .hs-error-msgs {
+                @extend .u--width-100;
+                li {
+                    label {
+                        @extend .u--display-block;
+                        @extend .f--font-j;
+                        @extend .f--color-a;
+                        margin-bottom: 0;
+                        margin-top: $measure;
+                        a {
+                            cursor: pointer;
+                            @extend .g--link-01;
+                            @extend .g--link-01--third;
+                        }
+                    }
+                }
+            }
+            &.hs-fieldtype-booleancheckbox {
+                order: 1;
+                @media all and ($viewport-type:$tablets) {
+                    max-width: 100%;
+                }
+            }
+            &.hs-recaptcha {
+                // width: 100%;
+                order: 1;
+                margin-bottom: 0;
+            }
+        }
+        .form-columns-2 {
+            @extend .u--display-flex;
+            @extend .u--justify-content-space-between;
+            flex-wrap: wrap;
+            .hs-form-field {
+                width: calc(50% - #{$measure*2});
+                @media all and ($viewport-type: $tabletm) {
+                    width: 100%;
+                }
+                @media all and ($viewport-type: $tablets) {
+                    width: calc(50% - #{$measure*2});
+                }
+                @media all and ($viewport-type: $mobile) {
+                    width: 100%;
+                }
+            }
+        }
+        .hs_error_rollup {
+            @extend .u--width-100;
+            li {
+                label {
+                    @extend .u--display-block;
+                    @extend .f--font-i;
+                    @extend .f--color-a;
+                    margin-bottom: $measure;
+                    margin-top: 0;
+                }
+            }
+        }
+        .hs-submit {
+            @extend .u--width-100;
+            .actions {
+                .hs-button {
+                    @extend .g--btn-01;
+                }
+            }
+        }
+    }
+    .hbspt-form {
+        .submitted-message {
+            @extend .u--position-relative;
+            @extend .f--font-g;
+            @extend .f--color-h;
+            @extend .u--font-light;
+        }
+    }
+}

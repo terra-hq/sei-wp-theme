@@ -1,0 +1,78 @@
+.c--cta-d {
+    @extend .u--display-flex;
+    @extend .u--width-100;
+    @extend .u--position-relative;
+    @extend .u--align-items-center;
+    @extend .u--justify-content-center;
+    padding: $measure * 3;
+    text-decoration: none;
+    background-image: url(@img/cta-d.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @media all and ($viewport-type: $tabletm) {
+        display: none;
+    }
+    &::before {
+        content: '';
+        @extend .u--width-100;
+        @extend .u--position-absolute;
+        @extend .f--background-c;
+        top: 0;
+        left: 0;
+        @extend .u--height-100;
+        opacity: 0;
+        z-index: 0;
+        transition: opacity $time-b $ease-standard-a;
+    }
+    &__wrapper {
+        @extend .u--width-100;
+        @extend .u--position-relative;
+        z-index: 1;
+        &__icon {
+            @extend .u--display-block;
+            @extend .u--position-relative;
+            margin: 0 auto $measure*2;
+            width: 26px;
+            height: 26px;
+            border: 1px solid map-get($color-options, a);
+            border-radius: 50%;
+    
+            &::after {
+                content: "";
+                @extend .u--position-absolute;
+                background: map-get($color-options, a);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 2px;
+                height: 14px;
+            }
+    
+            &::before {
+                content: "";
+                @extend .u--position-absolute;
+                background: map-get($color-options, a);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 14px;
+                height: 2px;
+            }
+        }
+    
+        &__title {
+            @extend .u--width-100;
+            @extend .f--font-h;
+            @extend .f--color-a;
+            @extend .u--text-center;
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}

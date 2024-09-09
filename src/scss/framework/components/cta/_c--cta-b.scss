@@ -1,0 +1,63 @@
+.c--cta-b {
+    @extend .u--position-relative;
+    overflow: hidden;
+    padding: $zoomPadingDesktop * 2 0;
+    @media all and ($viewport-type: $tablets) {
+        padding: $zoomPadingTablets * 1.5 0;
+    }
+
+    &__wrapper {
+        @extend .u--position-relative;
+        z-index: 1;
+
+        &__title {
+            @extend .f--font-c;
+            @extend .f--color-a;
+            @extend .u--text-center;
+            margin-bottom: $measure * 3;
+
+            &__artwork {
+                @extend .f--font-d;
+                @extend .f--color-a;
+            }
+        }
+
+        &__subtitle {
+            @extend .f--font-g;
+            @extend .f--color-a;
+            @extend .u--font-light;
+            @extend .u--text-center;
+            margin-bottom: $measure * 10;
+            @media all and ($viewport-type:$tabletm) {
+                max-width: 83.33%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @media all and ($viewport-type: $tablets) {
+                margin-bottom: $measure * 5;
+            }
+            @media all and ($viewport-type:$mobile) {
+                max-width: 100%;
+            }
+        }
+
+        &__list-group {
+            @extend .u--display-flex;
+            @extend .u--justify-content-center;
+            @extend .u--align-items-center;
+            flex-wrap: wrap;
+            gap: $measure * 2;
+
+            &__list-item {
+                @extend .g--pill-01;
+                @extend .g--pill-01--fourth;
+            }
+
+            &__btn {
+                @extend .g--btn-03;
+                @extend .g--btn-03--third;
+                width: fit-content;
+            }
+        }
+    }
+}

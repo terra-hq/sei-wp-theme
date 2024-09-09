@@ -2,9 +2,9 @@ $justify-content-properties:(
   space-between: space-between,
   // space-around:space-around,
   // space-evenly:space-evenly,
-  // flex-start:flex-start,
+  flex-start:flex-start,
   flex-end:flex-end,
-   center:center
+  center:center
 );
 
 $justify-content-breakpoints: (
@@ -13,8 +13,8 @@ $justify-content-breakpoints: (
   // laptop: $laptop,
   // tabletl: $tabletl,
   // tabletm: $tabletm,
-   tablets: $tablets,
-  // mobile: $mobile,
+  tablets: $tablets,
+  mobile: $mobile,
 );
 
 @mixin justify-content-utility($justify-prop,$breakpoints){

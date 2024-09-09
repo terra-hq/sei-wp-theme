@@ -12,27 +12,30 @@ $g-transition-timing-function: cubic-bezier(
     0.9
 ); //* The function of all hover transitions (linear, ease, ease-in-ot...)
 
-//* accordion
-$accordion-padding: $g-measure*4 $g-measure*2 $g-measure*3; //* The padding for accordion button
-
 //* btn
 $btn-padding: $g-measure $g-measure * 3; //* The padding for buttons that have space around them
-$btn-icon-gap: $g-measure; //* The space between icon and text in buttons with icon
+$btn-icon-gap: $g-measure * 2; //* The space between icon and text in buttons with icon
 $btn-full-width-breakpoint: 580px; //* The breakpoint at which we want buttons with padding should either expand to 100% width of the parent or stop being 100% width. If you never want them to be 100% width, you can omit this variable.
 
 //* pill
 $pill-padding: $g-measure $g-measure * 2; //* The padding for pills that have space around them
 
+//* icon
+$icon-padding: $g-measure * 1.5; //* The padding for icons that have space around them
+
+//* social
+$social-gap: $g-measure * 2; //* The space between icons in social component
+
 //* form fields
 $form-margin-bottom: $g-measure * 3; //* The margin-bottom for form fields
-$input-padding: $g-measure * 0.5 $g-measure; //* The padding for form fields (input, textarea, select...) that have space around them
+$input-padding: $g-measure*2; //* The padding for form fields (input, textarea, select...) that have space around them
 $file-btn-padding: $g-measure * 0.5 $g-measure * 3; //* The padding for the button of input type file
 
 //* card
 $card-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all cards
 $card-item-list-gap: $g-measure; //* The space between all possible lists in cards. Possible lists refer to the last text element of all cards containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
-$card-media-text-space: $g-measure * 2; //* The spacing between text and media items (videos, images, etc.) in all cards
-$card-media-text-space-responsive: $g-measure * 2; //* The spacing between text and media items in all cards from the breakpoint specified in $card-spaces-breakpoint onward
+$card-media-text-space: $g-measure * 4; //* The spacing between text and media items (videos, images, etc.) in all cards
+$card-media-text-space-responsive: $g-measure; //* The spacing between text and media items in all cards from the breakpoint specified in $card-spaces-breakpoint onward
 
 //* CTA
 $cta-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in CTAs. Possible lists refer to the last text element of all CTAs containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
@@ -50,6 +53,18 @@ $layout-item-list-gap: $g-measure $g-measure * 2; //* The space between all poss
 //* hero
 $hero-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all heroes
 $hero-item-list-gap: $g-measure $g-measure * 2; //* The space between all possible lists in heroes. Possible lists refer to the last text element of all heroes containing more than one text element. This value could be a single number (indicating equal space in both X and Y directions) or two numbers, for example, $g-measure $g-measure*2 (Y X)
+
+//* message
+$message-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all messages
+
+//* modal
+$modal-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all modals
+
+//* accordion
+$accordion-padding: $g-measure*4 $g-measure*2 $g-measure*3; //* The padding for accordion button
+
+//* tabs
+$tabs-breakpoint: 810px; //* The breakpoint at which the tabs change from tabs to selector (desktop first) or from selector to tabs (mobile first)
 
 //* 404
 $error-404-spaces-breakpoint: 810px; //* The breakpoint at which the spacing changes for all 404

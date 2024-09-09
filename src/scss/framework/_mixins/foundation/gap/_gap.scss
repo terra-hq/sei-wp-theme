@@ -1,12 +1,12 @@
 @mixin make-gap-a {
-    row-gap: $measure * 10;
+    row-gap: $measure * 8;
     @media all and ($viewport-type: $tablets) {
-        row-gap: $measure * 7;
+        row-gap: $measure * 5;
     }
 }
 
 @mixin make-gap-b {
-    row-gap: $measure * 7;
+    row-gap: $measure * 5;
     @media all and ($viewport-type: $tablets) {
         row-gap: $measure * 4;
     }
@@ -20,8 +20,9 @@
 }
 
 @mixin make-gap-d {
-    row-gap: $measure * 3;
-    @media all and ($viewport-type: $tablets) {
-        row-gap: $measure * 3;
-    }
+    row-gap: $measure * 2;
+}
+
+@mixin make-gap-e {
+    row-gap: $measure * 8;
 }

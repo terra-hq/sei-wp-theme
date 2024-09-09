@@ -1,0 +1,35 @@
+.c--back-link-a {
+    @extend .u--position-relative;
+    @extend .u--display-block;
+    @extend .f--font-i;
+    @extend .f--color-b;
+    width: fit-content;
+    text-decoration: underline;
+    text-decoration-color: map-get($color-options, b);
+    padding-left: calc(11px + #{$measure});
+    white-space: nowrap;
+    transition: all $time-a $ease-standard-a;
+    &::before {
+        content: '';
+        @extend .u--position-absolute;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 100%;
+        background-image: url(@img/arrow-link-a.svg);
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: contain;
+        transition: all $time-a $ease-standard-a;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: map-get($color-options, c);
+            text-decoration-color: transparent;
+
+            &::before {
+                background-image: url(@img/arrow-link-a-hover.svg);}
+        }
+    }
+}

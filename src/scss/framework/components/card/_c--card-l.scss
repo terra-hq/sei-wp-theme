@@ -1,0 +1,141 @@
+.c--card-l {
+    @extend .u--display-block;
+    @extend .u--width-100;
+    text-decoration: none;
+    background-color: transparent;
+
+    &__wrapper {
+        @extend .u--display-flex;
+        flex-direction: column;
+        gap: $measure * 2;
+        padding: $measure * 7 0;
+
+        &__subtitle {
+            @extend .f--font-i;
+            @extend .f--color-c;
+            @extend .u--font-medium;
+            @extend .u--letter-spacing-a;
+            @extend .u--text-uppercase;
+        }
+
+        &__title {
+            @extend .f--font-f;
+            @extend .f--color-b;
+            @extend .u--font-medium;
+            transition: color $time-b $ease-standard-a;
+        }
+
+        &__list-group {
+            @extend .u--display-flex;
+            flex-wrap: wrap;
+            gap: $measure;
+
+            &__list-item {
+                @extend .g--pill-01;
+                @extend .g--pill-01--third;
+            }
+        }
+
+        &:hover {
+            .c--card-l__wrapper__title {
+                color: map-get($color-options, c);
+            }
+        }
+    }
+
+
+    &--second &,
+    &--third & {
+        &__wrapper {
+            &__subtitle {
+                @extend .f--color-a;
+            }
+            &__title {
+                @extend .f--color-a;
+            }
+            &__list-group {
+                &__list-item {
+                    @extend .g--pill-01;
+                    @extend .g--pill-01--second;
+                }
+            }
+        }
+    }
+    &--third {
+        background-color: map-get($color-options, k);
+        @extend .u--position-relative;
+        background-image: linear-gradient(
+            0deg, 
+            #{map-get($color-options, k)} 0%, 
+            rgba(map-get($color-options, k), 0) 100%
+        );
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        
+
+        &::before {
+            @extend .u--position-absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            @extend .u--width-100;
+            @extend .u--height-100;
+            background-image: linear-gradient(
+                0deg, 
+                #{map-get($color-options, k)} 0%, 
+                rgba(map-get($color-options, k), 0) 100%
+            );
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity $time-b $ease-standard-a;
+            opacity: 1;
+            z-index: 2;
+        }
+
+        &:hover::before,
+        &:hover .c--card-l__bg-items {
+            opacity: 0;
+        }
+    }
+
+
+    &--third & {
+        &__bg-items {
+            @extend .u--position-absolute;
+            top: 0;
+            left: 0;
+            @extend .u--width-100;
+            @extend .u--height-100;
+            object-fit: cover;
+            z-index: 1;
+            transition: opacity $time-b $ease-standard-a;
+            opacity: 1;
+        }
+        
+        &__wrapper {
+            @extend .u--position-relative;
+            justify-content: flex-end;
+            min-height: 450px;
+            padding: $measure * 7 $measure * 5;
+
+            @media all and ($viewport-type: $tablets) {
+                min-height: auto;   
+                padding: $measure * 7 $measure * 7;             
+            }
+            @media all and ($viewport-type: $mobile) {
+                min-height: auto;   
+                padding: $measure * 4;             
+            }
+            z-index: 3;
+
+            &:hover {
+                .c--card-l__wrapper__title {
+                    color: map-get($color-options, a);
+                }
+            }
+        }
+    }
+}

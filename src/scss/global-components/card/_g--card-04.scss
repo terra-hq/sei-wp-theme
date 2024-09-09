@@ -1,23 +1,26 @@
 .g--card-04 {
     @include make-card-04();
     @include make-card-04-modifier(
-        $card-options: (
-            "align": left,
-            "back-items": no
-        ),
         $item-primary-options: (
-            "className": f--font-c,
+            "className": f--font-f f--color-b,
         ),
         $list-group-item-options: (
-            "className": f--font-e,
+            "className": f--font-i f--color-b,
         ),
         $media-options: (
-            "aspect-ratio": 1 1,
-            "object-fit": contain,
-            "height": 64px,
-            "object-position": left center,
-            "width": 64px,
+            "height": 58px,
+            "width": 58px,
             "first": yes,
         ),
     );
+    &--second {
+        @include make-card-04-modifier(
+            $item-primary-options: (
+                "color": map-get($color-options,a),
+            ),
+            $list-group-item-options: (
+                "color": map-get($color-options,a),
+            ),
+        );
+    }
 }
