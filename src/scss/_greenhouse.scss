@@ -1,0 +1,26 @@
+@import "@scss/global-components/vars";
+@import '@scss/framework/_var/vars.scss';
+
+@import '@scss/framework/foundation/grid/grid.scss';
+@import '@scss/framework/foundation/reset/reset.scss';
+@import '@scss/framework/foundation/color/color.scss';
+@import '@scss/framework/foundation/background/background.scss';
+@import '@scss/framework/foundation/font/font.scss';
+@import '@scss/framework/foundation/spaces/spaces.scss';
+@import "@scss/framework/utilities/_utilities.scss";
+
+
+//* btn
+@import "@scss/global-components/btn/_g--btn-01";
+
+//* content
+@import "@scss/framework/components/content/_c--content-a";
+
+//* link
+@import "@scss/framework/components/link/_c--link-a";
+
+//* greenhouse-content
+@import "@scss/framework/components/greenhouse-content/_c--greenhouse-content-a";
+
+//* link
+@import "@scss/global-components/link/_g--link-01";
