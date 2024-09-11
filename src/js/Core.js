@@ -4,7 +4,7 @@ import SwupDebugPlugin from "@swup/debug-plugin";
 import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 
-import { transition } from "@jsModules/motion/transition/index";
+import { transitionOptions } from "@jsModules/motion/transition/index";
 
 import Blazy from "blazy";
 import Navbar from "@jsModules/navbar/Navbar.js"
@@ -25,7 +25,7 @@ class Core {
                 new SwupDebugPlugin({
                     globalInstance: true,
                 }),
-                new SwupJsPlugin(transition),
+                new SwupJsPlugin(transitionOptions),
             ],
         });
         this.firstLoad = true;
