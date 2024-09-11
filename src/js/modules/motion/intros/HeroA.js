@@ -3,43 +3,40 @@ import gsap from "gsap";
 class HeroA {
     constructor() {
         this.DOM = {
-            media: document.querySelector(".c--hero-a__media"),
-            title: document.querySelector(".c--hero-a__title"),
-            content: document.querySelector(".c--hero-a__content"),
-            btn: document.querySelector(".c--hero-a__link"),
+            media: document.querySelector(".c--hero-a__ft-items__wrapper__media"),
+            title: document.querySelector(".c--hero-a__ft-items__wrapper__title"),
+            btn: document.querySelector(".c--hero-a__ft-items__wrapper__btn"),
         };
         
         return this.init();
     }
     init() {
 
-        var tl = gsap.timeline({
-            defaults: {
-                duration: 1,
-                ease: "power2.out",
-                opacity: 0,
-            }
-        });
+        var tl = gsap.timeline({});
 
         if(this.DOM.media) {
             tl.from(this.DOM.media, { 
+                duration: 1,
+                opacity: 0,
                 y: 20,
+                ease: "power2.out",
             })
         }
         if(this.DOM.title) {
             tl.from(this.DOM.title, { 
-                x: -20,
-            }, "<")
-        }
-        if(this.DOM.content) {
-            tl.from(this.DOM.content, { 
-                x: 20,
-            }, "<")
+                duration: 1,
+                opacity: 0,
+                y: 20,
+                ease: "power2.out",
+            }, "-=.5")
         }
         if(this.DOM.btn) {
             tl.from(this.DOM.btn, { 
-                x: 20,
-            }, "<+=.1")
+                duration: 1,
+                opacity: 0,
+                y: 20,
+                ease: "power2.out",
+            }, "-=.5")
         }
 
         return tl;

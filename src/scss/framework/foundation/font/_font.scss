@@ -48,8 +48,8 @@
 
 @font-face {
     font-family: 'AT Lang';
-    src: url('/src/scss/fonts/ATLang/ATLang-SemiBoldItalic.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLang/ATLang-SemiBoldItalic.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLang/ATLang-SemiBoldItalic.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLang/ATLang-SemiBoldItalic.woff') format('woff');
     font-weight: 600;
     font-style: italic;
     font-display: fallback;
@@ -57,8 +57,8 @@
 
 @font-face {
     font-family: 'AT Lang Gothic';
-    src: url('/src/scss/fonts/ATLangGothic/ATLangGothic-Light.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLangGothic/ATLangGothic-Light.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-Light.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: fallback;
@@ -66,8 +66,8 @@
 
 @font-face {
     font-family: 'AT Lang Gothic';
-    src: url('/src/scss/fonts/ATLangGothic/ATLangGothic-LightItalic.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLangGothic/ATLangGothic-LightItalic.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-LightItalic.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-LightItalic.woff') format('woff');
     font-weight: 300;
     font-style: italic;
     font-display: fallback;
@@ -75,8 +75,8 @@
 
 @font-face {
     font-family: 'AT Lang Gothic';
-    src: url('/src/scss/fonts/ATLangGothic/ATLangGothic-Medium.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLangGothic/ATLangGothic-Medium.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-Medium.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: fallback;
@@ -84,8 +84,8 @@
 
 @font-face {
     font-family: 'AT Lang Gothic';
-    src: url('/src/scss/fonts/ATLangGothic/ATLangGothic-SemiBold.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLangGothic/ATLangGothic-SemiBold.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-SemiBold.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: fallback;
@@ -93,8 +93,8 @@
 
 @font-face {
     font-family: 'AT Lang Gothic';
-    src: url('/src/scss/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff2') format('woff2'),
-        url('/src/scss/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff') format('woff');
+    src: url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff2') format('woff2'),
+        url('#{$base-path}/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff') format('woff');
     font-weight: 600;
     font-style: italic;
     font-display: fallback;

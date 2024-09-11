@@ -67,11 +67,11 @@ class Project {
       await preloadLotties();
 
       if (this.DOM.heroA) {
-        window["animations"]["heroA"] = await import("@modules/motion/intros/heroA");
+        window["animations"]["heroA"] = await import("@jsModules/motion/intros/heroA");
       }
 
       if (this.DOM.heroB) {
-        window["animations"]["heroB"] = await import("@modules/motion/intros/heroB");
+        window["animations"]["heroB"] = await import("@jsModules/motion/intros/heroB");
       }
 
       // ? BOOSTIFY LOAD FORM SCRIPT GENERAL

@@ -6,7 +6,6 @@ class Slider {
     constructor(payload) {
         this.DOM = {
             slider: payload.slider,
-            controls: payload.controls,
             navcontainer: payload.navcontainer,
         };
         this.config = payload.config;
@@ -19,7 +18,6 @@ class Slider {
 
     init() {
         this.config.container = this.DOM.slider;
-        this.config.controlsContainer = this.DOM.controls;
         this.config.navContainer = this.DOM.navcontainer;
         this.slider = tns(this.config);
         gsap.to(this.DOM.slider, { opacity: 1, duration: 0.5, ease: "power4.in"});

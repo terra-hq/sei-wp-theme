@@ -1,6 +1,6 @@
 //* Reset, GC
-@import "./src/scss/framework/_var/_vars.scss";
-@import "./src/scss/framework/_mixins/mixins.scss";
+@import "@scss/framework/_var/_vars.scss";
+@import "@scss/framework/_mixins/mixins.scss";
 @import '@terrahq/gc/library';
 @import '@terrahq/wysiwyg/wordpress';
 @import '@scssFoundation/reset/_reset.scss';
