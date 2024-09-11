@@ -45,7 +45,8 @@ One of the first things we need to change is the VITE_WP_PATH environment variab
 Update `VITE_WP_PATH` as follows:
 
 ``` bash
-VITE_WP_PATH = ./wp-content/themes/{your-theme-name}/public
+VITE_WP_PATH = http://localhost/{your-wordpress-install}/wp-content/themes/{your-theme-name}/public
+ 
 ```
 
 #### Hot reloading
