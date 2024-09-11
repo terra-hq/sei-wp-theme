@@ -7,6 +7,7 @@ import SwupJsPlugin from "@swup/js-plugin";
 import { transition } from "@jsModules/motion/transition/index";
 
 import Blazy from "blazy";
+import Navbar from "@jsModules/navbar/Navbar.js"
 
 class Core {
     constructor(payload) {
@@ -37,6 +38,11 @@ class Core {
     }
    
     eventsCore() {
+        new Navbar({
+            burguer: document.querySelector('.js--burger'),
+            navbar : document.querySelector('.js--navbar'),
+            boostify: this.boostify 
+        }) 
         if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
             this.contentReplaced();
         } else {

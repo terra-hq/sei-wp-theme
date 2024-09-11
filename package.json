@@ -38,6 +38,7 @@
     "boostify": "^0.0.13",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
+    "smooth-scrollbar": "^8.8.4",
     "swup": "^4.6.1",
     "vue": "^3.4.31"
   }

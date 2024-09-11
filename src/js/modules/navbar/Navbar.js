@@ -20,6 +20,9 @@ class Navbar {
             listItems: document.querySelectorAll('.c--nav-a__list-group__item'),
         };
         this.menuItems = [];
+
+        this.boostify = payload.boostify;
+
         this.init();
         this.events();
 
@@ -49,12 +52,12 @@ class Navbar {
 
         // Dynamically import the smooth-scrollbar function,
         // and store it in the window.lib object
-        window["boostify"].click({
+        this.boostify.click({
             element: document.querySelector(".c--header-a__wrapper"),
             callback: async () => {
                 try {
                     // Dynamically import smooth-scrollbar
-                    const smoothScrollbarModule = await import(/* webpackChunkName: "smooth-scrollbar" */ "smooth-scrollbar");
+                    const smoothScrollbarModule = await import("smooth-scrollbar");
                     window.lib.smoothScrollbar = smoothScrollbarModule;
                     // Custom options for the scrollbar
                     const options = {
