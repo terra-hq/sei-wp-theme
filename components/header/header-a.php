@@ -2,7 +2,7 @@
     <div class="c--header-a__wrapper">
         <div class="c--header-a__wrapper__hd">
             <a href="<?php echo home_url(); ?>" class="c--brand-a" aria-label="SEI homepage">
-                <img width=83 height=32 src=<?= get_template_directory_uri() . "/public/assets/logos/sei-logo.svg" ?> alt="SEI logo" class="c--brand-a__media" decoding="async">
+                <img width=83 height=32 src=<?= get_template_directory_uri() . "public/assets/logos/sei-logo.svg" ?> alt="SEI logo" class="c--brand-a__media" decoding="async">
             </a>
         </div>
         <div class="c--header-a__wrapper__bd">

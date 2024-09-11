@@ -78,7 +78,7 @@
                     <span class="g--btn-03__content">
                         <?= $btn['title'] ?>
                     </span>
-                    <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                    <?php include(locate_template('public/assets/btn-03-arrow.svg', false, false)); ?>
                 </a>
             </div>
             <div class="f--col-6 f--col-tabletm-12">

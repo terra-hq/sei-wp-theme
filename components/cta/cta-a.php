@@ -33,7 +33,7 @@
                             <span class="g--btn-03__content">
                                 <?= $btn['title'] ?>
                             </span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('public/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
