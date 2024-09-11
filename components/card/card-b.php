@@ -6,7 +6,7 @@
         </div>
         <a href="<?= $link ?>" class="c--card-b__wrapper__btn">
             <span>Learn More</span>
-            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
         </a>
     </div>
 

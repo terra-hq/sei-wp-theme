@@ -10,7 +10,7 @@
                 <span class="g--btn-03__content">
                     Our Locations
                 </span>
-                <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
             </a>
         </div>
     </div>

@@ -45,7 +45,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -103,7 +103,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -148,7 +148,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -207,7 +207,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -266,7 +266,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -325,7 +325,7 @@
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     <?php endif; ?>
                 </div>

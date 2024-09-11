@@ -51,7 +51,7 @@ $bg_image = $module['bg_image']
                                 <?php if ($btn) : ?>
                                     <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--cta-02__ft-items__content__list-group__item">
                                         <span><?= $btn['title'] ?></span>
-                                        <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                                        <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                                     </a>
                                 <?php endif; ?>
                             </div>

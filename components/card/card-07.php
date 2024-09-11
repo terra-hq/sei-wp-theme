@@ -7,7 +7,7 @@
             <?php } else { ?>
                 <a href="#" class="g--card-07__ft-items__list-group__item">
                     <span>Talk to Us!</span>
-                    <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                    <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
                 </a>
             <?php } ?>
         </div>
