@@ -23,14 +23,15 @@ require get_template_directory() . '/functions/project/taxonomies.php';
 require get_template_directory() . '/functions/project/custom/acf/index.php'; 
 
 // Custom endpoints
-require get_template_directory() . 'functions/project/utilities/endpoints/index.php'; 
+require get_template_directory() . '/functions/project/utilities/endpoints/index.php'; 
+
 
 //Functions specific for this project
-require get_template_directory() . '/functions/project/custom/utilities/manage-columns.php';
-require get_template_directory() . '/functions/project/custom/utilities/set-cookie.php';
-require get_template_directory() . '/functions/project/custom/utilities/login-logo.php';
-require get_template_directory() . '/functions/project/custom/utilities/redirect-cpt.php';
-require get_template_directory() . '/functions/project/custom/utilities/get-spacing.php';
-require get_template_directory() . '/functions/project/custom/utilities/remove-editor.php';
+require get_template_directory() . '/functions/project/utilities/manage-columns.php';
+require get_template_directory() . '/functions/project/utilities/set-cookie.php';
+require get_template_directory() . '/functions/project/utilities/login-logo.php';
+require get_template_directory() . '/functions/project/utilities/redirect-cpt.php';
+require get_template_directory() . '/functions/project/utilities/get-spacing.php';
+require get_template_directory() . '/functions/project/utilities/remove-editor.php';
 
 ?>
