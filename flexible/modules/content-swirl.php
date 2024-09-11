@@ -14,6 +14,6 @@
         </div>
     </div>
     <div class="c--layout-a__media-wrapper">
-        <img src="<?php bloginfo('template_url'); ?>/public/assets/swirl.webp" alt="" class="c--layout-a__media-wrapper__media">
+        <img src="<?php bloginfo('template_url'); ?>/dist/assets/swirl.webp" alt="" class="c--layout-a__media-wrapper__media">
     </div>
 </section>
