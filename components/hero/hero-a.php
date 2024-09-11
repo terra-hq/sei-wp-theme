@@ -65,7 +65,7 @@
                 <?php if ($hero['hero_button']) : ?>
                     <a href="<?php echo $hero['hero_button']['url'] ?>" class="c--hero-a__ft-items__wrapper__btn" <?php get_target_link($hero['hero_button']['target'], $hero['hero_button']['title']) ?>>
                         <span class="c--hero-a__ft-items__wrapper__btn__content"><?php echo $hero['hero_button']['title'] ?></span>
-                        <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                        <?php include(locate_template('public/assets/btn-03-arrow.svg', false, false)); ?>
                     </a>
                 <?php endif; ?>
             </div>
