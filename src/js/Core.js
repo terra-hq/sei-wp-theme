@@ -7,7 +7,6 @@ import SwupJsPlugin from "@swup/js-plugin";
 import { transitionOptions } from "@jsModules/motion/transition/index";
 
 import Blazy from "blazy";
-import Navbar from "@jsModules/navbar/Navbar.js"
 
 class Core {
     constructor(payload) {
@@ -33,16 +32,37 @@ class Core {
         this.boostify = payload.boostify;
         this.instances = [];
 
-
+        this.initCore();
         this.eventsCore();
     }
-   
+   async initCore(){
+    var { default : Navbar } = await import('@jsModules/navbar/Navbar.js');
+    new Navbar({
+        burguer: document.querySelector('.js--burger'),
+        navbar : document.querySelector('.js--navbar'),
+        boostify: this.boostify 
+    }) 
+
+    /**
+     *  Since we are using Boostify, we need to check if the Google Scripts are loaded a few seconds after the page is loaded
+     *  If they are, we load the GTM script
+     *  This project utilizes page transitions, necessitating a custom event after each page change to correspond with a page view in GTM.
+     */
+     var response = await import('@terrahq/helpers/hasGoogleScripts');
+     const hasGoogleScripts = response.hasGoogleScripts;
+     await hasGoogleScripts({ maxTime: 5000 }).then((detected) => {
+         if (detected) {
+             window.dataLayer.push({
+                 event: 'VirtualPageview',
+                 virtualPageURL: window.location.pathname + window.location.search,
+                 virtualPageTitle: document.title
+             });
+         } else {
+             //console.log("Google Scripts not detected");
+         }
+     });
+   }
     eventsCore() {
-        new Navbar({
-            burguer: document.querySelector('.js--burger'),
-            navbar : document.querySelector('.js--navbar'),
-            boostify: this.boostify 
-        }) 
         if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
             this.contentReplaced();
         } else {
