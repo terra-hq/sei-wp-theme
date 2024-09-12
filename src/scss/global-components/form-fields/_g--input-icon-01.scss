@@ -2,7 +2,7 @@
     @include make-form-input-icon-01();
     @include make-form-input-icon-01-modifier(
         $artwork-options: (
-            "background-image": url(@img/search.svg),
+            "background-image": url('#{$base-path}/assets/img/search.svg'),
             "width": 18px,
         ),
         $background-options: (
