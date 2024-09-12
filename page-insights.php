@@ -299,7 +299,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 <div class="c--spinner-wrapper-a f--mt-8 f--mt-tablets-5">
                     <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-category="<?= $categoryName ?>" data-post-type="<?= $postType ?>" data-featured-insight-id="<?= $featured_insight_id ?>"></data-feature>
                         <span class="g--btn-03__content">Load More</span>
-                        <?php include(locate_template('assets/frontend/btn-03-plus.svg', false, false)); ?>
+                        <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>
                     </button>
 
                     <div class="c--spinner-wrapper-a__item g--spinner-01 js--spinner-load-more">
