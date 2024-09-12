@@ -63,7 +63,7 @@ Template Name: Index
                 <div class="f--row f--gap-b">
                     <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
                         <?php
-                            $url = ($post_type === 'functions') ? null : get_the_permalink();
+                            $url = get_the_permalink();
                             $title = get_the_title();
                             $subtitle = get_field('description');
                         ?>
