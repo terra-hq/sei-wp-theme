@@ -118,7 +118,6 @@ function disable_default_styles_and_scripts()
             $wp_scripts->registered['jquery']->deps,
             ['jquery-migrate']
         );
-        wp_deregister_style('dashicons');
     }
 
     wp_deregister_script('jquery');
