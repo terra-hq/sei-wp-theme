@@ -100,7 +100,7 @@
             &::after {
                 transform: none;
                 border: none;
-                background-image: url(@img/search-red.svg);
+                background-image: url('#{$base-path}/assets/img/search-red.svg');
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: right center;

@@ -56,7 +56,7 @@
             ),
             $item-primary-options: ("color": map-get($color-options, a),
                 "letter-spacing": 4.16px),
-            $media-options: ("background-image": url(@img/card-33--second.jpg),
+            $media-options: ("background-image": url('#{$base-path}/assets/img/card-33--second.jpg'),
                 "background-repeat": no-repeat,
                 "background-size": cover,
                 "background-position": center,

@@ -162,7 +162,7 @@
             .actions {
                 @extend .u--position-relative;
                 @extend .c--btn-a;
-                background-image: url(@img/arrow.svg);
+                background-image: url('#{$base-path}/assets/img/arrow.svg');
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: auto 24px;

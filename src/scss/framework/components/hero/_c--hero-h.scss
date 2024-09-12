@@ -9,7 +9,7 @@
 
     &__bg-items {
         @extend .u--position-absolute;
-        background-image: url(@img/swirl.png);
+        background-image: url('#{$base-path}/assets/img/swirl.png');
         background-size: contain;
         background-position: left bottom;
         background-repeat: no-repeat;

@@ -16,7 +16,7 @@
         left: 0;
         width: 12px;
         height: 100%;
-        background-image: url(@img/arrow-link-a.svg);
+        background-image: url('#{$base-path}/assets/img/arrow-link-a.svg');
         background-repeat: no-repeat;
         background-position: left center;
         background-size: contain;
@@ -29,7 +29,7 @@
             text-decoration-color: transparent;
 
             &::before {
-                background-image: url(@img/arrow-link-a-hover.svg);}
+                background-image: url('#{$base-path}/assets/img/arrow-link-a-hover.svg');}
         }
     }
 }
