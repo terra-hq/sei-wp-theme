@@ -15,7 +15,7 @@
         ),
         $custom-options: (
             ".g--hero-03__bg-items": (
-                "background-image": url(@img/swirl.png),
+                "background-image": url('#{$base-path}/assets/img/swirl.png'),
                 "background-repeat": no-repeat,
                 "background-size": contain,
                 "background-position": right bottom,
