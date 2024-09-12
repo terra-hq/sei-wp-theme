@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import In from "./In";
 import Out from "./Out";
-import { checkItems, hideDropdown, hideSidenav } from "./utilities"; 
+import { checkItems, hideDropdown, hideSidenav } from "./utilities";
 import { digElement } from "@terrahq/helpers/digElement";
 
 const transitionOptions = [
@@ -25,7 +25,13 @@ const transitionOptions = [
         const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
         window["lib"]["preloadLotties"] = preloadLotties;
       }
-      await window["lib"]["preloadLotties"]();
+      await window["lib"]["preloadLotties"]({
+        debug: true,
+        selector: document.querySelectorAll(".js--lottie-element"),
+        callback: (payload) => {
+          console.log("All lotties loaded", payload);
+        },
+      });
 
       if (document.querySelector(".c--hero-a")) {
         if (!window["animations"]["heroA"]) {
@@ -79,18 +85,17 @@ const transitionOptions = [
       });
 
       // Check if header has the active class and remove it
-      const activeHeader = document.querySelector('.c--header-a--is-active');
+      const activeHeader = document.querySelector(".c--header-a--is-active");
       if (activeHeader) {
         tl.add(hideDropdown(), "-=0.5"); // Add the hideDropdown animation to the timeline
       }
 
       //TODO this sidenav tl needs to be upgraded
-      const activeBurger = document.querySelector('.c--sidenav-a--is-active');
-      if (activeBurger){
+      const activeBurger = document.querySelector(".c--sidenav-a--is-active");
+      if (activeBurger) {
         tl.add(hideSidenav(), "-=0.5"); // Add the hideSidenav animation to the timeline
       }
 
-      
       tl.add(new Out());
     },
   },

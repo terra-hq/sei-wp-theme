@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="c--hero-b__wrapper__item-right">
-            <div class="c--hero-b__wrapper__item-right__media js--lottie-data" data-src="<?php echo $hero['hero_lottie']['url'] ?>" data-autoplay="true" data-loop="true" data-name="graphic">
+            <div class="js--lottie-element c--hero-b__wrapper__item-right__media" data-path="<?php echo $hero['hero_lottie']['url'] ?>" data-animType="svg" data-loop="true" data-autoplay="true" data-name="graphic"></div>
             </div>
         </div>
     </div>

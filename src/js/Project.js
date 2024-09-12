@@ -5,10 +5,10 @@ import "@scss/style.scss";
 
 const terraVirtual = import.meta.env.VITE_TERRA_VIRTUAL;
 console.log("server is running in " + import.meta.env.MODE + " mode");
-console.log('Terra Virtual Variable:', terraVirtual);
+console.log("Terra Virtual Variable:", terraVirtual);
 
-import gsap from 'gsap';
-import Boostify from 'boostify';
+import gsap from "gsap";
+import Boostify from "boostify";
 import { modifyTag } from "@jsModules/utilities/utilities.js";
 
 function getQueryParam(param) {
@@ -21,7 +21,7 @@ class Project {
     window.isFired = true; // prevent multiple instances of the project class
 
     // terra debug mode, add ?debug to the url to enable debug mode
-    this.terraDebug = getQueryParam('debug');
+    this.terraDebug = getQueryParam("debug");
 
     this.DOM = {
       preloaderPath: document.querySelector(".c--preloader-a__artwork path"),
@@ -39,12 +39,11 @@ class Project {
     });
 
     this.boostify.onload({
-      // if performance is low, increment number 
+      // if performance is low, increment number
       maxTime: 1200,
-    })
+    });
 
-
-    this.init()
+    this.init();
   }
 
   isDesktop() {
@@ -53,7 +52,6 @@ class Project {
 
   async init() {
     try {
-
       // Dynamically import the preloadImages function,
       // and store it in the window.lib object for later use
       const { preloadImages } = await import("@terrahq/helpers/preloadImages");
@@ -64,7 +62,13 @@ class Project {
       // and store it in the window.lib object for later use
       const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
       window["lib"]["preloadLotties"] = preloadLotties;
-      await preloadLotties();
+      await preloadLotties({
+        debug: true,
+        selector: document.querySelectorAll(".js--lottie-element"),
+        callback: (payload) => {
+          console.log("All lotties loaded", payload);
+        },
+      });
 
       if (this.DOM.heroA) {
         window["animations"]["heroA"] = await import("@jsModules/motion/intros/heroA");
@@ -138,12 +142,9 @@ class Project {
           },
         });
       });
-
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
-    }
-    finally {
+    } finally {
       var tl = gsap.timeline({
         defaults: { duration: 0.8, ease: "power1.inOut" },
         onUpdate: async () => {
@@ -155,22 +156,21 @@ class Project {
               boostify: this.boostify,
               debug: this.terraDebug,
             });
-
           }
 
           if (this.terraDebug) {
             (async () => {
               try {
-                const { terraDebugger } = await import('@terrahq/helpers/terraDebugger');
-                terraDebugger({ submitQA: 'clickup-url' });
+                const { terraDebugger } = await import("@terrahq/helpers/terraDebugger");
+                terraDebugger({ submitQA: "clickup-url" });
               } catch (error) {
-                console.error('Error loading the debugger module:', error);
+                console.error("Error loading the debugger module:", error);
               }
             })();
           }
         },
       });
-      
+
       tl.to(this.DOM.preloaderMedia, {
         duration: 1,
         autoAlpha: 0,
@@ -192,13 +192,10 @@ class Project {
       if (this.DOM.heroB) {
         tl.add(new window["animations"]["heroB"].default(), "-=.3");
       }
-
     }
   }
-};
+}
 
 if (!window.isFired) {
   new Project();
 }
-
-
