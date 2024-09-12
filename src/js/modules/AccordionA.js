@@ -1,4 +1,4 @@
-import { debounce } from "./../../../node_modules/@andresclua/debounce-throttle/dist/debounce-trottle.es";
+import { debounce } from '@andresclua/debounce-throttle';
 import { u_style, u_take_your_time } from '@andresclua/jsutil';
 
 class AccordionA {

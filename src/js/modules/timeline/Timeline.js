@@ -1,4 +1,4 @@
-//import { throttle } from "../../../../node_modules/@andresclua/debounce-throttle/dist/debounce-trottle.es";
+//import { throttle } from '@andresclua/debounce-throttle';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"; // Importar ScrollTrigger de GSAP
 

@@ -1,4 +1,4 @@
-import { debounce } from "./../../../../node_modules/@andresclua/debounce-throttle/dist/debounce-trottle.es";
+import { debounce } from '@andresclua/debounce-throttle';
 import { GET_CUSTOM_ENDPOINT } from "./../../services/GET/index.js";
 
 class Searchbar {
