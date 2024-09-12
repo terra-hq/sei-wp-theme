@@ -39,17 +39,17 @@
                     </p>
                     <div class="c--cta-b__wrapper__list-group">
                         <?php if ($list): ?>
-                            <?php foreach ($list as $title): ?>
-                                <span class="c--cta-b__wrapper__list-group__list-item">
-                                    <?php echo $title; ?>
-                                </span>
+                            <?php foreach ($list as $each): ?>
+                                <a href="<?php echo get_the_permalink($each->ID); ?>" class="c--cta-b__wrapper__list-group__list-item">
+                                    <?php echo get_the_title($each->ID); ?>
+                                </a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                         <a href="<?= $card_url ?>" rel="noopener noreferrer" class="c--cta-b__wrapper__list-group__btn">
                             <span class="g--btn-03__content">
                                 See All
                             </span>
-                            <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     </div>
                 </div>

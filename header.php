@@ -20,6 +20,8 @@
 
     <meta name="theme-color" content="#FFFFFF">
 
+    <meta name="google-site-verification" content="LcbhbQD6nPKf97ASCAw2IFz3UH7NhT7bUl0VD2pI1LU" />
+
     <?php wp_head(); ?>
 
     <?php $headerScripts = get_field('header_scripts', 'option'); ?>
