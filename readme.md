@@ -40,7 +40,7 @@ It's recommended to use Node version 21.0.0 or above. While it may work with low
 
 Previously, we used Webpack, which, although powerful, often made custom configurations cumbersome.
 
-One of the first things we need to change is the VITE_WP_PATH environment variable in the .env.virtual file to match the name of our theme.
+One of the first things we need to change is the VITE_WP_PATH environment variable in the .env.virtual file to match the name of our WP install and theme.
 
 Update `VITE_WP_PATH` as follows:
 
