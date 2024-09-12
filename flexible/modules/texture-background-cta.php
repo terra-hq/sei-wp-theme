@@ -13,7 +13,7 @@ $bg_image = $module['bg_image']
             <div class="f--col-12">
                 <div class="g--cta-02 <?= !$full_width ? 'g--cta-02--second' : '' ?>">
                     <?php if (!$bg_image) { ?>
-                        <img src="<?php bloginfo('template_url'); ?>/assets/frontend/background/cta-d-bg-v2.webp" data-src="<?php bloginfo('template_url'); ?>/assets/frontend/background/cta-d-bg-v2.webp" alt="background shape texture" class="g--cta-02__bg-items g--lazy-01" decoding="async" width="1000" height="500" style="aspect-ratio: 1000 / 500" />
+                        <img src="<?php bloginfo('template_url'); ?>/img/bg/cta-d-bg-v2.webp" data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-d-bg-v2.webp" alt="background shape texture" class="g--cta-02__bg-items g--lazy-01" decoding="async" width="1000" height="500" style="aspect-ratio: 1000 / 500" />
                     <?php } elseif(isset($bg_image) && $bg_image) { ?>
                         <?php $image_tag_args = array(
                                 'image' => $bg_image,

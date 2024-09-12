@@ -1,6 +1,6 @@
 <a class="c--card-l <?= $modifierClass ? "c--card-l--$modifierClass" : "" ?>" href="<?= $card['permalink'] ?>" <?php echo $card['target'] ?> >
     <?php if (isset($modifierClass) && $modifierClass === "third") : ?>
-        <img src="<?php bloginfo('template_url'); ?>/assets/frontend/background/card-l-bg.webp" 
+        <img src="<?php bloginfo('template_url'); ?>/img/bg/card-l-bg.webp" 
             class="c--card-l__bg-items" 
         >
     <?php endif; ?>

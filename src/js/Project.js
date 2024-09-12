@@ -37,7 +37,7 @@ class Project {
       debug: false,
       license: import.meta.env.VITE_LICENSE_KEY,
     });
-
+    window["boostify"] = this.boostify;
     this.boostify.onload({
       // if performance is low, increment number
       maxTime: 1200,
