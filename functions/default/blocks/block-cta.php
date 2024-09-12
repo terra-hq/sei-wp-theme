@@ -85,7 +85,7 @@ function acf_block_cta_block($block, $content = '', $is_preview = false, $post_i
                 <?php if ($custom_cta['button']) : ?>
                     <a href="<?php echo $custom_cta['button']['url'] ?>" class="g--card-07__ft-items__list-group__item">
                         <span><?php echo $custom_cta['button']['title'] ?></span>
-                        <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
+                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                     </a>
                 <?php endif; ?>
             </div>

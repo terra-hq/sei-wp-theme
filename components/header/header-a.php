@@ -2,7 +2,7 @@
     <div class="c--header-a__wrapper">
         <div class="c--header-a__wrapper__hd">
             <a href="<?php echo home_url(); ?>" class="c--brand-a" aria-label="SEI homepage">
-                <img width=83 height=32 src=<?= get_template_directory_uri() . "/dist/assets/logos/sei-logo.svg" ?> alt="SEI logo" class="c--brand-a__media" decoding="async">
+                <img width=83 height=32 src=<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?> alt="SEI logo" class="c--brand-a__media" decoding="async">
             </a>
         </div>
         <div class="c--header-a__wrapper__bd">
@@ -106,7 +106,7 @@
         <li class="c--sidenav-a__list-group__item">
             <a href="<?php echo get_field('sidebar_highlighted_link', 'option')['url'] ?>" <?php echo get_target_link(get_field('sidebar_highlighted_link', 'option')['target'], get_field('sidebar_highlighted_link', 'option')['title']) ?> class="c--sidenav-a__list-group__item__link c--sidenav-a__list-group__item__link--second">
                 <span><?php echo get_field('sidebar_highlighted_link', 'option')['title'] ?></span>
-                <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
+                <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
             </a>
         </li>
         <?php endif; ?>

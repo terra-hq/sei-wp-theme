@@ -32,7 +32,7 @@
                                             <span class="g--btn-03__content">
                                                 <?php echo $card['button']['title'] ?>
                                             </span>
-                                            <?php include(locate_template('dist/assets/btn-03-arrow.svg', false, false)); ?>
+                                            <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                                         </a>
                                     </div>
                                 <?php endif; ?>
