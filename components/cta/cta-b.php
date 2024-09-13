@@ -2,12 +2,12 @@
     <div class="c--zoom-section-b">
         <div class="c--zoom-section-b__media-wrapper js--zoom-b" data-hero="false">
             <img
-                data-srcset="<?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-810.webp 810w,
-                    <?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-1300.webp 1300w,
-                    <?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-810-2x.webp 1620w,
-                    <?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-1300-2x.webp 2600w,
-                    <?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-bg2.webp 4096w"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/background/cta-b-bg2.webp"
+                data-srcset="<?php bloginfo('template_url'); ?>/img/bg/cta-b-810.webp 810w,
+                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-1300.webp 1300w,
+                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-810-2x.webp 1620w,
+                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-1300-2x.webp 2600w,
+                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-bg2.webp 4096w"
+                data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-b-bg2.webp"
                 sizes="100vw"
                 class="c--zoom-section-b__media-wrapper__media g--lazy-01" 
                 width="4096"
@@ -49,7 +49,7 @@
                             <span class="g--btn-03__content">
                                 See All
                             </span>
-                            <?php include(locate_template('assets/frontend/btn-03-arrow.svg', false, false)); ?>
+                            <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                         </a>
                     </div>
                 </div>
