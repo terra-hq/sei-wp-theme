@@ -3,7 +3,7 @@
     @extend .u--display-flex;
     min-height: 500px;
     flex: 1;
-    @media all and ($viewport-type:$tablets) {
+    @media all and ($viewport-type:$tabletm) {
         min-height: unset;
     }
 
