@@ -69,7 +69,7 @@ $page_id = get_the_ID();
                                 <span class="g--btn-03__content">
                                     Load More
                                 </span>
-                                <?php include(locate_template('assets/frontend/btn-03-plus.svg', false, false)); ?>
+                                <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>
                             </button>
                         </div>
                     </div>

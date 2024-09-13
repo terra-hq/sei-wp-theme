@@ -12,14 +12,14 @@
 
     if($bg_color == 'f--background-f'){
         $backgrounds = [
-            '/assets/frontend/background/hero-c-bg-01.webp',
-            '/assets/frontend/background/hero-c-bg-02.webp',
-            '/assets/frontend/background/hero-c-bg-03.webp',
-            '/assets/frontend/background/hero-c-bg-04.webp'
+            '/img/bg/hero-c-bg-01.webp',
+            '/img/bg/hero-c-bg-02.webp',
+            '/img/bg/hero-c-bg-03.webp',
+            '/img/bg/hero-c-bg-04.webp'
         ];
         $random_background = $backgrounds[array_rand($backgrounds)];
     } else {
-        $random_background = '/assets/frontend/background/hero-c-bg-purple.webp';
+        $random_background = '/img/bg/hero-c-bg-purple.webp';
     };
 ?>
 
