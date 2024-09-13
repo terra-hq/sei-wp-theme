@@ -86,9 +86,9 @@ $hero = [
                             <div class="c--media-c__wrapper__item-left__item" style="--rate: <?php echo get_field('rating') ?>">
                                 <p class="c--media-c__wrapper__item-left__item__title"><?php echo get_field('rating') ?></p>
                                 <div class="c--media-c__wrapper__item-left__item__media-wrapper">
-                                    <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/assets/frontend/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/assets/frontend/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__media g--lazy-01" />
+                                    <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__media g--lazy-01" />
                                     <div class="c--media-c__wrapper__item-left__item__media-wrapper__artwork">
-                                        <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/assets/frontend/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/assets/frontend/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__artwork__media g--lazy-01" />
+                                        <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__artwork__media g--lazy-01" />
                                     </div>
                                 </div>
                             </div>
