@@ -37,7 +37,10 @@ class Project {
       debug: false,
       license: import.meta.env.VITE_LICENSE_KEY,
     });
+
+    // !we declare window instance to use it in the transition JS classes
     window["boostify"] = this.boostify;
+
     this.boostify.onload({
       // if performance is low, increment number
       maxTime: 1200,
