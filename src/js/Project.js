@@ -165,7 +165,7 @@ class Project {
             (async () => {
               try {
                 const { terraDebugger } = await import("@terrahq/helpers/terraDebugger");
-                terraDebugger({ submitQA: "clickup-url" });
+                terraDebugger({ submitQA: "https://app.clickup.com/2197638/v/l/6-901702004670-1" });
               } catch (error) {
                 console.error("Error loading the debugger module:", error);
               }
