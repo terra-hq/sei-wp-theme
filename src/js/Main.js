@@ -382,117 +382,120 @@ class Main extends Core {
 
     willReplaceContent() {
         super.willReplaceContent();
-    
+
         if (document.querySelectorAll(".js--load-jobs").length && this.instances["LocationJobs"].length) {
-          this.boostify.destroyscroll({ distance: 1, name: "LocationJobs" });
-          document.querySelectorAll(".js--load-jobs").forEach((element, index) => {
-            this.instances["LocationJobs"][index].destroy();
-          });
-          this.instances["LocationJobs"] = [];
+            this.boostify.destroyscroll({ distance: 1, name: "LocationJobs" });
+            document.querySelectorAll(".js--load-jobs").forEach((element, index) => {
+                this.instances["LocationJobs"][index].destroy();
+            });
+            this.instances["LocationJobs"] = [];
         }
-    
+
         if (document.querySelectorAll(".js--load-all-jobs").length && this.instances["LocationJobs"].length) {
-        
-          document.querySelectorAll(".js--load-all-jobs").forEach((element, index) => {
-            this.instances["GetAllJobs"][index].destroy();
-          });
-          
+
+            document.querySelectorAll(".js--load-all-jobs").forEach((element, index) => {
+                this.instances["GetAllJobs"][index].destroy();
+            });
+
         }
-    
+
         if (document.querySelectorAll(".js--zoom").length && this.instances["HeroScroll"].length) {
-          this.boostify.destroyscroll({ distance: 1, name: "HeroScroll" });
-          document.querySelectorAll(".js--zoom").forEach((element, index) => {
-            if (this.instances["HeroScroll"][index]) {
-              this.instances["HeroScroll"][index].destroy();
-            }
-          });
-          this.instances["HeroScroll"] = [];
+            this.boostify.destroyscroll({ distance: 1, name: "HeroScroll" });
+            document.querySelectorAll(".js--zoom").forEach((element, index) => {
+                if (this.instances["HeroScroll"][index]) {
+                    this.instances["HeroScroll"][index].destroy();
+                }
+            });
+            this.instances["HeroScroll"] = [];
         }
-    
+
         if (document.querySelectorAll(".js--zoom-b").length) {
-          this.boostify.destroyscroll({ distance: 5, name: "ZoomScroll" });
-          document.querySelectorAll(".js--zoom-b").forEach((element, index) => {
-            if (this.instances["ZoomScroll"][index]) {
-              this.instances["ZoomScroll"][index].destroy();
-            }
-          });
-          this.instances["ZoomScroll"] = [];
+            this.boostify.destroyscroll({ distance: 5, name: "ZoomScroll" });
+            document.querySelectorAll(".js--zoom-b").forEach((element, index) => {
+                if (this.instances["ZoomScroll"][index]) {
+                    this.instances["ZoomScroll"][index].destroy();
+                }
+            });
+            this.instances["ZoomScroll"] = [];
         }
-    
+
         //Destroy timeline
         if (document.querySelectorAll(".js--timeline-a").length && this.instances["Timeline"].length) {
-          this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
-          document.querySelectorAll(".js--timeline-a").forEach((element, index) => {
-            this.instances["Timeline"][index].destroy();
-          });
-          this.instances["Timeline"] = [];
+            this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
+            document.querySelectorAll(".js--timeline-a").forEach((element, index) => {
+                this.instances["Timeline"][index].destroy();
+            });
+            this.instances["Timeline"] = [];
         }
-    
+
         //Destroy slider
         if (document.querySelectorAll(".js--slider-a").length && this.instances["sliderA"].length) {
-          this.boostify.destroyscroll({ distance: 15, name: "sliderA" });
-          document.querySelectorAll(".js--slider-a").forEach((element, index) => {
-            this.instances["sliderA"][index].destroy();
-          });
-          this.instances["sliderA"] = [];
+            this.boostify.destroyscroll({ distance: 15, name: "sliderA" });
+            document.querySelectorAll(".js--slider-a").forEach((element, index) => {
+                this.instances["sliderA"][index].destroy();
+            });
+            this.instances["sliderA"] = [];
         }
-    
+
         //Destroy counter
         if (document.querySelectorAll(".js--counter").length && this.instances["Counter"].length) {
-          this.boostify.destroyscroll({ distance: 15, name: "Counter" });
-          document.querySelectorAll(".js--counter").forEach((element, index) => {
-            this.instances["Counter"][index].destroy();
-          });
-          this.instances["Counter"] = [];
+            this.boostify.destroyscroll({ distance: 15, name: "Counter" });
+            document.querySelectorAll(".js--counter").forEach((element, index) => {
+                this.instances["Counter"][index].destroy();
+            });
+            this.instances["Counter"] = [];
         }
-    
+
         //Destroy accordion
         if (document.querySelectorAll(".c--accordion-a").length && this.instances["AccordionA"].length) {
-          
-          this.boostify.destroyscroll({ distance: 300, name: "AccordionA" });
-          document.querySelectorAll(".c--accordion-a").forEach((element, index) => {
-            
-              this.instances["AccordionA"][index].destroy();
-            
-          });
-          this.instances["AccordionA"] = [];
+
+            this.boostify.destroyscroll({ distance: 300, name: "AccordionA" });
+            document.querySelectorAll(".c--accordion-a").forEach((element, index) => {
+
+                this.instances["AccordionA"][index].destroy();
+
+            });
+            this.instances["AccordionA"] = [];
         }
-    
+
         //Destroy filter people
         if (document.querySelectorAll("#team-grid-location").length && this.instances["FilterPeople"].length) {
-          this.boostify.destroyscroll({ distance: 1, name: "FilterPeople" });
-          document.querySelectorAll("#team-grid-location").forEach((element, index) => {
-            this.instances["FilterPeople"][index].destroy();
-          });
-          this.instances["FilterPeople"] = [];
+            this.boostify.destroyscroll({ distance: 1, name: "FilterPeople" });
+            document.querySelectorAll("#team-grid-location").forEach((element, index) => {
+                this.instances["FilterPeople"][index].destroy();
+            });
+            this.instances["FilterPeople"] = [];
         }
-    
-        //Destroy insights
-        if (document.querySelectorAll(".js--section-container").length) {
-          document.querySelectorAll(".js--section-container").forEach((element, index) => {
-            this.instances["LoadInsights"][index].destroy();
-          });
-          this.instances["LoadInsights"] = [];
+
+        // Destroy insights
+        if (document.querySelectorAll(".js--section-container").length && this.instances["LoadInsights"] && this.instances["LoadInsights"].length) {
+            document.querySelectorAll(".js--section-container").forEach((element, index) => {
+                if (this.instances["LoadInsights"][index]) {
+                    this.instances["LoadInsights"][index].destroy();
+                }
+            });
+            this.instances["LoadInsights"] = [];
         }
-    
+
+
         //Destroy News
         if (document.querySelectorAll(".js--load-news").length) {
-          document.querySelectorAll(".js--load-news").forEach((element, index) => {
-            this.instances["LoadNews"][index].destroy();
-          });
-          this.instances["LoadNews"] = [];
+            document.querySelectorAll(".js--load-news").forEach((element, index) => {
+                this.instances["LoadNews"][index].destroy();
+            });
+            this.instances["LoadNews"] = [];
         }
-    
+
         //Destroy collapse
         if (document.querySelectorAll(".js--collapse").length && this.instances["Collapse"].length) {
-          
-          this.boostify.destroyscroll({ distance: 300, name: "Collapse" });
-          document.querySelectorAll(".js--collapse").forEach((element, index) => {
-            
-              this.instances["Collapse"][index].destroy();
-            
-          });
-          this.instances["Collapse"] = [];
+
+            this.boostify.destroyscroll({ distance: 300, name: "Collapse" });
+            document.querySelectorAll(".js--collapse").forEach((element, index) => {
+
+                this.instances["Collapse"][index].destroy();
+
+            });
+            this.instances["Collapse"] = [];
         }
     }
 }
