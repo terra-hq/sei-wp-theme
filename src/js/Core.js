@@ -26,7 +26,7 @@ class Core {
                 new SwupDebugPlugin({
                     globalInstance: true,
                 }),
-                new SwupJsPlugin(createTransitionOptions({boostify: this.boostify})),
+                new SwupJsPlugin(createTransitionOptions({boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop})),
             ],
         });
         this.initCore();

@@ -11,6 +11,11 @@ class Main extends Core {
             form7: {
                 enable: false,
             },
+            swup:{
+                transition:{
+                    forceScrollTop: false,
+                },
+            },
             boostify: payload.boostify,
             terraDebug: payload.terraDebug,
         });
