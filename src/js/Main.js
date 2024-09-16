@@ -391,12 +391,16 @@ class Main extends Core {
             this.instances["LocationJobs"] = [];
         }
 
-        if (document.querySelectorAll(".js--load-all-jobs").length && this.instances["LocationJobs"].length) {
-
-            document.querySelectorAll(".js--load-all-jobs").forEach((element, index) => {
-                this.instances["GetAllJobs"][index].destroy();
+        if (
+            Array.isArray(this.instances["GetAllJobs"]) &&  // Ensure GetAllJobs is an array
+            this.instances["GetAllJobs"].length             // Ensure it has elements
+        ) {
+            this.instances["GetAllJobs"].forEach((instance, index) => {
+                if (instance && typeof instance.destroy === 'function') { // Check if destroy() exists
+                    instance.destroy();  // Call destroy
+                }
             });
-
+        
         }
 
         if (document.querySelectorAll(".js--zoom").length && this.instances["HeroScroll"].length) {
