@@ -9,7 +9,7 @@ class Main extends Core {
                 selector: "g--lazy-01",
             },
             form7: {
-                enable: true,
+                enable: false,
             },
             boostify: payload.boostify,
             terraDebug: payload.terraDebug,
