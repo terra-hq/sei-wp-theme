@@ -52,12 +52,12 @@
         <div class="c--card-c__wrapper__ft">
             <?php if(get_field('linkedin_link', $person->ID)): ?>
             <a href="<?php echo get_field('linkedin_link', $person->ID) ?>" target="_blank" rel="noopener nofollow" class="c--card-c__wrapper__ft__link">
-                <img src="<?php bloginfo('template_url'); ?>/assets/frontend/icon/linkedin.svg" class="c--card-c__wrapper__ft__link__icon">
+                <img src="<?php bloginfo('template_url'); ?>/img/linkedin.svg" class="c--card-c__wrapper__ft__link__icon">
             </a>
             <?php endif; ?>
             <?php if(get_field('email', $person->ID)): ?>
             <a href="mailto:<?php echo get_field('email', $person->ID) ?>" class="c--card-c__wrapper__ft__link">
-                <img src="<?php bloginfo('template_url'); ?>/assets/frontend/icon/envelope.svg" class="c--card-c__wrapper__ft__link__icon">
+                <img src="<?php bloginfo('template_url'); ?>/img/envelope.svg" class="c--card-c__wrapper__ft__link__icon">
             </a>
             <?php endif; ?>
 
