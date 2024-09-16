@@ -4,18 +4,20 @@ import SwupDebugPlugin from "@swup/debug-plugin";
 import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 
-import { transitionOptions } from "@jsModules/motion/transition/index";
+import { createTransitionOptions } from "@jsModules/motion/transition/index";
 
 import Blazy from "blazy";
 
 class Core {
     constructor(payload) {
         this.terraDebug = payload.terraDebug;
-        
+        this.firstLoad = true;
+        this.isBlazy = payload.blazy;
+        this.boostify = payload.boostify;
+        this.instances = [];
         this.swup = new Swup({
             linkSelector: "a[href]:not([href$='.pdf']), area[href], svg a[*|href]",
             plugins: [
-                
                 new SwupHeadPlugin({ persistAssets: true }),
                 new SwupScriptsPlugin({
                     head: true,
@@ -24,14 +26,9 @@ class Core {
                 new SwupDebugPlugin({
                     globalInstance: true,
                 }),
-                new SwupJsPlugin(transitionOptions),
+                new SwupJsPlugin(createTransitionOptions({boostify: this.boostify})),
             ],
         });
-        this.firstLoad = true;
-        this.isBlazy = payload.blazy;
-        this.boostify = payload.boostify;
-        this.instances = [];
-
         this.initCore();
         this.eventsCore();
     }
