@@ -87,7 +87,7 @@ $viewport-layouts: (
 );
 $columns: 12;
 $gutter-width: 32px;
-$half-gutter-width: $gutter-width / 2;
+$half-gutter-width: $gutter-width *0.5;
 $gutter-compensation: -1 * $half-gutter-width;
 
 // Use for almost all Uitlities:

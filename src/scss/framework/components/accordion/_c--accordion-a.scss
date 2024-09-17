@@ -121,7 +121,7 @@
                     width: $icon-line-width;
                     bottom: $measure*7;
                     @media all and ($viewport-type: $tablets) {
-                        right: calc(#{$icon-width/2} - #{$icon-line-width/2} + #{$measure*3});
+                        right: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*3});
                     }
                 }
             }

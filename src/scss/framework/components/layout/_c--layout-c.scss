@@ -1,6 +1,9 @@
 .c--layout-c {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    gap: $measure*3;
+    justify-content: start;
+    justify-items: start;
 
     @media all and ($viewport-type: $tabletl) {
         grid-template-columns: repeat(4, 1fr);
@@ -13,7 +16,4 @@
     @media all and ($viewport-type: $tablets) {
         grid-template-columns: repeat(2, 1fr);
     }
-    gap: $measure*3;
-    justify-content: start;
-    justify-items: start;
 }
