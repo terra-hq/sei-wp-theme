@@ -3,6 +3,7 @@ import SwupHeadPlugin from "@swup/head-plugin";
 import SwupDebugPlugin from "@swup/debug-plugin";
 import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
+import SwupFormsPlugin from "@swup/forms-plugin";
 
 import { createTransitionOptions } from "@jsModules/motion/transition/index";
 
@@ -11,9 +12,9 @@ import Blazy from "blazy";
 class Core {
     constructor(payload) {
         this.terraDebug = payload.terraDebug;
-        this.firstLoad = true;
         this.isBlazy = payload.blazy;
         this.boostify = payload.boostify;
+        this.form7 = payload.form7.enable;
         this.instances = [];
         this.swup = new Swup({
             linkSelector: "a[href]:not([href$='.pdf']), area[href], svg a[*|href]",
@@ -29,6 +30,10 @@ class Core {
                 new SwupJsPlugin(createTransitionOptions({boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop})),
             ],
         });
+        if (this.form7) {
+            this.swup.plugins.push(new SwupFormsPlugin({ formSelector: "div.wpcf7 > form" }));
+        }
+        this.firstLoad = true;
         this.initCore();
         this.eventsCore();
     }
@@ -77,6 +82,13 @@ class Core {
     }
 
     contentReplaced() {
+        // import.meta.env.VITE_TERRA_VIRTUAL is true in virtual, false in local and production
+        if (this.form7 && document.querySelector("div.wpcf7") && !import.meta.env.VITE_TERRA_VIRTUAL && !this.firstLoad) {
+            document.querySelectorAll("div.wpcf7 > form").forEach((element) => {
+                wpcf7.init(element);
+            });
+        }
+
         if (this.isBlazy.enable) {
             var lazySelector = this.isBlazy.selector ? this.isBlazy.selector : "g--lazy-01";
             this.instances["Blazy"] = new Blazy({
