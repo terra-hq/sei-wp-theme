@@ -8,9 +8,9 @@ const devSFTPConfig = {
 
 const stageSFTPConfig = {
   host: "stagesei.sftp.wpengine.com",
-  user: "stagesei-stage",
+  user: "stagesei-eli",
   port: "2222",
-  pass: "9s0GQkFyvEb1",
+  pass: "G3gm04%D",
   remotePath: "/wp-content/themes/sei-wp-vite",
 };
 
