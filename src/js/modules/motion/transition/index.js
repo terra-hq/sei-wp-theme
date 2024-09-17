@@ -5,6 +5,7 @@ import { hideDropdown, hideSidenav, smoothScrollToTop } from "./utilities";
 import { u_take_your_time } from '@andresclua/jsutil';
 
 export const createTransitionOptions = (payload) => {
+  var {boostify, forceScroll } = payload;
   return [
     {
       from: "(.*)",
@@ -49,10 +50,10 @@ export const createTransitionOptions = (payload) => {
         const hubspotChecker = document.querySelectorAll(".js--hubspot-script");
         hubspotChecker.forEach(async (element) => {
           try {
-            await payload.boostify.loadScript({
+            await boostify.loadScript({
               url: "https://js.hsforms.net/forms/v2.js",
             });
-            await payload.boostify.loadScript({
+            await boostify.loadScript({
               inlineScript: `
                 hbspt.forms.create({
                     region: "na1",
@@ -84,21 +85,19 @@ export const createTransitionOptions = (payload) => {
       out: (next, infos) => {
         var tl = gsap.timeline({
           onComplete: async () => {
-            if (window.scrollY !== 0) {
-              /**
-               *  We add this last step in order to prevent animations being executed while the page is scrolling to top
-               *  This is a common issue when the user clicks on a link and the page is scrolled to top
-               *  NOTE : This is the first project we do this, so we need to test it in other projects, and could be a good reference 
-               *  for the rest of the team, last but not least we add ad {u_take_your_time} to gain a few milliseconds before the next page is loaded
-               * !you can change the value of forceScroll in Main.js
-               */  
-              if(payload.forceScroll){
+            if (forceScroll) {
+              if (window.scrollY !== 0) {
+                /**
+                 *  We add this last step in order to prevent animations being executed while the page is scrolling to top
+                 *  This is a common issue when the user clicks on a link and the page is scrolled to top
+                 *  NOTE : This is the first project we do this, so we need to test it in other projects, and could be a good reference
+                 *  for the rest of the team, last but not least we add ad {u_take_your_time} to gain a few milliseconds before the next page is loaded
+                 * !you can change the value of forceScroll in Main.js
+                 */
                 await smoothScrollToTop();
               }
+              await u_take_your_time(150);
             }
-        
-            await u_take_your_time(150);
-        
             next();
           }
         });
