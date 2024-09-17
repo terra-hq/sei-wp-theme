@@ -120,6 +120,7 @@
             justify-content: flex-end;
             min-height: 450px;
             padding: $measure * 7 $measure * 5;
+            z-index: 3;
 
             @media all and ($viewport-type: $tablets) {
                 min-height: auto;   
@@ -129,7 +130,6 @@
                 min-height: auto;   
                 padding: $measure * 4;             
             }
-            z-index: 3;
 
             &:hover {
                 .c--card-l__wrapper__title {
