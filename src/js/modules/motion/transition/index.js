@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import In from "./In";
 import Out from "./Out";
-import { hideDropdown, hideSidenav } from "./utilities";
+import { hideDropdown, hideSidenav, smoothScrollToTop } from "./utilities";
 
 export const createTransitionOptions = (payload) => {
   return [
@@ -76,6 +76,10 @@ export const createTransitionOptions = (payload) => {
         }
         if (document.querySelector(".c--hero-b")) {
           tl.add(new window["animations"]["heroB"].default(), "-=.3");
+        }
+
+        if (payload.forceScroll) {
+          await smoothScrollToTop();
         }
       },
 

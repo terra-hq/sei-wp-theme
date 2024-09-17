@@ -88,3 +88,19 @@ export const checkItems = async (payload) => {
     }
   }
 };
+
+
+export function smoothScrollToTop() {
+  return new Promise((resolve) => {
+    const scrollStep = () => {
+      if (window.scrollY === 0) {
+        resolve();
+      } else {
+        requestAnimationFrame(scrollStep);
+      }
+    };
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollStep();
+  });
+}
