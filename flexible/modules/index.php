@@ -22,6 +22,9 @@ switch ($module['acf_fc_layout']) {
     case 'red_cards_with_buttons':
         include (locate_template('flexible/modules/red-cards-with-button.php', false, false));
         break;
+    case 'footnote':
+        include(locate_template('flexible/modules/footnote.php', false, false));
+        break;
     case 'insights':
         include (locate_template('flexible/modules/insights.php', false, false));
         break;
