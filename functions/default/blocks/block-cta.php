@@ -28,7 +28,7 @@ function register_custom_cta()
                 'attributes' => array(
                     'mode' => 'preview',
                     'data' => array(
-                        'preview_image_help' => get_template_directory_uri() . '/assets/frontend/blocks/sei_custom-block-cta.webp',
+                        'preview_image_help' => get_template_directory_uri() . '/img/blocks/sei_custom-block-cta.webp',
                     )
                 )
             ),

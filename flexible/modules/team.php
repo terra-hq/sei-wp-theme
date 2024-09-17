@@ -76,8 +76,8 @@
             <!-- static image, don't use generate image tag function -->
             <img
                 class="c--bg-b__media-wrapper__media g--lazy-01"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
-                src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
+                data-src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
+                src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
                 width=616
                 height=542
                 style="aspect-ratio: 616 / 542"
@@ -120,8 +120,8 @@
             <!-- static image, don't use generate image tag function -->
             <img
                 class="c--bg-b__media-wrapper__media g--lazy-01"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
-                src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
+                data-src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
+                src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
                 width=616
                 height=542
                 style="aspect-ratio: 616 / 542"
@@ -179,8 +179,8 @@
             <!-- static image, don't use generate image tag function -->
             <img
                 class="c--bg-b__media-wrapper__media g--lazy-01"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
-                src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
+                data-src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
+                src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
                 width=616
                 height=542
                 style="aspect-ratio: 616 / 542"
@@ -238,8 +238,8 @@
             <!-- static image, don't use generate image tag function -->
             <img
                 class="c--bg-b__media-wrapper__media g--lazy-01"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
-                src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
+                data-src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
+                src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
                 width=616
                 height=542
                 style="aspect-ratio: 616 / 542"
@@ -297,8 +297,8 @@
             <!-- static image, don't use generate image tag function -->
             <img
                 class="c--bg-b__media-wrapper__media g--lazy-01"
-                data-src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
-                src="<?php bloginfo('template_url'); ?>/assets/frontend/red-swirl.svg"
+                data-src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
+                src="<?php bloginfo('template_url'); ?>/img/red-swirl.svg"
                 width=616
                 height=542
                 style="aspect-ratio: 616 / 542"
