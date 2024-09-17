@@ -24,9 +24,7 @@ class Core {
                     head: true,
                     body: true,
                 }),
-                new SwupDebugPlugin({
-                    globalInstance: true,
-                }),
+                ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []),
                 new SwupJsPlugin(createTransitionOptions({boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop})),
             ],
         });
