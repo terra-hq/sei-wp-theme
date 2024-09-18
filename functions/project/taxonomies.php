@@ -19,17 +19,17 @@ class Custom_Taxonomy {
 
     public function register_taxonomy() {
         $labels = array(
-            'name' => __($this->plural_name, 'SJL'),
-            'singular_name' => __($this->singular_name, 'SJL'),
-            'search_items' => __('Search ' . $this->plural_name, 'SJL'),
-            'all_items' => __('All ' . $this->plural_name, 'SJL'),
-            'parent_item' => __('Parent ' . $this->singular_name, 'SJL'),
-            'parent_item_colon' => __('Parent ' . $this->singular_name . ':', 'SJL'),
-            'edit_item' => __('Edit ' . $this->singular_name, 'SJL'),
-            'update_item' => __('Update ' . $this->singular_name, 'SJL'),
-            'add_new_item' => __('Add New ' . $this->singular_name, 'SJL'),
-            'new_item_name' => __('New ' . $this->singular_name . ' Name', 'SJL'),
-            'menu_name' => __($this->plural_name, 'SJL')
+            'name' => __($this->plural_name, 'SEI'),
+            'singular_name' => __($this->singular_name, 'SEI'),
+            'search_items' => __('Search ' . $this->plural_name, 'SEI'),
+            'all_items' => __('All ' . $this->plural_name, 'SEI'),
+            'parent_item' => __('Parent ' . $this->singular_name, 'SEI'),
+            'parent_item_colon' => __('Parent ' . $this->singular_name . ':', 'SEI'),
+            'edit_item' => __('Edit ' . $this->singular_name, 'SEI'),
+            'update_item' => __('Update ' . $this->singular_name, 'SEI'),
+            'add_new_item' => __('Add New ' . $this->singular_name, 'SEI'),
+            'new_item_name' => __('New ' . $this->singular_name . ' Name', 'SEI'),
+            'menu_name' => __($this->plural_name, 'SEI')
         );
 
         $default_args = array(
@@ -93,6 +93,22 @@ new Custom_Taxonomy((object) array(
     )
 ));
 
+new Custom_Taxonomy((object) array(
+    'taxonomy' => 'news-type',
+    'object_type' => array('news'),
+    'singular_name' => 'Type',
+    'plural_name' => 'Types',
+    'args' => (object) array(
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'news-type', 'with_front' => false)
+    )
+));
+
+
 /**
  * Includes a function that creates custom post type links with taxonomy type in the URL.
  * A post of type "insight" with a taxonomy of "Insight Type" will be renamed to /insight/insight-type.
@@ -118,4 +134,6 @@ function projectcategory_permalink_structure($post_link, $post, $leavename, $sam
     }
     return $post_link;
 }
+
+
 ?>

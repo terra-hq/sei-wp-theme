@@ -55,10 +55,11 @@ $page_id = get_the_ID();
                                         $posts_count = get_posts($args);
                                         $published_posts = count($posts_count); ?>
                                 <?php
-                                        $url = ($post_type === 'functions') ? null : get_field('link')['url'];
+                                        
                                         $title = get_the_title();
                                         $subtitle = get_the_date('M j, Y', get_the_ID());
-                                        $new = true;
+                                        $is_external = has_term('external', 'news-type', $post->ID);
+                                        $url = $is_external ? get_field('link')['url'] : get_the_permalink();
                                         ?>
                                     <?php include(locate_template('components/card/card-e.php', false, false)); ?>
                             <?php endwhile; ?>

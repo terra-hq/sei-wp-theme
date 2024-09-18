@@ -152,5 +152,50 @@ new Custom_Post_Type((object) array(
     )
 ));
 
+add_filter('wpseo_exclude_from_sitemap_by_post_ids', 'exclude_news_from_sitemap');
+function exclude_news_from_sitemap($excluded_posts)
+{
+    $news_query = new WP_Query(
+        array(
+            'post_type' => 'news',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'news-type',
+                    'field' => 'slug',
+                    'terms' => 'internal',
+                    'operator' => 'NOT IN',
+                ),
+            ),
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+        )
+    );
+
+    if ($news_query->have_posts()) {
+        foreach ($news_query->posts as $post_id) {
+            $excluded_posts[] = $post_id;
+        }
+    }
+
+    wp_reset_postdata();
+    return $excluded_posts;
+}
+
+function hide_permalink_metabox()
+{
+    global $post;
+
+    if ($post->post_type === 'news' && !has_term('internal', 'news-type', $post->ID)) {
+        echo '<style>
+            #edit-slug-box { 
+                display: none; 
+            }
+            #slugdiv { 
+                display: none; 
+            }
+        </style>';
+    }
+}
+add_action('admin_head', 'hide_permalink_metabox');
 
 ?>

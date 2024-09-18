@@ -1,5 +1,5 @@
 <?php if ($url): ?>
-    <a href="<?= $url ?>" <?php echo $new ? "target='_blank'" : '' ?> class="c--card-e">
+    <a href="<?= $url ?>" <?php echo $is_external ? "target='_blank'" : '' ?> class="c--card-e">
         <h2 class="c--card-e__title"><?= $title ?></h2>
         <p class="c--card-e__subtitle"><?= $subtitle ?></p>
         <span class="c--card-e__link">Learn More</span>

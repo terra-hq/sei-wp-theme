@@ -21,12 +21,33 @@
              }
          }
      }
- 
-     if ( is_single() && 'news' ==  $queried_post_type) {
-         $principalUrl  = esc_url( home_url( '/news' ) );
-         wp_redirect($principalUrl, 301 );
-         exit;
-     }
+
+     if (is_single() && 'news' == $queried_post_type) {
+        // Verificar si el post tiene la taxonomía 'type' y que no sea 'internal'
+        $terms = get_the_terms(get_the_ID(), 'news-type');
+
+        if ($terms && !is_wp_error($terms)) {
+            $redirect = true;
+
+            foreach ($terms as $term) {
+                if ($term->slug === 'internal') {
+                    $redirect = false;
+                    break;
+                }
+            }
+
+            if ($redirect) {
+                $principalUrl = esc_url(home_url('/news'));
+                wp_redirect($principalUrl, 301);
+                exit;
+            }
+        } else {
+            // Si no tiene términos asociados o hay un error, hacer el redireccionamiento
+            $principalUrl = esc_url(home_url('/news'));
+            wp_redirect($principalUrl, 301);
+            exit;
+        }
+    }
  
      if ( is_single() && 'people' ==  $queried_post_type) {
          $principalUrl  = esc_url( home_url( '/about/leadership/' ) );

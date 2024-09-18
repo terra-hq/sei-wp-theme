@@ -70,10 +70,10 @@ function load_more()
   <?php while ($my_query->have_posts()) :
       $my_query->the_post(); ?>
      <?php
-          $url = get_field('link')['url'];
           $title = get_the_title();
           $subtitle = get_the_date('M j, Y', get_the_ID());
-          $new = true;
+          $is_external = has_term('external', 'news-type', $post->ID);
+          $url = $is_external ? get_field('link')['url'] : get_the_permalink();
           ?>
   <?php include(locate_template('components/card/card-e.php', false, false)); ?>
   
