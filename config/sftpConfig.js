@@ -3,7 +3,7 @@ const devSFTPConfig = {
   user: "seidevelopment-dev",
   port: "2222",
   pass: "n75Bqvk5JlSb",
-  remotePath: "/wp-content/themes/sei-wp-vite",
+  remotePath: "/wp-content/themes/sei-wp-theme",
 };
 
 const stageSFTPConfig = {
@@ -11,7 +11,7 @@ const stageSFTPConfig = {
   user: "stagesei-eli",
   port: "2222",
   pass: "G3gm04%D",
-  remotePath: "/wp-content/themes/sei-wp-vite",
+  remotePath: "/wp-content/themes/sei-wp-theme",
 };
 
 const prodSFTPConfig = {
@@ -19,7 +19,7 @@ const prodSFTPConfig = {
   user: "seiconsulting-terra",
   port: "2222",
   pass: ",q$6!.nf63e0t;^^U",
-  remotePath: "/wp-content/themes/sei-wp-vite",
+  remotePath: "/wp-content/themes/sei-wp-theme",
 };
 
 const filesToExclude = [
