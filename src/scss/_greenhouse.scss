@@ -1,12 +1,17 @@
-@import "@scss/global-components/vars";
-@import '@scss/framework/_var/vars.scss';
 
-@import '@scss/framework/foundation/grid/grid.scss';
-@import '@scss/framework/foundation/reset/reset.scss';
-@import '@scss/framework/foundation/color/color.scss';
-@import '@scss/framework/foundation/background/background.scss';
-@import '@scss/framework/foundation/font/font.scss';
-@import '@scss/framework/foundation/spaces/spaces.scss';
+@import "@scss/framework/_var/_vars.scss";
+@import "@scss/framework/_mixins/mixins.scss";
+@import "@scss/global-components/vars";
+@import '@terrahq/gc/library';
+@import '@terrahq/wysiwyg/wordpress';
+
+
+@import '@scssFoundation/grid/grid.scss';
+@import '@scssFoundation/reset/reset.scss';
+@import '@scssFoundation/color/color.scss';
+@import '@scssFoundation/background/background.scss';
+@import '@scssFoundation/font/font.scss';
+@import '@scssFoundation/spaces/spaces.scss';
 @import "@scss/framework/utilities/_utilities.scss";
 
 
