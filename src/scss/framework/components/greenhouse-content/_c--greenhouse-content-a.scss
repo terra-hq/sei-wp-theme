@@ -46,6 +46,7 @@
                 display: none;
             }
             .location {
+                order: -1;
                 @extend .f--color-c;
                 @extend .f--font-i;
                 text-transform: uppercase;
@@ -55,7 +56,6 @@
                 @media all and ($viewport-type: $tablets) {
                     margin-bottom: $measure * 3;
                 }
-                order: -1;
             }
         }
         #content {
