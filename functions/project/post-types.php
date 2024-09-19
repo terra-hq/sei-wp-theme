@@ -112,7 +112,6 @@ new Custom_Post_Type((object) array(
     'args' => array(
         'menu_icon' => 'dashicons-businessperson',
         'rewrite' => array('slug' => 'people', 'with_front' => false),
-        'publicly_queryable' => false,
         'supports' => array('title'),
     )
 ));
@@ -135,7 +134,6 @@ new Custom_Post_Type((object) array(
     'args' => array(
         'menu_icon' => 'dashicons-bell',
         'rewrite' => array('slug' => 'news'),
-        'publicly_queryable' => false,
         'supports' => array('title', 'page-attributes', 'editor'),
     )
 ));
@@ -147,7 +145,6 @@ new Custom_Post_Type((object) array(
     'args' => array(
         'menu_icon' => 'dashicons-star-filled',
         'rewrite' => array('slug' => 'awards'),
-        'publicly_queryable' => false,
         'supports' => array('title', 'page-attributes'),
     )
 ));
