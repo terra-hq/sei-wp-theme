@@ -54,7 +54,6 @@
 .js--top-space,
 .js--bottom-space {
     margin-left: 1rem;
-    display: flex !important;
     gap: 16px;
     flex-wrap: wrap;
 }
