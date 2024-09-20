@@ -43,6 +43,18 @@
             remove_post_type_support('testimonial', 'editor');
         }
 
+        if ($post->post_type == "news") {
+            $terms = get_the_terms($post->ID, 'news-type');
+            if ($terms && !is_wp_error($terms)) {
+                foreach ($terms as $term) {
+                    if ($term->slug === 'external') {
+                        remove_post_type_support('news', 'editor');
+                        break;
+                    }
+                }
+            }
+        }
+
         if ($post->post_name == 'about') {
             remove_post_type_support('page', 'editor');
         }
