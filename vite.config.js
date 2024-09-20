@@ -62,7 +62,8 @@ export default defineConfig({
     rollupOptions: {
         input: {
           Project: resolve( __dirname + '/src/js/Project.js'),
-          Greenhouse: resolve( __dirname + '/src/js/Greenhouse.js')
+          Greenhouse: resolve( __dirname + '/src/js/Greenhouse.js'),
+          Appbackend: resolve( __dirname + '/src/js/Appbackend.js')
         },
       
         output: {
