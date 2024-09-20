@@ -38,4 +38,10 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 });
 
+// Admin Backend Only (Exclusive CSS for Admin)
+add_action( 'admin_enqueue_scripts', function() {
+
+    wp_enqueue_style('admin-backend-style', get_template_directory_uri() . '/dist/Appbackend.'.hash.'.css');
+    
+});
 ?>
