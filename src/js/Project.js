@@ -40,7 +40,7 @@ class Project {
 
     this.boostify.onload({
       // if performance is low, increment number
-      maxTime: 1500,
+      maxTime: 2400,
     });
 
     this.init();
