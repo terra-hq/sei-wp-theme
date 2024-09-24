@@ -10,27 +10,15 @@
  * @return void
  */
 
-// Add a custom cron schedule for every thirty minutes
-add_filter('cron_schedules', 'add_every_thirty_minutes_cron_schedule');
-function add_every_thirty_minutes_cron_schedule($schedules)
-{
-    $schedules['every_thirty_minutes'] = array(
-        'interval' => 1800,
-        'display' => __('Every 30 Minutes', 'textdomain')
-    );
-    return $schedules;
-}
+new CallCronjob((object) array(
+    'cronName' => 'every_thirty_minutes',  // Email address to be used in the class
+    'interval' =>  1800,                // Interval (in seconds) for some functionality in the class
+    'functionName' => 'detect_robot_callback',           // URL to be used in the class
+));
 
-// Schedule the custom event if it hasn't been scheduled already
-if (!wp_next_scheduled('execute_every_thirty_minutes')) {
-    wp_schedule_event(time(), 'every_thirty_minutes', 'execute_every_thirty_minutes');
-}
-
-// Hook the custom event to the function
-add_action('execute_every_thirty_minutes', 'detect_robot_callback');
 
 function detect_robot_callback()
-{
+{ 
     $home_url = home_url();
     $parsed_url = parse_url($home_url);
     $base_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
@@ -63,8 +51,10 @@ function send_alert_email($status, $url)
         $subject = 'ALERT: Website ' . $url . ' was indexed';
         $message = 'The website at ' . $url . ' was indexed. It has been fixed and now it is not indexed anymore.';
     }
-    $headers = array(
-        'Content-Type: text/html; charset=UTF-8',
-    );
-    wp_mail($to, $subject, $message, $headers);
+    $mail = new MailTo((object) array(
+        'email' => $to,  // Email address to be used in the class
+        'subject' => $subject,                // Interval (in seconds) for some functionality in the class
+        'message' => $message,           // URL to be used in the class
+    ));
+    $mail->send_email_to();
 }

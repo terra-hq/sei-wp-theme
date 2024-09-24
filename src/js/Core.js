@@ -5,7 +5,7 @@ import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 import SwupFormsPlugin from "@swup/forms-plugin";
 
-import { createTransitionOptions } from "@jsModules/motion/transition/index";
+import { createTransitionOptions } from "@jsMotion/transition/index";
 
 import Blazy from "blazy";
 

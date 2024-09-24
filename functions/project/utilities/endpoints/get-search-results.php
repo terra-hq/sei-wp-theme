@@ -51,10 +51,10 @@ function get_search_results($request) {
     return rest_ensure_response($results);
 }
 
-add_action('rest_api_init', function () {
-    register_rest_route('wp/v2/tf_api/', '/get_results/', [
-        'methods' => 'GET',
-        'callback' => 'get_search_results',
-    ]);
-});
+new Custom_API_Endpoint((object) array(
+    'namespace' => 'wp/v2/tf_api/',
+     'route' => '/get_results',
+     'method' => 'GET',
+     'callback_function' => 'get_search_results',
+ ));
 ?>

@@ -34,4 +34,6 @@ require get_template_directory() . '/functions/project/utilities/redirect-cpt.ph
 require get_template_directory() . '/functions/project/utilities/get-spacing.php';
 require get_template_directory() . '/functions/project/utilities/remove-editor.php';
 
+// Lighthouse performance feature
+require get_template_directory() . '/functions/project/terraLighthouse.php'; 
 ?>

@@ -8,8 +8,10 @@
  * When making modifications, please add the 🛠️ Emoji to indicate custom work.
  */
 
-require get_template_directory() . '/functions/default/cronjob.php'; 
-require get_template_directory() . '/functions/default/cleanHouse.php'; 
 require get_template_directory() . '/functions/default/blocks/block-cta.php'; 
+
+require get_template_directory() . '/functions/default/cleanHouse.php'; 
+require get_template_directory() . '/functions/default/terraClasses/index.php'; 
+require get_template_directory() . '/functions/default/cronjobSiteIndex.php'; 
 
 ?>

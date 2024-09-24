@@ -1,55 +1,10 @@
 <?php
+/**
+ * Registers the custom taxonomy using the public Custom_Taxonomy class.
+ *
+ * @return void
+ */
 
-class Custom_Taxonomy {
-    private $taxonomy;
-    private $object_type;
-    private $singular_name;
-    private $plural_name;
-    private $args;
-
-    public function __construct($config) {
-        $this->taxonomy = $config->taxonomy;
-        $this->object_type = $config->object_type;
-        $this->singular_name = $config->singular_name;
-        $this->plural_name = $config->plural_name;
-        $this->args = $config->args;
-
-        add_action('init', array($this, 'register_taxonomy'));
-    }
-
-    public function register_taxonomy() {
-        $labels = array(
-            'name' => __($this->plural_name, 'SEI'),
-            'singular_name' => __($this->singular_name, 'SEI'),
-            'search_items' => __('Search ' . $this->plural_name, 'SEI'),
-            'all_items' => __('All ' . $this->plural_name, 'SEI'),
-            'parent_item' => __('Parent ' . $this->singular_name, 'SEI'),
-            'parent_item_colon' => __('Parent ' . $this->singular_name . ':', 'SEI'),
-            'edit_item' => __('Edit ' . $this->singular_name, 'SEI'),
-            'update_item' => __('Update ' . $this->singular_name, 'SEI'),
-            'add_new_item' => __('Add New ' . $this->singular_name, 'SEI'),
-            'new_item_name' => __('New ' . $this->singular_name . ' Name', 'SEI'),
-            'menu_name' => __($this->plural_name, 'SEI')
-        );
-
-        $default_args = array(
-            'labels' => $labels,
-            'hierarchical' => true,
-            'public' => true,
-            'show_ui' => true,
-            'show_admin_column' => true,
-            'show_in_quick_edit' => true,
-            'show_in_rest' => true,
-            'rewrite' => array('slug' => strtolower(str_replace(' ', '-', $this->singular_name)), 'with_front' => false)
-        );
-
-        $args = array_merge($default_args, (array) $this->args);
-
-        register_taxonomy($this->taxonomy, $this->object_type, $args);
-    }
-}
-
-// Registering the "Insight Types" taxonomy
 new Custom_Taxonomy((object) array(
     'taxonomy' => 'insight-types',
     'object_type' => array('insight'),
