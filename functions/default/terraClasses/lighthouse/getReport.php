@@ -93,7 +93,7 @@ function lighthouse_report_page_content(){
 
 
 function get_lighthouse_report($url, $strategy, $category) {
-    $apiKey = 'AIzaSyB5wFooc9GPPsGpgCOkqKem5W66PLxaeSo';  // Replace with your API key
+    $apiKey = 'AIzaSyCyXdxMw5nFl8mxmT9H8kTaJ4J8B66T978';  // Replace with your API key
     $apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' . urlencode($url) . '&strategy=' . $strategy . '&key=' . $apiKey;
     $apiUrl .= '&category=' . $category; // Append the category to the API URL
 
