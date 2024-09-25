@@ -326,16 +326,22 @@ function delete_from_db_after_month(){
  * @param string $message The body of the email, typically containing the report issues and details.
  */
 function send_notification_email($message){
-    global $terraLighthouse;
-    $email = $terraLighthouse->email;
-    $url = $terraLighthouse->url;
-    // Create an instance of the TerraLighthouse class with specified parameters
-    $sendMail = new MailTo((object) array(
-        'email' => $email,  // Email address to be used in the class
-        'subject' => get_site_name($url) ." Lighthouse Report Issues ",                // Interval (in seconds) for some functionality in the class
-        'message' => $message,           // URL to be used in the class
-    ));
-    $sendMail->send_email_to();
+    // Ensure 'wpengine' is not part of the site URL before sending email
+    if (strpos(get_site_url(), 'wpengine') === false) { 
+        global $terraLighthouse;
+        $email = $terraLighthouse->email;
+        $url = $terraLighthouse->url;
+
+        // Create an instance of the MailTo class with specified parameters
+        $sendMail = new MailTo((object) array(
+            'email' => $email,  // Email address to be used in the class
+            'subject' => get_site_name($url) . " Lighthouse Report Issues",  // Email subject
+            'message' => $message,  // Email body containing Lighthouse issues
+        ));
+        
+        // Send the email
+        $sendMail->send_email_to();
+    }
 }
 
 /**
