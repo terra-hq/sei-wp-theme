@@ -37,12 +37,12 @@ export const createTransitionOptions = (payload) => {
         // Load Hero Animations
         if (document.querySelector(".c--hero-a")) {
           if (!window["animations"]["heroA"]) {
-            window["animations"]["heroA"] = await import("@jsModules/motion/intros/heroA");
+            window["animations"]["heroA"] = await import("@jsMotion/intros/heroA");
           }
         }
         if (document.querySelector(".c--hero-b")) {
           if (!window["animations"]["heroB"]) {
-            window["animations"]["heroB"] = await import("@jsModules/motion/intros/heroB");
+            window["animations"]["heroB"] = await import("@jsMotion/intros/heroB");
           }
         }
 
