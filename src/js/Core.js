@@ -16,21 +16,18 @@ class Core {
         this.boostify = payload.boostify;
         this.form7 = payload.form7.enable;
         this.instances = [];
+        const commonPlugins = [new SwupHeadPlugin({ persistAssets: true }), ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []), new  SwupJsPlugin(createTransitionOptions({boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop}))];
+        const virtualPlugins = [...commonPlugins, new SwupScriptsPlugin({ head: true, body: true })];
+
         this.swup = new Swup({
             linkSelector: "a[href]:not([href$='.pdf']), area[href], svg a[*|href]",
-            plugins: [
-                new SwupHeadPlugin({ persistAssets: true }),
-                new SwupScriptsPlugin({
-                    head: true,
-                    body: true,
-                }),
-                ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []),
-                new SwupJsPlugin(createTransitionOptions({boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop})),
-            ],
+            plugins: import.meta.env.VITE_TERRA_VIRTUAL != 'false' ? virtualPlugins : commonPlugins,
         });
+
         if (this.form7) {
             this.swup.plugins.push(new SwupFormsPlugin({ formSelector: "div.wpcf7 > form" }));
         }
+        
         this.firstLoad = true;
         this.initCore();
         this.eventsCore();
@@ -81,7 +78,7 @@ class Core {
 
     contentReplaced() {
         // import.meta.env.VITE_TERRA_VIRTUAL is true in virtual, false in local and production
-        if (this.form7 && document.querySelector("div.wpcf7") && !import.meta.env.VITE_TERRA_VIRTUAL && !this.firstLoad) {
+        if (this.form7 && document.querySelector("div.wpcf7") && import.meta.env.VITE_TERRA_VIRTUAL == 'false' && !this.firstLoad) {
             document.querySelectorAll("div.wpcf7 > form").forEach((element) => {
                 wpcf7.init(element);
             });
