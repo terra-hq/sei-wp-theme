@@ -264,7 +264,7 @@ function check_metric_and_lighthouse_values(){
                     $message .="<li>Best Practices: ".$bestMobile."</li><br>";
                     $message .="<li>SEO: ".$seoMobile."</li></ul></ul><br><br>";
 
-                    $message .="For more details, click <a href='".get_site_url()."admin.php?page=lighthouse-report'>here</a>.";
+                    $message .="For more details, click <a href='".get_site_url()."/wp-admin/admin.php?page=lighthouse-report'>here</a>.";
 
                     send_notification_email($message);
                 }
@@ -335,7 +335,7 @@ function send_notification_email($message){
         // Create an instance of the MailTo class with specified parameters
         $sendMail = new MailTo((object) array(
             'email' => $email,  // Email address to be used in the class
-            'subject' => get_site_name($url) . " Lighthouse Report Issues",  // Email subject
+            'subject' => get_bloginfo() . " Lighthouse Report Issues",  // Email subject
             'message' => $message,  // Email body containing Lighthouse issues
         ));
         
@@ -371,18 +371,3 @@ function create_error_message($lighthouseValue, $type, $metricValue, $devide) {
     // Return the generated error message
     return $errorIs ? $errorIs : false;
 }
-
-
-function get_site_name($url){
-    // Parse the URL to get the host part
-    $parsedUrl = parse_url($url, PHP_URL_HOST);
-       
-    // Remove 'www.' if present
-    $domain = preg_replace('/^www\./', '', $parsedUrl);
-    
-    // Extract the domain name without the extension
-    $domainParts = explode('.', $domain);
-    $domainName = ucfirst($domainParts[0]); // Capitalize the domain name part
-    
-    return strtoupper($domainName);
-   }
