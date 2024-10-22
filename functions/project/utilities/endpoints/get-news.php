@@ -31,7 +31,6 @@ function load_more()
   $disable_lazy_loading_image = true;
 
   global $my_query;
-  $my_query = new WP_Query($myArgs);
 
   $myArgs = array(
     'post_type' => 'news',
@@ -67,27 +66,27 @@ function load_more()
   $index = 0;
   ?>
 
-  <?php while ($my_query->have_posts()) :
-      $my_query->the_post(); ?>
-     <?php
-          $title = get_the_title();
-          $subtitle = get_the_date('M j, Y', get_the_ID());
-          $is_external = has_term('external', 'news-type', $post->ID);
-          $url = $is_external ? get_field('link')['url'] : get_the_permalink();
-          ?>
-  <?php include(locate_template('components/card/card-e.php', false, false)); ?>
-  
+  <?php while ($my_query->have_posts()):
+    $my_query->the_post(); ?>
+    <?php
+    $title = get_the_title();
+    $subtitle = get_the_date('M j, Y', get_the_ID());
+    $is_external = has_term('external', 'news-type', $post->ID);
+    $url = $is_external ? get_field('external_url') : get_the_permalink();
+    ?>
+    <?php include(locate_template('components/card/card-e.php', false, false)); ?>
+
   <?php endwhile; ?>
 
   <?php wp_reset_postdata();
 
-    $content = ob_get_contents();
-    $response = array(
-      'html' => $content,
-      'postsTotal' => $published_posts,
-    );
-    ob_end_clean();
+  $content = ob_get_contents();
+  $response = array(
+    'html' => $content,
+    'postsTotal' => $published_posts,
+  );
+  ob_end_clean();
 
-    echo json_encode($response);
-    die();
-  }
+  echo json_encode($response);
+  die();
+}

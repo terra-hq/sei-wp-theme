@@ -41,7 +41,7 @@ $page_id = get_the_ID();
     $custom_query = new WP_Query($args);
 
 
-    if ($custom_query->have_posts()) : ?>
+    if ($custom_query->have_posts()): ?>
 
         <section class="f--pb-22 f--pb-tablets-15">
             <div class="f--container">
@@ -49,24 +49,28 @@ $page_id = get_the_ID();
                     <div class="f--col-8 f--col-tabletm-12">
                         <div class="js--news-container c--wrapper-b c--wrapper-b--third">
 
-                            <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+                            <?php while ($custom_query->have_posts()):
+                                $custom_query->the_post(); ?>
                                 <?php $repeater_item = $post->ID ?>
                                 <?php $args['posts_per_page'] = -1;
-                                        $posts_count = get_posts($args);
-                                        $published_posts = count($posts_count); ?>
+                                $posts_count = get_posts($args);
+                                $published_posts = count($posts_count); ?>
                                 <?php
-                                        
-                                        $title = get_the_title();
-                                        $subtitle = get_the_date('M j, Y', get_the_ID());
-                                        $is_external = has_term('external', 'news-type', $post->ID);
-                                        $url = $is_external ? get_field('link')['url'] : get_the_permalink();
-                                        ?>
-                                    <?php include(locate_template('components/card/card-e.php', false, false)); ?>
+
+                                $title = get_the_title();
+                                $subtitle = get_the_date('M j, Y', get_the_ID());
+                                $is_external = has_term('external', 'news-type', $post->ID);
+                                $url = $is_external ? get_field('external_url') : get_the_permalink();
+                                ?>
+                                <?php include(locate_template('components/card/card-e.php', false, false)); ?>
                             <?php endwhile; ?>
 
                         </div>
                         <div class="u--display-flex u--justify-content-center f--mt-8">
-                            <button class="g--btn-03 g--btn-03--fourth js--load-more-news" data-posts-total="<?php echo $published_posts ?>" data-posts-per-page="<?php echo $posts_per_page ?>" data-offset="<?php echo $offset ?>" data-card-path="<?php echo $cardPath ?>" data-post-type="<?= $postType ?>">
+                            <button class="g--btn-03 g--btn-03--fourth js--load-more-news"
+                                data-posts-total="<?php echo $published_posts ?>"
+                                data-posts-per-page="<?php echo $posts_per_page ?>" data-offset="<?php echo $offset ?>"
+                                data-card-path="<?php echo $cardPath ?>" data-post-type="<?= $postType ?>">
                                 <span class="g--btn-03__content">
                                     Load More
                                 </span>
@@ -80,11 +84,11 @@ $page_id = get_the_ID();
                 </div>
             </div>
         </section>
-    <?php
-    else :
+        <?php
+    else:
         ?>
         <p><?php esc_html_e('No posts found.'); ?></p>
-    <?php
+        <?php
     endif;
     ?>
 </div>
