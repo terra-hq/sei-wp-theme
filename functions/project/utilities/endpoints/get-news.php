@@ -31,6 +31,7 @@ function load_more()
   $disable_lazy_loading_image = true;
 
   global $my_query;
+  $my_query = new WP_Query($myArgs);
 
   $myArgs = array(
     'post_type' => 'news',
