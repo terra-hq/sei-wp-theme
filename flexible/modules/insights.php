@@ -88,13 +88,22 @@
                         $modifierClass = ($bgColor != "f--background-a") ? "second" : null;
                         $subtitle = implode(', ', wp_list_pluck(get_the_terms(get_the_ID(), 'insight-types'), 'name'));
                         $tags = wp_list_pluck(get_the_terms(get_the_ID(), 'topics'), 'name');
+                        $insight_types = get_the_terms($post->ID, 'insight-types');
+                        if ($insight_types && $insight_types[0]->name == 'Case Study') {
+                            $permalink = get_field('download_pdf', $post->ID);
+                            $target = "target='_blank'";
+                        } else {
+                            $permalink = get_permalink($post->ID);
+                            $target = null;
+                        }
                         $card = array(
                             'ID' => get_the_ID(),
                             'subtitle' =>  $subtitle,
                             'title' => get_the_title(),
                             'excerpt' => get_the_excerpt(),
-                            'permalink' => get_permalink(),
+                            'permalink' => $permalink, 
                             'tags' =>  $tags,
+                            'target'=> $target,
                         );
                         include (locate_template('components/card/card-l.php', false, false));
                         if ($custom_query->current_post < $custom_query->post_count - 1) { ?>
