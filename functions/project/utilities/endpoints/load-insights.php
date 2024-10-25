@@ -81,8 +81,13 @@ function load_insights()
             $types = get_the_terms($featured_insight[0]->ID, 'insight-types');
             $title = get_the_title($featured_insight[0]->ID);
             if ($types[0]->name == 'Case Study') {
-                $permalink = get_field('download_pdf', $featured_insight[0]->ID);
-                $target = "target='_blank'";
+                if(get_field('case_study_type', $featured_insight[0]->ID) == "external"){
+                    $permalink = get_field('download_pdf', $featured_insight[0]->ID);
+                    $target = "target='_blank'";
+                } else {
+                    $permalink = get_permalink($featured_insight[0]->ID);
+                    $target = null;
+                }
             } else {
                 $permalink = get_permalink($featured_insight[0]->ID);
                 $target = null;
@@ -120,10 +125,14 @@ function load_insights()
                 $title = get_the_title($post->ID);
                 $topics = get_the_terms($post->ID, 'topics');
                 if ($insight_types[0]->name == 'Case Study') {
-                    $permalink = get_field('download_pdf', $post->ID);
-                    $target = "target='_blank'";
-                }
-                else {
+                    if(get_field('case_study_type', $post->ID) == "external"){
+                        $permalink = get_field('download_pdf', $post->ID);
+                        $target = "target='_blank'";
+                    } else {
+                        $permalink = get_permalink($post->ID);
+                        $target = null;
+                    }
+                } else {
                     $permalink = get_permalink($post->ID);
                     $target = null;
                 }

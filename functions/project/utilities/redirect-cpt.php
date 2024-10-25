@@ -14,7 +14,7 @@
      $terms_string = ( $term_obj_list) ? join(', ', wp_list_pluck($term_obj_list, 'slug')) : '';  
      if ( is_single() && 'insight' ==  $queried_post_type) {
          if( isset($terms_string) ){
-             if ($terms_string == 'case-study'){
+             if ($terms_string == 'case-study' && get_field('case_study_type', $queried_id) == "external"){
                  $principalUrl  = esc_url( home_url( '/' ) ). 'insights';
                  wp_redirect($principalUrl, 301 );
                  exit;

@@ -90,8 +90,13 @@
                         $tags = wp_list_pluck(get_the_terms(get_the_ID(), 'topics'), 'name');
                         $insight_types = get_the_terms($post->ID, 'insight-types');
                         if ($insight_types && $insight_types[0]->name == 'Case Study') {
-                            $permalink = get_field('download_pdf', $post->ID);
-                            $target = "target='_blank'";
+                            if(get_field('case_study_type', $featured_insight[0]->ID) == "external"){
+                                $permalink = get_field('download_pdf', $featured_insight[0]->ID);
+                                $target = "target='_blank'";
+                            } else {
+                                $permalink = get_permalink($featured_insight[0]->ID);
+                                $target = null;
+                            }
                         } else {
                             $permalink = get_permalink($post->ID);
                             $target = null;

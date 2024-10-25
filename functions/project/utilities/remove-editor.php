@@ -55,6 +55,20 @@
             }
         }
 
+        if ($post->post_type == "insight") {
+            $terms = get_the_terms($post->ID, 'insight-types');
+            if ($terms && !is_wp_error($terms)) {
+                foreach ($terms as $term) {
+                    if ($term->slug === 'case-study') {
+                        if (get_field('case_study_type', $post->ID) == 'external') {
+                            remove_post_type_support('insight', 'editor');
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         if ($post->post_name == 'about') {
             remove_post_type_support('page', 'editor');
         }
