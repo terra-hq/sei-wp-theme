@@ -49,6 +49,65 @@
         <article class="f--pt-8 f--pt-tablets-5 f--pb-4">
           <div class="c--content-a">
             <?php the_content() ?>
+            <div class="c--slider-b">
+              <div class="c--slider-b__wrapper js--slider-b">
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    alt="image"
+                    decoding="async"
+                  >
+                </div>
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-l-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/card-l-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    decoding="async"
+                  >
+                </div>
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    decoding="async"
+                  >
+                </div>
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    decoding="async"
+                  >
+                </div>
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    decoding="async"
+                  >
+                </div>
+                <div class="c--slider-b__wrapper__item">
+                  <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
+                  <img
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    class="c--slider-b__wrapper__item__media tns-lazy-img"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </article>
         <div class="c--border-a f--pt-4 u--display-flex u--align-items-center">

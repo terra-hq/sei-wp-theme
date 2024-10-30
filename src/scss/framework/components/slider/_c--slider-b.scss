@@ -1,0 +1,21 @@
+.c--slider-b {
+    &__wrapper {
+        opacity: 0;
+        @extend .u--display-flex;
+        &__item {
+            display: flex!important;
+            &__media {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+        } 
+    }
+    .tns-nav {
+        margin-top: $measure*6.5;
+        @media all and (max-width: $mobile) {
+            margin-top: $measure*4;
+        }
+
+    }
+}

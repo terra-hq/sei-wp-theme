@@ -113,9 +113,9 @@ class Main extends Core {
             });
         }
 
-        /**
-   * Testimonial slider
-   */
+    /**
+    * Testimonial slider
+    */
         let sliderAElements = document.querySelectorAll(".js--slider-a");
         if (sliderAElements.length) {
             this.instances["sliderA"] = [];
@@ -133,6 +133,33 @@ class Main extends Core {
                             nav: slider.nextElementSibling,
                             config: sliderAConfig,
                             windowName: "SliderA",
+                            index: index,
+                        });
+                    });
+                },
+            });
+        }
+
+    /**
+    * Images slider (gutenberg)
+    */
+        let sliderBElements = document.querySelectorAll(".js--slider-b");
+        if (sliderBElements.length) {            
+            this.instances["sliderB"] = [];            
+            this.boostify.scroll({
+                distance: 15,
+                name: "sliderB",
+                callback: async () => {
+                    const { sliderBConfig } = await import("@jsModules/slider/slidersConfig");
+                    const { default: SliderB } = await import("@jsModules/slider/Slider.js");
+                    window["lib"]["SliderB"] = SliderB;
+
+                    sliderBElements.forEach((slider, index) => {
+                        this.instances["sliderB"][index] = new window["lib"]["SliderB"]({
+                            slider: slider,
+                            nav: slider.nextElementSibling,
+                            config: sliderBConfig,
+                            windowName: "SliderB",
                             index: index,
                         });
                     });
@@ -444,6 +471,14 @@ class Main extends Core {
                 this.instances["sliderA"][index].destroy();
             });
             this.instances["sliderA"] = [];
+        }
+
+        if (document.querySelectorAll(".js--slider-b").length && this.instances["sliderB"].length) {
+            this.boostify.destroyscroll({ distance: 15, name: "sliderB" });
+            document.querySelectorAll(".js--slider-b").forEach((element, index) => {
+                this.instances["sliderB"][index].destroy();
+            });
+            this.instances["sliderB"] = [];
         }
 
         //Destroy counter
