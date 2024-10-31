@@ -82,8 +82,8 @@
                 <div class="c--slider-b__wrapper__item">
                   <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
                   <img
-                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
-                    src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-b-bg.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/bg/cta-b-bg.webp"
                     class="c--slider-b__wrapper__item__media tns-lazy-img"
                     decoding="async"
                   >
@@ -91,8 +91,8 @@
                 <div class="c--slider-b__wrapper__item">
                   <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
                   <img
-                    data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
-                    src="<?php bloginfo('template_url'); ?>/img/bg/cta-e-bg.webp"
+                    data-src="<?php bloginfo('template_url'); ?>/img/test.png"
+                    src="<?php bloginfo('template_url'); ?>/img/test.png"
                     class="c--slider-b__wrapper__item__media tns-lazy-img"
                     decoding="async"
                   >
@@ -100,12 +100,24 @@
                 <div class="c--slider-b__wrapper__item">
                   <!-- add generate image tag function, sizes (max-width: 580px) 100w, (max-width: 810px) 50w, 33w, no lazy -->
                   <img
-                    data-src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
-                    src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg.webp"
+                    data-src="<?php bloginfo('template_url'); ?>/img/swirl.webp"
+                    src="<?php bloginfo('template_url'); ?>/img/swirl.webp"
                     class="c--slider-b__wrapper__item__media tns-lazy-img"
                     decoding="async"
                   >
                 </div>
+              </div>
+              <div class="c--slider-b__controls">
+                <button class="c--slider-b__controls__btn" aria-label="previous slide">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
+                    <path d="M25 11L1 11M1 11L10 2M1 11L10 20" stroke="#F01840" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button class="c--slider-b__controls__btn" aria-label="next slide">
+                  <svg width="26" height="22" viewBox="0 0 26 22" fill="none">
+                    <path d="M1 11L25 11M25 11L16 20M25 11L16 2" stroke="#F01840" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>

@@ -21,13 +21,14 @@ const sliderAConfig = {
 };
 
 const sliderBConfig = {
-    loop: true,
+    loop: false,
     items: 1,
     gutter: 32,
     slideBy: 1,
-    controls: false,
-    nav: true,
-    navPosition: "bottom",
+    controls: true,
+    controlsContainer: ".c--slider-b__controls",
+    nav: false,
+    controlsPosition: "bottom",
     rewind: false,
     swipeAngle: 60,
     lazyload: true,
@@ -40,6 +41,7 @@ const sliderBConfig = {
     preventActionWhenRunning: true,
     preventScrollOnTouch: "auto",
     touch: true,
+    autoWidth: true,
     responsive: {
         580: {
             items: 2

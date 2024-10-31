@@ -1,21 +1,23 @@
 .c--slider-b {
     &__wrapper {
         opacity: 0;
-        @extend .u--display-flex;
         &__item {
-            display: flex!important;
             &__media {
-                width: 100%;
+                @extend .u--display-block;
                 height: 250px;
-                object-fit: cover;
+                object-fit: contain;
             }
         } 
     }
-    .tns-nav {
-        margin-top: $measure*6.5;
-        @media all and (max-width: $mobile) {
-            margin-top: $measure*4;
+    &__controls {
+        @extend .u--display-flex;
+        @extend .u--align-items-center;
+        @extend .u--justify-content-center;
+        gap: $measure*4;
+        margin-top: $measure*4;
+        &__btn {
+            @extend .c--btn-a;
+            @extend .c--btn-a--second;
         }
-
     }
 }

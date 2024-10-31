@@ -23,4 +23,26 @@
             background-color: map-get($color-options, d);
         }
     }
+
+    &--second {
+        border-color: map-get($color-options, c);
+        width: 56px;
+        height: 56px;
+        svg {
+            height: 18px;
+            path {
+                stroke: map-get($color-options, c);
+                transition: stroke $time-b $ease-standard-a;
+            }
+        }
+        @media (hover: hover) {
+            &:hover {
+                svg {
+                    path {
+                        stroke: map-get($color-options, a);
+                    }
+                }
+            }
+        }
+    }
 }
