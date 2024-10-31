@@ -44,21 +44,15 @@ function acf_block_slider_block($block, $content = '', $is_preview = false, $pos
 
     <div class="c--slider-b">
         <div class="c--slider-b__wrapper js--slider-b">
-            <?php foreach ($slides as $key => $slide) { ?>
-                <div class="c--slider-b__wrapper__item">
-                    <?php  $image_tag_args = array(
-                        'image' => $slide['img'],
-                        'sizes' => '(max-width: 580px) 100w, (max-width: 810px) 50w, 33w',
-                        'class' => 'c--slider-b__wrapper__item__media tns-lazy-img',
-                        'isLazy' => false,
-                        'showAspectRatio' => true,
-                        'decodingAsync' => true,
-                        'fetchPriority' => false,
-                        'addFigcaption' => false,
-                    );
-                    generate_image_tag($image_tag_args) ?>
-                </div>
-            <?php } ?>
+          
+
+            <?php foreach ($slides as $key => $slide) {
+                    if (isset($slide['img'])) {
+                        echo '<div class="c--slider-b__wrapper__item">';
+                        echo '<img class=" c--slider-b__wrapper__item__media" src="' . esc_url($slide['img']) . '" alt="Slide image ' . $key . '">';
+                        echo '</div>';
+                    } 
+                } ?>
 
         </div>
         <div class="c--slider-b__controls">
