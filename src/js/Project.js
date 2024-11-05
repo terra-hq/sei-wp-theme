@@ -28,6 +28,8 @@ class Project {
       preloaderMedia: document.querySelector(".c--preloader-a__media-wrapper__media"),
       heroA: document.querySelector(".c--hero-a"),
       heroB: document.querySelector(".c--hero-b"),
+      images: document.querySelector("img"),
+      lotties: document.querySelectorAll(".js--lottie-element"),
     };
 
     window["lib"] = {};
@@ -54,21 +56,25 @@ class Project {
     try {
       // Dynamically import the preloadImages function,
       // and store it in the window.lib object for later use
-      const { preloadImages } = await import("@terrahq/helpers/preloadImages");
-      window["lib"]["preloadImages"] = preloadImages;
-      await preloadImages("img");
+      if(this.DOM.images){
+        const { preloadImages } = await import("@terrahq/helpers/preloadImages");
+        window["lib"]["preloadImages"] = preloadImages;
+        await preloadImages("img");
+      }
 
       // Dynamically import the preloadLotties function,
       // and store it in the window.lib object for later use
-      const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
-      window["lib"]["preloadLotties"] = preloadLotties;
-      await preloadLotties({
-        debug: true,
-        selector: document.querySelectorAll(".js--lottie-element"),
-        callback: (payload) => {
-          console.log("All lotties loaded", payload);
-        },
-      });
+      if(this.DOM.lotties){
+        const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
+        window["lib"]["preloadLotties"] = preloadLotties;
+        await preloadLotties({
+          debug: true,
+          selector: document.querySelectorAll(".js--lottie-element"),
+          callback: (payload) => {
+            console.log("All lotties loaded", payload);
+          },
+        });
+      }
 
       if (this.DOM.heroA) {
         window["animations"]["heroA"] = await import("@jsMotion/intros/heroA");
@@ -80,68 +86,73 @@ class Project {
 
       // ? BOOSTIFY LOAD FORM SCRIPT GENERAL
       const hubspotChecker = document.querySelectorAll(".js--hubspot-script");
-      hubspotChecker.forEach(async (element) => {
-        try {
-          await this.boostify.loadScript({
-            url: "https://js.hsforms.net/forms/v2.js",
-          });
-          await this.boostify.loadScript({
-            inlineScript: `
-                hbspt.forms.create({
-                    region: "na1",
-                    portalId: "${element.getAttribute("data-portal-id")}",
-                    formId: "${element.getAttribute("data-form-id")}"
-                });`,
-            appendTo: element,
-            attributes: ["id=general-hubspot"],
-          });
-          // * the previous code adds the [data-swup-ignore-script] attribute to the script to avoid Swup reloading it ^
-        } catch (error) {
-          console.error("Error loading HubSpot script:", error);
-        }
-      });
+      if(hubspotChecker.length){
+        hubspotChecker.forEach(async (element) => {
+          try {
+            await this.boostify.loadScript({
+              url: "https://js.hsforms.net/forms/v2.js",
+            });
+            await this.boostify.loadScript({
+              inlineScript: `
+                  hbspt.forms.create({
+                      region: "na1",
+                      portalId: "${element.getAttribute("data-portal-id")}",
+                      formId: "${element.getAttribute("data-form-id")}"
+                  });`,
+              appendTo: element,
+              attributes: ["id=general-hubspot"],
+            });
+            // * the previous code adds the [data-swup-ignore-script] attribute to the script to avoid Swup reloading it ^
+          } catch (error) {
+            console.error("Error loading HubSpot script:", error);
+          }
+        });
+      }
+
       // * BOOSTIFY LOAD FORM SCRIPT footer
       // check if there's a div with the class js--hubspot-script
       // if there is, load the hubspot form script as attribute data-portal-id and data-form-id
       const hubspotFooterChecker = document.querySelectorAll(".js--hubspot-script--footer");
-      hubspotFooterChecker.forEach((element) => {
-        let executed = false; // Bandera para controlar la ejecución
-        this.boostify.observer({
-          options: {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.5,
-          },
-          element: element,
-          callback: async () => {
-            if (executed) return; // Si ya se ejecutó, no hacemos nada
-            executed = true; // Marcamos como ejecutado
-
-            await this.boostify.loadScript({
-              url: "https://js.hsforms.net/forms/v2.js",
-            });
-
-            await this.boostify.loadScript({
-              inlineScript: `
-                      hbspt.forms.create({
-                        region: "na1",
-                        portalId: "${element.getAttribute("data-portal-id")}",
-                        formId: "${element.getAttribute("data-form-id")}"
-                      });`,
-              appendTo: element,
-              attributes: ["id=footer-hubspot"],
-            });
-
-            modifyTag({
-              element: element.children[0],
-              attributes: {
-                "data-swup-ignore-script": "",
-              },
-              delay: 250,
-            });
-          },
+      if(hubspotFooterChecker.length){
+        hubspotFooterChecker.forEach((element) => {
+          let executed = false; // Bandera para controlar la ejecución
+          this.boostify.observer({
+            options: {
+              root: null,
+              rootMargin: "0px",
+              threshold: 0.5,
+            },
+            element: element,
+            callback: async () => {
+              if (executed) return; // Si ya se ejecutó, no hacemos nada
+              executed = true; // Marcamos como ejecutado
+  
+              await this.boostify.loadScript({
+                url: "https://js.hsforms.net/forms/v2.js",
+              });
+  
+              await this.boostify.loadScript({
+                inlineScript: `
+                        hbspt.forms.create({
+                          region: "na1",
+                          portalId: "${element.getAttribute("data-portal-id")}",
+                          formId: "${element.getAttribute("data-form-id")}"
+                        });`,
+                appendTo: element,
+                attributes: ["id=footer-hubspot"],
+              });
+  
+              modifyTag({
+                element: element.children[0],
+                attributes: {
+                  "data-swup-ignore-script": "",
+                },
+                delay: 250,
+              });
+            },
+          });
         });
-      });
+      }
     } catch (e) {
       console.log(e);
     } finally {

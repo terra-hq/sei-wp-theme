@@ -161,7 +161,6 @@ class LoadInsights {
     checkVisibilityLoadMore() {
         var postCount = this.payload.query.offset + this.payload.query.postPerPage;
         var postTotal = this.payload.query.total;
-        console.log(postCount, postTotal);
         this.payload.dom.triggerElement && u_style(this.payload.dom.triggerElement, [{ display: postCount < postTotal ? "flex" : "none" }]);
     }
 
