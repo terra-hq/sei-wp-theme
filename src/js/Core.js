@@ -74,6 +74,16 @@ class Core {
     this.swup.hooks.before("content:replace", () => {
       this.willReplaceContent();
     });
+
+    this.swup.hooks.on("page:view", async () => {
+      if(this.detected){
+          window.dataLayer.push({
+              event: "VirtualPageview",
+              virtualPageURL: window.location.pathname + window.location.search,
+              virtualPageTitle: document.title,
+          });
+      }
+    });
   }
 
   contentReplaced() {
