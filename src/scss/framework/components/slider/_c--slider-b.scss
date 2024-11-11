@@ -1,5 +1,7 @@
 .c--slider-b {
+    margin-bottom: $measure*4;
     &__wrapper {
+        display: block !important;
         opacity: 0;
         &__item {
             &__media {

@@ -21,26 +21,24 @@ const sliderAConfig = {
 };
 
 const sliderBConfig = {
-    loop: false,
+    loop: true,
     items: 1,
     gutter: 32,
     slideBy: 1,
     controls: true,
     controlsContainer: ".c--slider-b__controls",
     nav: false,
-    controlsPosition: "bottom",
     rewind: false,
     swipeAngle: 60,
-    lazyload: true,
-    lazyloadSelector: '.tns-lazy-img',
-    autoplay: true,
+    lazyload: false,
+    autoplay: false,
     mouseDrag: true,
     autoplayButtonOutput: false,
     speed: 350,
     autoplayTimeout: 40000,
     preventActionWhenRunning: true,
     preventScrollOnTouch: "auto",
-    touch: true,
+    touch: false,
     autoWidth: true,
     responsive: {
         580: {
