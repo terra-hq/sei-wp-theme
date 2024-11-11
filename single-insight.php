@@ -26,14 +26,21 @@
             $total_authors = count($authors);
             foreach ($authors as $index => $author) {
               if ($index == $total_authors - 1 && $total_authors > 1) {
-                $output .= ' and ';
+                $output .= '<span class="u--opacity-6"> and </span>';
               } elseif ($index > 0) {
                 $output .= ', ';
               }
-              $output .= '<a target="_blank" href="' . get_field('linkedin_link', $author->ID) . '" class="g--link-01 g--link-01--fourth">' . $author->post_title . '</a>';
+
+              $linkedin_link = get_field('linkedin_link', $author->ID);
+              if ($linkedin_link) {
+                $output .= '<a target="_blank" href="' . esc_url($linkedin_link) . '" class="g--link-01 g--link-01--fourth">' . esc_html($author->post_title) . '</a>';
+              } else {
+                $output .= '<span class="u--opacity-6">' . esc_html($author->post_title) . '</span>';
+              }
             }
             echo $output;
-          } ?>
+          }
+          ?>
         </p>
         <?php $topics = get_the_terms(get_the_ID(), 'topics');
         if ($topics && !is_wp_error($topics)) {

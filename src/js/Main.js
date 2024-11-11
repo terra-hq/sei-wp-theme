@@ -19,6 +19,18 @@ class Main extends Core {
             boostify: payload.boostify,
             terraDebug: payload.terraDebug,
         });
+        this.init();
+        this.events();
+    }
+
+    init(){
+        // Loads Core init function
+        super.init()
+    }
+
+    events(){
+        // Loads Core events function
+        super.events()
     }
 
     async contentReplaced() {

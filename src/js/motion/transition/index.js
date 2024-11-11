@@ -13,26 +13,26 @@ export const createTransitionOptions = (payload) => {
 
       in: async (next, infos) => {
         // Preload Images
-        if (!window["lib"]["preloadImages"]) {
-          const { preloadImages } = await import("@terrahq/helpers/preloadImages");
-          window["lib"]["preloadImages"] = preloadImages;
-          await preloadImages("img");
-        } else {
-          await window["lib"]["preloadImages"]("img");
+        var images = document.querySelector("img");
+        if(images){
+            if (!window["lib"]["preloadImages"]) {
+                const { preloadImages } = await import("@terrahq/helpers/preloadImages");
+                window["lib"]["preloadImages"] = preloadImages;
+            }
+            await window["lib"]["preloadImages"]("img");
         }
 
         // Preload Lotties
-        if (!window["lib"]["preloadLotties"]) {
-          const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
-          window["lib"]["preloadLotties"] = preloadLotties;
+        const lottieElements = document.querySelectorAll(".js--lottie-element");
+        if(lottieElements.length){
+            if (!window["lib"]["preloadLotties"]) {
+                const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
+                window["lib"]["preloadLotties"] = preloadLotties;
+            }
+            await window["lib"]["preloadLotties"]({
+                selector: lottieElements,
+            });
         }
-        await window["lib"]["preloadLotties"]({
-          debug: true,
-          selector: document.querySelectorAll(".js--lottie-element"),
-          callback: (payload) => {
-            console.log("All lotties loaded", payload);
-          },
-        });
 
         // Load Hero Animations
         if (document.querySelector(".c--hero-a")) {
@@ -48,25 +48,27 @@ export const createTransitionOptions = (payload) => {
 
         // Load HubSpot Forms
         const hubspotChecker = document.querySelectorAll(".js--hubspot-script");
-        hubspotChecker.forEach(async (element) => {
-          try {
-            await boostify.loadScript({
-              url: "https://js.hsforms.net/forms/v2.js",
-            });
-            await boostify.loadScript({
-              inlineScript: `
-                hbspt.forms.create({
-                    region: "na1",
-                    portalId: "${element.getAttribute("data-portal-id")}",
-                    formId: "${element.getAttribute("data-form-id")}"
-                });`,
-              appendTo: element,
-              attributes: ["id=general-hubspot"],
-            });
-          } catch (error) {
-            console.error("Error loading HubSpot script:", error);
-          }
-        });
+        if(hubspotChecker.length){
+          hubspotChecker.forEach(async (element) => {
+            try {
+              await boostify.loadScript({
+                url: "https://js.hsforms.net/forms/v2.js",
+              });
+              await boostify.loadScript({
+                inlineScript: `
+                  hbspt.forms.create({
+                      region: "na1",
+                      portalId: "${element.getAttribute("data-portal-id")}",
+                      formId: "${element.getAttribute("data-form-id")}"
+                  });`,
+                appendTo: element,
+                attributes: ["id=general-hubspot"],
+              });
+            } catch (error) {
+              console.error("Error loading HubSpot script:", error);
+            }
+          });
+        }
 
         // Timeline Animations
         var tl = gsap.timeline({
