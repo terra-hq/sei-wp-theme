@@ -16,15 +16,15 @@
         padding: $measure*4;
         right: 0;
         top:20px;
+        @media all and ($viewport-type: $tablets) {
+            top: 0;
+            padding: $measure*2.5;
+        }
         svg {
             @extend .u--display-block;
             path {
                 transition: stroke $time-b $ease-standard-a;
             }
-        }
-        @media all and ($viewport-type: $tablets) {
-            top: 0;
-            padding: $measure*2.5;
         }
         @media (hover: hover) {
             &:hover {
@@ -43,7 +43,7 @@
         gap: $measure*3;
         padding: $measure*12 $measure*5 $measure*7 $measure*5;
         @media all and ($viewport-type: $tablets) {
-            padding: $measure*7 $measure*2.5 $measure*4;
+            padding: $measure*7 $measure*2.5 $measure*4 !important;
         }
         
         &__item{

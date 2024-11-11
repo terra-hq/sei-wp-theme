@@ -4,7 +4,7 @@
             <?php
             $image_tag_args = array(
                 'image' => $hero['hero_background_image'],
-                'sizes' => '100vw',
+                'sizes' => '(max-width: 580px) 400vw, 100vw',
                 'class' => 'c--zoom-section-a__media-wrapper__media',
                 'isLazy' => false,
                 'showAspectRatio' => true,
