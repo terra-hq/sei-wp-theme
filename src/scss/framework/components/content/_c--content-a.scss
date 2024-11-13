@@ -129,6 +129,14 @@
       
     );
 
+    .wp-block-video {
+      margin-bottom: $measure*3;
+      @extend .u--width-100;
+      video {
+        @extend .u--width-100;
+      }
+    }
+
     .g--card-07 {
       margin-bottom: $measure*4;
     }
