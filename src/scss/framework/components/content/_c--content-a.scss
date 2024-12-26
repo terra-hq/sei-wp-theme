@@ -63,14 +63,14 @@
         "bold-font-weight": 600,
       ),
       $quote-options: (
-        "padding": $measure*3 0,
-        "margin-top": $measure,
-        "margin-bottom": $measure*4,
         "border": (
           "border-color": rgba(map-get($color-options, b), .6),
           "border-style": solid,
           "border-width": 1px 0,
         ),
+        "padding": $measure*3 0,
+        "margin-top": $measure,
+        "margin-bottom": $measure*4,
         "paragraph": (
           "className": f--font-g u--font-light,
         ),
@@ -122,6 +122,11 @@
       ),
       $video-options: (
         "margin-bottom": $measure*3,
+        "caption": (
+          "className": f--font-i,
+          "padding-top": $measure*2,
+          "text-align": right,
+        ),
       ),
       $utilities-options: (
         "media-text-aligned-margin-x": $measure*5

@@ -2,6 +2,7 @@
     @extend .f--background-c;
     @extend .u--width-100;
     @extend .c--curve-a;
+    z-index: 1;
     &__hd {
         padding: $measure*8 0 $measure*4;
         &__link {

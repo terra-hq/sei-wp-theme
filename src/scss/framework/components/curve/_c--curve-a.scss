@@ -5,18 +5,12 @@
         content: '';
         @extend .u--position-absolute;
         background: inherit;
-        // width: calc(100vw + 40px);
         width: calc(100% + 4px);
         height: calc(44px * 2);
         top: -44px;
         left: 50%;
         transform: translateX(-50%);
-        // border-radius: 100%;
         z-index: 0;
-
-
-        // width: 650vw;
-        // aspect-ratio: 1 / 1;
         clip-path: circle(650vw at 50% 650vw);
         @media all and ($viewport-type: $tablets) {
             top: -32px;

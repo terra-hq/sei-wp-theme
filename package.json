@@ -34,7 +34,7 @@
     "@terrahq/collapsify": "^0.0.19",
     "@terrahq/gc": "file:terrahq-gc-0.0.7.tgz",
     "@terrahq/helpers": "^0.0.53",
-    "@terrahq/wysiwyg": "file:terrahq-wysiwyg-0.0.4.tgz",
+    "@terrahq/wysiwyg": "file:terrahq-wysiwyg-0.0.6.tgz",
     "@vitejs/plugin-vue": "^5.0.5",
     "blazy": "^1.8.2",
     "boostify": "^0.0.13",
