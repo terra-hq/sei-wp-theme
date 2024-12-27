@@ -34,8 +34,15 @@
     <?php $bodyTopScripts = get_field('body_top_scripts', 'option'); ?>
     <?php echo $bodyTopScripts; ?>
 
-    <!-- Header -->
-    <?php include(locate_template('components/header/header-a.php', false, false)); ?>
+    <div class="c--header-wrapper-a">
+        <!-- Banner -->
+        <div class="f--container f--container--tablets-fluid">
+            <?php include(locate_template('components/banner/banner-01.php', false, false)); ?>
+        </div>
+
+        <!-- Header -->
+        <?php include(locate_template('components/header/header-a.php', false, false)); ?>
+    </div>
 
     <!-- Preloader -->
     <?php include(locate_template('components/preloader/preloader-a.php', false, false)); ?>

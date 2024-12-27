@@ -10,8 +10,8 @@
     @include make-container-fluid();
   }
 
-  &-mobile--fluid {
-    @media all and ($viewport-type: $mobile) {
+  &--tablets-fluid {
+    @media all and ($viewport-type: $tablets) {
       @include make-container-fluid();
     }
   }

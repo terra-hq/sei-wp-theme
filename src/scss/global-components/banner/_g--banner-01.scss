@@ -1,0 +1,40 @@
+.g--banner-01 {
+    @include make-banner-01();
+    @include make-banner-01-modifier(
+        $banner-options: (
+            "align": center,
+            "close-icon": no,
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, d),
+        ),
+        $item-primary-options: (
+            "className": c--content-a c--content-a--second-color,
+        ),
+        $custom-options: (
+            "parent": (
+                "width": calc(100% + #{$measure*4}*2),
+                "left": 50%,
+                "transform": translateX(-50%),
+            )
+        )
+    );
+    @media all and ($viewport-type:$tabletl) {
+        @include make-banner-01-modifier(
+            $custom-options: (
+                "parent": (
+                    "width": calc(100% + #{$measure*2}*2),
+                )
+            )
+        );
+    }
+    @media all and ($viewport-type:$tablets) {
+        @include make-banner-01-modifier(
+            $custom-options: (
+                "parent": (
+                    "width": 100%,
+                )
+            )
+        );
+    }
+}

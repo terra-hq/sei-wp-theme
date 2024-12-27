@@ -15,6 +15,7 @@
 @import "@scss/framework/components/transition/_c--transition-a";
 
 //* header
+@import "@scss/framework/components/header/_c--header-wrapper-a";
 @import "@scss/framework/components/header/_c--header-a";
 
 //* accordion
@@ -24,6 +25,9 @@
 //* background
 @import "@scss/framework/components/background/_c--bg-a";
 @import "@scss/framework/components/background/_c--bg-b";
+
+//* banner
+@import "@scss/global-components/banner/_g--banner-01";
 
 //* brand
 @import "@scss/framework/components/header/_c--brand-a";

@@ -1,6 +1,6 @@
 .c--cookies-a {
     @extend .u--position-fixed;
-    background-color: map-get($color-options, d);
+    @extend .f--background-c;
     bottom: 0;
     left: 0;
     right: 0;

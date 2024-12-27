@@ -14,7 +14,7 @@ class Navbar {
             searchButton: payload.searchButton,
             menuItem: document.querySelectorAll('.js--nav-item'),
             dropdown: document.querySelectorAll('.js--dropdown'),
-            header: document.querySelector('.c--header-a'),
+            header: document.querySelector('.c--header-wrapper-a'),
             headerWrapper: document.querySelector('.c--header-a__wrapper'),
             brand: document.querySelector('.c--brand-a__bd__media'),
             listItems: document.querySelectorAll('.c--nav-a__list-group__item'),
