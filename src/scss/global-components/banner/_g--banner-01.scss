@@ -13,6 +13,7 @@
         ),
         $custom-options: (
             "parent": (
+                "padding": $measure*.5 0,
                 "width": calc(100% + #{$measure*4}*2),
                 "left": 50%,
                 "transform": translateX(-50%),
