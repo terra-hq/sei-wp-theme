@@ -82,6 +82,75 @@
                 max-width: 100%;
             }
         }
+        .inputs-list {
+            @extend .u--display-flex;
+            list-style: none;
+            flex-wrap: wrap;
+            .hs-form-booleancheckbox {
+                label {
+                    @extend .u--position-relative;
+                    margin-bottom: 0;
+                    input {
+                        @extend .u--position-absolute;
+                        @extend .u--width-100;
+                        opacity: 0;
+                        cursor: pointer;
+                        left: 0;
+                        top: 0;
+                        @extend .u--height-100;
+                        z-index: 0;
+                        padding: 0;
+                        &:checked ~ span::after {
+                            opacity: 1;
+                        }
+                    }
+                    span {
+                        @extend .u--position-relative;
+                        @extend .u--display-block;
+                        @extend .f--font-j;
+                        color: rgba(map-get($color-options, b), 0.6);
+                        cursor: pointer;
+                        padding-left: calc(#{$measure*1.5} + #{$measure*2});
+                        a {
+                            @extend .g--link-01;
+                            @extend .g--link-01--sixth;
+                        }
+                        .hs-form-required,
+                        span {
+                            display: inline;
+                            padding-left: 0;
+                            &::before {
+                                content: none;
+                            }
+                        }
+                        &::before {
+                            content: "";
+                            @extend .u--position-absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            border: 1px solid rgba(map-get($color-options, b), 0.6);
+                            height: $measure*2;
+                            width: $measure*2;
+                        }
+                        &::after {
+                            content: "";
+                            opacity: 0;
+                            @extend .u--position-absolute;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            left: calc(#{$measure*2}*.5);
+                            width: calc(#{$measure*2}*.6);
+                            height: calc(#{$measure*2}*.6);
+                            max-width: calc(#{$measure*2} - 4px);
+                            max-height: calc(#{$measure*2} - 4px);
+                            background-color: rgba(map-get($color-options, b), 0.6);
+                            transition: opacity $time-b $ease-standard-a;
+                        }
+                    }
+                }
+            }
+        }
         .hs-recaptcha {
             // width: 100%;
             order: 1;
