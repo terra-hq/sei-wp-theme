@@ -697,4 +697,23 @@ function variables_in_header()
     }
     add_action('send_headers', 'no_cache_headers');
 
+     /**
+     * Modifies WordPress default queries to ensure the 'has_password' 
+     * parameter is set to 'false' if it is not already defined.
+     * This prevents password-protected posts from being included in queries 
+     * unless explicitly specified.
+     * 
+     * @param WP_Query $query The query object to be modified.
+     */
+    function custom_set_default_has_password( $query ) {
+        // Check if the 'has_password' parameter is not defined
+        if ( !isset( $query->query_vars['has_password'] ) ) {
+            // Set 'has_password' to false by default
+            $query->set( 'has_password', false );
+        }
+    }
+
+    // Hook the function into 'pre_get_posts' to modify the query before execution
+    add_action( 'pre_get_posts', 'custom_set_default_has_password' );
+
     ?>
