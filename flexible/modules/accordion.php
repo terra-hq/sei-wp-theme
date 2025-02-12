@@ -1,10 +1,11 @@
 <?php if($module['accordion_items']): ?>
+<?php if ($module['bg_color'] === 'f--background-c' || $module['bg_color'] === 'f--background-d') $modifier = 'g--accordion-02--second'; ?>
 <section class="f--pt-7 f--pt-tablets-4 f--pb-7 f--pb-tablets-4 <?php echo $module['bg_color'] ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-center">
             <div class="f--col-8 f--col-tabletm-10 f--col-tablets-12">
                 <?php foreach($module['accordion_items'] as $key => $accItem): ?>
-                <div class="g--accordion-02 js--accordion-02">
+                <div class="g--accordion-02 <?php echo $modifier ?> js--accordion-02">
                     <button class="g--accordion-02__hd" type="button" data-accordion02-control="simpleContent02-0<?php echo $key?>" aria-expanded="false">
                         <span class="g--accordion-02__hd__item-primary"><?php echo $accItem['accordion_title']?></span>
                         <span class="g--accordion-02__hd__icon" role="presentation">
