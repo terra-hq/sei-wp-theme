@@ -97,6 +97,10 @@ switch ($module['acf_fc_layout']) {
     case 'functions_collapse':
         include (locate_template('flexible/modules/functions-collapse.php', false, false));
         break;
-
-        
+    case 'form':
+        include (locate_template('flexible/modules/form.php', false, false));
+        break;
+    case 'accordion':
+        include (locate_template('flexible/modules/accordion.php', false, false));
+        break;    
 }
