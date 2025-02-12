@@ -246,6 +246,21 @@ class Main extends Core {
             });
         }
 
+        /**
+         * Accordion-02
+         */
+        if (document.querySelectorAll(".js--accordion-02").length) {
+            this.instances["Accordion02"] = [];
+            const { default: Accordion02 } = await import("@terrahq/collapsify");
+            window["lib"]["Accordion02"] = Accordion02;
+            document.querySelectorAll(".js--accordion-02").forEach((element, index) => {
+                this.instances["Accordion02"][index] = new window["lib"]["Accordion02"]({
+                    nameSpace: "accordion02",
+                    closeOthers: true,
+                });
+            });
+        }
+
         //LocationJobs
         if (document.querySelectorAll(".js--load-jobs").length) {
             this.instances["LocationJobs"] = [];
@@ -512,6 +527,14 @@ class Main extends Core {
 
             });
             this.instances["AccordionA"] = [];
+        }
+
+        //Destroy accordion-02
+        if (document.querySelectorAll(".js--accordion-02").length && this.instances["Accordion02"].length) {
+            document.querySelectorAll(".js--accordion-02").forEach((element, index) => {
+                this.instances["Accordion02"][index].destroy();
+            });
+            this.instances["Accordion02"] = [];
         }
 
         //Destroy filter people
