@@ -11,7 +11,7 @@
                 </p>
             </div>
             <div class="f--col-5 f--col-tabletl-6 f--col-tabletm-12 f--offset-1 f--offset-tabletl-0">
-                <div class="c--form-d js--hubspot-script" data-form-id="<?php echo $module['form_id'] ?>" data-portal-id="<?php echo $module['form_portal_id'] ?>>"></div>
+                <div class="c--form-d js--hubspot-script" data-form-id="<?php echo $module['form_id'] ?>" data-portal-id="<?php echo $module['form_portal_id'] ?>"></div>
             </div>
         </div>
     </div>
