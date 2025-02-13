@@ -105,6 +105,19 @@ new Custom_Post_Type((object) array(
     )
 ));
 
+new Custom_Post_Type((object) array(
+    'post_type' => 'services',
+    'singular_name' => 'Service',
+    'plural_name' => 'Services',
+    'args' => array(
+        'menu_icon' => 'dashicons-image-filter',
+        'rewrite' => array('slug' => 'services'),
+        'supports' => array('title'),
+    )
+));
+
+
+
 add_filter('wpseo_exclude_from_sitemap_by_post_ids', 'exclude_news_from_sitemap');
 function exclude_news_from_sitemap($excluded_posts)
 {
