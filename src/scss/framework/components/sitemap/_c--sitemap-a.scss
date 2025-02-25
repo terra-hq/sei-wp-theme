@@ -1,0 +1,72 @@
+.c--sitemap-a {
+    &__wrapper {
+        @extend .f--row;
+        @extend .f--gap-a;
+        &:not(:last-child) {
+            margin-bottom: $measure * 8;
+            padding-bottom: $measure * 8;
+            border-bottom: 1px solid rgba(map-get($color-options, b), .6);
+            @media all and ($viewport-type: $tablets) {
+                margin-bottom: $measure * 5;
+                padding-bottom: $measure * 5;
+            }
+        }
+        &__hd {
+            @extend .f--col-3;
+            @extend .f--col-tabletm-4;
+            @extend .f--col-tablets-12;
+            &__title {
+                @extend .f--font-f;
+                @extend .u--display-block;
+                &:is(a) {
+                    @extend .g--link-01;
+                }
+            }
+        }
+        &__bd {
+            @extend .f--col-9;
+            @extend .f--col-tabletm-8;
+            @extend .f--col-tablets-12;
+            @extend .u--display-flex;
+            @extend .f--gap-d;
+            flex-wrap: wrap;
+            &__item {
+                width: calc(100% / 3);
+                &:has(&__title) {
+                    margin-bottom: $measure*2;
+                    @media all and ($viewport-type: $tablets) {
+                        margin-bottom: $measure;
+                    }
+                }
+                @media all and ($viewport-type: $tabletl) {
+                    width: 50%;
+                }
+                @media all and ($viewport-type: $mobile) {
+                    width: 100%;
+                }
+                &__title {
+                    @extend .f--font-g;
+                    @extend .u--display-block;
+                    &:is(a) {
+                        @extend .g--link-01;
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: $measure * 2;
+                    }
+                }
+                &__content {
+                    @extend .f--font-h;
+                    @extend .u--font-light;
+                    @extend .u--display-block;
+                    &:is(a) {
+                        @extend .g--link-01;
+                        @extend .g--link-01--second;
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: $measure * 2;
+                    }
+                }
+            }
+        }
+    }
+}
