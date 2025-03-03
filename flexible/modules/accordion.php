@@ -1,6 +1,6 @@
 <?php if($module['accordion_items']): ?>
 <?php if ($module['bg_color'] === 'f--background-c' || $module['bg_color'] === 'f--background-d') $modifier = 'g--accordion-02--second'; ?>
-<section class="f--pt-7 f--pt-tablets-4 f--pb-7 f--pb-tablets-4 <?php echo $module['bg_color'] ?>">
+<section class="<?php echo get_spacing($module['section_spacing']) ?> <?php echo $module['bg_color'] ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-center">
             <div class="f--col-8 f--col-tabletm-10 f--col-tablets-12">
