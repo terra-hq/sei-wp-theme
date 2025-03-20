@@ -13,7 +13,7 @@
                     <div class="g--card-04 <?= $modifier ?>">
                         <h3 class="g--card-04__item-primary"><?= $card['title'] ?></h3>
                         <div class="g--card-04__list-group">
-                            <p class="g--card-04__list-group__item"><?= $card['description'] ?></p>
+                            <div class="c--content-a g--card-04__list-group__item"><?= apply_filters('the_content', $card['description']) ?></div>
                         </div>
                         <figure class="g--card-04__media-wrapper">
                             <?php
