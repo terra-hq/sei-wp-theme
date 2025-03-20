@@ -286,8 +286,8 @@ function variables_in_header()
     {
         $targetType = ($target) ? '_blank' : "_self";
         $targetURL = "target='" . $targetType . "'";
-        $targetURL .= ($target) ? " rel='noopener noreferrer'" : '';
-        $targetURL .= ($target) ? 'aria-label="' . $text . ', opens a new window"' : '';
+        $targetURL .= ($target) ? " rel='noopener noreferrer nofollow'" : '';
+        $targetURL .= ($target) ? ' aria-label="' . $text . ', opens a new window"' : '';
         return $targetURL;
     }
 
