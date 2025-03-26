@@ -67,7 +67,7 @@
             @extend .u--width-100;
             @extend .u--display-flex;
             align-items: normal;
-            max-width: 74px;
+            width: 74px;
             z-index: 0;
             transition: background-color $time-b $ease-standard-a;
             @media all and ($viewport-type: $tablets) {
