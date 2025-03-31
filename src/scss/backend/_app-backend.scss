@@ -84,6 +84,28 @@ body {
 }
 .acf-flexible-content .layout.fc-modal {
     max-width: 1500px !important;
+    .acf-fc-modal-content {
+        .acf-fields {
+            .acf-field-spacing {
+                .acf-input {
+                    ul {
+                        gap: 16px;
+                        li {
+                            width: calc(25% - ((16px * 3) / 4));
+                            max-width: 120px;
+                            min-width: 0;
+                            button {
+                                width: 100%;
+                                img {
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 //* End Backend sections modal
 
