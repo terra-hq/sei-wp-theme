@@ -24,6 +24,7 @@ add_action( 'wp_enqueue_scripts', function() {
     if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true) {
         function vite_head_module_hook() {
             echo '<script type="module" crossorigin src="http://localhost:9090/src/js/Project.js"></script>';
+            echo '<script type="module" crossorigin src="http://localhost:9090/src/scss/style.scss"></script>';
         }
         add_action('wp_head', 'vite_head_module_hook');        
     } else {
@@ -34,7 +35,7 @@ add_action( 'wp_enqueue_scripts', function() {
             }
             return $tag;
         }, 10, 3);
-        wp_enqueue_style('project-build',  get_template_directory_uri() . '/dist/Project.'.hash.'.css' );
+        wp_enqueue_style('project-build',  get_template_directory_uri() . '/dist/ProjectStyles.'.hash.'.css' );
     }
 });
 
