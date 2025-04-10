@@ -1,5 +1,4 @@
-// Styles
-import "@scss/style.scss";
+
 
 // JS Starts here
 

@@ -40,26 +40,48 @@
         <?php endif; ?>
         <div class="f--row u--align-items-flex-end u--justify-content-space-between">
             <div class="<?php echo ($customClass == 'c--hero-c--second') ? 'f--col-7 f--col-tabletl-10 f--col-mobile-12' : 'f--col-5 f--col-tabletl-10 f--col-mobile-12' ?>">
-                <h1 class="c--hero-c__title">
-                    <?php
-                        if ($title) {
-                            foreach ($title as $e) {
-                                $text = $e['text'];
-                                $italic = $e['italic'];
-                                if ($italic) {
-                                    echo '<span class="c--hero-c__title__artwork">' . $text . '</span>';
-                                } else {
-                                    echo $text . ' ';
+                <?php if ($hero['subtitle_h1']){ ?>
+                    <h2 class="c--hero-c__title">
+                        <?php
+                            if ($title) {
+                                foreach ($title as $e) {
+                                    $text = $e['text'];
+                                    $italic = $e['italic'];
+                                    if ($italic) {
+                                        echo '<span class="c--hero-c__title__artwork">' . $text . '</span>';
+                                    } else {
+                                        echo $text . ' ';
+                                    }
                                 }
                             }
-                        }
-                    ?>
-                </h1>
+                        ?>
+                    </h2>
+                <?php } else { ?>
+                    <h1 class="c--hero-c__title">
+                        <?php
+                            if ($title) {
+                                foreach ($title as $e) {
+                                    $text = $e['text'];
+                                    $italic = $e['italic'];
+                                    if ($italic) {
+                                        echo '<span class="c--hero-c__title__artwork">' . $text . '</span>';
+                                    } else {
+                                        echo $text . ' ';
+                                    }
+                                }
+                            }
+                        ?>
+                    </h1>
+                <?php } ?>
             </div>
             <?php if($description): ?>
                 <div class="f--col-6 f--col-tabletl-10 f--col-mobile-12">
                     <?php if($subtitle): ?>
-                        <h2 class="c--hero-c__subtitle"><?= $subtitle ?></h2>
+                        <?php if ($hero['subtitle_h1']){ ?>
+                            <h1 class="c--hero-c__subtitle"><?= $subtitle ?></h1>
+                        <?php } else { ?>
+                            <h2 class="c--hero-c__subtitle"><?= $subtitle ?></h2>
+                        <?php } ?>
                     <?php endif; ?>
                     <div class="c--hero-c__content c--content-a c--content-a--second-color c--content-a--third-text">
                         <p><?= $description ?></p>

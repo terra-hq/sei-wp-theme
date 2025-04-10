@@ -63,10 +63,15 @@ export default defineConfig({
         input: {
           Project: resolve( __dirname + '/src/js/Project.js'),
           Greenhouse: resolve( __dirname + '/src/js/vite_additional_input/Greenhouse.js'),
-          Appbackend: resolve( __dirname + '/src/js/vite_additional_input/Appbackend.js')
+          Appbackend: resolve( __dirname + '/src/js/vite_additional_input/Appbackend.js'),
+          ProjectStyles: resolve( __dirname + '/src/js/ProjectStyles.js'),
         },
       
         output: {
+          // Manual chunks are needed because we have two entrypoints and Main is imported dynamically in Project.js
+          manualChunks(id) {
+            if (id.includes('Main.js')) return 'main';
+          },
             entryFileNames: `[name].${hash}.js`,
             chunkFileNames: `[name].${hash}.js`,
             assetFileNames: `[name].${hash}.[ext]`
