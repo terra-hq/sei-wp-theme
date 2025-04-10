@@ -42,6 +42,7 @@ function load_insights()
         'posts_per_page' => ($is_load_more == 'true') ? $postsPerPage : 7,
         'order' => 'DESC', 
         'orderby' => 'date',
+        'post_status' => 'publish',
         's' => $searchTerm,
         'post__not_in' => array($featured_insight[0]->ID),
     );
