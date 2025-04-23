@@ -25,7 +25,9 @@
             ".g--accordion-02__bd__content": (
                 "class": f--font-h u--font-light,
                 "padding-right": $measure*6.5,
-            )
+            ),
+            
+            
         ),
     );
 
@@ -47,6 +49,9 @@
             ),
             $custom-options: (
                 ".g--accordion-02__bd__content": (
+                    "color": map-get($color-options, a),
+                ),
+                ".g--accordion-02__bd__content p > a": (
                     "color": map-get($color-options, a),
                 )
             ),
