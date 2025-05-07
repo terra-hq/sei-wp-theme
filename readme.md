@@ -177,7 +177,3 @@ Some tasks have been refactored. Use the following commands to perform different
 - `gulp dall --dev|stage|production` - Deploy all files.
 - `gulp ds --dev|stage|production  --path footer.php || --path folder ` - Deploy single file or directory.
 - `gulp remove --dev|stage|production --path footer.php` - Remove a specified file or folder.
-- `gulp cleanHash --dev|stage|production --hash abc` - Remove old files based on hash number.
-
-
-

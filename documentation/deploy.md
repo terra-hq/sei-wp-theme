@@ -10,7 +10,6 @@ All tasks have been rewritten to simplify the process. The list of tasks is as f
 - `gulp dphp --dev|stage|production` - Deploy all php files.
 - `gulp ds --dev|stage|production  --path footer.php || --path folder ` - Deploy single file or directory.
 - `gulp remove --dev|stage|production --path footer.php` - Remove a specified file or folder.
-- `gulp cleanHash --dev|stage|production --hash abc` - Remove old files based on hash number.
 
 It's important that any files to be excluded from uploads are specified in the `filesToExclude` constant.
 
