@@ -17,7 +17,7 @@ function get_search_results($request) {
     $search = strtolower($modifiedSpaces);
 
     $args = array(
-        'post_type' => array('page', 'capability', 'industry', 'insight', 'partnerships', 'location'),
+        'post_type' => array('page', 'capability', 'industry', 'insight', 'partnerships', 'location','services'),
         'post_status' => 'publish',
         'posts_per_page' => -1,
         'orderby' => 'relevance', 
