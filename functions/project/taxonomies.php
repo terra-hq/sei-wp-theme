@@ -63,6 +63,22 @@ new Custom_Taxonomy((object) array(
     )
 ));
 
+new Custom_Taxonomy((object) array(
+    'taxonomy' => 'service-type',
+    'object_type' => array('services'),
+    'singular_name' => 'Type',
+    'plural_name' => 'Types',
+    'args' => (object) array(
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'news-type', 'with_front' => false)
+    )
+));
+
+
 
 /**
  * Includes a function that creates custom post type links with taxonomy type in the URL.
