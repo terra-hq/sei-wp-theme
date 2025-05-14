@@ -6,4 +6,8 @@
     &--second {
         background-color: map-get($color-options, a);
     }
+
+    &--third {
+        background-color: map-get($color-options, c);
+    }
 }
