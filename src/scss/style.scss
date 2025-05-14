@@ -1,11 +1,11 @@
 //* Reset, GC
 @import "@scss/framework/_var/_vars.scss";
 @import "@scss/framework/_mixins/mixins.scss";
-@import '@terrahq/gc/library';
-@import '@terrahq/wysiwyg/wordpress';
-@import '@scssFoundation/reset/_reset.scss';
-@import '@scssFoundation/_foundation.scss'; 
-@import '@scssUtilities/_utilities.scss';
+@import "@terrahq/gc/library";
+@import "@terrahq/wysiwyg/wordpress";
+@import "@scssFoundation/reset/_reset.scss";
+@import "@scssFoundation/_foundation.scss";
+@import "@scssUtilities/_utilities.scss";
 @import "@scss/global-components/vars.scss";
 
 //* Preloader
@@ -22,6 +22,10 @@
 @import "@scss/framework/components/accordion/_c--accordion-a";
 @import "@scss/framework/components/accordion/_c--accordion-b";
 @import "@scss/global-components/accordion/_g--accordion-02";
+
+@import "@scss/framework/components/marquee/_c--marque-a.scss";
+//* transition
+@import "@scss/framework/components/transition/_c--transition-a";
 
 //* background
 @import "@scss/framework/components/background/_c--bg-a";
@@ -200,4 +204,3 @@
 
 //* 404
 @import "@scss/global-components/404/_g--404-01";
-

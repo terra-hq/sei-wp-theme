@@ -1,0 +1,15 @@
+.c--marquee-a {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 96px; /* espacio entre logos */
+}
+
+.c--marquee-a__item {
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 180px;
+  min-height: 72px;
+  width: 100%;
+  height: 100%;
+}
