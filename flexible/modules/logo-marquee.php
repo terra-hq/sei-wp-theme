@@ -1,32 +1,16 @@
-<section class="<?= $spacing ?>">
+<section class="f--pt-20 f--pb-20 f--background-d <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
-            
-                <div class="c--marquee-b js--marquee" data-speed=1 data-controls-on-hover="false" data-reversed="true">
-                    <div class="c--marquee-b__list-group " >
-                        <img data-src="<?php bloginfo('template_url'); ?>img/logos/sei-logo.svg"
-                            class="c--cta-e__bg-items g--lazy-01">
-
-                    </div>
-                    <div class="c--marquee-b__list-group " >
-                        <img data-src="<?php bloginfo('template_url'); ?>img/logos/sei-logo.svg"
-                            class="c--cta-e__bg-items g--lazy-01">
-
-                    </div>
-                    <div class="c--marquee-b__list-group " >
-                        <img data-src="<?php bloginfo('template_url'); ?>img/logos/sei-logo.svg"
-                            class="c--cta-e__bg-items g--lazy-01">
-
-                    </div>
-                    <div class="c--marquee-b__list-group " >
-                        <img data-src="<?php bloginfo('template_url'); ?>img/logos/sei-logo.svg"
-                            class="c--cta-e__bg-items g--lazy-01">
-
-                    </div>
-                </div>
-
-            
-
+          
+            <div class="c--marquee-a js--marquee f--col-8 f--col-tabletl-10 f--offset-2 f--offset-tabletl-1 f--offset-tablets-0 f--col-tablets-12 " data-speed="1" data-controls-on-hover="false" data-reversed="false">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item c--marquee-a__item--initial" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+    
+            </div>
         </div>
     </div>
 </section>
