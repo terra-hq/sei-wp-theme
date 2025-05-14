@@ -23,4 +23,21 @@ Template Name: Ares
 </section>
 
 
+
+
+
+<section class=" f--pt-20 f--pb-20 <?= $spacing ?>">
+    <div class="f--container">
+        <div class="f--row">
+            <div class="f--col-12 u--display-flex u--justify-content-center">
+            <a href="<?php echo get_field('page_link', 'option')['url'] ?>"  class="g--btn-03 g--btn-03--second">
+                        <span><?php echo get_field('page_link', 'option')['title'] ?></span>
+                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                    </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <?php get_footer(); ?>
