@@ -333,16 +333,34 @@ class Main extends Core {
     //marqueee
     if (document.querySelectorAll(".js--marquee").length) {
       this.instances["Marquee"] = [];
+
       document.querySelectorAll(".js--marquee").forEach((element, index) => {
         this.boostify.scroll({
           distance: 50,
           element: element,
           name: "Marquee",
+
           callback: async () => {
+            // Lógica de validación por número de ítems y tamaño de viewport
+            const items = element.querySelectorAll(".c--marquee-a__item");
+            const itemCount = element.querySelectorAll(
+              ".c--marquee-a__item"
+            ).length;
+            const isMobile = window.innerWidth <= 768;
+
+            const shouldInit =
+              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
+            if (!shouldInit) {
+              element.classList.add("js--marquee--disabled");
+              return;
+            }
+
+            // Importar e instanciar el módulo solo si pasa la validación
             const { default: InfiniteMarquee } = await import(
               "@jsModules/marquee/InfiniteMarquee.js"
             );
             window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
+
             this.instances["Marquee"][index] = new window["lib"][
               "InfiniteMarquee"
             ]({
