@@ -4,19 +4,21 @@
     $logos = $module['logos'];
 ?>
 <?php if($logos): ?>
-<section class="f--logo-marquee <?= $spacing ?>">
+<section class="f--background-d  <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="c--logo-marquee <?= $direction ?>">
+              
+                <div class="c--marquee-a js--marquee f--col-12  <?= $direction ?> " data-speed="1" data-controls-on-hover="false" data-reversed="false">
                     <?php foreach($logos as $logo): ?>
-                        <div class="c--logo-marquee__item">
-                            <img src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>" />
-                        </div>
+                            <img class="c--marquee-a__item" src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>" />
                     <?php endforeach; ?>
                 </div>
             </div>
         </div>
-    </div>
+     </div>
 </section>
 <?php endif; ?>
+
+
+

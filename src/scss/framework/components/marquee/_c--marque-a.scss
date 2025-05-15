@@ -1,0 +1,46 @@
+.c--marquee-a {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  white-space: nowrap;
+  gap: 96px;
+  @media all and ($viewport-type: $mobile) {
+    gap: 40px;
+  }
+  &__item {
+    display: inline-block;
+    flex-shrink: 0;
+    max-width: 180px;
+    min-height: 72px;
+    width: 100%;
+    height: 100%;
+    @media all and ($viewport-type: $mobile) {
+      max-width: 140px;
+    }
+    &--initial {
+      width: 276px;
+      max-width: 276px;
+      padding-left: 96px;
+      @media all and ($viewport-type: $mobile) {
+        padding-left: 40px;
+        max-width: 180px;
+      }
+    }
+  }
+
+  .js--marquee--disabled & {
+    &__item {
+      display: inline-block;
+      flex-shrink: 0;
+      max-width: 140px;
+      min-height: 72px;
+      width: 100%;
+      height: 100%;
+      &--initial {
+        max-width: 140px;
+        width: 100%;
+        padding-left: 0px;
+      }
+    }
+  }
+}
