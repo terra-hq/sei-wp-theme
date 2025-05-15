@@ -5,7 +5,7 @@
 ?>
 <?php if($logos): ?>
 <section class="f--background-d  <?= $spacing ?>">
-    <div class="f--container">
+    <div class="f--container--fluid">
         <div class="f--row">
             <div class="f--col-12">
                 <div class="c--marquee-a js--marquee f--col-12  <?= $direction ?> " data-speed="1" data-controls-on-hover="false" data-reversed="false">
