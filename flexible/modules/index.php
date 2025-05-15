@@ -102,5 +102,8 @@ switch ($module['acf_fc_layout']) {
         break;
     case 'accordion':
         include (locate_template('flexible/modules/accordion.php', false, false));
-        break;    
+        break;  
+    case 'logo_marquee':
+        include (locate_template('flexible/modules/logo-marquee.php', false, false));
+        break;      
 }
