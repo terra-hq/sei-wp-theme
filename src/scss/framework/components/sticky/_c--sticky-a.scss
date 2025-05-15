@@ -1,0 +1,5 @@
+.c--sticky-a {
+    @extend .u--position-sticky;
+    top: $measure * 20;
+    z-index: 1;
+}
