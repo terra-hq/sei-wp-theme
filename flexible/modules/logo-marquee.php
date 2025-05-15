@@ -1,5 +1,5 @@
 <?php
-    $direction = $module['direction'] == 'left' ?  false : true;
+    $direction = $module['direction'] == 'left' ?  0 : 1;
     $spacing = get_spacing($module['spacing']);
     $logos = $module['logos'];
 ?>

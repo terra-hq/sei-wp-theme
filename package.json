@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@andresclua/debounce-throttle": "^1.0.2",
-    "@andresclua/infinite-marquee-gsap": "^0.0.8",
+    "@andresclua/infinite-marquee-gsap": "^0.0.14",
     "@andresclua/jsutil": "^4.0.4",
     "@swup/debug-plugin": "^4.0.4",
     "@swup/forms-plugin": "^3.6.0",

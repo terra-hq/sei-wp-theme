@@ -308,7 +308,11 @@ class Main extends Core {
               speed: element.getAttribute("data-speed")
                 ? parseFloat(element.getAttribute("data-speed"))
                 : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
+              controlsOnHover:
+                element.getAttribute("data-controls-on-hover") == "true"
+                  ? true
+                  : false,
+              //controlsOnHover: false,
               reversed: element.getAttribute("data-reversed"),
             });
           },
