@@ -1,5 +1,5 @@
-<section class="f--pt-20 f--pb-20 f--background-d <?= $spacing ?>">
-    <div class="f--container">
+<section class="f--background-d <?= $spacing ?>">
+    <div class="f--container--fluid">
         <div class="f--row">
           
             <div class="c--marquee-a js--marquee f--col-8 f--col-tabletl-10 f--offset-2 f--offset-tabletl-1 f--offset-tablets-0 f--col-tablets-12 " data-speed="1" data-controls-on-hover="false" data-reversed="false">
