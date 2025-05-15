@@ -9,6 +9,7 @@
                 <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
                 <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
                 <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
+                <img width="83" height="32" src="<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?>" alt="SEI logo" class="c--marquee-a__item" decoding="async">
     
             </div>
         </div>

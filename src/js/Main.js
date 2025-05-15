@@ -336,7 +336,7 @@ class Main extends Core {
 
       document.querySelectorAll(".js--marquee").forEach((element, index) => {
         this.boostify.scroll({
-          distance: 50,
+          distance: 1,
           element: element,
           name: "Marquee",
 

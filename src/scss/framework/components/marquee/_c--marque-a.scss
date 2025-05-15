@@ -30,14 +30,20 @@
 
   .js--marquee--disabled & {
     &__item {
-      max-width: 140px;
+      max-width: 180px;
       min-height: 72px;
       @extend .u--width-100;
       @extend .u--height-100;
-      &--initial {
+      @media all and ($viewport-type: $mobile) {
         max-width: 140px;
+      }
+      &--initial {
+        max-width: 180px;
         width: 100%;
         padding-left: 0px;
+        @media all and ($viewport-type: $mobile) {
+          max-width: 140px;
+        }
       }
     }
   }
