@@ -106,4 +106,7 @@ switch ($module['acf_fc_layout']) {
     case 'button':
         include (locate_template('flexible/modules/button.php', false, false));
         break;    
+    case 'divider':
+        include (locate_template('flexible/modules/divider.php', false, false));
+        break;    
 }
