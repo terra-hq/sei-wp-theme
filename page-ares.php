@@ -45,4 +45,24 @@ Template Name: Ares
 </section>
 
 
+
+
+<?php
+    $spacing = get_spacing($module['section_spacing']);
+    $bg_color = $module['bg_color'];
+    $testimonials = $module['testimonials'];
+?>
+
+<section class="c--slider-a <?= $bg_color ?> <?= $spacing ?>">
+    <div class="f--container">
+        <div class="f--row">
+            <div class="f--col-12">
+                <div class="c--slider-a__wrapper js--slider-a">
+                <?php include(locate_template('components/card/card-24.php', false, false)); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>
