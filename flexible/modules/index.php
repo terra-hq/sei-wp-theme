@@ -103,4 +103,7 @@ switch ($module['acf_fc_layout']) {
     case 'accordion':
         include (locate_template('flexible/modules/accordion.php', false, false));
         break;    
+    case 'button':
+        include (locate_template('flexible/modules/button.php', false, false));
+        break;    
 }
