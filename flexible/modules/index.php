@@ -109,4 +109,7 @@ switch ($module['acf_fc_layout']) {
     case 'divider':
         include (locate_template('flexible/modules/divider.php', false, false));
         break;    
+    case 'logo_marquee':
+        include (locate_template('flexible/modules/logo-marquee.php', false, false));
+        break;    
 }
