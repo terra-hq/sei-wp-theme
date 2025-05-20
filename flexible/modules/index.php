@@ -112,4 +112,7 @@ switch ($module['acf_fc_layout']) {
     case 'logo_marquee':
         include (locate_template('flexible/modules/logo-marquee.php', false, false));
         break;    
+    case 'slider_resources':
+        include (locate_template('flexible/modules/slider-resources.php', false, false));
+        break;    
 }
