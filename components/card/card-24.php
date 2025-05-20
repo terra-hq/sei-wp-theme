@@ -21,7 +21,7 @@
                 'image' => $image,
                 'sizes' => '580px',
                 'class' => 'g--card-24__media-wrapper__media',
-                'isLazy' => $lazy_loading ? true : false,
+                'isLazy' => false,
                 'lazyClass' => 'g--lazy-01',
                 'showAspectRatio' => true,
                 'decodingAsync' => true,

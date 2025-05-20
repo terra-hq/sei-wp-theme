@@ -49,7 +49,7 @@ switch ($how_to_loop) {
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="c--slider-a__wrapper js--slider-a">
+                <div class="c--slider-a__wrapper js--slider-c">
                     <?php
                     $custom_query = new WP_Query($args);
                     if ($custom_query->have_posts()) :

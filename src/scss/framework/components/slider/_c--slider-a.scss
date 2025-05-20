@@ -1,7 +1,6 @@
 .c--slider-a {
-    overflow: hidden;
-    &__wrapper {
-        opacity: 0;
-        display: flex;
-    }
+  overflow: hidden;
+  &__wrapper {
+    display: flex;
+  }
 }
