@@ -115,4 +115,7 @@ switch ($module['acf_fc_layout']) {
     case 'slider_resources':
         include (locate_template('flexible/modules/slider-resources.php', false, false));
         break;    
+    case 'heading_left_accordion_right':
+        include (locate_template('flexible/modules/heading-left-accordion-right.php', false, false));
+        break;    
 }
