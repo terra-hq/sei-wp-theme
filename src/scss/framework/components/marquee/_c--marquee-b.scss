@@ -1,0 +1,46 @@
+.c--marquee-b {
+  @extend .f--background-a;
+  &__list-group {
+    @extend .u--display-flex;
+    @extend .u--align-items-center;
+    @extend .u--position-relative;
+    @extend .u--overflow-hidden;
+    @extend .u--width-100;
+    @extend .f--color-a;
+    @extend .f--font-b;
+    text-decoration: none;
+    transition: color $time-b $ease-standard-a;
+    @media (hover: hover) {
+      &:hover {
+        color: map-get($color-options, c);
+      }
+    }
+    &__list-item {
+      @extend .u--display-flex;
+      @extend .u--align-items-center;
+      @extend .u--justify-content-center;
+      @extend .u--position-relative;
+      @extend .u--height-100;
+      gap: $measure * 4;
+      padding: 0 $measure * 2 0 $measure * 2;
+      margin: 0;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+  }
+  &__media {
+    display: block;
+    object-fit: contain;
+    width: auto;
+    max-width: $measure * 7;
+    max-height: $measure * 7;
+    @media all and ($viewport-type: $tablets) {
+      max-height: $measure * 4;
+      max-width: $measure * 4;
+    }
+  }
+  &__ft {
+    @extend .u--font-style-italic;
+    font-family: $type-b;
+  }
+}
