@@ -11,14 +11,16 @@ $position_class = match ($module['button_position']) {
 <section class=" <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
-            <div class="f--col-12 u--display-flex <?= esc_attr($position_class); ?>">
-                <a href="<?= esc_url($button['url']) ?>"
-                   <?= get_target_link($button['target'], $button['title']) ?>
-                   class="g--btn-03 g--btn-03--second">
-                    <span><?= $button['title'] ?></span>
-                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
-                </a>
-            </div>
+            <?php if($button) : ?> 
+                <div class="f--col-12 u--display-flex <?= esc_attr($position_class); ?>">
+                    <a href="<?= esc_url($button['url']) ?>"
+                    <?= get_target_link($button['target'], $button['title']) ?>
+                    class="g--btn-03 g--btn-03--second">
+                        <span><?= $button['title'] ?></span>
+                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
