@@ -1,0 +1,49 @@
+.g--card-05 {
+    @include make-card-05();
+    @include make-card-05-modifier(
+        $card-options: (
+            "align": left,
+            "back-items": no
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, m),
+        ),
+        $border-options: (
+            "border-color": map-get($color-options, m),
+            "border-width": 1px,
+            "border-style": solid,
+        ),
+        $media-options: (
+            "aspect-ratio": 1 1,
+            "width": 64px,
+            "height": auto,
+            "object-fit": cover,
+            "object-position": left,
+            "first": yes,
+        ),
+        $item-primary-options: (
+            "className": f--font-g,
+            "font-weight": 500,
+            "color": map-get($color-options, b),
+        ),
+        $item-secondary-options: (
+            "className": f--font-i,
+            "font-weight": 300,
+            "color": map-get($color-options, b),
+        ),
+        $list-group-item-options: (
+            "className": g--btn-01,
+        ),
+        $list-group-item-list-options: (
+            "aligned-at-bottom": "no",
+        ),
+        $hover-options: (
+            "transform": none,
+        ),
+        $custom-options: (
+            "parent": (
+                "max-width": 450px,
+            ),
+        ),
+    );
+}

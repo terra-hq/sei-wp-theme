@@ -63,7 +63,7 @@ switch ($how_to_loop) {
                             $topics = get_the_terms(get_the_ID(), 'topics');
                             $permalink = get_the_permalink();
                             $image = get_post_thumbnail_id(get_the_ID());
-                                include(locate_template('components/card/card-24.php', false, false));
+                                include(locate_template('components/card/card-05.php', false, false));
                         endwhile;
                     endif;
                     wp_reset_postdata();
