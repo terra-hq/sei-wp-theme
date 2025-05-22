@@ -38,7 +38,7 @@ $modifier = 'g--accordion-02--third';
                     <?php foreach ($accordion_items as $key => $accItem) : ?>
                         <div class="g--accordion-02 <?= $modifier ?> js--accordion-02">
                             <button class="g--accordion-02__hd" type="button"
-                                    data-accordion02-control="simpleContent02-0<?= $key ?>" aria-expanded="false">
+                                    data-accordion02-control="simpleContent02-0<?= $key ?>-<?= $keyIndexModule ?>" aria-expanded="false">
                                 <div class="g--accordion-02__hd__item-primary">
                                     <?php if ($modifier === 'g--accordion-02--third'): ?>
                                         <span class="f--color-c"><?= $key < 9 ? '0' : '' ?><?= $key + 1 ?>&nbsp;</span>
@@ -56,7 +56,7 @@ $modifier = 'g--accordion-02--third';
                                 </span>
                             </button>
                             <div class="g--accordion-02__bd"
-                                 data-accordion02-content="simpleContent02-0<?= $key ?>" aria-hidden="true">
+                                 data-accordion02-content="simpleContent02-0<?= $key ?>-<?= $keyIndexModule ?>" aria-hidden="true">
                                 <div class="g--accordion-02__bd__content">
                                     <?= $accItem['accordion_title_copy'] ?>
                                 </div>
