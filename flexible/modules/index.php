@@ -118,4 +118,7 @@ switch ($module['acf_fc_layout']) {
     case 'heading_left_accordion_right':
         include (locate_template('flexible/modules/heading-left-accordion-right.php', false, false));
         break;    
+    case 'clickable_marquee':
+        include (locate_template('flexible/modules/clickable-marquee.php', false, false));
+        break;    
 }

@@ -39,8 +39,4 @@
       max-width: $measure * 4;
     }
   }
-  &__ft {
-    @extend .u--font-style-italic;
-    font-family: $type-b;
-  }
 }
