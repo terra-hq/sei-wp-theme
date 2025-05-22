@@ -6,7 +6,7 @@ $reversed = ($direction === 'right') ? 'true' : 'false';
 ?>
 
 <?php if (!empty($items)) : ?>
-<section class="f--background-d <?= $spacing ?>">
+<section class="f--background-d u--overflow-hidden <?= $spacing ?>">
     <div class="f--container--fluid">
         <div class="f--row">
             <div class="c--marquee-a js--marquee f--col-8 f--col-tabletl-10 f--offset-2 f--offset-tabletl-1 f--offset-tablets-0 f--col-tablets-12"

@@ -1,60 +1,68 @@
 .g--accordion-02 {
-    @include make-accordion-02();
+  @include make-accordion-02();
+
+  @include make-accordion-02-modifier(
+    $border-options: (
+      "border-width": 0 0 1px 0,
+      "border-style": solid,
+      "border-color": rgba(map-get($color-options, b), 0.4),
+    ),
+    $item-primary-options: (
+      "className": f--font-g u--font-medium,
+      "color": map-get($color-options, b),
+    ),
+    $icon-options: (
+      "top": 0px,
+      "width": 26px,
+    ),
+    $custom-options: (
+      ".g--accordion-02__hd__icon": (
+        "height": 26px,
+        "border": 1.5px solid map-get($color-options, c),
+        "border-radius": 50%,
+        "display": grid,
+        "place-items": center,
+      ),
+      ".g--accordion-02__bd__content": (
+        "class": f--font-h u--font-light,
+        "padding-right": $measure * 6.5,
+      ),
+    )
+  );
+
+  .g--accordion-02__hd--is-active {
+    svg {
+      path:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &--second {
     @include make-accordion-02-modifier(
-        $border-options: (
-            "border-width": 0 0 1px 0,
-            "border-style": solid,
-            "border-color": rgba(map-get($color-options, b), 0.40),
+      $border-options: (
+        "border-color": rgba(map-get($color-options, a), 0.4),
+      ),
+      $item-primary-options: (
+        "color": map-get($color-options, a),
+      ),
+      $custom-options: (
+        ".g--accordion-02__bd__content": (
+          "color": map-get($color-options, a),
         ),
-        $item-primary-options: (
-            "className": f--font-g u--font-medium,
-            "color": map-get($color-options, b),
+        ".g--accordion-02__bd__content p > a": (
+          "color": map-get($color-options, a),
         ),
-        $icon-options: (
-            "top": 0px,
-            "width": 26px,
-        ),
-        $custom-options: (
-            ".g--accordion-02__hd__icon": (
-                "height": 26px,
-                "border": 1.5px solid map-get($color-options, c),
-                "border-radius": 50%,
-                "display": grid,
-                "place-items": center,
-            ),
-            ".g--accordion-02__bd__content": (
-                "class": f--font-h u--font-light,
-                "padding-right": $measure*6.5,
-            ),
-            
-            
-        ),
+      )
     );
+  }
 
-    .g--accordion-02__hd--is-active {
-        svg {
-            path:last-child {
-                display: none;
-            }
-        }
+  // 🔁 Hover específico para .g--accordion-02--third
+  @media (hover: hover) {
+    &--third {
+      .g--accordion-02__hd:hover .g--accordion-02__hd__item-primary {
+        color: map-get($color-options, c);
+      }
     }
-
-    &--second {
-        @include make-accordion-02-modifier(
-            $border-options: (
-                "border-color": rgba(map-get($color-options, a), 0.40),
-            ),
-            $item-primary-options: (
-                "color": map-get($color-options, a),
-            ),
-            $custom-options: (
-                ".g--accordion-02__bd__content": (
-                    "color": map-get($color-options, a),
-                ),
-                ".g--accordion-02__bd__content p > a": (
-                    "color": map-get($color-options, a),
-                )
-            ),
-        );
-    }
+  }
 }

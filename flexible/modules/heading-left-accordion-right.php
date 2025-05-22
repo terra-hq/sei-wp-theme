@@ -14,13 +14,13 @@ $modifier = 'g--accordion-02--third';
             <div class="f--col-5 f--col-tabletl-6 f--col-tabletm-12">
                 <div class="c--sticky-a">
                     <?php if (!empty($eyebrow)) : ?>
-                        <span class="f--font-i u--font-medium u--text-uppercase f--color-k">
+                        <span class="f--font-i u--font-medium u--text-uppercase f--color-c">
                             <?= esc_html($eyebrow); ?>
                         </span>
                     <?php endif; ?>
 
                     <?php if (!empty($title)) : ?>
-                        <h2 class="f--font-c f--color-g f--mt-2">
+                        <h2 class="f--font-c f--color-b f--mt-2">
                             <?= esc_html($title); ?>
                         </h2>
                     <?php endif; ?>
