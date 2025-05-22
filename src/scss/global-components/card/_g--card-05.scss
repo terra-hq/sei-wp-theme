@@ -15,8 +15,8 @@
         ),
         $media-options: (
             "aspect-ratio": 1 1,
-            "width": 64px,
-            "height": auto,
+            "width": auto,
+            "height": 72px,
             "object-fit": cover,
             "object-position": left,
             "first": yes,
@@ -42,7 +42,8 @@
         ),
         $custom-options: (
             "parent": (
-                "max-width": 450px,
+                "display": unquote("flex !important"),
+                gap: 16px,
             ),
         ),
     );

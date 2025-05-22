@@ -2,5 +2,6 @@
   overflow: hidden;
   &__wrapper {
     display: flex;
+    gap: $measure * 4;
   }
 }
