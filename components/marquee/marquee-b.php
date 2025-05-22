@@ -4,7 +4,7 @@
                   data-reversed="0">
         <?php for ($i = 0; $i < 5; $i++) : ?>
             <div class="c--marquee-b__list-group__list-item">
-                <img src="<?php echo get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__media" width="116" height="116" />
+                <img src="<?php echo get_template_directory_uri(); ?>img/vector.webp" alt="Leadership team" class="c--marquee-b__media" width="116" height="116" />
                 <?php foreach($module['marquee_text'] as $key => $item): ?>
                     <p>
                         <?php if ($item['italic']): ?>
