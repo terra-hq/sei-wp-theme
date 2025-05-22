@@ -404,6 +404,36 @@ class Main extends Core {
       });
     }
 
+    if (document.querySelectorAll(".js--marquee-b").length) {
+      this.instances["Marquee"] = [];
+
+      document.querySelectorAll(".js--marquee-b").forEach((element, index) => {
+        this.boostify.scroll({
+          distance: 1,
+          element: element,
+          name: "Marqueeb",
+
+          callback: async () => {
+            const { default: InfiniteMarquee } = await import(
+              "@jsModules/marquee/InfiniteMarquee.js"
+            );
+            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
+
+            this.instances["Marquee"][index] = new window["lib"][
+              "InfiniteMarquee"
+            ]({
+              element: element,
+              speed: element.getAttribute("data-speed")
+                ? parseFloat(element.getAttribute("data-speed"))
+                : 1,
+              controlsOnHover: element.getAttribute("data-controls-on-hover"),
+              reversed: element.getAttribute("data-reversed"),
+            });
+          },
+        });
+      });
+    }
+
     /**
      * Filter people
      */
