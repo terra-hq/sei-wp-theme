@@ -1,23 +1,13 @@
-<a href="<?= esc_url($permalink); ?>" <?= $target ?> class="g--card-05">
+<div class="g--card-05">
     <div class="g--card-05__ft-items">
 
         <?php if ($title): ?>
             <h3 class="g--card-05__ft-items__item-primary"><?= esc_html($title); ?></h3>
         <?php endif; ?>
 
-        <?php if ($subtitle || !empty($bullets)): ?>
+        <?php if ($content): ?>
             <div class="g--card-05__ft-items__item-secondary c--content-a">
-                <?php if ($subtitle): ?>
-                    <p><?= esc_html($subtitle); ?></p>
-                <?php endif; ?>
-
-                <?php if (!empty($bullets)): ?>
-                    <ul>
-                        <?php foreach ($bullets as $bullet): ?>
-                            <li><?= esc_html($bullet['bullet_text']); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
+                <?= esc_html($content); ?>
             </div>
         <?php endif; ?>
 
@@ -47,4 +37,4 @@
         <?php endif; ?>
 
     </div>
-</a>
+</div>
