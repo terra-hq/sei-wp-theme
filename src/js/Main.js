@@ -610,6 +610,24 @@ class Main extends Core {
         },
       });
     }
+
+    if (document.querySelectorAll(".js--scroll-to").length > 0) {
+      const { default: AnchorTo } = await import("@teamthunderfoot/anchor-to");
+
+      document.querySelectorAll(".js--scroll-to").forEach((el, index) => {
+        this.instances["AnchorTo"] = this.instances["AnchorTo"] || [];
+        this.instances["AnchorTo"][index] = new AnchorTo({
+          element: el,
+          checkUrl: false, // o true si quieres soportar hashes en la URL
+          anchorTo: "data-target", // dónde buscar el ID destino
+          offsetTopAttribute: "tf-data-distance",
+          offsetTop: 50,
+          speed: 500,
+          emitEvents: true,
+          onComplete: () => console.log("Scroll completo"),
+        });
+      });
+    }
   }
 
   willReplaceContent() {
@@ -706,6 +724,17 @@ class Main extends Core {
         this.instances["Counter"][index].destroy();
       });
       this.instances["Counter"] = [];
+    }
+
+    if (
+      document.querySelectorAll(".js--scroll-to").length &&
+      this.instances["AnchorTo"].length
+    ) {
+      this.boostify.destroyscroll({ distance: 300, name: "AnchorTo" });
+      document.querySelectorAll(".js--scroll-to").forEach((element, index) => {
+        this.instances["AnchorTo"][index].destroy();
+      });
+      this.instances["AnchorTo"] = [];
     }
 
     //Destroy accordion
