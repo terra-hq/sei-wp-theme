@@ -1,7 +1,10 @@
 .c--marquee-b {
   @extend .f--background-d;
   @extend .f--pt-8;
-  @extend .f--pb-15;
+  padding-bottom: 10.5rem;
+  &__ft {
+    line-height: 1.2;
+  }
   &__list-group {
     @extend .u--display-flex;
     @extend .u--align-items-center;
