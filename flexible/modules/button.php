@@ -19,6 +19,19 @@ $position_class = match ($module['button_position']) {
                         <span><?= $button['title'] ?></span>
                         <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                     </a>
+
+                    <!-- ejemlo anchor to
+
+                     <a data-target="form-hero" f-data-distance="50" href=" <?= $button['url']?>"
+                   <?= get_target_link($button['target'], $button['title']) ?>
+                   class="g--btn-03 g--btn-03--second">
+                   class="g--btn-03 g--btn-03--second js--scroll-to">
+                    <span><?= $button['title'] ?></span>
+                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                </a>
+
+
+                      -->
                 </div>
             <?php endif; ?>
         </div>
