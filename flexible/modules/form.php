@@ -1,4 +1,4 @@
-<section class="c--hero-h <?php echo get_spacing($module['section_spacing']) ?>">
+<section id="form-hero" class="c--hero-h <?php echo get_spacing($module['section_spacing']) ?>">
     <div class="c--hero-h__bg-items"></div>
     <div class="c--hero-h__wrapper">
         <div class="f--row f--gap-c">
