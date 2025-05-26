@@ -726,17 +726,6 @@ class Main extends Core {
       this.instances["Counter"] = [];
     }
 
-    if (
-      document.querySelectorAll(".js--scroll-to").length &&
-      this.instances["AnchorTo"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 300, name: "AnchorTo" });
-      document.querySelectorAll(".js--scroll-to").forEach((element, index) => {
-        this.instances["AnchorTo"][index].destroy();
-      });
-      this.instances["AnchorTo"] = [];
-    }
-
     //Destroy accordion
     if (
       document.querySelectorAll(".c--accordion-a").length &&
