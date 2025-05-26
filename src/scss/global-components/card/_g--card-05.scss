@@ -16,7 +16,7 @@
         $media-options: (
             "aspect-ratio": 1 1,
             "width": auto,
-            "height": 72px,
+            "height": 80px,
             "object-fit": cover,
             "object-position": left,
             "first": yes,
@@ -43,8 +43,11 @@
         $custom-options: (
             "parent": (
                 "display": unquote("flex !important"),
-                gap: 16px,
+                "gap": 16px,
             ),
+            ".g--card-05__ft-items__media-wrapper": (
+                "margin-bottom": 32px,
+            )
         ),
     );
 }
