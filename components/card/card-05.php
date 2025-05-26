@@ -11,9 +11,13 @@
             </div>
         <?php endif; ?>
 
-        <?php if ($label): ?>
+        <?php if ($button): ?>
             <div class="g--card-05__ft-items__list-group">
-                <p class="g--card-05__ft-items__list-group__item"><?= esc_html($label); ?></p>
+                <a href="<?= esc_url($button['url']); ?>"
+                <?= get_target_link($button['target'], $button['title']); ?>
+                class="g--card-05__ft-items__list-group__item">
+                    <?= esc_html($button['title']); ?>
+                </a>
             </div>
         <?php endif; ?>
 
