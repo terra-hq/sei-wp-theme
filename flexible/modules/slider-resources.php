@@ -10,8 +10,7 @@ $spacing = get_spacing($module['spacing']);
                     <?php if (!empty($module['custom_cards'])): ?>
                         <?php foreach ($module['custom_cards'] as $key => $card):
                             $title = $card['title'];
-                            $subtitle = $card['description'];
-                            $bullets = $card['bullets'];
+                            $content = $card['content'];
                             $image = $card['image'];
                             $button = $card['button'];
                             $permalink = $button['url'] ?? '#';

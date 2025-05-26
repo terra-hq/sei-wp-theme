@@ -7,7 +7,7 @@
 
         <?php if ($content): ?>
             <div class="g--card-05__ft-items__item-secondary c--content-a">
-                <?= esc_html($content); ?>
+                <?= $content; ?>
             </div>
         <?php endif; ?>
 
