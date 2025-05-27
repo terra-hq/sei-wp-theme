@@ -1,46 +1,89 @@
 .c--hero-h {
-    @extend .f--background-b;
+  @extend .f--background-b;
+  @extend .u--position-relative;
+  @extend .u--overflow-hidden;
+  padding: $measure * 19.5 0 $measure * 15;
+  @media all and ($viewport-type: $tablets) {
+    padding: $measure * 15 0 $measure * 11;
+  }
+
+  &__bg-items {
+    @extend .u--position-absolute;
+    background-image: url("#{$base-path}/assets/img/swirl.png");
+    background-size: contain;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    width: 33.33%;
+    height: 33.33vw;
+    left: 0;
+    bottom: 0;
+    transform: translateY(12%);
+    z-index: 1;
+
+    @media all and ($viewport-type: $tabletm) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
     @extend .u--position-relative;
-    @extend .u--overflow-hidden;
-    padding: $measure*19.5 0 $measure*15;
-    @media all and ($viewport-type: $tablets) {
-        padding: $measure*15 0 $measure*11;
+    @extend .f--container;
+    z-index: 2;
+    &__title {
+      @extend .f--font-c;
     }
 
-    &__bg-items {
-        @extend .u--position-absolute;
-        background-image: url('#{$base-path}/assets/img/swirl.png');
-        background-size: contain;
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        width: 33.33%;
-        height: 33.33vw;
-        left: 0;
-        bottom: 0;
-        transform: translateY(12%);
-        z-index: 1;
-
-        @media all and ($viewport-type: $tabletm) {
-            display: none;
-        }
+    &__subtitle {
+      @extend .f--font-g;
+      @extend .u--font-light;
+      @extend .f--mt-3;
+      padding-bottom: calc(33.33vw - #{$measure * 15});
+      @media all and ($viewport-type: $tabletm) {
+        padding-bottom: 0;
+      }
     }
+  }
 
+  &--second & {
     &__wrapper {
-        @extend .u--position-relative;
-        @extend .f--container;
-        z-index: 2;
-        &__title {
-            @extend .f--font-c;
+      &__subtitle {
+        @extend .f--font-g;
+        @extend .u--font-light;
+        @extend .f--mt-3;
+        padding-bottom: 25rem;
+
+        @media all and ($viewport-type: $laptop) {
+          padding-bottom: $measure * 30;
         }
-    
-        &__subtitle {
-            @extend .f--font-g;
-            @extend .u--font-light;
-            @extend .f--mt-3;
-            padding-bottom: calc(33.33vw - #{$measure*15});
-            @media all and ($viewport-type: $tabletm) {
-                padding-bottom: 0;
-            }
+        @media all and ($viewport-type: $tabletl) {
+          padding-bottom: $measure * 20;
         }
+        @media all and ($viewport-type: $tabletm) {
+          padding-bottom: 0;
+        }
+      }
     }
+    &__bg-items {
+      @extend .u--position-absolute;
+      background-image: url("#{$base-path}/assets/img/swirl.png");
+      background-size: contain;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      width: 33.33%;
+      height: 33.33vw;
+      left: -120px;
+      bottom: -200px;
+      transform: rotate(28.196deg);
+      z-index: 1;
+
+      @media all and ($viewport-type: $tabletl) {
+        left: -100px;
+        bottom: -150px;
+      }
+
+      @media all and ($viewport-type: $tabletm) {
+        display: none;
+      }
+    }
+  }
 }
