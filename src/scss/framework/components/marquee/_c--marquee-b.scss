@@ -5,7 +5,6 @@
   @media all and ($viewport-type: $tablets) {
     padding-bottom: 5rem;
     padding-top: 0rem;
-    max-width: $measure * 4;
   }
   &__ft {
     line-height: 1.2;
@@ -23,8 +22,11 @@
     @media (hover: hover) {
       &:hover {
         color: map-get($color-options, c);
-        opacity: 0.9999;
-        will-change: color; // Forzar repintado
+        span {
+          color: map-get($color-options, c);
+          opacity: 0.9999;
+          will-change: color; // Forzar repintado
+        }
       }
     }
     &__list-item {
