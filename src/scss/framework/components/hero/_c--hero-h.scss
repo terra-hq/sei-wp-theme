@@ -43,6 +43,12 @@
       }
     }
   }
+  &--second {
+    padding: $measure * 23.5 0 $measure * 15;
+    @media all and ($viewport-type: $tablets) {
+      padding: $measure * 15 0 $measure * 11;
+    }
+  }
 
   &--second & {
     &__wrapper {
@@ -50,7 +56,7 @@
         @extend .f--font-g;
         @extend .u--font-light;
         @extend .f--mt-3;
-        padding-bottom: 25rem;
+        padding-bottom: 23rem;
 
         @media all and ($viewport-type: $laptop) {
           padding-bottom: $measure * 30;
