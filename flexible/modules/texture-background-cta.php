@@ -4,7 +4,9 @@ $title = $module['title'];
 $simple_title = $module['simple_title'];
 $btn = $module['button'];
 $full_width = $module['full_width'];
-$bg_image = $module['bg_image']
+$bg_image = $module['bg_image'];
+$scroll_to_form = $module['scroll_to_form'];
+$scroll_to_form_title = $module['scroll_to_form_title'];
 ?>
 
 <section class="<?= $spacing ?>">
@@ -48,9 +50,17 @@ $bg_image = $module['bg_image']
                                 <h2 class="g--cta-02__ft-items__content__item-primary f--font-e"><?= $simple_title ?></h2>
                             <?php endif; ?>
                             <div class="g--cta-02__ft-items__content__list-group">
-                                <?php if ($btn) : ?>
-                                    <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--cta-02__ft-items__content__list-group__item">
-                                        <span><?= $btn['title'] ?></span>
+                                <?php if ($scroll_to_form && $scroll_to_form_title): ?>
+                                    <button tf-data-target="form-hero" tf-data-distance="0"
+                                            class="g--cta-02__ft-items__content__list-group__item js--scroll-to">
+                                        <span><?= $scroll_to_form_title; ?></span>
+                                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                                    </button>
+                                <?php elseif ($btn) : ?>
+                                    <a href="<?= esc_url($btn['url']); ?>"
+                                    <?= get_target_link($btn['target'], $btn['title']); ?>
+                                    class="g--cta-02__ft-items__content__list-group__item">
+                                        <span><?= $btn['title']; ?></span>
                                         <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                                     </a>
                                 <?php endif; ?>
@@ -62,3 +72,7 @@ $bg_image = $module['bg_image']
         </div>
     </div>
 </section>
+
+<?php
+unset($spacing, $title, $simple_title, $btn, $full_width, $bg_image, $scroll_to_form, $scroll_to_form_title);
+?>
