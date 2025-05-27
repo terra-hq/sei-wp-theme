@@ -44,3 +44,5 @@
         </div>
     </section>
 <?php endif; ?>
+
+<?php unset($cards, $customClass); ?>

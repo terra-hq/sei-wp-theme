@@ -36,3 +36,7 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing, $heading, $description, $time_events);
+?>

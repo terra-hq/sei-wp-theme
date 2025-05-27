@@ -46,14 +46,14 @@
   &--second {
     padding: $measure * 23.5 0 $measure * 15;
     @media all and ($viewport-type: $tablets) {
-      padding: $measure * 15 0 $measure * 11;
+      padding: $measure * 19 0 $measure * 11;
     }
   }
 
   &--second & {
     &__wrapper {
       &__subtitle {
-        @extend .f--font-g;
+        @extend .f--font-h;
         @extend .u--font-light;
         @extend .f--mt-3;
         padding-bottom: 23rem;

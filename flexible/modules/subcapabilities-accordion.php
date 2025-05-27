@@ -69,3 +69,7 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing, $title, $card_title, $card_description, $link);
+?>

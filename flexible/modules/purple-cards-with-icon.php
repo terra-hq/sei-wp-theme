@@ -33,3 +33,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $bgColor, $cards, $description, $image, $modifierClass); ?>

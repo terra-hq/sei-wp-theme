@@ -27,3 +27,7 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing, $bg_color, $testimonials, $people_post, $small_heading, $description, $name, $job_position, $image);
+?>

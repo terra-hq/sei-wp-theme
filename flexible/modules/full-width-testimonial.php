@@ -28,3 +28,16 @@
     <?php if ($useContainer) : ?>
         </div>
     <?php endif; ?>
+
+<?php 
+    unset(
+        $title, 
+        $subtitle, 
+        $testimonial_name, 
+        $testimonial_position, 
+        $image, 
+        $spacing, 
+        $modifierClass, 
+        $useContainer
+    );
+?>

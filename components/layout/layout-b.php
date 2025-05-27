@@ -34,3 +34,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($modifierText, $span_size, $modifier); ?>

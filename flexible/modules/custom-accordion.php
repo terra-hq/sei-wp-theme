@@ -52,7 +52,7 @@
                                                     'image' => $image,
                                                     'sizes' => 'small',
                                                     'class' => 'c--card-b__media-wrapper__media',
-                                                    'isLazy' => true,
+                                                    'isLazy' => false,
                                                     'lazyClass' => 'g--lazy-01',
                                                     'showAspectRatio' => true,
                                                     'decodingAsync' => true,
@@ -76,3 +76,5 @@
     </div>
 </section>
 <?php endif; ?>
+
+<?php unset($spacing); ?>

@@ -9,3 +9,7 @@ if ($bgColor === 'f--background-c' || $bgColor === 'f--background-d') { //morado
 $spacing = get_spacing($module['section_spacing']);
 include(locate_template('components/heading/heading-c.php', false, false));
 ?>
+
+<?php
+unset($title, $bgColor, $color, $spacing);
+?>

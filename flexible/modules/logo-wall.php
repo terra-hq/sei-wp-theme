@@ -12,9 +12,12 @@
                 <div class="c--media-b <?php echo count($logos) > 5 && (count($logos) % 5 == 1 || count($logos) % 5 == 2 || count($logos) % 5 == 3) ? 'c--media-b--second' : ''; ?>">
                     <?php foreach ($logos as $logo) { ?>
                         <div class="c--media-b__item">
-                            <?php if($logo['link']): ?>
-                                <a href="<?= $logo['link'] ? $logo['link']['url'] : '#'; ?>" <?php echo get_target_link($logo['link']['target'], $logo['link']['title']) ?> class="c--media-b__item__link">
+                            <?php if ($logo['link']): ?>
+                                <a href="<?= $logo['link'] ? $logo['link']['url'] : '#'; ?>" 
+                                   <?= get_target_link($logo['link']['target'], $logo['link']['title']) ?> 
+                                   class="c--media-b__item__link">
                                     <?php
+                                    if (!empty($logo['image'])) {
                                         $image_tag_args = array(
                                             'image' => $logo['image'],
                                             'sizes' => '580px',
@@ -26,7 +29,8 @@
                                             'fetchPriority' => false,
                                             'addFigcaption' => false,
                                         );
-                                        generate_image_tag($image_tag_args)
+                                        generate_image_tag($image_tag_args);
+                                    }
                                     ?>
                                 </a>
                             <?php endif; ?>
@@ -37,3 +41,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $bg_color, $logos); ?>

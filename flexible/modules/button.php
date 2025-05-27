@@ -36,4 +36,4 @@ $button = $module['button'];
     </div>
 </section>
 
-<?php unset($spacing, $button, $position_class, $scroll_to_form, $scroll_button_title); ?>
+<?php unset($spacing, $button, $position_class, $scroll_to_form, $scroll_to_form_title); ?>

@@ -1,15 +1,16 @@
 <?php
-    $spacing = get_spacing($module['section_spacing']);
-    $bg_color = $module['bg_color'];
-    $image = $module['image'];
+$spacing = get_spacing($module['section_spacing']);
+$bg_color = $module['bg_color'];
+$image = $module['image'];
 ?>
 
-<section class="<?= $spacing ?> <?= $bg_color ?>">
+<section class=" <?= $spacing ?> <?= $bg_color ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
                 <div class="c--media-a">
                     <?php
+                    if ($image) {
                         $image_tag_args = array(
                             'image' => $image,
                             'sizes' => '100vw',
@@ -21,12 +22,13 @@
                             'fetchPriority' => false,
                             'addFigcaption' => false,
                         );
-                        if($image){
-                            generate_image_tag($image_tag_args);
-                        }
+                        generate_image_tag($image_tag_args);
+                    }
                     ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $bg_color, $image); ?>

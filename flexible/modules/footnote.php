@@ -16,3 +16,5 @@ $content = $module['content'];
         </div>
     </div>
 </section>
+
+<?php unset($bgColor, $spacing, $content); ?>

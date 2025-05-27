@@ -98,3 +98,7 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing, $title, $locations, $location_title);
+?>

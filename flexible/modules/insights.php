@@ -74,12 +74,14 @@
                         }
                     ?>
                 </h2>
-                <a href="<?= $btn['url'] ?>" class="g--btn-03 g--btn-03--second">
-                    <span class="g--btn-03__content">
-                        <?= $btn['title'] ?>
-                    </span>
-                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
-                </a>
+                <?php if (!empty($btn) && !empty($btn['url']) && !empty($btn['title'])): ?>
+                    <a href="<?= $btn['url'] ?>" class="g--btn-03 g--btn-03--second">
+                        <span class="g--btn-03__content">
+                            <?= $btn['title'] ?>
+                        </span>
+                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                    </a>
+                <?php endif; ?>
             </div>
             <div class="f--col-6 f--col-tabletm-12">
                 <div class="c--wrapper-a">
