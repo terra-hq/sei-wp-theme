@@ -11,13 +11,20 @@
             </div>
         <?php endif; ?>
 
-        <?php if ($button): ?>
+        <?php if ($button || $scroll_to_form): ?>
             <div class="g--card-05__ft-items__list-group">
-                <a href="<?= esc_url($button['url']); ?>"
-                <?= get_target_link($button['target'], $button['title']); ?>
-                class="g--card-05__ft-items__list-group__item">
-                    <?= esc_html($button['title']); ?>
-                </a>
+                <?php if (!empty($scroll_to_form)): ?>
+                    <button tf-data-target="form-hero" tf-data-distance="0"
+                            class="g--card-05__ft-items__list-group__item js--scroll-to">
+                        <?= $scroll_to_form_title; ?>
+                    </button>
+                <?php else: ?>
+                    <a href="<?= esc_url($button['url']); ?>"
+                    <?= get_target_link($button['target'], $button['title']); ?>
+                    class="g--card-05__ft-items__list-group__item">
+                        <?= $button['title']; ?>
+                    </a>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
 

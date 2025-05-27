@@ -12,6 +12,8 @@ $spacing = get_spacing($module['spacing']);
                             $title = $card['title'];
                             $content = $card['content'];
                             $image = $card['image'];
+                            $scroll_to_form = $card['scroll_to_form'] ?? false;
+                            $scroll_to_form_title = $card['scroll_to_form_title'] ?? '';
                             $button = $card['button'];
                             $permalink = $button['url'] ?? '#';
                             $target = !empty($button['target']) ? 'target="_blank" rel="noopener noreferrer"' : '';
