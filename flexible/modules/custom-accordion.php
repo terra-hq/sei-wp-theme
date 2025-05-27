@@ -11,6 +11,8 @@
                 <?php foreach($module['accordion_items'] as $key => $accItem): 
                         $card_title = $accItem['accordion_title'];
                         $card_description = $accItem['accordion_content'];
+                        $scroll_to_form = $accItem['accordion_scroll_to_form'];
+                        $scroll_to_form_title = $accItem['accordion_scroll_to_form_title'];
                         $link =  $accItem['accordion_button'];
                         $image = $accItem['accordion_image']; ?>
                          <div class="c--accordion-a__item">
@@ -26,9 +28,17 @@
                                             <div class="c--card-b__wrapper__content c--content-a c--content-a--second-color c--content-a--second-text">
                                                 <?= $card_description ?>
                                             </div>
-                                            <?php if($link): ?>
-                                                <a href="<?= $link['url'] ?>" <?= get_target_link($link['target'], $link['title']); ?> class="c--card-b__wrapper__btn">
-                                                    <span><?= $link['title'] ?></span>
+                                            <?php if ($scroll_to_form && $scroll_to_form_title): ?>
+                                                <button tf-data-target="form-hero" tf-data-distance="0"
+                                                        class="c--card-b__wrapper__btn js--scroll-to">
+                                                    <span><?= $scroll_to_form_title; ?></span>
+                                                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                                                </button>
+                                            <?php elseif($link): ?>
+                                                <a href="<?= esc_url($link['url']); ?>"
+                                                <?= get_target_link($link['target'], $link['title']); ?>
+                                                class="c--card-b__wrapper__btn">
+                                                    <span><?= $link['title']; ?></span>
                                                     <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                                                 </a>
                                             <?php endif; ?>
