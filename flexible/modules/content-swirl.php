@@ -1,14 +1,23 @@
-<section class="c--layout-a <?php echo $module['bg_color'] == 'f--background-b' ? 'c--layout-a--second' : '' ?> <?= get_spacing($module['section_spacing']); ?>">
+<?php
+$bg_color = $module['bg_color'];
+$spacing = get_spacing($module['section_spacing']);
+$legend = $module['legend'];
+$title = $module['title'];
+$content = $module['content'];
+$button = $module['button'];
+?>
+
+<section class="c--layout-a <?= $bg_color === 'f--background-b' ? 'c--layout-a--second' : '' ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-6 f--col-tabletl-7 f--col-tablets-12">
-                <h2 class="c--layout-a__title"><?php echo $module['legend'] ?></h2>
-                <h3 class="c--layout-a__subtitle"><?php echo $module['title'] ?></h3>
+                <h2 class="c--layout-a__title"><?= $legend ?></h2>
+                <h3 class="c--layout-a__subtitle"><?= $title ?></h3>
                 <div class="c--layout-a__content c--content-a c--content-a--third-text">
-                    <?php echo $module['content'] ?>
+                    <?= $content ?>
                 </div>
-                <?php if($module['button']): ?>
-                    <a href="<?php echo $module['button']['url'] ?>" class="c--layout-a__btn"><?php echo $module['button']['title'] ?></a>
+                <?php if ($button): ?>
+                    <a href="<?= $button['url'] ?>" class="c--layout-a__btn"><?= $button['title'] ?></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -17,3 +26,5 @@
         <img src="<?php bloginfo('template_url'); ?>/img/swirl.webp" alt="" class="c--layout-a__media-wrapper__media">
     </div>
 </section>
+
+<?php unset($bg_color, $spacing, $legend, $title, $content, $button); ?>

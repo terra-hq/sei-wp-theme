@@ -26,3 +26,19 @@ $spacing = get_spacing($module['spacing']);
         </div>
     </div>
 </section>
+
+<?php
+    unset(
+        $spacing, 
+        $module, 
+        $title, 
+        $content, 
+        $image, 
+        $scroll_to_form, 
+        $scroll_to_form_title, 
+        $button, 
+        $permalink, 
+        $target, 
+        $label
+    );
+?>

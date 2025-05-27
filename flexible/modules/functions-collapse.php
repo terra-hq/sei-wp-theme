@@ -66,3 +66,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $args, $custom_query, $args_2, $custom_query_2); ?>

@@ -53,3 +53,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $bgColor, $title, $subtitle, $btn, $greenhouse_id); ?>

@@ -68,3 +68,5 @@ $modifier = 'g--accordion-02--third';
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $eyebrow, $title, $description, $accordion_items, $modifier); ?>

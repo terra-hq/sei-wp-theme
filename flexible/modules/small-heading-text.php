@@ -7,3 +7,7 @@
     $btn = $module['btn'];
     include(locate_template('components/layout/layout-02.php', false, false)); 
 ?>
+
+<?php
+    unset($spacing, $bgColor, $modifierClass, $title, $description, $btn);
+?>

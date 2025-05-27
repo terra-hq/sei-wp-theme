@@ -35,18 +35,20 @@
                             </div>
                             <figure class="g--card-03__ft-items__media-wrapper">
                                 <?php
-                                    $image_tag_args = array(
-                                        'image' => $image,
-                                        'sizes' => '580px',
-                                        'class' => 'g--card-03__ft-items__media-wrapper__media',
-                                        'isLazy' => true,
-                                        'lazyClass' => 'g--lazy-01',
-                                        'showAspectRatio' => true,
-                                        'decodingAsync' => true,
-                                        'fetchPriority' => false,
-                                        'addFigcaption' => false,
-                                    );
-                                    generate_image_tag($image_tag_args)
+                                    if (!empty($image)) {
+                                        $image_tag_args = array(
+                                            'image' => $image,
+                                            'sizes' => '580px',
+                                            'class' => 'g--card-03__ft-items__media-wrapper__media',
+                                            'isLazy' => true,
+                                            'lazyClass' => 'g--lazy-01',
+                                            'showAspectRatio' => true,
+                                            'decodingAsync' => true,
+                                            'fetchPriority' => false,
+                                            'addFigcaption' => false,
+                                        );
+                                        generate_image_tag($image_tag_args);
+                                    }
                                 ?>
                             </figure>
                         </div>
@@ -59,3 +61,6 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing);

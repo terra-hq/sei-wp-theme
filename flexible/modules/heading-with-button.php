@@ -10,3 +10,5 @@
 
     include(locate_template('components/heading/heading-a.php', false, false));
 ?>
+
+<?php unset($title, $title_size, $bgColor, $text_center, $color, $btn, $spacing); ?>

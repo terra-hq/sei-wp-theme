@@ -27,3 +27,5 @@
     </div>
 </section>
 <?php endif; ?>
+
+<?php unset($accordion_items, $bg_color, $section_spacing, $modifier); ?>
