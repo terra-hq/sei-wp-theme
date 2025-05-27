@@ -17,11 +17,11 @@ $button = $module['button'];
             <div class="f--col-12 u--display-flex <?= $position_class; ?>">
 
                 <?php if ($scroll_to_form && $scroll_to_form_title): ?>
-                    <a href="#" data-target="form-hero" f-data-distance="50"
+                    <button tf-data-target="form-hero" tf-data-distance="0"
                        class="g--btn-03 g--btn-03--second js--scroll-to">
                         <span><?= $scroll_to_form_title; ?></span>
                         <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
-                    </a>
+                    </button>
                 <?php elseif ($button): ?>
                     <a href="<?= esc_url($button['url']) ?>"
                        <?= get_target_link($button['target'], $button['title']) ?>

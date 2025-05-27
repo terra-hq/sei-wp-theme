@@ -619,9 +619,8 @@ class Main extends Core {
         this.instances["AnchorTo"][index] = new AnchorTo({
           element: el,
           checkUrl: false, // o true si quieres soportar hashes en la URL
-          anchorTo: "data-target", // dónde buscar el ID destino
+          anchorTo: "tf-data-target", // dónde buscar el ID destino
           offsetTopAttribute: "tf-data-distance",
-          offsetTop: 50,
           speed: 500,
           emitEvents: true,
           onComplete: () => console.log("Scroll completo"),
