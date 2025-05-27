@@ -50,7 +50,7 @@
         @extend .f--font-g;
         @extend .u--font-light;
         @extend .f--mt-3;
-        padding-bottom: 20rem;
+        padding-bottom: 25rem;
 
         @media all and ($viewport-type: $laptop) {
           padding-bottom: $measure * 30;
