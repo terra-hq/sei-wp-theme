@@ -71,14 +71,12 @@ const sliderCConfig = {
   touch: true,
   responsive: {
     580: {
+      items: 1,
+    },
+    810: {
       items: 2,
     },
-    1024: {
-      items: 2,
-    },
-    1570: {
-      items: 3,
-    },
+    1300: { items: 3 },
   },
 };
 
