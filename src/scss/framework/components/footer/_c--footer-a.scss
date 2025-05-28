@@ -1,58 +1,59 @@
 .c--footer-a {
-    @extend .f--background-c;
-    @extend .u--width-100;
+  @extend .f--background-c;
+  @extend .u--width-100;
+  @extend .c--curve-a;
+  z-index: 1;
+  &__hd {
+    padding: $measure * 8 0 $measure * 4;
+    &__link {
+      @extend .f--font-a;
+      @extend .g--link-01;
+      @extend .g--link-01--seventh;
+      padding: 2px;
+    }
+  }
+  &__bd {
+    padding: 0 0 calc(#{$measure * 8} + #{$measure * 3});
+    @media all and ($viewport-type: $tablets) {
+      padding: 0 0 calc(#{$measure * 4} + #{$measure});
+    }
+  }
+  &__ft {
     @extend .c--curve-a;
-    z-index: 1;
-    &__hd {
-        padding: $measure*8 0 $measure*4;
-        &__link {
-            @extend .f--font-a;
-            @extend .g--link-01;
-            @extend .g--link-01--seventh;
-        }
+    &::before {
+      background-color: map-get($color-options, i);
+      top: -$measure * 3;
+      @media all and ($viewport-type: $tablets) {
+        top: -$measure;
+      }
     }
-    &__bd {
-        padding: 0 0 calc(#{$measure*8} + #{$measure*3});
+    &__wrapper {
+      background-color: inherit;
+      @extend .c--curve-a;
+      padding: $measure * 7 0;
+      @media all and ($viewport-type: $tablets) {
+        padding: $measure * 4 0 $measure * 7;
+      }
+      &::before {
+        width: calc(100% + 8px);
+        background-color: map-get($color-options, k);
+        top: calc(-#{$measure * 3} + 1px);
         @media all and ($viewport-type: $tablets) {
-            padding: 0 0 calc(#{$measure*4} + #{$measure});
+          top: calc(-#{$measure} + 1px);
         }
+      }
+      &__list-group {
+        margin-bottom: $measure * 2;
+        @media all and ($viewport-type: $tablets) {
+          margin-bottom: $measure * 3;
+        }
+      }
+      &__item-right {
+        @extend .u--justify-content-flex-end;
+        @media all and ($viewport-type: $tabletm) {
+          justify-content: flex-start;
+        }
+      }
     }
-    &__ft {
-        @extend .c--curve-a;
-        &::before {
-            background-color: map-get($color-options, i);
-            top: -$measure*3;
-            @media all and ($viewport-type: $tablets) {
-                top: -$measure;
-            }
-        }
-        &__wrapper {
-            background-color: inherit;
-            @extend .c--curve-a;
-            padding: $measure*7 0;
-            @media all and ($viewport-type: $tablets) {
-                padding: $measure*4 0 $measure*7;
-            }
-            &::before {
-                width: calc(100% + 8px);
-                background-color: map-get($color-options, k);
-                top: calc(-#{$measure*3} + 1px);
-                @media all and ($viewport-type: $tablets) {
-                    top: calc(-#{$measure} + 1px);
-                }
-            }
-            &__list-group {
-                margin-bottom: $measure*2;
-                @media all and ($viewport-type: $tablets) {
-                    margin-bottom: $measure*3;
-                }
-            }
-            &__item-right {
-                @extend .u--justify-content-flex-end;
-                @media all and ($viewport-type: $tabletm) {
-                    justify-content: flex-start;
-                }
-            }
-        }
-    }
+  }
 }
