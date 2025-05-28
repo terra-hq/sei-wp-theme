@@ -2,13 +2,7 @@
   @extend .f--background-d;
   @extend .f--pt-8;
   padding-bottom: 10.5rem;
-  @media all and ($viewport-type: $tablets) {
-    padding-bottom: 5rem;
-    padding-top: 0rem;
-  }
-  &__ft {
-    line-height: 1.2;
-  }
+
   &__list-group {
     @extend .u--display-flex;
     @extend .u--align-items-center;
@@ -22,13 +16,19 @@
     @media (hover: hover) {
       &:hover {
         color: map-get($color-options, c);
-        span {
+
+        .c--marquee-b__list-group__list-item {
           color: map-get($color-options, c);
-          opacity: 0.9999;
-          will-change: color; // Forzar repintado
+          span,
+          p {
+            color: map-get($color-options, c);
+            opacity: 0.9999;
+            will-change: color;
+          }
         }
       }
     }
+
     &__list-item {
       @extend .u--display-flex;
       @extend .u--align-items-center;
@@ -36,21 +36,31 @@
       @extend .u--position-relative;
       @extend .u--height-100;
       gap: $measure * 4;
-      padding: 0 $measure * 2 0 $measure * 2;
+      padding: 0 $measure * 2;
       margin: 0;
       flex-shrink: 0;
       cursor: pointer;
-    }
-  }
-  &__media {
-    display: block;
-    object-fit: contain;
-    width: auto;
-    max-width: $measure * 7;
-    max-height: $measure * 7;
-    @media all and ($viewport-type: $tablets) {
-      max-height: $measure * 4;
-      max-width: $measure * 4;
+      transition: color $time-b $ease-standard-a;
+
+      &__content {
+        display: block;
+        line-height: 1.2;
+        transition: color $time-b $ease-standard-a;
+      }
+
+      &__artwork {
+        display: block;
+        object-fit: contain;
+        width: auto;
+        max-width: $measure * 7;
+        max-height: $measure * 7;
+        transition: filter $time-b $ease-standard-a;
+
+        @media all and ($viewport-type: $tablets) {
+          max-height: $measure * 4;
+          max-width: $measure * 4;
+        }
+      }
     }
   }
 }

@@ -3,5 +3,8 @@
   &__wrapper {
     display: flex;
     gap: $measure * 4;
+    @media all and ($viewport-type: $mobile) {
+      gap: 0;
+    }
   }
 }

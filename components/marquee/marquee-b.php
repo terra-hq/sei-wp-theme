@@ -14,15 +14,13 @@ $marquee_text = $module['marquee_text'];
                     data-reversed="0">
                 <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="c--marquee-b__list-group__list-item">
-                        <img src="<?= get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__media" width="116" height="116" />
+                        <img src="<?= get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__list-group__list-item__artwork" width="116" height="116" />
                         <?php foreach ($marquee_text as $item): ?>
-                            <p>
                                 <?php if ($item['italic']): ?>
-                                    <span class="c--marquee-b__ft"><?= $item['text']; ?></span>
+                                    <p class="c--marquee-b__list-group__list-item__content"><?= $item['text']; ?></p>
                                 <?php else: ?>
-                                    <?= $item['text']; ?>
+                                      <p class="c--marquee-b__list-group__list-item__content"> <?= $item['text']; ?> </p>
                                 <?php endif; ?>
-                            </p>
                         <?php endforeach; ?>
                     </div>
                 <?php endfor; ?>
