@@ -111,7 +111,7 @@ new Custom_Post_Type((object) array(
     'plural_name' => 'Services',
     'args' => array(
         'menu_icon' => 'dashicons-image-filter',
-        'rewrite' => array('slug' => 'services'),
+        'rewrite' => array('slug' => 'our-services'),
         'hierarchical' => true,
         'supports' => array('title', 'page-attributes'),
     )

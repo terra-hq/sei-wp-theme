@@ -200,6 +200,34 @@ class Main extends Core {
         },
       });
     }
+
+    let sliderCElements = document.querySelectorAll(".js--slider-c");
+    if (sliderCElements.length) {
+      this.instances["sliderC"] = [];
+      this.boostify.scroll({
+        distance: 15,
+        name: "sliderC",
+        callback: async () => {
+          const { sliderCConfig } = await import(
+            "@jsModules/slider/slidersConfig"
+          );
+          const { default: SliderC } = await import(
+            "@jsModules/slider/Slider.js"
+          );
+          window["lib"]["SliderC"] = SliderC;
+
+          sliderCElements.forEach((slider, index) => {
+            this.instances["sliderC"][index] = new window["lib"]["SliderC"]({
+              slider: slider,
+              nav: slider.nextElementSibling,
+              config: sliderCConfig,
+              windowName: "SliderC",
+              index: index,
+            });
+          });
+        },
+      });
+    }
     /**
      * GSAP animation for timeline-a
      */
@@ -269,56 +297,6 @@ class Main extends Core {
         },
       });
     }
-
-    //marquee
-    if (document.querySelectorAll(".js--marquee").length) {
-      this.instances["Marquee"] = [];
-
-      document.querySelectorAll(".js--marquee").forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marquee",
-
-          callback: async () => {
-            // Lógica de validación por número de ítems y tamaño de viewport
-            const items = element.querySelectorAll(".c--marquee-a__item");
-            const itemCount = element.querySelectorAll(
-              ".c--marquee-a__item"
-            ).length;
-            const isMobile = window.innerWidth <= 768;
-
-            const shouldInit =
-              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
-            if (!shouldInit) {
-              element.classList.add("js--marquee--disabled");
-              return;
-            }
-
-            // Importar e instanciar el módulo solo si pasa la validación
-            const { default: InfiniteMarquee } = await import(
-              "@jsModules/marquee/InfiniteMarquee.js"
-            );
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-
-            this.instances["Marquee"][index] = new window["lib"][
-              "InfiniteMarquee"
-            ]({
-              element: element,
-              speed: element.getAttribute("data-speed")
-                ? parseFloat(element.getAttribute("data-speed"))
-                : 1,
-              controlsOnHover:
-                element.getAttribute("data-controls-on-hover") == "true"
-                  ? true
-                  : false,
-              //controlsOnHover: false,
-              reversed: element.getAttribute("data-reversed"),
-            });
-          },
-        });
-      });
-    }
     /**
      * Awards accordion
      */
@@ -380,6 +358,82 @@ class Main extends Core {
         });
       });
     }
+    //marqueee
+    if (document.querySelectorAll(".js--marquee").length) {
+      this.instances["Marquee"] = [];
+
+      document.querySelectorAll(".js--marquee").forEach((element, index) => {
+        this.boostify.scroll({
+          distance: 1,
+          element: element,
+          name: "Marquee",
+
+          callback: async () => {
+            // Lógica de validación por número de ítems y tamaño de viewport
+            const items = element.querySelectorAll(".c--marquee-a__item");
+            const itemCount = element.querySelectorAll(
+              ".c--marquee-a__item"
+            ).length;
+            const isMobile = window.innerWidth <= 768;
+
+            const shouldInit =
+              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
+            if (!shouldInit) {
+              element.classList.add("js--marquee--disabled");
+              return;
+            }
+
+            // Importar e instanciar el módulo solo si pasa la validación
+            const { default: InfiniteMarquee } = await import(
+              "@jsModules/marquee/InfiniteMarquee.js"
+            );
+            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
+
+            this.instances["Marquee"][index] = new window["lib"][
+              "InfiniteMarquee"
+            ]({
+              element: element,
+              speed: element.getAttribute("data-speed")
+                ? parseFloat(element.getAttribute("data-speed"))
+                : 1,
+              controlsOnHover: element.getAttribute("data-controls-on-hover"),
+              reversed: element.getAttribute("data-reversed"),
+            });
+          },
+        });
+      });
+    }
+
+    if (document.querySelectorAll(".js--marquee-b").length) {
+      this.instances["Marquee"] = [];
+
+      document.querySelectorAll(".js--marquee-b").forEach((element, index) => {
+        this.boostify.scroll({
+          distance: 1,
+          element: element,
+          name: "Marqueeb",
+
+          callback: async () => {
+            const { default: InfiniteMarquee } = await import(
+              "@jsModules/marquee/InfiniteMarquee.js"
+            );
+            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
+
+            this.instances["Marquee"][index] = new window["lib"][
+              "InfiniteMarquee"
+            ]({
+              element: element,
+              speed: element.getAttribute("data-speed")
+                ? parseFloat(element.getAttribute("data-speed"))
+                : 1,
+              controlsOnHover: element.getAttribute("data-controls-on-hover"),
+              reversed: element.getAttribute("data-reversed"),
+            });
+          },
+        });
+      });
+    }
+
     /**
      * Filter people
      */
@@ -556,6 +610,23 @@ class Main extends Core {
         },
       });
     }
+
+    if (document.querySelectorAll(".js--scroll-to").length > 0) {
+      const { default: AnchorTo } = await import("@teamthunderfoot/anchor-to");
+
+      document.querySelectorAll(".js--scroll-to").forEach((el, index) => {
+        this.instances["AnchorTo"] = this.instances["AnchorTo"] || [];
+        this.instances["AnchorTo"][index] = new AnchorTo({
+          element: el,
+          checkUrl: false, // o true si quieres soportar hashes en la URL
+          anchorTo: "tf-data-target", // dónde buscar el ID destino
+          offsetTopAttribute: "tf-data-distance",
+          speed: 500,
+          emitEvents: true,
+          onComplete: () => console.log("Scroll completo"),
+        });
+      });
+    }
   }
 
   willReplaceContent() {
@@ -729,7 +800,6 @@ class Main extends Core {
       this.instances["Collapse"] = [];
     }
 
-    //marquee desstroy
     //Destroy marquee
     if (
       document.querySelectorAll(".js--marquee").length &&

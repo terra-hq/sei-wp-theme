@@ -29,7 +29,7 @@
     "@swup/head-plugin": "^2.2.0",
     "@swup/js-plugin": "^3.1.1",
     "@swup/scripts-plugin": "^2.1.0",
-    "@teamthunderfoot/anchor-to": "^0.0.10",
+    "@teamthunderfoot/anchor-to": "0.0.10",
     "@teamthunderfoot/counter-animation": "^0.0.4",
     "@terrahq/collapsify": "^0.0.19",
     "@terrahq/gc": "file:terrahq-gc-0.0.7.tgz",

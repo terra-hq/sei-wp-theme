@@ -15,7 +15,6 @@ class InfiniteMarquee {
     this.speed = payload.speed === undefined ? 1 : payload.speed;
     this.controlsOnHover =
       payload.controlsOnHover === undefined ? false : payload.controlsOnHover;
-
     this.init();
     this.events();
   }

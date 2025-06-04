@@ -8,4 +8,6 @@ $btn = $module['button'];
 
 include(locate_template('components/cta/cta-a.php'));
 
+unset($media, $subtitle, $title, $tag, $btn);
+
 ?>

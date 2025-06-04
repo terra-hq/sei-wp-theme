@@ -636,6 +636,11 @@ function variables_in_header()
         return get_field('placeholder_image', 'option');
     }
 
+    function get_testimonial_placeholder_image()
+    {
+        return get_field('placeholder_testimonial_image', 'option');
+    }
+
     function my_manage_columns($columns)
     {
         unset($columns['wpseo-score']);

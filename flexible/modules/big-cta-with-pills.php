@@ -13,6 +13,8 @@
     $card_url = "/" . $choose_post_type;
 ?>
 
-<section class="<?= $bgColor ?>">
+<section class="<?= $bgColor ?> <?= $spacing ?>">
     <?php include (locate_template('components/cta/cta-b.php', false, false)); ?>
 </section>
+
+<?php unset($spacing, $bgColor, $title, $description, $choose_post_type, $list, $card_url); ?>

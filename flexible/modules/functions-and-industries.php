@@ -53,3 +53,5 @@
         </div>
     </div>
 </section>
+
+<?php unset($spacing, $bgColor, $title, $content, $functions, $industries, $modifierClass, $type, $card, $card_posts); ?>

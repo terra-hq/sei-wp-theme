@@ -27,30 +27,34 @@
                     if ($description && $image) {
                 ?>
                 <div class="f--col-4 f--col-tablets-6 f--col-mobile-12 u--display-flex">
-                    <a href="<?= $link; ?>" rel="noopener noreferrer" class="<?= $background_class; ?>">
-                        <div class="g--card-03__ft-items">
-                            <p class="g--card-03__ft-items__item-primary"><?= $description; ?></p>
-                            <div class="g--card-03__ft-items__list-group">
-                                <span href="#" rel="noopener noreferrer" class="g--card-03__ft-items__list-group__item">Learn More +</span>
+                    <?php if (!empty($link)): ?>
+                        <a href="<?= esc_url($link); ?>" rel="noopener noreferrer" class="<?= $background_class; ?>">
+                            <div class="g--card-03__ft-items">
+                                <p class="g--card-03__ft-items__item-primary"><?= $description; ?></p>
+                                <div class="g--card-03__ft-items__list-group">
+                                    <span class="g--card-03__ft-items__list-group__item">Learn More +</span>
+                                </div>
+                                <figure class="g--card-03__ft-items__media-wrapper">
+                                    <?php
+                                        if (!empty($image)) {
+                                            $image_tag_args = array(
+                                                'image' => $image,
+                                                'sizes' => '580px',
+                                                'class' => 'g--card-03__ft-items__media-wrapper__media',
+                                                'isLazy' => true,
+                                                'lazyClass' => 'g--lazy-01',
+                                                'showAspectRatio' => true,
+                                                'decodingAsync' => true,
+                                                'fetchPriority' => false,
+                                                'addFigcaption' => false,
+                                            );
+                                            generate_image_tag($image_tag_args);
+                                        }
+                                    ?>
+                                </figure>
                             </div>
-                            <figure class="g--card-03__ft-items__media-wrapper">
-                                <?php
-                                    $image_tag_args = array(
-                                        'image' => $image,
-                                        'sizes' => '580px',
-                                        'class' => 'g--card-03__ft-items__media-wrapper__media',
-                                        'isLazy' => true,
-                                        'lazyClass' => 'g--lazy-01',
-                                        'showAspectRatio' => true,
-                                        'decodingAsync' => true,
-                                        'fetchPriority' => false,
-                                        'addFigcaption' => false,
-                                    );
-                                    generate_image_tag($image_tag_args)
-                                ?>
-                            </figure>
-                        </div>
-                    </a>
+                        </a>
+                    <?php endif; ?>
                 </div>
             <?php 
                 }
@@ -59,3 +63,6 @@
         </div>
     </div>
 </section>
+
+<?php
+    unset($spacing);

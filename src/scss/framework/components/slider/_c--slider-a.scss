@@ -1,7 +1,10 @@
 .c--slider-a {
-    overflow: hidden;
-    &__wrapper {
-        opacity: 0;
-        display: flex;
+  overflow: hidden;
+  &__wrapper {
+    display: flex;
+    gap: $measure * 4;
+    @media all and ($viewport-type: $mobile) {
+      gap: 0;
     }
+  }
 }

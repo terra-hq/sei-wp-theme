@@ -1,0 +1,71 @@
+.c--marquee-b {
+  @extend .f--background-d;
+  @extend .f--pt-8;
+  padding-bottom: 10.5rem;
+  @media all and ($viewport-type: $tablets) {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+  }
+
+  &__list-group {
+    @extend .u--display-flex;
+    @extend .u--align-items-center;
+    @extend .u--position-relative;
+    @extend .u--overflow-hidden;
+    @extend .u--width-100;
+    @extend .f--color-a;
+    @extend .f--font-b;
+    text-decoration: none;
+    transition: color $time-b $ease-standard-a;
+    @media (hover: hover) {
+      &:hover {
+        color: map-get($color-options, c);
+
+        .c--marquee-b__list-group__list-item {
+          color: map-get($color-options, c);
+          span,
+          p {
+            color: map-get($color-options, c);
+            opacity: 0.9999;
+            will-change: color;
+          }
+        }
+      }
+    }
+
+    &__list-item {
+      @extend .u--display-flex;
+      @extend .u--align-items-center;
+      @extend .u--justify-content-center;
+      @extend .u--position-relative;
+      @extend .u--height-100;
+      gap: $measure * 4;
+      padding: 0 $measure * 2;
+      margin: 0;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: color $time-b $ease-standard-a;
+
+      &__content {
+        display: block;
+        line-height: 1.2;
+        padding: 2px;
+        transition: color $time-b $ease-standard-a;
+      }
+
+      &__artwork {
+        display: block;
+        object-fit: contain;
+        width: auto;
+        max-width: $measure * 7;
+        max-height: $measure * 7;
+        transition: filter $time-b $ease-standard-a;
+
+        @media all and ($viewport-type: $tablets) {
+          max-height: $measure * 4;
+          max-width: $measure * 4;
+        }
+      }
+    }
+  }
+}

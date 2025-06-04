@@ -1,0 +1,58 @@
+.g--card-05 {
+    @include make-card-05();
+    @include make-card-05-modifier(
+        $card-options: (
+            "align": left,
+            "back-items": no
+        ),
+        $background-options: (
+            "background-color": map-get($color-options, m),
+        ),
+        $border-options: (
+            "border-color": map-get($color-options, m),
+            "border-width": 1px,
+            "border-style": solid,
+        ),
+        $media-options: (
+            "aspect-ratio": 1 0.5,
+            "width": auto,
+            "height": 80px,
+            "object-fit": cover,
+            "object-position": left,
+            "first": yes,
+        ),
+        $item-primary-options: (
+            "className": f--font-g,
+            "font-weight": 500,
+            "color": map-get($color-options, b),
+        ),
+        $item-secondary-options: (
+            "className": f--font-i,
+            "font-weight": 300,
+            "color": map-get($color-options, b),
+        ),
+        $list-group-item-options: (
+            "className": g--btn-01,
+        ),
+        $list-group-item-list-options: (
+            "aligned-at-bottom": "yes",
+        ),
+        $hover-options: (
+            "transform": none,
+        ),
+        $custom-options: (
+            "parent": (
+                "display": unquote("flex !important"),
+            ),
+            "g--card-05__ft-items__media-wrapper": (
+                "min-width": 200px,
+            ),
+            ".g--card-05__ft-items__media-wrapper img": (
+                "height": 100%,
+                "width": auto,
+                "max-width": 100%,
+                "object-fit": contain,
+            )
+        ),
+    );
+}

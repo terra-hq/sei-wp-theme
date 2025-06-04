@@ -102,8 +102,28 @@ switch ($module['acf_fc_layout']) {
         break;
     case 'accordion':
         include (locate_template('flexible/modules/accordion.php', false, false));
-        break;  
+        break;    
+    case 'button':
+        include (locate_template('flexible/modules/button.php', false, false));
+        break;    
+    case 'divider':
+        include (locate_template('flexible/modules/divider.php', false, false));
+        break;    
     case 'logo_marquee':
         include (locate_template('flexible/modules/logo-marquee.php', false, false));
-        break;      
+        break;    
+    case 'slider_resources':
+        include (locate_template('flexible/modules/slider-resources.php', false, false));
+        break;    
+    case 'heading_left_accordion_right':
+        include (locate_template('flexible/modules/heading-left-accordion-right.php', false, false));
+        break;    
+    case 'clickable_marquee':
+        include (locate_template('flexible/modules/clickable-marquee.php', false, false));
+        break;   
+    case 'custom_accordion':
+        include (locate_template('flexible/modules/custom-accordion.php', false, false));
+        break;   
+
+        
 }

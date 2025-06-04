@@ -24,6 +24,11 @@
 @import "@scss/framework/components/accordion/_c--accordion-b";
 @import "@scss/global-components/accordion/_g--accordion-02";
 
+@import "@scss/framework/components/marquee/_c--marque-a.scss";
+@import "@scss/framework/components/marquee/_c--marquee-b.scss";
+//* transition
+@import "@scss/framework/components/transition/_c--transition-a";
+
 //* background
 @import "@scss/framework/components/background/_c--bg-a";
 @import "@scss/framework/components/background/_c--bg-b";
@@ -64,6 +69,7 @@
 @import "@scss/global-components/card/_g--card-01";
 @import "@scss/global-components/card/_g--card-03";
 @import "@scss/global-components/card/_g--card-04";
+@import "@scss/global-components/card/_g--card-05";
 @import "@scss/global-components/card/_g--card-06";
 @import "@scss/global-components/card/_g--card-07";
 @import "@scss/global-components/card/_g--card-09";
@@ -184,6 +190,9 @@
 
 //* stats
 @import "@scss/framework/components/stats/_c--stats-a";
+
+//* sticky
+@import "@scss/framework/components/sticky/_c--sticky-a";
 
 //* sitemap
 @import "@scss/framework/components/sitemap/_c--sitemap-a";

@@ -17,3 +17,5 @@ if ($stats) : ?>
         </div>
     </section>
 <?php endif; ?>
+
+<?php unset($stats, $customClass); ?>
