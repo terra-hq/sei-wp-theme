@@ -139,3 +139,23 @@ select:-webkit-autofill:focus {
     border-radius: 1px;
     background-color: rgba(0, 0, 0, .2);
   }
+  
+// Print styles
+@media print {
+    .c--preloader-a,
+    .c--transition-a,
+    .c--header-a,
+    .c--footer-a {
+        display: none;
+    }
+    @page {
+        size: A4 portrait;
+        margin: 0cm;
+    }
+    div[class*="c--card"] {
+        break-inside: avoid!important;
+    }
+    div[class*="g--card"] {
+        break-inside: avoid!important;
+    }
+}
