@@ -158,4 +158,10 @@ select:-webkit-autofill:focus {
     div[class*="g--card"] {
         break-inside: avoid!important;
     }
+    div[class*="c--accordion"] {
+        break-inside: avoid!important;
+    }
+    div[class*="c--stats"] {
+        break-inside: avoid!important;
+    }
 }
