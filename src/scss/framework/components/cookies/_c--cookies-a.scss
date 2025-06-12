@@ -2,6 +2,8 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
 .c--cookies-a {
     @extend .u--position-fixed;
     @extend .f--background-c;

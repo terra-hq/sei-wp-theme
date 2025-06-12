@@ -4,6 +4,7 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@terrahq/gc/library" as *;
 @use "@scss/global-components/vars.scss" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
 .g--card-01 {
     @include make-card-01();
     @include make-card-01-modifier(

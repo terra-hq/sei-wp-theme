@@ -1,10 +1,11 @@
 
 @use "sass:map";
 @use "@scss/paths.scss" as paths;
-
+@use "@scss/framework/components/btn/_c--btn-a" as *;
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
 
 .c--form-a {
     @extend .u--width-100;

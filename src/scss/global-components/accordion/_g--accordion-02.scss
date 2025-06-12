@@ -4,6 +4,7 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@terrahq/gc/library" as *;
 @use "@scss/global-components/vars.scss" as *;
+
 .g--accordion-02 {
   @include make-accordion-02();
 

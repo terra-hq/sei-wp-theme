@@ -3,6 +3,7 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/framework/foundation/font/make-font" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
 
 .c--nav-b {
     @extend .u--display-flex;

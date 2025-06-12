@@ -2,6 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/curve/_c--curve-a" as *;
 .c--hero-c {
     @extend .u--width-100;
     background-color: map.get($color-options, d);

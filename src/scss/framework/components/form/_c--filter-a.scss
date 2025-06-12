@@ -4,6 +4,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/spinner/_g--spinner-01" as *;
 
 .c--filter-a {
     @extend .u--position-relative;
