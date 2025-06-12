@@ -253,9 +253,10 @@ class Main extends Core {
         },
       });
     }
+    
     /**
      * Stats counter animation
-     */
+     
     if (document.querySelectorAll(".js--counter").length) {
       this.instances["Counter"] = [];
       this.boostify.scroll({
@@ -275,7 +276,8 @@ class Main extends Core {
             });
         },
       });
-    }
+    }*/
+
     /**
      * Horizontal accordion
      */

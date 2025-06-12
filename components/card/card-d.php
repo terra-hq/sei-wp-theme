@@ -1,6 +1,6 @@
 <div class="c--card-d">
     <div class="c--card-d__wrapper">
-        <div class="c--card-d__wrapper__title js--counter">
+        <div class="c--card-d__wrapper__title">
             <?php echo $eachStat['stat_data'] ?>
         </div>
         <div class="c--card-d__wrapper__subtitle">
