@@ -1,7 +1,12 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--link-a {
     text-decoration: underline;
     @extend .f--color-d;
-    text-decoration-color: map-get($color-options, d);
+    text-decoration-color: map.get($color-options, d);
     transition: text-decoration-color $time-b $ease-standard-a;
     @media (hover: hover) {
         &:hover {
@@ -9,7 +14,7 @@
         }
     }
     &--second {
-        color: map-get($color-options, a);
-        text-decoration-color: map-get($color-options, a);
+        color: map.get($color-options, a);
+        text-decoration-color: map.get($color-options, a);
     }
 }

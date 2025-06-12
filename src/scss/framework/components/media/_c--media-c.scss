@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--media-c {
     @extend .u--position-sticky;
     @extend .u--display-flex;
@@ -17,7 +22,7 @@
         @extend .u--display-flex;
         @extend .u--width-100;
         z-index: 1;
-        background: rgba(map-get($color-options, a), 0.06);
+        background: rgba(map.get($color-options, a), 0.06);
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
         padding: $measure*7 $measure*4 $measure*2;

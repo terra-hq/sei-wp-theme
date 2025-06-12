@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--breadcrumbs-a {
     @extend .u--display-flex;
     &__item {
@@ -22,11 +27,11 @@
     }
     a.c--breadcrumbs-a__item,
     button.c--breadcrumbs-a__item {
-        color: rgba(map-get($color-options, c), .6);
+        color: rgba(map.get($color-options, c), .6);
 
         @media (hover: hover) {
             &:hover {
-                color: map-get($color-options, c);
+                color: map.get($color-options, c);
             }
         }
     }
@@ -36,10 +41,10 @@
     &--second {
         a.c--breadcrumbs-a__item,
         button.c--breadcrumbs-a__item {
-            color: rgba(map-get($color-options, a), .6);
+            color: rgba(map.get($color-options, a), .6);
             @media (hover: hover) {
                 &:hover {
-                    color: map-get($color-options, a);
+                    color: map.get($color-options, a);
                 }
             }
         }
@@ -47,7 +52,7 @@
     &--second & {
 
         &__item {
-            color: map-get($color-options, a);
+            color: map.get($color-options, a);
             &:not(:last-child) {
                 &::after {
                     @extend .f--color-a;

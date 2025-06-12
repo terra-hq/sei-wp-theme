@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--marquee-b {
   @extend .f--background-d;
   @extend .f--pt-8;
@@ -19,13 +24,13 @@
     transition: color $time-b $ease-standard-a;
     @media (hover: hover) {
       &:hover {
-        color: map-get($color-options, c);
+        color: map.get($color-options, c);
 
         .c--marquee-b__list-group__list-item {
-          color: map-get($color-options, c);
+          color: map.get($color-options, c);
           span,
           p {
-            color: map-get($color-options, c);
+            color: map.get($color-options, c);
             opacity: 0.9999;
             will-change: color;
           }

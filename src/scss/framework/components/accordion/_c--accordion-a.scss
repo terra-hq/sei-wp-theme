@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--accordion-a {
     @extend .u--width-100;
     @extend .u--display-flex;
@@ -9,12 +13,12 @@
     &__item {
         @extend .u--display-flex;
         @extend .u--position-relative;
-        border-left: 2px solid map-get($color-options, a);
+        border-left: 2px solid map.get($color-options, a);
         @media all and ($viewport-type: $tablets) {
             width: 100%;
             flex-direction: column;
             border-left: none;
-            border-top: 2px solid map-get($color-options, a);
+            border-top: 2px solid map.get($color-options, a);
         }
         &__btn {
             @extend .u--position-absolute;
@@ -27,14 +31,14 @@
                 pointer-events: none;
                 & ~ .c--accordion-a__item {
                     &__hd {
-                        background-color: map-get($color-options, d);
-                        border-right: 2px solid rgba(map-get($color-options, a), .2);
+                        background-color: map.get($color-options, d);
+                        border-right: 2px solid rgba(map.get($color-options, a), .2);
                         @media all and ($viewport-type: $tablets) {
                             border-right: none;
-                            border-bottom: 2px solid rgba(map-get($color-options, a), .2);
+                            border-bottom: 2px solid rgba(map.get($color-options, a), .2);
                         }
                         .c--accordion-a__item__hd__content {
-                            color: map-get($color-options, m);
+                            color: map.get($color-options, m);
                             &::before,
                             &::after {
                                 opacity: 0;
@@ -55,7 +59,7 @@
             @media (hover: hover) {
                 &:hover ~ .c--accordion-a__item {
                     &__hd {
-                        background-color: map-get($color-options, a);
+                        background-color: map.get($color-options, a);
                     }
                 }
             }
@@ -98,7 +102,7 @@
                 &::after {
                     content: '';
                     @extend .u--position-absolute;
-                    background-color: map-get($color-options, c);
+                    background-color: map.get($color-options, c);
                     left: 50%;
                     transform: translateX(-50%);
                     @media all and ($viewport-type: $tablets) {
@@ -131,7 +135,7 @@
             @extend .u--width-100;
             @extend .u--position-relative;
             left: 0;
-            background-color: map-get($color-options, d);
+            background-color: map.get($color-options, d);
             max-width: 0px;
             transition: max-width $time-b linear;
             z-index: 1;

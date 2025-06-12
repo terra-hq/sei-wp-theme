@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--cta-e {
     @extend .u--display-block;
     @extend .f--background-c;
@@ -31,13 +36,13 @@
             margin: auto;
             width: 26px;
             height: 26px;
-            border: 1px solid map-get($color-options, a);
+            border: 1px solid map.get($color-options, a);
             border-radius: 50%;
 
             &::after {
                 content: "";
                 @extend .u--position-absolute;
-                background: map-get($color-options, a);
+                background: map.get($color-options, a);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -48,7 +53,7 @@
             &::before {
                 content: "";
                 @extend .u--position-absolute;
-                background: map-get($color-options, a);
+                background: map.get($color-options, a);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);

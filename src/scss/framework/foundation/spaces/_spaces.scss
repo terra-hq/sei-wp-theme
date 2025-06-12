@@ -1,3 +1,6 @@
+@use "@scss/framework/foundation/spaces/_make-spaces.scss" as *;
+
+
 .f--sp-a {
     @include make-sp-a();
 }

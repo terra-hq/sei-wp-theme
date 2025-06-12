@@ -1,3 +1,5 @@
+@use "@scss/framework/_var/_vars.scss" as *;
+
 $media-sizes: (
     //* a: 1.77777777,
     //* 16/9 b: 1.33333333,
@@ -16,6 +18,17 @@ $ar-breakpoints: (
 //   tablets: $tablets,
 //   mobile: $mobile,
 );
+
+@mixin make-ar($size: default) {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    @if $size == "default" {
+    } @else {
+        aspect-ratio: $size;
+    }
+}
 
 @mixin media-sizes($display-size, $breakpoints) {
     @each $breakpoint-name, $breakpoint-value in $breakpoints {

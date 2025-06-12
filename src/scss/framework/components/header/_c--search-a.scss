@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--search-a {
     @extend .f--background-a;
     @extend .u--position-absolute;
@@ -25,7 +31,7 @@
         &::before {
             content: '';
             @extend .u--position-absolute;
-            background-image: url('#{$base-path}/assets/img/swirl.png');
+            background-image: url(paths.asset-url("/assets/img/swirl.png"));
             background-repeat: no-repeat;
             background-size: contain;
             background-position: right bottom;
@@ -77,7 +83,7 @@
             &:not(:last-child) {
                 margin-bottom: $measure*2;
                 padding-bottom: $measure*2;
-                border-bottom: 1px solid rgba(map-get($color-options, b), .6);
+                border-bottom: 1px solid rgba(map.get($color-options, b), .6);
             }
         }
         & .scroll-content{
@@ -85,12 +91,12 @@
         }
 
         & .scrollbar-track-y{
-            background: map-get($color-options, m);
+            background: map.get($color-options, m);
             border-radius:4px;
         }
         & .scrollbar-thumb-y{
             opacity:1;
-            background-color: map-get($color-options, c);
+            background-color: map.get($color-options, c);
         }
     }
 }

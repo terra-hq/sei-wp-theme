@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+
 .g--card-24 {
   @include make-card-24();
   @include make-card-24-modifier(
@@ -46,7 +53,7 @@
         //     "opacity": 1
       ),
     $item-secondary-hover-options: (
-      "color": map-get($color-options, c),
+      "color": map.get($color-options, c),
       //     "transform": translateX(-8px),
       //     "text-decoration-color": #cacaca,,,,,,,,,,,,,,,
     ),
@@ -67,7 +74,7 @@
     ),
     // $list-group-item-hover-options: (
     //     "background-color": #000000,
-    //     "background-image": linear-gradient(90deg, map-get($color-options, h) 0%, map-get($color-options, i) 100%),
+    //     "background-image": linear-gradient(90deg, map.get($color-options, h) 0%, map.get($color-options, i) 100%),
     //     "background-position": center center,
     //     "background-size": 100% 50%,
     //     "border-color": #638c1d,
@@ -118,11 +125,11 @@
         "aspect-ratio": 411 244,
         //     "background-class": f--background-a,
         //     "background-color": #000000,
-        //     "background-image": inear-gradient(90deg, map-get($color-options, i) 0%, map-get($color-options, h) 100%),
+        //     "background-image": inear-gradient(90deg, map.get($color-options, i) 0%, map.get($color-options, h) 100%),
         //     "background-repeat": no-repeat,
         //     "background-size": 100% 20px,
         //     "background-position": left bottom,
-        //     "border-color": map-get($color-options, i),
+        //     "border-color": map.get($color-options, i),
         //     "border-radius": 2px,
         //     "border-style": solid,
         //     "border-width": 1px,

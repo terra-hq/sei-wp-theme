@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
 .g--hero-03 {
     @include make-hero-03();
     @include make-hero-03-modifier(
@@ -15,7 +22,7 @@
         ),
         $custom-options: (
             ".g--hero-03__bg-items": (
-                "background-image": url('#{$base-path}/assets/img/swirl.png'),
+                "background-image": url(paths.asset-url("/assets/img/swirl.png")),
                 "background-repeat": no-repeat,
                 "background-size": contain,
                 "background-position": right bottom,
@@ -66,7 +73,7 @@
                 "back-items": no,
             ),
             $background-options: (
-                "background-color": map-get($color-options, a),
+                "background-color": map.get($color-options, a),
             ),
         );
         @media all and ($viewport-type: $tablets) {

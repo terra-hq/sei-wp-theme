@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--icon-a {
     @extend .f--background-b;
     display: grid;
@@ -12,17 +16,17 @@
         max-width: 20px;
         max-height: 20px;
         path {
-            stroke: map-get($color-options, k);
+            stroke: map.get($color-options, k);
             transition: stroke $time-b $ease-standard-a;
         }
     }
 
     @media (hover: hover) {
         &:hover {
-            background-color: map-get($color-options, k);
+            background-color: map.get($color-options, k);
             svg {
                 path {
-                    stroke: map-get($color-options, m);
+                    stroke: map.get($color-options, m);
                 }
             }
         }
@@ -31,15 +35,15 @@
         background: transparent;
         svg {
             path {
-                stroke: map-get($color-options, c);
+                stroke: map.get($color-options, c);
             }
         }
         @media (hover: hover) {
             &:hover {
-                background-color: map-get($color-options, c);
+                background-color: map.get($color-options, c);
                 svg {
                     path {
-                        stroke: map-get($color-options, m);
+                        stroke: map.get($color-options, m);
                     }
                 }
             }

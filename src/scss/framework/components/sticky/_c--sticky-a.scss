@@ -1,5 +1,10 @@
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--sticky-a {
     @extend .u--position-sticky;
     top: $measure * 20;
     z-index: 1;
 }
+

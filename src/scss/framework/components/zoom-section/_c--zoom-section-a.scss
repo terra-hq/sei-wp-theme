@@ -1,3 +1,7 @@
+
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--zoom-section-a {
     position: absolute;
     top: 0;

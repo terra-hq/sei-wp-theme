@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--card-j {
     @extend .f--background-c;
     @extend .u--position-sticky;
@@ -66,7 +71,7 @@
                 flex: 1;
 
                 &__media {
-                    background-color: rgba(map-get($color-options, h), 0.2);
+                    background-color: rgba(map.get($color-options, h), 0.2);
                     aspect-ratio: 1 / 1;
                     width: 100%;
                     height: auto;

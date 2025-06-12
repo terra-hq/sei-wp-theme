@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--cookies-a {
     @extend .u--position-fixed;
     @extend .f--background-c;
@@ -41,7 +45,7 @@
                 white-space: nowrap;
 
                 &:hover {
-                    color: map-get($color-options, a) !important;
+                    color: map.get($color-options, a) !important;
                     text-decoration-color: transparent !important;
                 }
             }

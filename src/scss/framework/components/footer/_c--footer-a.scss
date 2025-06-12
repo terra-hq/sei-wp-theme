@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--footer-a {
   @extend .f--background-c;
   @extend .u--width-100;
@@ -21,7 +26,7 @@
   &__ft {
     @extend .c--curve-a;
     &::before {
-      background-color: map-get($color-options, i);
+      background-color: map.get($color-options, i);
       top: -$measure * 3;
       @media all and ($viewport-type: $tablets) {
         top: -$measure;
@@ -36,7 +41,7 @@
       }
       &::before {
         width: calc(100% + 8px);
-        background-color: map-get($color-options, k);
+        background-color: map.get($color-options, k);
         top: calc(-#{$measure * 3} + 1px);
         @media all and ($viewport-type: $tablets) {
           top: calc(-#{$measure} + 1px);

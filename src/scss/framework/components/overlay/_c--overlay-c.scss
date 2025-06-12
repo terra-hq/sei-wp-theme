@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--overlay-c {
     @extend .u--position-absolute;
     width: 100%;
@@ -5,5 +10,5 @@
     max-height: 300px;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(map-get($color-options, a), 0.40) 41.54%, map-get($color-options, a) 88.7%);
+    background: linear-gradient(180deg, rgba(map.get($color-options, a), 0.40) 41.54%, map.get($color-options, a) 88.7%);
 }

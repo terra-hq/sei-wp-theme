@@ -1,3 +1,5 @@
+@use "@scss/framework/foundation/gap/_make-gap.scss" as *;
+
 .f--gap-a {
     @include make-gap-a();
 }

@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-c {
     background: transparent;
 
@@ -33,7 +37,7 @@
                 @extend .f--color-c;
                 @media (hover: hover) {
                     &:hover {
-                        text-decoration-color: map-get($color-options, c);
+                        text-decoration-color: map.get($color-options, c);
                     }
                 }
             }
@@ -59,7 +63,7 @@
                 }
 
                 &:hover {
-                    background-color: map-get($color-options, c);
+                    background-color: map.get($color-options, c);
                 }
 
                 &:hover & {

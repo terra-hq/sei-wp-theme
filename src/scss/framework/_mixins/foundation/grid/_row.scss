@@ -1,8 +1,0 @@
-// row
-@mixin make-row () {
-    display: flex;
-    flex: 0 1 auto;
-    flex-wrap: wrap;
-    margin-right: $gutter-compensation;
-    margin-left: $gutter-compensation;
-}

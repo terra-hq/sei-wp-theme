@@ -1,6 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--hero-c {
     @extend .u--width-100;
-    background-color: map-get($color-options, d);
+    background-color: map.get($color-options, d);
     padding: $measure*19 0 $measure*22;
     background-size: cover;
     background-repeat: no-repeat;

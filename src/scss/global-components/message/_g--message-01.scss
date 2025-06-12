@@ -1,8 +1,15 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+
 .g--message-01 {
     @include make-message-01();
     @include make-message-01-modifier(
         $border-options: (
-            "border-color": map-get($color-options, h),
+            "border-color": map.get($color-options, h),
             "border-width": 1px,
             "border-style": solid,
         ),

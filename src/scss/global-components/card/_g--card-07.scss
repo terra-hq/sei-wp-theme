@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+
 .g--card-07 {
     @include make-card-07();
     @include make-card-07-modifier(
@@ -20,7 +27,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($color-options, a),
+                "background-color": map.get($color-options, a),
             ),
             $item-primary-options: (
                 "className": f--color-b,
@@ -33,7 +40,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($color-options, m),
+                "background-color": map.get($color-options, m),
             ),
             $item-primary-options: (
                 "className": f--color-b,
@@ -44,7 +51,7 @@
             ),
             $list-group-item-hover-options: (
                 "background-color": transparent,
-                "color": map-get($color-options, b),
+                "color": map.get($color-options, b),
             ),
             $custom-options: (
                 ".g--card-07__ft-items__list-group__item": (

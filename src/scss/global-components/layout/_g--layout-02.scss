@@ -1,13 +1,19 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+
 .g--layout-02 {
     @include make-layout-02();
     @include make-layout-02-modifier(
         $layout-options: (
             "align": left,
-            "breakpoint-full-width": $tablets
             
         ),
         $item-primary-options: (
-            "color": map-get($color-options, c),
+            "color": map.get($color-options, c),
             "className": f--font-i u--font-medium u--text-uppercase u--letter-spacing-a,
         ),
         $item-secondary-options: (
@@ -29,7 +35,7 @@
     &--second {
         @include make-layout-02-modifier(
             $item-primary-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
             ),
             $item-secondary-options: (
                 "className": c--content-a c--content-a--second-color,

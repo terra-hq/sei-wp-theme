@@ -1,18 +1,25 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+
 .g--link-01 {
     @include make-link-01();
     @include make-link-01-modifier(
         $hover-options: (
-            "color": map-get($color-options, c),
+            "color": map.get($color-options, c),
         ),
         $font-options: (
-            "color": map-get($color-options, b),
+            "color": map.get($color-options, b),
         ),
     );
     &--second {
         @include make-link-01-modifier(
             $hover-options: (
-                "color": map-get($color-options, b),
-                "text-decoration-color": map-get($color-options, b),
+                "color": map.get($color-options, b),
+                "text-decoration-color": map.get($color-options, b),
             ),
             $font-options: (
                 "text-decoration": underline,
@@ -23,24 +30,24 @@
     &--third {
         @include make-link-01-modifier(
             $hover-options: (
-                "color": map-get($color-options, c),
+                "color": map.get($color-options, c),
                 "text-decoration-color": transparent,
             ),
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "text-decoration": underline,
-                "text-decoration-color": map-get($color-options, a),
+                "text-decoration-color": map.get($color-options, a),
             ),
         );
     }
     &--fourth {
         @include make-link-01-modifier(
             $hover-options: (
-                "color": map-get($color-options, b),
-                "text-decoration-color": map-get($color-options, b),
+                "color": map.get($color-options, b),
+                "text-decoration-color": map.get($color-options, b),
             ),
             $font-options: (
-                "color": map-get($color-options, c),
+                "color": map.get($color-options, c),
                 "text-decoration": underline,
                 "text-decoration-color": transparent,
             ),
@@ -49,10 +56,10 @@
     &--fifth {
         @include make-link-01-modifier(
             $hover-options: (
-                "text-decoration-color": map-get($color-options, c),
+                "text-decoration-color": map.get($color-options, c),
             ),
             $font-options: (
-                "color": map-get($color-options, c),
+                "color": map.get($color-options, c),
                 "text-decoration": underline,
                 "text-decoration-color": transparent,
             ),
@@ -61,31 +68,31 @@
     &--sixth {
         @include make-link-01-modifier(
             $hover-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "text-decoration-color": transparent,
             ),
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "text-decoration": underline,
-                "text-decoration-color": map-get($color-options, a),
+                "text-decoration-color": map.get($color-options, a),
             ),
         );
     }
     &--seventh {
         @include make-link-01-modifier(
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
             ),
         );
     }
     &--eighth {
         @include make-link-01-modifier(
             $hover-options: (
-                "color": map-get($color-options, a),
-                "text-decoration-color": map-get($color-options, a),
+                "color": map.get($color-options, a),
+                "text-decoration-color": map.get($color-options, a),
             ),
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "text-decoration": underline,
                 "text-decoration-color": transparent,
             ),

@@ -1,3 +1,11 @@
+
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--form-a {
     @extend .u--width-100;
     .hs-form {
@@ -31,19 +39,19 @@
                     padding: $measure*2;
                     background-color: transparent !important;
                     border-width: 0 0 1px;
-                    border-color: map-get($color-options, a);
+                    border-color: map.get($color-options, a);
                     border-style: solid;
                     border-radius: $border-radius-a;
                     opacity: .6;
-                    color: map-get($color-options, h) !important;
+                    color: map.get($color-options, h) !important;
                     transition: opacity $time-b $ease-standard-a;
                     @extend .f--font-g;
                     @extend .u--font-light;
                     &:-webkit-autofill,
                     &:-webkit-autofill:hover,
                     &:-webkit-autofill:focus {
-                        -webkit-text-fill-color: map-get($color-options, h);
-                        -webkit-box-shadow: 0 0 0px 1000px map-get($color-options, k) inset;
+                        -webkit-text-fill-color: map.get($color-options, h);
+                        -webkit-box-shadow: 0 0 0px 1000px map.get($color-options, k) inset;
                     }
                     &::placeholder {
                         @extend .f--font-g;
@@ -102,7 +110,7 @@
                                     left: 0;
                                     top: 50%;
                                     transform: translateY(-50%);
-                                    border: 1px solid map-get($color-options, h);
+                                    border: 1px solid map.get($color-options, h);
                                     height: $measure*2;
                                     width: $measure*2;
                                 }
@@ -117,7 +125,7 @@
                                     height: calc(#{$measure*2}*.6);
                                     max-width: calc(#{$measure*2} - 4px);
                                     max-height: calc(#{$measure*2} - 4px);
-                                    background-color: map-get($color-options, h);
+                                    background-color: map.get($color-options, h);
                                     transition: opacity $time-b $ease-standard-a;
                                 }
                             }
@@ -162,7 +170,7 @@
             .actions {
                 @extend .u--position-relative;
                 @extend .c--btn-a;
-                background-image: url('#{$base-path}/assets/img/arrow.svg');
+                background-image: url(paths.asset-url("/assets/img/arrow.svg"));
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: auto 24px;

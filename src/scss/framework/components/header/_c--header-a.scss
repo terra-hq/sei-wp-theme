@@ -1,10 +1,15 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--header-a {
     @extend .f--container;
     @extend .f--container--tablets-fluid;
     @extend .u--position-relative;
     z-index: 5;
     @media all and ($viewport-type: $tablets) {
-        background-color: map-get($color-options, a);
+        background-color: map.get($color-options, a);
     }
 
     &__wrapper {

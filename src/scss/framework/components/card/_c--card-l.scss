@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--card-l {
     @extend .u--display-block;
     @extend .u--width-100;
@@ -38,7 +43,7 @@
 
         &:hover {
             .c--card-l__wrapper__title {
-                color: map-get($color-options, c);
+                color: map.get($color-options, c);
             }
         }
     }
@@ -62,12 +67,12 @@
         }
     }
     &--third {
-        background-color: map-get($color-options, k);
+        background-color: map.get($color-options, k);
         @extend .u--position-relative;
         background-image: linear-gradient(
             0deg, 
-            #{map-get($color-options, k)} 0%, 
-            rgba(map-get($color-options, k), 0) 100%
+            #{map.get($color-options, k)} 0%, 
+            rgba(map.get($color-options, k), 0) 100%
         );
         background-size: cover;
         background-position: center;
@@ -84,8 +89,8 @@
             @extend .u--height-100;
             background-image: linear-gradient(
                 0deg, 
-                #{map-get($color-options, k)} 0%, 
-                rgba(map-get($color-options, k), 0) 100%
+                #{map.get($color-options, k)} 0%, 
+                rgba(map.get($color-options, k), 0) 100%
             );
             background-size: cover;
             background-position: center;
@@ -133,7 +138,7 @@
 
             &:hover {
                 .c--card-l__wrapper__title {
-                    color: map-get($color-options, a);
+                    color: map.get($color-options, a);
                 }
             }
         }

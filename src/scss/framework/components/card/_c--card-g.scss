@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-g {
     @extend .f--background-c;
     @extend .u--display-flex;
@@ -26,7 +30,7 @@
 
             &__media {
                 aspect-ratio: 1 / 1;
-                background-color: rgba(map-get($color-options, h), 0.2);
+                background-color: rgba(map.get($color-options, h), 0.2);
                 width: 100%;
                 height: auto;
                 object-fit: cover;

@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
 .g--accordion-02 {
   @include make-accordion-02();
 
@@ -5,11 +11,11 @@
     $border-options: (
       "border-width": 0 0 1px 0,
       "border-style": solid,
-      "border-color": rgba(map-get($color-options, b), 0.4),
+      "border-color": rgba(map.get($color-options, b), 0.4),
     ),
     $item-primary-options: (
       "className": f--font-g u--font-medium,
-      "color": map-get($color-options, b),
+      "color": map.get($color-options, b),
     ),
     $icon-options: (
       "top": 0px,
@@ -18,7 +24,7 @@
     $custom-options: (
       ".g--accordion-02__hd__icon": (
         "height": 26px,
-        "border": 1.5px solid map-get($color-options, c),
+        "border": 1.5px solid map.get($color-options, c),
         "border-radius": 50%,
         "display": grid,
         "place-items": center,
@@ -42,17 +48,17 @@
   &--second {
     @include make-accordion-02-modifier(
       $border-options: (
-        "border-color": rgba(map-get($color-options, a), 0.4),
+        "border-color": rgba(map.get($color-options, a), 0.4),
       ),
       $item-primary-options: (
-        "color": map-get($color-options, a),
+        "color": map.get($color-options, a),
       ),
       $custom-options: (
         ".g--accordion-02__bd__content": (
-          "color": map-get($color-options, a),
+          "color": map.get($color-options, a),
         ),
         ".g--accordion-02__bd__content p > a": (
-          "color": map-get($color-options, a),
+          "color": map.get($color-options, a),
         ),
       )
     );
@@ -62,7 +68,7 @@
   @media (hover: hover) {
     &--third {
       .g--accordion-02__hd:hover .g--accordion-02__hd__item-primary {
-        color: map-get($color-options, c);
+        color: map.get($color-options, c);
       }
     }
   }

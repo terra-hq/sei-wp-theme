@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-f {
     @extend .u--display-flex;
     @extend .u--justify-content-center;
@@ -6,7 +10,7 @@
     background-color: transparent;
     border-width: 0 0 1px 0;
     border-style: solid;
-    border-color: rgba(map-get($color-options, b), 0.2);
+    border-color: rgba(map.get($color-options, b), 0.2);
 
     &__wrapper {
         @extend .u--display-flex;
@@ -40,7 +44,7 @@
         &:hover & {
             &__wrapper {
                 &__title {
-                    color: map-get($color-options, c);
+                    color: map.get($color-options, c);
                     opacity: 1;
                 }
             }

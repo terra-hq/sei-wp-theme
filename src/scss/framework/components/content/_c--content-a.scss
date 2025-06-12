@@ -1,4 +1,12 @@
-//falta 2 cta
+@use "sass:map";
+@use "@scss/framework/components/link/_c--link-a.scss";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss";
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/foundation/font/make-font" as *;
+@use "@scss/global-components/btn/_g--btn-01.scss";
+@use "@terrahq/wysiwyg/wordpress" as *;
+
 .c--content-a {
     @include make-content ();
     //* default: black text Paragraph small (font-i)
@@ -46,10 +54,10 @@
           "className": f--font-i,
         ),
         "first-number-width": 10px,
-        "first-level-number-color": map-get($color-options, b),
+        "first-level-number-color": map.get($color-options, b),
         "first-level-artwork-width": 6px,
         "first-level-artwork-top": 9px,
-        "first-level-artwork-background": map-get($color-options, c),
+        "first-level-artwork-background": map.get($color-options, c),
         "first-level-artwork-border-radius": 100%,
         "margin-bottom": $measure*4,
         "font-styles": (
@@ -64,7 +72,7 @@
       ),
       $quote-options: (
         "border": (
-          "border-color": rgba(map-get($color-options, b), .6),
+          "border-color": rgba(map.get($color-options, b), .6),
           "border-style": solid,
           "border-width": 1px 0,
         ),
@@ -98,7 +106,7 @@
       ),
       $separator-options: (
         "margin": $measure*4 auto,
-        "color": rgba(map-get($color-options, b), .6),
+        "color": rgba(map.get($color-options, b), .6),
         "height": 1px,
       ),
       $table-options: (
@@ -116,9 +124,9 @@
         "margin-bottom": $measure*4,
         "header-cells-padding": $measure*2,
         "body-cells-padding": $measure $measure * 2,
-        "header-background": map-get($color-options, k),
-        "body-background": map-get($color-options, m),
-        "odd-rows-background": map-get($color-options, a),
+        "header-background": map.get($color-options, k),
+        "body-background": map.get($color-options, m),
+        "odd-rows-background": map.get($color-options, a),
       ),
       $video-options: (
         "margin-bottom": $measure*3,
@@ -205,7 +213,7 @@
             "number-font": (
                 "className": f--color-a,
             ),
-            "first-level-number-color": map-get($color-options, a),
+            "first-level-number-color": map.get($color-options, a),
             "font-styles": (
                 "className": f--color-a,
             ),
@@ -215,7 +223,7 @@
           ),
           $quote-options: (
             "border": (
-              "border-color": map-get($color-options, i),
+              "border-color": map.get($color-options, i),
             ),
             "paragraph": (
                 "className": f--color-a,
@@ -231,10 +239,10 @@
             "className": f--color-a,
           ),
           $separator-options: (
-            "color": map-get($color-options, m),
+            "color": map.get($color-options, m),
           ),
           $table-options: (
-            "odd-rows-background": map-get($color-options, m),
+            "odd-rows-background": map.get($color-options, m),
           ),
         );
     }
