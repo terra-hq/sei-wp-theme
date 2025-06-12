@@ -254,29 +254,6 @@ class Main extends Core {
       });
     }
     
-    /**
-     * Stats counter animation
-     
-    if (document.querySelectorAll(".js--counter").length) {
-      this.instances["Counter"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "Counter",
-        callback: async () => {
-          const { default: Counter } = await import(
-            "@teamthunderfoot/counter-animation"
-          );
-          window["lib"]["Counter"] = Counter;
-          document
-            .querySelectorAll(".js--counter")
-            .forEach((element, index) => {
-              this.instances["Counter"][index] = new window["lib"]["Counter"]({
-                element: element,
-              });
-            });
-        },
-      });
-    }*/
 
     /**
      * Horizontal accordion
