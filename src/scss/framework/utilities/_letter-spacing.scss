@@ -1,3 +1,4 @@
+@use "@scss/framework/_var/_vars.scss" as *;
 $letter-spacing-values: (
   a: 4.16px,
 );
@@ -32,9 +33,5 @@ $letter-spacing-breakpoints: (
     }
   }
   
-@if variable-exists(letter-spacing-breakpoints) {
+
   @include letter-spacing-utility($letter-spacing-values, $letter-spacing-breakpoints);
-}
-@else {
-  @include letter-spacing-utility($letter-spacing-values, $breakpoints-grid);
-}

@@ -26,10 +26,10 @@ Template Name: Ares
                     <span class="f--font-i u--font-medium u--text-uppercase f--color-k">
                         lorem ipsum
                     </span>
-                    <h2 class="f--font-c f--color-g f--mt-2">
+                    <h2 class="f--font-c f--color-g u--mt-2">
                         Our Industries
                     </h2>
-                    <p class="f--font-i f--mt-3">
+                    <p class="f--font-i u--mt-3">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis mollitia facere, iusto iste tempore debitis reiciendis hic doloribus, amet, harum ducimus rerum? Ex, quos! Commodi qui fuga eius obcaecati corrupti!
                     </p>
                 </div>

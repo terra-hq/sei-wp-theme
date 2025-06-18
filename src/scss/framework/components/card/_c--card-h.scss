@@ -1,9 +1,15 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/foundation/font/make-font" as *;
+@use "@scss/paths.scss" as paths;
 .c--card-h {
     @extend .u--width-100;
     @extend .u--display-flex;
     @extend .u--justify-content-space-between;
     text-decoration: none;
-    background-color: rgba(map-get($color-options, h), .1);
+    background-color: rgba(map.get($color-options, h), .1);
     padding: $measure*3;
     @media all and ($viewport-type: $tabletm) {
         background-color: transparent;
@@ -51,10 +57,10 @@
         &:hover & {
             &__wrapper {
                 &__title {
-                    color: map-get($color-options, c);
+                    color: map.get($color-options, c);
                 }
                 &__subtitle {
-                    color: map-get($color-options, c);
+                    color: map.get($color-options, c);
                 }
             }
         }

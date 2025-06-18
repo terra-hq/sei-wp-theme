@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
 .g--card-03 {
     @include make-card-03();
     @include make-card-03-modifier(
@@ -8,7 +14,7 @@
             "background-class": f--background-e,
         ),
         $hover-options: (
-            "background-color": map-get($color-options, c),
+            "background-color": map.get($color-options, c),
         ),
         $item-primary-options: (
             "className": f--font-i f--color-a,
@@ -32,7 +38,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($colorbg-options, c)
+                "background-color": map.get($colorbg-options, c)
             ),
         );
 
@@ -43,7 +49,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($colorbg-options, d)
+                "background-color": map.get($colorbg-options, d)
             ),
         );
     }

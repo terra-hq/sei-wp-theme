@@ -1,5 +1,11 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-03" as *;
+
 .c--cta-a {
-    background-color: map-get($color-options, d);
+    background-color: map.get($color-options, d);
 
     &__wrapper {
         padding: $measure * 8 0;

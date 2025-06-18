@@ -1,3 +1,5 @@
+@use "@scss/framework/_var/_vars.scss" as *;
+
 $display-values: (
     block: block,
     // hidden:hidden,
@@ -42,9 +44,7 @@ $display-breakpoints: (
     }
 }
 
-@if variable-exists(display-breakpoints) {
+
     @include display-utility($display-values, $display-breakpoints);
-  }
-@else {
-    @include display-utility($display-values, $breakpoints-grid);
-}
+
+    

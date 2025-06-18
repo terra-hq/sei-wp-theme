@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--preloader-a {
     @extend .u--width-100;
     @extend .u--position-fixed;
@@ -22,7 +27,7 @@
         @extend .u--width-100;
         @extend .u--height-100;
         path {
-            fill: map-get($color-options, m);
+            fill: map.get($color-options, m);
         }
     }
 }

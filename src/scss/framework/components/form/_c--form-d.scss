@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
+
 .c--form-d {
     @extend .f--background-a;
     padding: $measure * 7 $measure * 5;
@@ -8,7 +15,7 @@
 
         label > span {
             @extend .f--font-j;
-            color: rgba(map-get($color-options, b), 0.6);
+            color: rgba(map.get($color-options, b), 0.6);
             // @extend .u--font-light;
         }
     
@@ -16,11 +23,11 @@
             @extend .u--width-100;
             @extend .f--font-i;
             @extend .u--font-light;
-            color: map-get($color-options, b) !important;
+            color: map.get($color-options, b) !important;
             background: transparent !important;
             padding: $measure $measure $measure 0;
             border-width: 0 0 1px 0;
-            border-color: map-get($color-options, b);
+            border-color: map.get($color-options, b);
             border-radius: 0;
             border-style: solid;
         }
@@ -48,8 +55,8 @@
                 height: 11px;
                 top: 50%;
                 right: $measure * 2;
-                border-bottom: 1px solid map-get($color-options, c);
-                border-right: 1px solid map-get($color-options, c);
+                border-bottom: 1px solid map.get($color-options, c);
+                border-right: 1px solid map.get($color-options, c);
                 transform: rotate(45deg) translateY(-100%);
             }
         }
@@ -108,7 +115,7 @@
                         @extend .u--position-relative;
                         @extend .u--display-block;
                         @extend .f--font-j;
-                        color: rgba(map-get($color-options, b), 0.6);
+                        color: rgba(map.get($color-options, b), 0.6);
                         cursor: pointer;
                         padding-left: calc(#{$measure*1.5} + #{$measure*2});
                         a {
@@ -129,7 +136,7 @@
                             left: 0;
                             top: 50%;
                             transform: translateY(-50%);
-                            border: 1px solid rgba(map-get($color-options, b), 0.6);
+                            border: 1px solid rgba(map.get($color-options, b), 0.6);
                             height: $measure*2;
                             width: $measure*2;
                         }
@@ -144,7 +151,7 @@
                             height: calc(#{$measure*2}*.6);
                             max-width: calc(#{$measure*2} - 4px);
                             max-height: calc(#{$measure*2} - 4px);
-                            background-color: rgba(map-get($color-options, b), 0.6);
+                            background-color: rgba(map.get($color-options, b), 0.6);
                             transition: opacity $time-b $ease-standard-a;
                         }
                     }

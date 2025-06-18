@@ -1,12 +1,11 @@
 
-import { defineConfig } from 'vite'
-import liveReload from 'vite-plugin-live-reload'
-const { resolve } = require('path')
-import path from 'path';
-import { promises as fs } from 'fs';
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue';
 import { config } from 'dotenv';
-import {generateRandomHash,removeFilesPlugin} from './config/viteHelper';
+import path from 'path';
+import { defineConfig } from 'vite';
+import liveReload from 'vite-plugin-live-reload';
+import { generateRandomHash, removeFilesPlugin } from './config/viteHelper';
+const { resolve } = require('path')
 
 config({ path: resolve(__dirname, `.env.${process.env.NODE_ENV}`) });
 
@@ -43,6 +42,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
+          @use "src/scss/paths.scss" as *;
           $base-path: "${process.env.VITE_WP_PATH}";
           
         `

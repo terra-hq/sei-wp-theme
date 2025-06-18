@@ -1,7 +1,13 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-03" as *;
+
 .c--card-b {
     @extend .u--display-flex;
     @extend .u--width-100;
-    background-color: map-get($color-options, d);
+    background-color: map.get($color-options, d);
     padding: $measure*7 $measure*6;
     gap: $measure*5 $measure*9;
     flex-wrap: wrap;

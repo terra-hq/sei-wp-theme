@@ -1,3 +1,12 @@
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
+
 .c--greenhouse-content-a {
     iframe {
         width: 100%;
@@ -33,7 +42,7 @@
         #header {
             display: flex;
             flex-direction: column;
-            border-bottom: 1px solid rgba(map-get($color-options, b), .4);
+            border-bottom: 1px solid rgba(map.get($color-options, b), .4);
             h1 {
                 @extend .f--font-c;
                 margin-bottom: $measure * 4;
@@ -150,29 +159,29 @@
                         @extend .f--font-h;
                         @extend .u--font-light;
                         padding: $measure $measure $measure 0;
-                        color: map-get($color-options, b) !important;
+                        color: map.get($color-options, b) !important;
                         background-color: transparent !important;
                         border: none;
-                        border-bottom: 1px solid rgba(map-get($color-options, b), .6);
+                        border-bottom: 1px solid rgba(map.get($color-options, b), .6);
                         border-radius: 0;
                         &::placeholder {
                             @extend .f--font-h;
                             @extend .u--font-light;
-                            color: rgba(map-get($color-options, b), .6);
+                            color: rgba(map.get($color-options, b), .6);
                         }
                         &:-webkit-autofill,
                         &:-webkit-autofill:hover,
                         &:-webkit-autofill:focus {
-                            -webkit-text-fill-color:  map-get($color-options, b);
-                            -webkit-box-shadow: 0 0 0px 1000px map-get($color-options, m) inset;
+                            -webkit-text-fill-color:  map.get($color-options, b);
+                            -webkit-box-shadow: 0 0 0px 1000px map.get($color-options, m) inset;
                         }
                         &.field-error {
                             border: none !important;
-                            border-bottom: 1px solid map-get($color-options, c) !important;
+                            border-bottom: 1px solid map.get($color-options, c) !important;
                         }
                     }
                     select {
-                        background-image: url('#{$base-path}/assets/img/arrow-red-select.svg') !important;
+                        background-image: url(paths.asset-url("/assets/img/arrow-red-select.svg")) !important;
                         background-repeat: no-repeat !important;
                         background-size: 8px auto !important;
                         background-position: right center !important;
@@ -204,9 +213,9 @@
                         }
                         .progress-bar {
                             .progress {
-                                border: solid 1px rgba(map-get($color-options, b), .6);
+                                border: solid 1px rgba(map.get($color-options, b), .6);
                                 .bar {
-                                    background-color: map-get($color-options, c);
+                                    background-color: map.get($color-options, c);
                                 }
                             }
                         }
@@ -225,12 +234,12 @@
                             @extend .f--font-h;
                             @extend .u--font-light;
                             padding: $measure $measure*2 $measure 0;
-                            color: map-get($color-options, b) !important;
+                            color: map.get($color-options, b) !important;
                             background-color: transparent !important;
                             border: none;
                             border-radius: 0;
-                            border-bottom: 1px solid rgba(map-get($color-options, b), .6);
-                            color: rgba(map-get($color-options, b), .6) !important;
+                            border-bottom: 1px solid rgba(map.get($color-options, b), .6);
+                            color: rgba(map.get($color-options, b), .6) !important;
                             text-decoration: none;
                             .select2-chosen {
                                 background-color: transparent;
@@ -246,7 +255,8 @@
                                     @extend .u--display-block;
                                     width: 100%;
                                     height: 100%;
-                                    background-image: url('#{$base-path}/assets/img/arrow-red-select.svg') !important;
+                                    background-image: url(paths.asset-url("/assets/img/arrow-red-select.svg")) !important;
+
                                     background-repeat: no-repeat !important;
                                     background-size: contain !important;
                                     background-position: right center !important;
@@ -255,7 +265,7 @@
 
                             &.field-error {
                                 border: none !important;
-                                border-bottom: 1px solid map-get($color-options, c) !important;
+                                border-bottom: 1px solid map.get($color-options, c) !important;
                             }
                         }
                     }
@@ -326,7 +336,7 @@
             @extend .f--background-a;
             .select2-highlighted {
                 @extend .f--color-b;
-                background-color: map-get($color-options, h);
+                background-color: map.get($color-options, h);
             }
         }
     }

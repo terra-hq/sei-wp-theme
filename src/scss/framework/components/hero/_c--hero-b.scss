@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/pill/_g--pill-01" as *;
+
 .c--hero-b {
     @extend .u--position-relative;
     // display: flex;

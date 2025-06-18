@@ -43,7 +43,7 @@ $page_id = get_the_ID();
 
     if ($custom_query->have_posts()): ?>
 
-        <section class="f--pb-22 f--pb-tablets-15">
+        <section class="u--pb-22 u--pb-tablets-15">
             <div class="f--container">
                 <div class="f--row f--gap-a">
                     <div class="f--col-8 f--col-tabletm-12">
@@ -66,7 +66,7 @@ $page_id = get_the_ID();
                             <?php endwhile; ?>
 
                         </div>
-                        <div class="u--display-flex u--justify-content-center f--mt-8">
+                        <div class="u--display-flex u--justify-content-center u--mt-8">
                             <button class="g--btn-03 g--btn-03--fourth js--load-more-news"
                                 data-posts-total="<?php echo $published_posts ?>"
                                 data-posts-per-page="<?php echo $posts_per_page ?>" data-offset="<?php echo $offset ?>"

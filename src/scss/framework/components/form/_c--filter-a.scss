@@ -1,3 +1,11 @@
+
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/spinner/_g--spinner-01" as *;
+
 .c--filter-a {
     @extend .u--position-relative;
     @extend .u--width-100;
@@ -29,24 +37,24 @@
             background-color: transparent;
             padding: $measure $measure * 2;
             border-radius: 100px;
-            border: 1px solid map-get($color-options, i);
+            border: 1px solid map.get($color-options, i);
             transition: all $time-b linear;
 
             &:focus {
 
                 @extend .f--color-b;
-                border: 1px solid map-get($color-options, c);
+                border: 1px solid map.get($color-options, c);
             }
             &:not([data-chosen='all'])  {
                 
                 @extend .f--color-b;
-                border: 1px solid map-get($color-options, c);
+                border: 1px solid map.get($color-options, c);
             }
         }
 
         &:hover {
             &>select {
-                border: 1px solid map-get($color-options, c);
+                border: 1px solid map.get($color-options, c);
             }
         }
 
@@ -59,8 +67,8 @@
             height: 11px;
             top: 50%;
             right: $measure * 3;
-            border-bottom: 1px solid map-get($color-options, c);
-            border-right: 1px solid map-get($color-options, c);
+            border-bottom: 1px solid map.get($color-options, c);
+            border-right: 1px solid map.get($color-options, c);
             transform: rotate(45deg) translateY(-100%);
         }
     }
@@ -100,7 +108,7 @@
             &::after {
                 transform: none;
                 border: none;
-                background-image: url('#{$base-path}/assets/img/search-red.svg');
+                background-image: url(paths.asset-url("/assets/img/search-red.svg"));
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: right center;
@@ -119,12 +127,12 @@
                 background-color: transparent;
                 padding: $measure calc(#{$measure} + 20px + #{$measure*2}) $measure $measure * 2;
                 border-radius: 100px;
-                border: 1px solid map-get($color-options, i);
+                border: 1px solid map.get($color-options, i);
                 transition: all $time-b linear;
 
                 &:focus {
 
-                    border: 1px solid map-get($color-options, c);
+                    border: 1px solid map.get($color-options, c);
                     @extend .f--color-b;
 
                     &::placeholder{
@@ -135,7 +143,7 @@
             }
             &:hover {
                 &>input {
-                    border: 1px solid map-get($color-options, c);
+                    border: 1px solid map.get($color-options, c);
                 }
             }
         }

@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/framework/foundation/font/make-font" as *;
+
 .g--pill-01 {
     @include make-pill-01();
     @include make-pill-01-modifier(
@@ -5,13 +13,13 @@
             "background-color": transparent,
         ),
         $border-options: (
-            "border-color": map-get($color-options, c),
+            "border-color": map.get($color-options, c),
             "border-radius": $measure * 12.5,
             "border-width": 1px,
             "border-style": solid,
         ),
         $font-options: (
-            "color": map-get($color-options, c),
+            "color": map.get($color-options, c),
             "className": f--font-i,
             "font-weight": 300,
         ),
@@ -27,16 +35,16 @@
     &--second {
         @include make-pill-01-modifier(
             $background-options: (
-                "background-color": rgba(map-get($color-options, a), 0.2),
+                "background-color": rgba(map.get($color-options, a), 0.2),
             ),
             $border-options: (
-                "border-color": rgba(map-get($color-options, a), 0.1),
+                "border-color": rgba(map.get($color-options, a), 0.1),
                 "border-radius": $measure * 12.5,
                 "border-width": 1px,
                 "border-style": solid,
             ),
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "font-weight": 300,
             ),
         ); 
@@ -45,16 +53,16 @@
     &--third {
         @include make-pill-01-modifier(
             $background-options: (
-                "background-color": map-get($color-options, m),
+                "background-color": map.get($color-options, m),
             ),
             $border-options: (
-                "border-color": map-get($color-options, m),
+                "border-color": map.get($color-options, m),
                 "border-radius": $measure * 12.5,
                 "border-width": 1px,
                 "border-style": solid,
             ),
             $font-options: (
-                "color": map-get($color-options, b),
+                "color": map.get($color-options, b),
                 "font-weight": 300,
             ),
         ); 
@@ -67,13 +75,13 @@
                 "background-color": transparent,
             ),
             $border-options: (
-                "border-color": map-get($color-options, a),
+                "border-color": map.get($color-options, a),
                 "border-radius": $measure * 12.5,
                 "border-width": 1px,
                 "border-style": solid,
             ),
             $font-options: (
-                "color": map-get($color-options, a),
+                "color": map.get($color-options, a),
                 "className": f--font-g,
                 "font-weight": 500,
             ),
@@ -85,16 +93,16 @@ a.g--pill-01,
 button.g--pill-01 {
     @include make-pill-01-modifier(
         $hover-options: (
-            "background-color": map-get($color-options, c),
-            "color": map-get($color-options, a),
+            "background-color": map.get($color-options, c),
+            "color": map.get($color-options, a),
         ),
     );
 
     &--second {
         @include make-pill-01-modifier(
             $hover-options: (
-                "background-color": rgba(map-get($color-options, a), 0.2),
-                "color": map-get($color-options, a),
+                "background-color": rgba(map.get($color-options, a), 0.2),
+                "color": map.get($color-options, a),
             ),
         ); 
     }
@@ -102,8 +110,8 @@ button.g--pill-01 {
     &--third {
         @include make-pill-01-modifier(
             $hover-options: (
-                "background-color": map-get($color-options, m),
-                "color": map-get($color-options, c),
+                "background-color": map.get($color-options, m),
+                "color": map.get($color-options, c),
             ),
         ); 
     }
@@ -111,8 +119,8 @@ button.g--pill-01 {
     &--fourth {
         @include make-pill-01-modifier(
             $hover-options: (
-                "background-color": map-get($color-options, a),
-                "color": map-get($color-options, c),
+                "background-color": map.get($color-options, a),
+                "color": map.get($color-options, c),
             ),
         ); 
     }

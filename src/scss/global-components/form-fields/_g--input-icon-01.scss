@@ -1,29 +1,38 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/paths.scss" as paths;
+
+
 .g--form-input-icon-01 {
     @include make-form-input-icon-01();
     @include make-form-input-icon-01-modifier(
         $artwork-options: (
-            "background-image": url('#{$base-path}/assets/img/search.svg'),
+           "background-image": url(paths.asset-url("/assets/img/search.svg")),
             "width": 18px,
         ),
         $background-options: (
-            "background-color": map-get($color-options, a),
+            "background-color": map.get($color-options, a),
         ),
         $background-autofill-options: (
-            "background-color": map-get($color-options, a),
+            "background-color": map.get($color-options, a),
         ),
         $border-options: (
-            "border-color": map-get($color-options, b),
+            "border-color": map.get($color-options, b),
             "border-radius": 0,
             "border-width": 0 0 1px,
             "border-style": solid,
         ),
         $font-options: (
-            "color": map-get($color-options, b),
+            "color": map.get($color-options, b),
             "font-weight": 300,
             "className": f--font-g,
         ),
         $placeholder-options: (
-            "color": rgba(map-get($color-options, b), .6),
+            "color": rgba(map.get($color-options, b), .6),
             "font-weight": 300,
             "className": f--font-g,
         ),

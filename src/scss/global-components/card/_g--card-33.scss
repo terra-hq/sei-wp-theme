@@ -1,9 +1,18 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/paths.scss" as paths;
+
+
 .g--card-33 {
     @include make-card-33();
     @include make-card-33-modifier($card-options: ("back-items": yes,
             "breakpoint": $tablets,
             "min-height": 500px),
-        $background-options: ("background-color": map-get($colorbg-options, c),
+        $background-options: ("background-color": map.get($colorbg-options, c),
         ),
         $item-primary-options: ("className": f--font-i f--color-c u--text-uppercase u--font-medium u--letter-spacing-a),
         $item-secondary-options: ("className": f--font-f f--color-a u--font-light,
@@ -52,11 +61,11 @@
     }
 
     &--second {
-        @include make-card-33-modifier($background-options: ("background-color": map-get($color-options, f),
+        @include make-card-33-modifier($background-options: ("background-color": map.get($color-options, f),
             ),
-            $item-primary-options: ("color": map-get($color-options, a),
+            $item-primary-options: ("color": map.get($color-options, a),
                 "letter-spacing": 4.16px),
-            $media-options: ("background-image": url('#{$base-path}/assets/img/card-33--second.jpg'),
+           $media-options: ("background-image": url(paths.asset-url("/assets/img/card-33--second.jpg")),
                 "background-repeat": no-repeat,
                 "background-size": cover,
                 "background-position": center,

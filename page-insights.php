@@ -45,7 +45,7 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="f--pb-10 f--pb-tablets-7 js--section-container">
+<section class="u--pb-10 u--pb-tablets-7 js--section-container">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
             <!-- <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
@@ -306,7 +306,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         </div>
         <div class="f--row">
             <div class="f--col-12 u--display-flex u--justify-content-center">
-                <div class="c--spinner-wrapper-a f--mt-8 f--mt-tablets-5">
+                <div class="c--spinner-wrapper-a u--mt-8 u--mt-tablets-5">
                     <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-category="<?= $categoryName ?>" data-post-type="<?= $postType ?>" data-featured-insight-id="<?= $featured_insight_id ?>"></data-feature>
                         <span class="g--btn-03__content">Load More</span>
                         <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>

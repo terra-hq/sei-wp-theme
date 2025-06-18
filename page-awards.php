@@ -19,7 +19,7 @@ Template Name: Awards
         </div>
     </div>
 </section>
-<section class=" f--pb-15 f--pb-tablets-10">
+<section class=" u--pb-15 u--pb-tablets-10">
     <div class="f--container">
         <div class="f--row">
             <?php

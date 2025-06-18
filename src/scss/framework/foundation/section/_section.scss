@@ -1,3 +1,6 @@
+
+@use "@scss/framework/foundation/section/_make-section.scss" as *;
+
 .f--section-a {
     @include make-section-a();
 }

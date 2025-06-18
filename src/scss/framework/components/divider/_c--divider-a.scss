@@ -1,13 +1,18 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--divider-a {
     width: 100%;
     height: 1px;
-    background-color: map-get($color-options, j);
+    background-color: map.get($color-options, j);
 
     &--second {
-        background-color: map-get($color-options, a);
+        background-color: map.get($color-options, a);
     }
 
     &--third {
-        background-color: map-get($color-options, c);
+        background-color: map.get($color-options, c);
     }
 }

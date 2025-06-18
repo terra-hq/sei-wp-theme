@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 
-<section class="f--pt-22 f--pt-tablets-15 f--pb-10 f--pb-tablets-7">
+<section class="u--pt-22 u--pt-tablets-15 u--pb-10 u--pb-tablets-7">
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
@@ -18,7 +18,7 @@
   </div>
 </section>
 
-<section class="f--pb-22 f--pb-tablets-15">
+<section class="u--pb-22 u--pb-tablets-15">
   <div class="c--greenhouse-content-a">
     <?php $eId = filter_input(INPUT_GET, 'gh_jid', FILTER_SANITIZE_STRING); ?>
 

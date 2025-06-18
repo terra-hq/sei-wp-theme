@@ -1,3 +1,8 @@
+
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--btn-a {
     @extend .u--display-flex;
     @extend .u--align-items-center;
@@ -5,7 +10,7 @@
     width: 78px;
     height: 78px;
     border-radius: 100%;
-    border: 1px solid map-get($color-options, a);
+    border: 1px solid map.get($color-options, a);
     background-color: transparent;
     transition: background-color $time-b $ease-standard-a, border-color $time-b $ease-standard-a;
     @media all and ($viewport-type: $tablets) {
@@ -19,19 +24,19 @@
     }
     @media (hover: hover) {
         &:hover {
-            border-color: map-get($color-options, d);
-            background-color: map-get($color-options, d);
+            border-color: map.get($color-options, d);
+            background-color: map.get($color-options, d);
         }
     }
 
     &--second {
-        border-color: map-get($color-options, c);
+        border-color: map.get($color-options, c);
         width: 56px;
         height: 56px;
         svg {
             height: 18px;
             path {
-                stroke: map-get($color-options, c);
+                stroke: map.get($color-options, c);
                 transition: stroke $time-b $ease-standard-a;
             }
         }
@@ -39,7 +44,7 @@
             &:hover {
                 svg {
                     path {
-                        stroke: map-get($color-options, a);
+                        stroke: map.get($color-options, a);
                     }
                 }
             }

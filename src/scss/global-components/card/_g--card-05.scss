@@ -1,3 +1,12 @@
+@use "sass:map";
+@use "sass:string";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+
 .g--card-05 {
     @include make-card-05();
     @include make-card-05-modifier(
@@ -6,10 +15,10 @@
             "back-items": no
         ),
         $background-options: (
-            "background-color": map-get($color-options, m),
+            "background-color": map.get($color-options, m),
         ),
         $border-options: (
-            "border-color": map-get($color-options, m),
+            "border-color": map.get($color-options, m),
             "border-width": 1px,
             "border-style": solid,
         ),
@@ -24,12 +33,12 @@
         $item-primary-options: (
             "className": f--font-g,
             "font-weight": 500,
-            "color": map-get($color-options, b),
+            "color": map.get($color-options, b),
         ),
         $item-secondary-options: (
             "className": f--font-i,
             "font-weight": 300,
-            "color": map-get($color-options, b),
+            "color": map.get($color-options, b),
         ),
         $list-group-item-options: (
             "className": g--btn-01,
@@ -42,7 +51,7 @@
         ),
         $custom-options: (
             "parent": (
-                "display": unquote("flex !important"),
+                "display": string.unquote("flex !important"),
             ),
             "g--card-05__ft-items__media-wrapper": (
                 "min-width": 200px,

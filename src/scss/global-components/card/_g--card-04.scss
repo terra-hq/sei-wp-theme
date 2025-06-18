@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
 .g--card-04 {
     @include make-card-04();
     @include make-card-04-modifier(
@@ -25,10 +31,10 @@
     &--second {
         @include make-card-04-modifier(
             $item-primary-options: (
-                "color": map-get($color-options,a),
+                "color": map.get($color-options,a),
             ),
             $list-group-item-options: (
-                "color": map-get($color-options,a),
+                "color": map.get($color-options,a),
             ),
         );
     }

@@ -58,7 +58,7 @@ Template Name: Index
         if ($custom_query->have_posts()) :
     ?>
 
-        <section class="f--pb-22 f--pb-tablets-15">
+        <section class="u--pb-22 u--pb-tablets-15">
             <div class="f--container">
                 <div class="f--row f--gap-b">
                     <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>

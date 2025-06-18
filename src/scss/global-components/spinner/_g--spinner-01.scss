@@ -1,8 +1,14 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
 .g--spinner-01 {
     @include make-spinner-01();
     @include make-spinner-01-modifier(
         $artwork-options: (
-            "fill": map-get($color-options, c),
+            "fill": map.get($color-options, c),
         //     "stroke": #cecece,
             "width": 20px,
             "height": 20px,

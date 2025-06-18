@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
 .g--banner-01 {
     @include make-banner-01();
     @include make-banner-01-modifier(
@@ -6,7 +13,7 @@
             "close-icon": no,
         ),
         $background-options: (
-            "background-color": map-get($color-options, d),
+            "background-color": map.get($color-options, d),
         ),
         $item-primary-options: (
             "className": c--content-a c--content-a--second-color,

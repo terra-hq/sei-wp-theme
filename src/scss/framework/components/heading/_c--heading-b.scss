@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+@use "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/framework/components/media/_c--media-d" as *;
 .c--heading-b {
     @extend .f--row ;
     @extend .u--justify-content-space-between ;
@@ -14,7 +21,7 @@
 
         &__title {
             @extend .f--font-e ;
-            @extend .f--mb-2;
+            @extend .u--mb-2;
         }
 
         &__subtitle {
@@ -23,7 +30,7 @@
 
         &__btn {
             @extend .g--btn-01;
-            @extend .f--mt-3;
+            @extend .u--mt-3;
 
             @media all and (pointer: fine) {
                 display: none !important;

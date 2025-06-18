@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+
 .c--layout-b {
 
     &__title {
@@ -34,7 +41,7 @@
         }
 
         &__content {
-            @extend .c--content-a--second-color;
+           // @extend .c--content-a--second-color;
         }
     }
 }

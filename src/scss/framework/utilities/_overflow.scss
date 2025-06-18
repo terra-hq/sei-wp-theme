@@ -1,3 +1,4 @@
+@use "@scss/framework/_var/_vars.scss" as *;
 $overflow-values:(
   hidden: hidden,
   // clip: clip,
@@ -34,9 +35,5 @@ $overflow-breakpoints: (
   }
 }
 
-@if variable-exists(overflow-breakpoints) {
+
   @include overflow-utility($overflow-values,$overflow-breakpoints)
-}
-@else {
-  @include overflow-utility($overflow-values,$breakpoints-grid)
-}

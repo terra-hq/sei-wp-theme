@@ -1,10 +1,14 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-d {
     @extend .u--display-flex;
     background-color: transparent;
 
     &__wrapper {
         padding: 0 $measure * 5 $measure * 4 0;
-        border-bottom: 1px solid rgba(map-get($color-options, b), 0.40);
+        border-bottom: 1px solid rgba(map.get($color-options, b), 0.40);
 
         &__title {
             @extend .f--font-c;

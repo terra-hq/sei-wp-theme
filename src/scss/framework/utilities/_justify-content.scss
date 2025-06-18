@@ -1,3 +1,4 @@
+@use "@scss/framework/_var/_vars.scss" as *;
 $justify-content-properties:(
   space-between: space-between,
   // space-around:space-around,
@@ -37,9 +38,5 @@ $justify-content-breakpoints: (
   }
 }
 
-@if variable-exists(justify-content-breakpoints) {
+
   @include justify-content-utility($justify-content-properties,$justify-content-breakpoints)
-}
-@else {
-  @include justify-content-utility($justify-content-properties,$breakpoints-grid)
-}

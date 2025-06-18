@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/paths.scss" as paths;
+
+
 .c--back-link-a {
     @extend .u--position-relative;
     @extend .u--display-block;
@@ -5,7 +12,7 @@
     @extend .f--color-b;
     width: fit-content;
     text-decoration: underline;
-    text-decoration-color: map-get($color-options, b);
+    text-decoration-color: map.get($color-options, b);
     padding-left: calc(11px + #{$measure});
     white-space: nowrap;
     transition: all $time-a $ease-standard-a;
@@ -16,7 +23,7 @@
         left: 0;
         width: 12px;
         height: 100%;
-        background-image: url('#{$base-path}/assets/img/arrow-link-a.svg');
+        background-image: url(paths.asset-url("/assets/img/arrow-link-a.svg"));
         background-repeat: no-repeat;
         background-position: left center;
         background-size: contain;
@@ -25,11 +32,12 @@
 
     @media (hover: hover) {
         &:hover {
-            color: map-get($color-options, c);
+            color: map.get($color-options, c);
             text-decoration-color: transparent;
 
             &::before {
-                background-image: url('#{$base-path}/assets/img/arrow-link-a-hover.svg');}
+                background-image: url(paths.asset-url("/assets/img/arrow-link-a-hover.svg"));
+            }
         }
     }
 }

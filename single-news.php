@@ -1,13 +1,13 @@
 <?php get_header() ?>
 
-<section class="f--pt-15 f--pt-tablets-10 f--pb-15 f--pb-tablets-10">
+<section class="u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <a href="<?php echo esc_url(home_url('/about/newsroom/')) ?>" class="c--back-link-a f--mb-10">Back to
+                <a href="<?php echo esc_url(home_url('/about/newsroom/')) ?>" class="c--back-link-a u--mb-10">Back to
                     All
                     News</a>
-                <p class="f--font-i f--color-c u--text-uppercase u--letter-spacing-a u--font-medium f--mb-3">News</p>
+                <p class="f--font-i f--color-c u--text-uppercase u--letter-spacing-a u--font-medium u--mb-3">News</p>
             </div>
         </div>
         <div class="f--row u--justify-content-space-between f--gap-a">
@@ -16,13 +16,13 @@
                 <p class="f--font-h"><span
                         class="u--opacity-6"><?php echo get_the_date('M j, Y', get_the_ID()) ?></span>
                 </p>
-                <article class="f--pt-8 f--pt-tablets-5 f--pb-4">
+                <article class="u--pt-8 u--pt-tablets-5 u--pb-4">
                     <div class="c--content-a">
                         <?php the_content() ?>
                     </div>
                 </article>
-                <div class="c--border-a f--pt-4 u--display-flex u--align-items-center">
-                    <p class="f--font-i f--color-c f--mr-1">Share on</p>
+                <div class="c--border-a u--pt-4 u--display-flex u--align-items-center">
+                    <p class="f--font-i f--color-c u--mr-1">Share on</p>
                     <?php include(locate_template('components/social/social-a--second.php', false, false)); ?>
                 </div>
             </div>

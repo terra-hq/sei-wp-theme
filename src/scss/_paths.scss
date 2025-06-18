@@ -1,0 +1,5 @@
+$base-path: "/wp-sei" !default;
+
+@function asset-url($path) {
+  @return "#{$base-path}/#{$path}";
+}

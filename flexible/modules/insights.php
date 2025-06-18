@@ -59,7 +59,7 @@
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
             <div class="f--col-5 f--col-tabletm-12">
-                <h2 class="f--font-c f--mb-5 f--mt-5 <?= ($bgColor != "f--background-a") ? "f--color-a" : "" ?>">
+                <h2 class="f--font-c u--mb-5 u--mt-5 <?= ($bgColor != "f--background-a") ? "f--color-a" : "" ?>">
                     <?php
                         if ($title) {
                             foreach ($title as $e) {

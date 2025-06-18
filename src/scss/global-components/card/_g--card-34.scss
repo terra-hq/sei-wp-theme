@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+
 .g--card-34 {
     @include make-card-34();
     @include make-card-34-modifier(
@@ -6,7 +14,7 @@
             "breakpoint": $tablets,
         ),
         $background-options: (
-            "background-color": map-get($colorbg-options, c),
+            "background-color": map.get($colorbg-options, c),
         ),
         $item-primary-options: (
             "className": f--font-e f--color-a,
@@ -107,13 +115,13 @@
     &--second {
         @include make-card-34-modifier(
             $background-options: (
-                "background-color": map-get($colorbg-options, a),
+                "background-color": map.get($colorbg-options, a),
             ),
             $item-primary-options: (
-                "color": map-get($color-options, b),
+                "color": map.get($color-options, b),
             ),
             $item-secondary-options: (
-                "color": map-get($color-options, b),
+                "color": map.get($color-options, b),
             )
         );
     }

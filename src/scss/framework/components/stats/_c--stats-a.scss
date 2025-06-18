@@ -1,5 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--stats-a {
-    background-color: map-get($color-options, j);
+    background-color: map.get($color-options, j);
     @extend .u--width-100;
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
@@ -24,9 +29,9 @@
         @extend .u--font-light;
     }
     &--second {
-        background-color: map-get($color-options, k);
+        background-color: map.get($color-options, k);
     }
     &--third {
-        background-color: map-get($color-options, l);
+        background-color: map.get($color-options, l);
     }
 }

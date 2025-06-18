@@ -12,7 +12,7 @@
 <section class="<?= $bgColor ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-space-between">
-            <div class="f--col-5 f--col-tabletm-12 f--mb-tabletm-7">
+            <div class="f--col-5 f--col-tabletm-12 u--mb-tabletm-7">
                 <h2 class="f--font-c">
                     <?php
                         if ($title) {
@@ -28,7 +28,7 @@
                         }
                     ?>
                 </h2>
-                <p class="f--mt-3 f--mb-5 f--font-h u--font-light">
+                <p class="u--mt-3 u--mb-5 f--font-h u--font-light">
                     <?= $subtitle ?>
                 </p>
                 <?php if (!empty($btn) && !empty($btn['url']) && !empty($btn['title'])): ?>

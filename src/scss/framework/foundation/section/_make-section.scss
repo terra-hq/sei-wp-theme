@@ -1,0 +1,33 @@
+@use "@scss/framework/_var/_vars.scss" as *;
+
+@mixin make-section-a() {
+    padding: $measure * 22 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 15 0;
+    }
+}
+
+@mixin make-section-b() {
+    padding: 0 0 $measure * 15;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: 0 0 $measure * 10;
+    }
+}
+
+@mixin make-section-c() {
+    padding: $measure * 15 0 $measure * 10 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 10 0 $measure * 7 0;
+    }
+}
+
+@mixin make-section-d() {
+    padding: $measure * 10 0;
+
+    @media all and ($viewport-type: $tablets) {
+        padding: $measure * 7 0;
+    }
+}

@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/paths.scss" as paths;
+
 .c--cta-d {
     @extend .u--display-flex;
     @extend .u--width-100;
@@ -6,7 +12,7 @@
     @extend .u--justify-content-center;
     padding: $measure * 3;
     text-decoration: none;
-    background-image: url('#{$base-path}/assets/img/cta-d.webp');
+    background-image: paths.asset-url("/assets/img/cta-d.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -35,13 +41,13 @@
             margin: 0 auto $measure*2;
             width: 26px;
             height: 26px;
-            border: 1px solid map-get($color-options, a);
+            border: 1px solid map.get($color-options, a);
             border-radius: 50%;
     
             &::after {
                 content: "";
                 @extend .u--position-absolute;
-                background: map-get($color-options, a);
+                background: map.get($color-options, a);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -52,7 +58,7 @@
             &::before {
                 content: "";
                 @extend .u--position-absolute;
-                background: map-get($color-options, a);
+                background: map.get($color-options, a);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);

@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "@scss/global-components/btn/_g--btn-03" as *;
+
 .g--card-09 {
     @include make-card-09();
     @include make-card-09-modifier(
@@ -7,7 +15,7 @@
             "back-items": no
         ),
         $background-options: (
-            "background-color": map-get($color-options, d),
+            "background-color": map.get($color-options, d),
         ),
         $item-primary-options: (
             "className": f--font-g f--color-a u--font-medium,
@@ -53,7 +61,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($color-options, e),
+                "background-color": map.get($color-options, e),
             ),
         );
     }
@@ -64,7 +72,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($color-options, f),
+                "background-color": map.get($color-options, f),
             ),
         );
     }
@@ -75,7 +83,7 @@
                 "back-items": no
             ),
             $background-options: (
-                "background-color": map-get($color-options, g),
+                "background-color": map.get($color-options, g),
             ),
         );
     }

@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--timeline-a {
     @extend .u--position-relative;
     max-width: 66.66%;
@@ -20,7 +24,7 @@
         transform: translateX(-50%);
         width: 2px;
         height: calc(100% - var(--bottom-value, 0px));
-        background: var(--finish-color-value, map-get($color-options, a));
+        background: var(--finish-color-value, map.get($color-options, a));
         z-index: 1;
     }
 
@@ -32,7 +36,7 @@
         transform: translateX(-50%);
         width: 2px;
         height: var(--loading-value, 0px);
-        background: map-get($color-options, c);
+        background: map.get($color-options, c);
         z-index: 2;
     }
 
@@ -49,8 +53,8 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: 2px solid var(--color-value, map-get($color-options, a));
-            background: var(--color-value, map-get($color-options, j));
+            border: 2px solid var(--color-value, map.get($color-options, a));
+            background: var(--color-value, map.get($color-options, j));
         }
 
         &__wrapper {

@@ -1,3 +1,4 @@
+@use "@scss/framework/_var/_vars.scss" as *;
 $text-align-values: (
   left: left,
   center: center,
@@ -35,9 +36,5 @@ $text-align-breakpoints: (
   }
 }
 
-@if variable-exists(text-align-breakpoints) {
+
   @include text-align-utility($text-align-values, $text-align-breakpoints);
-}
-@else {
-  @include text-align-utility($text-align-values, $breakpoints-grid);
-}

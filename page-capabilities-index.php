@@ -36,7 +36,7 @@ Template Name: Capabilities Index
     if ($capabilities_query->have_posts()) :
 ?>
 
-<section class="f--pb-15 f--pb-tablets-10">
+<section class="u--pb-15 u--pb-tablets-10">
     <div class="f--container">
         <?php foreach ($capabilities_query->posts as $capability) : ?>
             <?php
@@ -46,7 +46,7 @@ Template Name: Capabilities Index
                 $image = get_field('index_icon', $capability->ID);
             ?>
 
-            <div class="c--border-a f--pt-5 f--pt-tablets-4 f--pb-8 f--pb-tablets-5">
+            <div class="c--border-a u--pt-5 u--pt-tablets-4 u--pb-8 u--pb-tablets-5">
                 <a href="<?= get_the_permalink($capability->ID) ?>" class="c--heading-b">
                     <div class="c--heading-b__wrapper">
                         <h2 class="c--heading-b__wrapper__title"><?= $capability_title ?></h2>

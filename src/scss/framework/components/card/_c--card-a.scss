@@ -1,10 +1,15 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
 .c--card-a {
     @extend .u--width-100;
     @extend .u--text-center;
     @extend .u--display-block;
     padding: $measure*3 0;
     text-decoration: none;
-    border-bottom: 1px solid map-get($color-options, k);
+    border-bottom: 1px solid map.get($color-options, k);
     @media all and ($viewport-type: $tablets) {
         padding: $measure*5 0;
     }
@@ -59,11 +64,11 @@
     &:hover & {
         &__wrapper {
             &__title {
-                color: map-get($color-options, c);
+                color: map.get($color-options, c);
                 font-family: $type-b;
                 font-style: italic;
                 @media all and ($viewport-type: $tabletl) and (pointer: coarse) {
-                    color: map-get($color-options, i);
+                    color: map.get($color-options, i);
                     font-family: $type-a;
                     font-style: normal;
                 }

@@ -1,3 +1,12 @@
+
+@use "sass:map";
+@use "@scss/paths.scss" as paths;
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+
 .c--form-b {
     @extend .u--position-sticky;
     @extend .u--overflow-hidden;
@@ -13,7 +22,7 @@
         min-height: 600px;
         top: 0;
         left: 0;
-        background-image: url('#{$base-path}/assets/img/form_b.webp');
+        background-image: url(paths.asset-url("/assets/img/form_b.webp"));
         background-repeat: no-repeat;
         background-position: center top;
         background-size: cover;
@@ -63,19 +72,19 @@
                     padding: $measure $measure $measure 0;
                     background-color: transparent !important;
                     border-width: 0 0 1px;
-                    border-color: map-get($color-options, a);
+                    border-color: map.get($color-options, a);
                     border-style: solid;
                     border-radius: 0;
                     opacity: 1;
-                    color: map-get($color-options, a) !important;
+                    color: map.get($color-options, a) !important;
                     transition: opacity $time-b $ease-standard-a, border-color $time-b $ease-standard-a;
                     @extend .f--font-h;
                     @extend .u--font-light;
                     &:-webkit-autofill,
                     &:-webkit-autofill:hover,
                     &:-webkit-autofill:focus {
-                        -webkit-text-fill-color: map-get($color-options, h);
-                        -webkit-box-shadow: 0 0 0px 1000px rgba(map-get($color-options, k), 0) inset;
+                        -webkit-text-fill-color: map.get($color-options, h);
+                        -webkit-box-shadow: 0 0 0px 1000px rgba(map.get($color-options, k), 0) inset;
                         background-color: transparent !important;
                         background-clip: text;
                     }
@@ -86,7 +95,7 @@
                     }
                     &.invalid,
                     &.error {
-                        border-color: map-get($color-options, c);
+                        border-color: map.get($color-options, c);
                     }
                 }
                 .inputs-list {
@@ -136,7 +145,7 @@
                                     left: 0;
                                     top: 50%;
                                     transform: translateY(-50%);
-                                    border: 1px solid map-get($color-options, h);
+                                    border: 1px solid map.get($color-options, h);
                                     height: $measure*2;
                                     width: $measure*2;
                                 }
@@ -151,7 +160,7 @@
                                     height: calc(#{$measure*2}*.6);
                                     max-width: calc(#{$measure*2} - 4px);
                                     max-height: calc(#{$measure*2} - 4px);
-                                    background-color: map-get($color-options, h);
+                                    background-color: map.get($color-options, h);
                                     transition: opacity $time-b $ease-standard-a;
                                 }
                             }

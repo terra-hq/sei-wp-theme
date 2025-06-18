@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/curve/_c--curve-a" as *;
+@use "@scss/global-components/btn/_g--btn-03" as *;
+
 .c--hero-a {
     @extend .f--background-d;
     @extend .u--position-relative;

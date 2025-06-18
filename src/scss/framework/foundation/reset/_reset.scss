@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/foundation/background/background.scss" as *;
+@use "@scss/framework/foundation/font/font.scss" as *;
+@use "@scss/framework/foundation/color/color.scss" as *;
+
 *,
 *::before,
 *::after {
@@ -13,7 +19,7 @@
     outline: 0;
 }
 *:focus-visible {
-    outline: 1px solid map-get($color-options, c);
+    outline: 1px solid map.get($color-options, c);
 }
 
 html {
@@ -118,9 +124,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: map-get($color-options, b);
-    color: map-get($color-options, b);
-    -webkit-box-shadow: 0 0 0px 1000px map-get($color-options, a) inset;
+    -webkit-text-fill-color: map.get($color-options, b);
+    color: map.get($color-options, b);
+    -webkit-box-shadow: 0 0 0px 1000px map.get($color-options, a) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 

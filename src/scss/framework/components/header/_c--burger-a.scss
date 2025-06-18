@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
 .c--burger-a {
     width: 46px;
     position: relative;
@@ -13,7 +17,7 @@
         &:hover {
             svg {
                 path {
-                    stroke: map-get($color-options, c);
+                    stroke:map.get($color-options, c);
                 }
             }
         }
