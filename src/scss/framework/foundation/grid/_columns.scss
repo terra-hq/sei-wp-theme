@@ -42,15 +42,11 @@ $columns-breakpoints: (
   }
 }
 // Build Columns
-@if variable-exists(columns-breakpoints) {
+
   @each $size, $bkpt in $columns-breakpoints {
     @include build-columns($size, $bkpt, $available-columns);
   }
-} @else {
-  @each $size, $bkpt in $breakpoints-grid {
-    @include build-columns($size, $bkpt, $available-columns);
-  }
-}
+
 /* End Responsive Columns */
 
 /* Start Responsive Offset */
@@ -89,15 +85,11 @@ $offset-breakpoints: (
   }
 }
 
-@if variable-exists(offset-breakpoints) {
+
   @each $size, $bkpt in $offset-breakpoints {
     @include build-offset($size, $bkpt, $available-offset);
   }
-} @else {
-  @each $size, $bkpt in $breakpoints-grid {
-    @include build-offset($size, $bkpt, $available-offset);
-  }
-}
+
 /* End Responsive Offset */
 
 /* Start Responsive Order */
@@ -148,13 +140,9 @@ $order-breakpoints: (
   }
 }
 
-@if variable-exists(order-breakpoints) {
+
   @each $size, $bkpt in $order-breakpoints {
     @include build-order($size, $bkpt, $available-order);
   }
-} @else {
-  @each $size, $bkpt in $breakpoints-grid {
-    @include build-order($size, $bkpt, $available-order);
-  }
-}
+
 /* End Responsive Order */

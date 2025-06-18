@@ -6,7 +6,7 @@
 .c--media-a {
     @extend .u--width-100;
     &__media {
-       @extend .f--ar;
+       @extend .u--ar;
        max-height: 700px;
         @media all and ($viewport-type: $mobile) {
             min-height: 300px;

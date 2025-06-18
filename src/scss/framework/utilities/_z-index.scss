@@ -34,9 +34,5 @@ $z-index-breakpoints: (
   }
 }
 
-@if variable-exists(z-index-breakpoints) {
+
   @include z-index-utility($z-index-values,$z-index-breakpoints)
-}
-@else {
-  @include z-index-utility($z-index-values,$breakpoints-grid)
-}

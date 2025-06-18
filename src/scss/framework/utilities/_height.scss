@@ -36,9 +36,6 @@ $height-breakpoints: (
   }
 }
 
-@if variable-exists(height-breakpoints) {
+
   @include height-utility($height-values,$height-breakpoints)
-}
-@else {
-  @include height-utility($height-values,$breakpoints-grid)
-}
+

@@ -11,7 +11,7 @@
     padding-top: $measure*10;
     top: 100px;
     &__media {
-        @extend .f--ar;
+        @extend .u--ar;
         @extend .u--position-absolute;
         @extend .u--height-100;
         object-fit: cover;

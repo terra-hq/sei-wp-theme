@@ -33,9 +33,6 @@ $text-transform-breakpoints: (
     }
   }
   
-@if variable-exists(text-transform-breakpoints) {
+
   @include text-transform-utility($text-transform-values, $text-transform-breakpoints);
-}
-@else {
-  @include text-transform-utility($text-transform-values, $breakpoints-grid);
-}
+

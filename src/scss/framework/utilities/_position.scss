@@ -38,9 +38,7 @@ $position-breakpoints: (
   }
 }
 
-@if variable-exists(position-breakpoints) {
+
   @include position-utility($position-values,$position-breakpoints)
-}
-@else {
-  @include position-utility($position-values,$breakpoints-grid)
-}
+
+ 

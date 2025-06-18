@@ -1,16 +1,16 @@
 <?php get_header() ?>
 
-<section class="f--pt-15 f--pt-tablets-10 f--pb-15 f--pb-tablets-10">
+<section class="u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10">
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
-        <a href="<?php echo esc_url(home_url('/insights')) ?>" class="c--back-link-a f--mb-10">Back to All Insights</a>
+        <a href="<?php echo esc_url(home_url('/insights')) ?>" class="c--back-link-a u--mb-10">Back to All Insights</a>
         <?php
         $insight_types = get_the_terms(get_the_ID(), 'insight-types');
         if ($insight_types && !is_wp_error($insight_types)) {
           $insight_type = $insight_types[0];
           $insight_type_name = $insight_type->name;
-          echo '<p class="f--font-i f--color-c u--text-uppercase u--letter-spacing-a u--font-medium f--mb-3">' . esc_html($insight_type_name) . '</p>';
+          echo '<p class="f--font-i f--color-c u--text-uppercase u--letter-spacing-a u--font-medium u--mb-3">' . esc_html($insight_type_name) . '</p>';
         }
         ?>
       </div>
@@ -44,7 +44,7 @@
         </p>
         <?php $topics = get_the_terms(get_the_ID(), 'topics');
         if ($topics && !is_wp_error($topics)) {
-          ?><div class="c--list-a f--pt-4 f--pt-tablets-3"><?php
+          ?><div class="c--list-a u--pt-4 u--pt-tablets-3"><?php
           foreach ($topics as $topic) {
             $topic_name = $topic->name;
             $topic_slug = $topic->slug;
@@ -53,13 +53,13 @@
           }
           ?></div><?php
         } ?>
-        <article class="f--pt-8 f--pt-tablets-5 f--pb-4">
+        <article class="u--pt-8 u--pt-tablets-5 u--pb-4">
           <div class="c--content-a">
             <?php the_content() ?>
           </div>
         </article>
-        <div class="c--border-a f--pt-4 u--display-flex u--align-items-center">
-          <p class="f--font-i f--color-c f--mr-1">Share on</p>
+        <div class="c--border-a u--pt-4 u--display-flex u--align-items-center">
+          <p class="f--font-i f--color-c u--mr-1">Share on</p>
           <?php include(locate_template('components/social/social-a--second.php', false, false)); ?>
         </div>
       </div>
@@ -77,7 +77,7 @@
 
 <?php
 $btn = get_field('related_section_button', 'option');
-$spacing = 'f--pb-8 f--pb-tablets-5';
+$spacing = 'u--pb-8 u--pb-tablets-5';
 $title = get_field('related_section_title', 'option');
 include(locate_template('components/heading/heading-a.php', false, false));
 ?>
@@ -97,7 +97,7 @@ $custom_query = new WP_Query($args);
 if ($custom_query->have_posts()) :
   ?>
 
-  <section class="f--pb-15 f--pb-tablets-10">
+  <section class="u--pb-15 u--pb-tablets-10">
     <div class="f--container">
       <div class="f--row f--gap-a">
         <?php

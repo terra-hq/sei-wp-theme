@@ -36,9 +36,5 @@ $flex-direction-breakpoints: (
   }
 }
 
-@if variable-exists(flex-direction-breakpoints) {
+
   @include flex-direction-utility($flex-direction-values,$flex-direction-breakpoints)
-}
-@else {
-  @include flex-direction-utility($flex-direction-values,$breakpoints-grid)
-}

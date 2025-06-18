@@ -55,12 +55,12 @@ Template Name: Services Index
         }
     }
 ?>
-<section class="f--pb-15 f--pb-tablets-10">
+<section class="u--pb-15 u--pb-tablets-10">
     <div class="f--container">
         <div class="f--row f--gap-a">
             <?php foreach ($grouped_services as $key => $typeName) { ?>
             <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
-                <h2 class="f--font-g f--mb-3">
+                <h2 class="f--font-g u--mb-3">
                     <a href="#" class="g--link-01 g--link-01--second"><?= $key ?></a>
                 </h2>
                 <div class="f--row f--gap-d">

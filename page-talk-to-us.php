@@ -26,7 +26,7 @@ include (locate_template('components/hero/hero-h.php', false, false));
     $description = get_field('description', $post->ID);
 ?>
 <!--layout-b-->
-<section class="c--layout-b f--pt-15">
+<section class="c--layout-b u--pt-15">
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
             <div class="f--col-6 f--col-tabletm-10 f--col-mobile-12">
@@ -42,11 +42,11 @@ include (locate_template('components/hero/hero-h.php', false, false));
         </div>
     </div>
 </section>
-<section class="f--background-a  f--mb-20">
+<section class="f--background-a  u--mb-20">
     <div class="f--container">
         <div class="f--row">
 
-            <div class="f--col-12 f--mt-10 f--mt-tablets-8">
+            <div class="f--col-12 u--mt-10 u--mt-tablets-8">
                 <div class="c--wrapper-b c--wrapper-b--second">
                     <?php while ($locations_query->have_posts()) : $locations_query->the_post(); ?>
                     <?php

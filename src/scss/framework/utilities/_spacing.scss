@@ -31,7 +31,7 @@ $space-breakpoints: (
     @if ($breakpoint-value == 0) {
       @each $attr-short, $attr-long in $prefixes {
         @each $value in $values {
-          .f--#{$attr-short}-#{$value} {
+          .u--#{$attr-short}-#{$value} {
             #{$attr-long}: calc(#{$measure} * #{$value});
           }
         }
@@ -42,7 +42,7 @@ $space-breakpoints: (
       @media screen and ($viewport-type: $breakpoint-value) {
         @each $attr-short, $attr-long in $prefixes {
           @each $value in $values {
-            .f--#{$attr-short}-#{$breakpoint-name}-#{$value} {
+            .u--#{$attr-short}-#{$breakpoint-name}-#{$value} {
               #{$attr-long}: calc(#{$measure} * #{$value});
             }
           }
@@ -52,8 +52,4 @@ $space-breakpoints: (
   }
 }
 
-@if variable-exists(space-breakpoints) {
-  @include make-spaces($space-values, $space-prefixes, $space-breakpoints);
-} @else {
-  @include make-spaces($space-values, $space-prefixes, $breakpoints-grid);
-}
+@include make-spaces($space-values, $space-prefixes, $space-breakpoints);

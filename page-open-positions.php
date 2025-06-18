@@ -12,7 +12,7 @@ $hero = [
 ]; ?>
 <?php include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false)); ?>
 
-<section class="f--pb-22 f--pb-tablets-15 js--load-all-jobs">
+<section class="u--pb-22 u--pb-tablets-15 js--load-all-jobs">
     <div class="f--container">
         <div class="f--row u--justify-content-space-between u--justify-content-tablets-center f--gap-b">
             <div class="f--col-6 f--col-tabletm-7 f--col-tablets-12">

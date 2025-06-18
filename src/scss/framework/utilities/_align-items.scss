@@ -38,9 +38,6 @@ $align-items-breakpoints: (
   }
 }
 
-@if variable-exists(align-items-breakpoints) {
-  @include align-items-utility($align-items-values,$align-items-breakpoints)
-}
-@else {
-  @include align-items-utility($align-items-values,$breakpoints-grid)
-}
+
+@include align-items-utility($align-items-values,$align-items-breakpoints)
+

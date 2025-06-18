@@ -42,7 +42,7 @@
     &__subtitle {
       @extend .f--font-g;
       @extend .u--font-light;
-      @extend .f--mt-3;
+      @extend .u--mt-3;
       padding-bottom: calc(33.33vw - #{$measure * 15});
       @media all and ($viewport-type: $tabletm) {
         padding-bottom: 0;
@@ -61,7 +61,7 @@
       &__subtitle {
         @extend .f--font-h;
         @extend .u--font-light;
-        @extend .f--mt-3;
+        @extend .u--mt-3;
         padding-bottom: 23rem;
 
         @media all and ($viewport-type: $laptop) {

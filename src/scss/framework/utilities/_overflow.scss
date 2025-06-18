@@ -35,9 +35,5 @@ $overflow-breakpoints: (
   }
 }
 
-@if variable-exists(overflow-breakpoints) {
+
   @include overflow-utility($overflow-values,$overflow-breakpoints)
-}
-@else {
-  @include overflow-utility($overflow-values,$breakpoints-grid)
-}

@@ -4,7 +4,7 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 
 .c--media-d {
-    @extend .f--ar;
+    @extend .u--ar;
     @media all and ($viewport-type:$mobile) {
         max-width: 60%;
     }

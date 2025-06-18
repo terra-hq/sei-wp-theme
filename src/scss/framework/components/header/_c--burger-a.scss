@@ -17,7 +17,7 @@
         &:hover {
             svg {
                 path {
-                    stroke: map-get($color-options, c);
+                    stroke:map.get($color-options, c);
                 }
             }
         }

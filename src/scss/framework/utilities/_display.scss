@@ -44,9 +44,7 @@ $display-breakpoints: (
     }
 }
 
-@if variable-exists(display-breakpoints) {
+
     @include display-utility($display-values, $display-breakpoints);
-  }
-@else {
-    @include display-utility($display-values, $breakpoints-grid);
-}
+
+    

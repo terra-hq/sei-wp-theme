@@ -33,9 +33,6 @@ $opacity-breakpoints: (
     }
 }
 
-@if variable-exists(opacity-breakpoints) {
-    @include opacity-utility($opacity-values, $opacity-breakpoints);
-  }
-@else {
-    @include opacity-utility($opacity-values, $breakpoints-grid);
-}
+
+@include opacity-utility($opacity-values, $opacity-breakpoints);
+ 

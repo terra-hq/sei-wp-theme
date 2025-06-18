@@ -13,7 +13,7 @@
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
             <div class="f--col-3 f--col-tabletl-8 f--col-tabletm-10 f--col-mobile-12">
-                <h2 class="f--font-c f--mb-4">
+                <h2 class="f--font-c u--mb-4">
                     <?php
                         if ($title) {
                             foreach ($title as $e) {

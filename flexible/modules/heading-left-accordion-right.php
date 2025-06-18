@@ -20,13 +20,13 @@ $modifier = 'g--accordion-02--third';
                     <?php endif; ?>
 
                     <?php if (!empty($title)) : ?>
-                        <h2 class="f--font-c f--color-b f--mt-2">
+                        <h2 class="f--font-c f--color-b u--mt-2">
                             <?= esc_html($title); ?>
                         </h2>
                     <?php endif; ?>
 
                     <?php if (!empty($description)) : ?>
-                        <p class="f--font-i f--mt-3">
+                        <p class="f--font-i u--mt-3">
                             <?= esc_html($description); ?>
                         </p>
                     <?php endif; ?>

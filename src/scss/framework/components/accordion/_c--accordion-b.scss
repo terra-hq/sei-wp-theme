@@ -22,10 +22,10 @@
 
         &:hover &{
             &__btn {
-                background: map-get($color-options, c);
+                background: map.get($color-options, c);
                 &__icon{
                         & path{
-                            stroke:map-get($color-options, a);
+                            stroke:map.get($color-options, a);
                         }
                 }
             }
@@ -46,7 +46,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid map-get($color-options, c);
+            border: 1px solid map.get($color-options, c);
             border-radius: 50%;
             transition: all $time-b $ease-standard-a;
 

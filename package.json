@@ -15,7 +15,7 @@
     "gulp": "^5.0.0",
     "gulp-sftp-up4": "^0.1.8",
     "minimist": "^1.2.8",
-    "sass": "^1.77.2",
+    "sass": "^1.89.2",
     "ssh2-sftp-client": "^10.0.3",
     "vite": "^5.2.12",
     "vite-plugin-live-reload": "^3.0.3"

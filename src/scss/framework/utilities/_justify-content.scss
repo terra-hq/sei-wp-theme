@@ -38,9 +38,5 @@ $justify-content-breakpoints: (
   }
 }
 
-@if variable-exists(justify-content-breakpoints) {
+
   @include justify-content-utility($justify-content-properties,$justify-content-breakpoints)
-}
-@else {
-  @include justify-content-utility($justify-content-properties,$breakpoints-grid)
-}

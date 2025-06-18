@@ -21,7 +21,7 @@
 
         &__title {
             @extend .f--font-e ;
-            @extend .f--mb-2;
+            @extend .u--mb-2;
         }
 
         &__subtitle {
@@ -30,7 +30,7 @@
 
         &__btn {
             @extend .g--btn-01;
-            @extend .f--mt-3;
+            @extend .u--mt-3;
 
             @media all and (pointer: fine) {
                 display: none !important;

@@ -13,7 +13,7 @@
                 </h2>
             </div>
             <div class="f--col-5 f--col-tabletm-6 f--col-tablets-10 f--col-mobile-12">
-                <p class="f--font-h f--color-a u--font-light f--mt-2 f--mt-tablets-0">
+                <p class="f--font-h f--color-a u--font-light u--mt-2 u--mt-tablets-0">
                     <?= $description ?>
                 </p>
             </div>

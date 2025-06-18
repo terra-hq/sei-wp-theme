@@ -31,7 +31,7 @@
     <section class="c--bg-b c--bg-b--second <?= $spacing ?>">
         <div class="f--container">
             <!-- title and button -->
-            <div class="f--row u--justify-content-space-between f--gap-c f--mb-8">
+            <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
                 <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
@@ -134,7 +134,7 @@
     <section class="c--bg-b c--bg-b--third <?= $spacing; ?>">
         <div class="f--container">
             <!-- title and button -->
-            <div class="f--row u--justify-content-space-between f--gap-c f--mb-8">
+            <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
                 <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
@@ -193,7 +193,7 @@
     <section class="c--bg-b c--bg-b--fourth <?= $spacing; ?>">
         <div class="f--container">
             <!-- title and button -->
-            <div class="f--row u--justify-content-space-between f--gap-c f--mb-8">
+            <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
                 <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
@@ -252,7 +252,7 @@
     <section class="c--bg-b c--bg-b--third <?= $spacing; ?>">
         <div class="f--container">
             <!-- title and button -->
-            <div class="f--row u--justify-content-space-between f--gap-c f--mb-8">
+            <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
                 <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
@@ -311,7 +311,7 @@
     <section class="c--bg-b c--bg-b--sixth <?= $spacing; ?>">
         <div class="f--container">
             <!-- title and button -->
-            <div class="f--row u--justify-content-space-between f--gap-c f--mb-8">
+            <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
                 <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>

@@ -5,7 +5,7 @@ Template Name: Ares
 ?>
 <?php get_header(); ?>
 
-<section class="f--pt-20 f--pb-20    <?= $spacing ?>">
+<section class="u--pt-20 u--pb-20    <?= $spacing ?>">
     <div class="f--container--fluid">
         <div class="f--row">
           
@@ -31,7 +31,7 @@ Template Name: Ares
 
 
 
-<section class=" f--pt-20 f--pb-20 <?= $spacing ?>">
+<section class=" u--pt-20 u--pb-20 <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12 u--display-flex u--justify-content-center">

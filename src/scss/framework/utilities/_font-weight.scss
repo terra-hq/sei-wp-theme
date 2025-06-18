@@ -42,9 +42,5 @@ $font-weight-breakpoints: (
     }
   }
   
-@if variable-exists(font-weight-breakpoints) {
-  @include font-weight-utility($font-weight-values, $font-weight-breakpoints);
-}
-@else {
-  @include font-weight-utility($font-weight-values, $breakpoints-grid);
-}
+
+ @include font-weight-utility($font-weight-values, $font-weight-breakpoints);
