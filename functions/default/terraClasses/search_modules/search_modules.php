@@ -107,7 +107,7 @@ function create_table($table_title, $table_heading, $table_content) { ?>
             <tbody>
                 <?php foreach ($table_heading as $heading) { ?>
                     <tr>
-                        <td class="title-row"><?php echo esc_html($heading); ?></td>
+                        <td class="title-row"><a style="color: white; text-decoration: none" class="title-row-anchor" href="<?=  get_edit_post_link(explode("-" ,$heading)[1]) ?>" > <?php echo explode("-" ,$heading)[0]; ?></a></td>
                         <?php foreach ($table_content as $module_name => $module_content) { ?>
                             <td><?php echo isset($module_content[$heading]) ? esc_html($module_content[$heading]) : ''; ?></td>
                         <?php } ?>
