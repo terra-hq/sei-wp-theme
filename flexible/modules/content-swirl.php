@@ -5,6 +5,9 @@ $legend = $module['legend'];
 $title = $module['title'];
 $content = $module['content'];
 $button = $module['button'];
+$button_type = $module['button_type'];
+$anchor_title = $module['anchor_title'];
+$anchor_id = $module['anchor_id'];
 ?>
 
 <section class="c--layout-a <?= $bg_color === 'f--background-b' ? 'c--layout-a--second' : '' ?> <?= $spacing ?>">
@@ -16,8 +19,14 @@ $button = $module['button'];
                 <div class="c--layout-a__content c--content-a c--content-a--third-text">
                     <?= $content ?>
                 </div>
-                <?php if ($button): ?>
+                <?php if ($button && $button_type == 'button'): ?>
                     <a href="<?= $button['url'] ?>" class="c--layout-a__btn"><?= $button['title'] ?></a>
+                <?php endif; ?>
+                <?php if ($anchor_title &&  $anchor_id && $button_type == 'anchor'): ?>
+                    <button tf-data-target="<?= $anchor_id ?>" tf-data-distance="0"
+                            class="c--layout-a__btn js--scroll-to">
+                        <?= $anchor_title; ?>
+                    </button>
                 <?php endif; ?>
             </div>
         </div>
