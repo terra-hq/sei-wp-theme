@@ -1,14 +1,10 @@
-
-
 // JS Starts here
 
 const terraVirtual = import.meta.env.VITE_TERRA_VIRTUAL;
-console.log("server is running in " + import.meta.env.MODE + " mode");
-console.log("Terra Virtual Variable:", terraVirtual);
 
-import gsap from "gsap";
-import Boostify from "boostify";
 import { modifyTag } from "@jsModules/utilities/utilities.js";
+import Boostify from "boostify";
+import gsap from "gsap";
 
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
@@ -24,7 +20,9 @@ class Project {
 
     this.DOM = {
       preloaderPath: document.querySelector(".c--preloader-a__artwork path"),
-      preloaderMedia: document.querySelector(".c--preloader-a__media-wrapper__media"),
+      preloaderMedia: document.querySelector(
+        ".c--preloader-a__media-wrapper__media"
+      ),
       heroA: document.querySelector(".c--hero-a"),
       heroB: document.querySelector(".c--hero-b"),
       images: document.querySelector("img"),
@@ -35,7 +33,7 @@ class Project {
     window["animations"] = {};
 
     this.boostify = new Boostify({
-      debug: false,
+      debug: this.terraDebug,
       license: import.meta.env.VITE_LICENSE_KEY,
     });
 
@@ -43,6 +41,11 @@ class Project {
       // if performance is low, increment number
       maxTime: 2400,
     });
+
+    if (this.terraDebug) {
+      console.log("server is running in " + import.meta.env.MODE + " mode");
+      console.log("Terra Virtual Variable:", terraVirtual);
+    }
 
     this.init();
   }
@@ -55,22 +58,28 @@ class Project {
     try {
       // Dynamically import the preloadImages function,
       // and store it in the window.lib object for later use
-      if(this.DOM.images){
-        const { preloadImages } = await import("@terrahq/helpers/preloadImages");
+      if (this.DOM.images) {
+        const { preloadImages } = await import(
+          "@terrahq/helpers/preloadImages"
+        );
         window["lib"]["preloadImages"] = preloadImages;
         await preloadImages("img");
       }
 
       // Dynamically import the preloadLotties function,
       // and store it in the window.lib object for later use
-      if(this.DOM.lotties){
-        const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
+      if (this.DOM.lotties) {
+        const { preloadLotties } = await import(
+          "@terrahq/helpers/preloadLotties"
+        );
         window["lib"]["preloadLotties"] = preloadLotties;
         await preloadLotties({
-          debug: true,
+          debug: this.terraDebug,
           selector: document.querySelectorAll(".js--lottie-element"),
           callback: (payload) => {
-            console.log("All lotties loaded", payload);
+            if (this.terraDebug) {
+              console.log("All lotties loaded", payload);
+            }
           },
         });
       }
@@ -85,7 +94,7 @@ class Project {
 
       // ? BOOSTIFY LOAD FORM SCRIPT GENERAL
       const hubspotChecker = document.querySelectorAll(".js--hubspot-script");
-      if(hubspotChecker.length){
+      if (hubspotChecker.length) {
         hubspotChecker.forEach(async (element) => {
           try {
             await this.boostify.loadScript({
@@ -103,7 +112,9 @@ class Project {
             });
             // * the previous code adds the [data-swup-ignore-script] attribute to the script to avoid Swup reloading it ^
           } catch (error) {
-            console.error("Error loading HubSpot script:", error);
+            if (this.terraDebug) {
+              console.error("Error loading HubSpot script:", error);
+            }
           }
         });
       }
@@ -111,8 +122,10 @@ class Project {
       // * BOOSTIFY LOAD FORM SCRIPT footer
       // check if there's a div with the class js--hubspot-script
       // if there is, load the hubspot form script as attribute data-portal-id and data-form-id
-      const hubspotFooterChecker = document.querySelectorAll(".js--hubspot-script--footer");
-      if(hubspotFooterChecker.length){
+      const hubspotFooterChecker = document.querySelectorAll(
+        ".js--hubspot-script--footer"
+      );
+      if (hubspotFooterChecker.length) {
         hubspotFooterChecker.forEach((element) => {
           let executed = false; // Bandera para controlar la ejecución
           this.boostify.observer({
@@ -125,11 +138,11 @@ class Project {
             callback: async () => {
               if (executed) return; // Si ya se ejecutó, no hacemos nada
               executed = true; // Marcamos como ejecutado
-  
+
               await this.boostify.loadScript({
                 url: "https://js.hsforms.net/forms/v2.js",
               });
-  
+
               await this.boostify.loadScript({
                 inlineScript: `
                         hbspt.forms.create({
@@ -140,7 +153,7 @@ class Project {
                 appendTo: element,
                 attributes: ["id=footer-hubspot"],
               });
-  
+
               modifyTag({
                 element: element.children[0],
                 attributes: {
@@ -171,8 +184,13 @@ class Project {
           if (this.terraDebug) {
             (async () => {
               try {
-                const { terraDebugger } = await import("@terrahq/helpers/terraDebugger");
-                terraDebugger({ submitQA: "https://app.clickup.com/2197638/v/l/6-901702004670-1" });
+                const { terraDebugger } = await import(
+                  "@terrahq/helpers/terraDebugger"
+                );
+                terraDebugger({
+                  submitQA:
+                    "https://app.clickup.com/2197638/v/l/6-901702004670-1",
+                });
               } catch (error) {
                 console.error("Error loading the debugger module:", error);
               }
@@ -189,7 +207,11 @@ class Project {
       tl.to(this.DOM.preloaderPath, {
         duration: 0.3,
         ease: "power2.in",
-        attr: { d: this.isDesktop() ? "M 0 0 V 50 Q 50 0 100 50 V 0 z" : "M 0 0 V 20 Q 50 0 100 20 V 0 z" },
+        attr: {
+          d: this.isDesktop()
+            ? "M 0 0 V 50 Q 50 0 100 50 V 0 z"
+            : "M 0 0 V 20 Q 50 0 100 20 V 0 z",
+        },
       });
       tl.to(this.DOM.preloaderPath, {
         duration: 0.8,
