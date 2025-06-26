@@ -1,8 +1,7 @@
-@import "@scss/framework/_var/_vars.scss";
-@import "@scss/framework/foundation/color/color";
-@import "@scss/framework/foundation/background/background";
-@import "@scss/framework/foundation/font/font";
-@import "@scss/framework/foundation/aspect-ratio/aspect-ratio";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/foundation/color/color" as *;
+@use "@scss/framework/foundation/background/background" as *;
+@use "@scss/framework/foundation/font/font" as *;
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

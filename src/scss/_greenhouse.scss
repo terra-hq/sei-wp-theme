@@ -1,31 +1,27 @@
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/global-components/vars" as *;
+@use "@terrahq/gc/library" as *;
+@use "@terrahq/wysiwyg/wordpress" as *;
 
-@import "@scss/framework/_var/_vars.scss";
-@import "@scss/framework/_mixins/mixins.scss";
-@import "@scss/global-components/vars";
-@import '@terrahq/gc/library';
-@import '@terrahq/wysiwyg/wordpress';
-
-
-@import '@scssFoundation/grid/grid.scss';
-@import '@scssFoundation/reset/reset.scss';
-@import '@scssFoundation/color/color.scss';
-@import '@scssFoundation/background/background.scss';
-@import '@scssFoundation/font/font.scss';
-@import '@scssFoundation/spaces/spaces.scss';
-@import "@scss/framework/utilities/_utilities.scss";
-
+@use "@scssFoundation/grid/grid.scss" as *;
+@use "@scssFoundation/reset/reset.scss" as *;
+@use "@scssFoundation/color/color.scss" as *;
+@use "@scssFoundation/background/background.scss" as *;
+@use "@scssFoundation/font/font.scss" as *;
+@use "@scssFoundation/spaces/spaces.scss" as *;
+@use "@scss/framework/utilities/_utilities.scss" as *;
 
 //* btn
-@import "@scss/global-components/btn/_g--btn-01";
+@use "@scss/global-components/btn/_g--btn-01" as *;
 
 //* content
-@import "@scss/framework/components/content/_c--content-a";
+@use "@scss/framework/components/content/_c--content-a" as *;
 
 //* link
-@import "@scss/framework/components/link/_c--link-a";
+@use "@scss/framework/components/link/_c--link-a" as *;
 
 //* greenhouse-content
-@import "@scss/framework/components/greenhouse-content/_c--greenhouse-content-a";
+@use "@scss/framework/components/greenhouse-content/_c--greenhouse-content-a" as *;
 
 //* link
-@import "@scss/global-components/link/_g--link-01";
+@use "@scss/global-components/link/_g--link-01" as *;
