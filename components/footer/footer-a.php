@@ -25,7 +25,7 @@
         <div class="c--footer-a__bd">
             <div class="f--row f--gap-a u--justify-content-space-between">
                 <div class="f--col-7 f--col-tabletl-6 f--col-tabletm-8 f--col-tabletm-12">
-                    <div class="c--form-a js--hubspot-script--footer" data-form-id=<?php echo get_field('form_id', 'option') ?> data-portal-id=<?php echo get_field('form_portal_id', 'option') ?>>
+                    <div class="c--footer-a__bd__item c--form-a js--hubspot-script--footer" data-form-id=<?php echo get_field('form_id', 'option') ?> data-portal-id=<?php echo get_field('form_portal_id', 'option') ?>>
                     </div>
                 </div>
                 <?php $navigation_links = get_field('navigation_links', 'option');

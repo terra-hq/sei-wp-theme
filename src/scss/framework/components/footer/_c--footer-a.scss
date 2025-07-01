@@ -24,6 +24,13 @@
     @media all and ($viewport-type: $tablets) {
       padding: 0 0 calc(#{$measure * 4} + #{$measure});
     }
+    &__item {
+      contain: size;
+      contain-intrinsic-size: 453px 196px;
+      @media all and ($viewport-type: $tablets) {
+        contain-intrinsic-size: 300px 213px;
+      }
+    }
   }
   &__ft {
     @extend .c--curve-a;
