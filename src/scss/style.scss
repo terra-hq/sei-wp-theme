@@ -3,16 +3,12 @@
 @use "@scssFoundation/_foundation.scss";
 @use "@scssUtilities/_utilities.scss";
 
-
 //* Preloader
 @use "@scss/framework/components/preloader/_c--preloader-a";
-
-
 
 //* header
 @use "@scss/framework/components/header/_c--header-wrapper-a";
 @use "@scss/framework/components/header/_c--header-a";
-
 
 //* accordion
 @use "@scss/framework/components/accordion/_c--accordion-a";
@@ -205,3 +201,6 @@
 
 //* 404
 @use "@scss/global-components/404/_g--404-01";
+
+//* icon heading
+@use "@scss/framework/components/icon-heading/_c--icon-heading-a";

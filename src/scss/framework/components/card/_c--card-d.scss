@@ -3,22 +3,37 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-d {
-    @extend .u--display-flex;
-    background-color: transparent;
+  @extend .u--display-flex;
+  background-color: transparent;
 
-    &__wrapper {
-        padding: 0 $measure * 5 $measure * 4 0;
-        border-bottom: 1px solid rgba(map.get($color-options, b), 0.40);
+  &__wrapper {
+    padding: 0 $measure * 5 $measure * 4 0;
+    border-bottom: 1px solid rgba(map.get($color-options, b), 0.4);
 
-        &__title {
-            @extend .f--font-c;
-            @extend .f--color-c;
-            margin-bottom: $measure * 2;
-        }
-
-        &__subtitle {
-            @extend .f--font-g;
-            @extend .u--font-light;
-        }
+    &__title {
+      @extend .f--font-c;
+      @extend .f--color-c;
+      margin-bottom: $measure * 2;
     }
+
+    &__subtitle {
+      @extend .f--font-g;
+      @extend .u--font-light;
+    }
+  }
+
+  &--second & {
+    &__wrapper {
+      border: none;
+      &__title {
+        @extend .f--font-e;
+        margin-bottom: $measure * 2;
+      }
+
+      &__subtitle {
+        @extend .f--font-h;
+        @extend .u--font-light;
+      }
+    }
+  }
 }

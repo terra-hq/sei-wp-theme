@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss";
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--icon-heading-a {
+  @extend .u--display-flex;
+  @extend .u--align-items-center;
+  @extend .u--pt-2;
+  @extend .u--pb-4;
+
+  gap: $measure * 2;
+
+  &__artwork {
+    width: 48px;
+    height: 48px;
+  }
+  &__title {
+    @extend .f--font-e;
+    @extend .f--color-b;
+  }
+}
