@@ -9,6 +9,7 @@ Template Name: Page Ares
 <!-- stats block --> 
 
 <div class="c--content-a u--pt-20 u--pb-20">
+  <!-- stats block --> 
     <div class="f--row">
             <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
             <div class="c--card-d c--card-d--second ">
@@ -50,14 +51,14 @@ Template Name: Page Ares
            
         </div>
     </div>
-   
+     <!-- pills block --> 
     <div class="c--pills-a">
         <a class="g--pill-01">Change Management</a>
         <a class="g--pill-01">Change Management</a>
         <a class="g--pill-01">Change Management</a>
         <a class="g--pill-01">Change Management</a>
     </div>
-
+     <!-- icon title  block --> 
     <div class="c--icon-heading-a">
 
   <!--  <?php
