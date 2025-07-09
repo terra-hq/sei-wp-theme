@@ -23,7 +23,7 @@ Template Name: Page Ares
             </div>
            
         </div>
-          <div class="f--col-4">
+          <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
             <div class="c--card-d c--card-d--second">
                 <div class="c--card-d__wrapper">
                     <div class="c--card-d__wrapper__title">
@@ -36,7 +36,7 @@ Template Name: Page Ares
             </div>
            
         </div>
-         <div class="f--col-4">
+         <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
             <div class="c--card-d c--card-d--second">
                 <div class="c--card-d__wrapper">
                     <div class="c--card-d__wrapper__title">
@@ -49,18 +49,15 @@ Template Name: Page Ares
             </div>
            
         </div>
+    </div>
+   
+    <div class="c--pills-a">
+        <a class="g--pill-01">Change Management</a>
+        <a class="g--pill-01">Change Management</a>
+        <a class="g--pill-01">Change Management</a>
+        <a class="g--pill-01">Change Management</a>
+    </div>
 
-    </div>
-     <div class="f--row">
-        <div class="f--col-12"> 
-            <div class="c--pills-a">
-                <a class="g--pill-01">Change Management</a>
-                <a class="g--pill-01">Change Management</a>
-                <a class="g--pill-01">Change Management</a>
-                <a class="g--pill-01">Change Management</a>
-            </div>
-        </div>
-    </div>
     <div class="c--icon-heading-a">
 
   <!--  <?php
