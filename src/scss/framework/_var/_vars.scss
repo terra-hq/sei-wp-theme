@@ -1,4 +1,3 @@
-
 /*
     Foundations
 */
@@ -6,50 +5,49 @@
 /* Colors */
 
 /* Core Colors */
-$color-a: #FFFFF8;
+$color-a: #fffff8;
 $color-b: #141018;
-$color-c: #F01840;
-$color-d: #C01830;
+$color-c: #f01840;
+$color-d: #c01830;
 $color-e: #901226;
-$color-f: #600C1C;
+$color-f: #600c1c;
 $color-g: #300810;
-$color-h: #D0C8C8;
-$color-i: #A0949E;
-$color-j: #705E74;
+$color-h: #d0c8c8;
+$color-i: #a0949e;
+$color-j: #705e74;
 $color-k: #402848;
-$color-l: #2A1C30;
+$color-l: #2a1c30;
 // $color-m: #D0C8C833;
-$color-m: #F6F4EE;
+$color-m: #f6f4ee;
 
 $color-options: (
-    a: $color-a,
-    b: $color-b,
-    c: $color-c,
-    d: $color-d,
-    e: $color-e,
-    f: $color-f,
-    g: $color-g,
-    h: $color-h,
-    i: $color-i,
-    j: $color-j,
-    k: $color-k,
-    l: $color-l,
-    m: $color-m,
+  a: $color-a,
+  b: $color-b,
+  c: $color-c,
+  d: $color-d,
+  e: $color-e,
+  f: $color-f,
+  g: $color-g,
+  h: $color-h,
+  i: $color-i,
+  j: $color-j,
+  k: $color-k,
+  l: $color-l,
+  m: $color-m,
 );
 
 $colorbg-options: (
-    a: $color-a,
-    b: $color-m,
-    c: $color-k,
-    d: $color-l,
-    e: $color-j,
-    f: $color-c,
+  a: $color-a,
+  b: $color-m,
+  c: $color-k,
+  d: $color-l,
+  e: $color-j,
+  f: $color-c,
 );
 
-
 /* Typography */
-$type-a: "AT Lang Gothic", sans-serif;
-$type-b: "AT Lang", serif;
+$type-a: "AT Lang Gothic", "AT Lang Gothic-fallback", sans-serif;
+$type-b: "AT Lang", "AT Lang-fallback", serif;
 
 /* Grid */
 //Container
@@ -64,43 +62,43 @@ $tablets: 810px;
 $mobile: 580px;
 $viewport-type: max-width;
 $viewport-layouts: (
-    "all": (
-        $viewport-type: $all,
-    ),
-    "desktop": (
-        $viewport-type: $desktop,
-    ),
-    "laptop": (
-        $viewport-type: $laptop,
-    ),
-    "tabletl": (
-        $viewport-type: $tabletl,
-    ),
-    "tabletm": (
-        $viewport-type: $tabletm,
-    ),
-    "tablets": (
-        $viewport-type: $tablets,
-    ),
-    "mobile": (
-        $viewport-type: $mobile,
-    ),
+  "all": (
+    $viewport-type: $all,
+  ),
+  "desktop": (
+    $viewport-type: $desktop,
+  ),
+  "laptop": (
+    $viewport-type: $laptop,
+  ),
+  "tabletl": (
+    $viewport-type: $tabletl,
+  ),
+  "tabletm": (
+    $viewport-type: $tabletm,
+  ),
+  "tablets": (
+    $viewport-type: $tablets,
+  ),
+  "mobile": (
+    $viewport-type: $mobile,
+  ),
 );
 $columns: 12;
 $gutter-width: 32px;
-$half-gutter-width: $gutter-width *0.5;
+$half-gutter-width: $gutter-width * 0.5;
 $gutter-compensation: -1 * $half-gutter-width;
 
 // Use for almost all Uitlities:
 // Display, Aspect Ratio, Flex, Float, Justify, Spacing, Text-align
 $breakpoints-grid: (
-    all: $all,
-    desktop: $desktop,
-    laptop: $laptop,
-    tabletl: $tabletl,
-    tabletm: $tabletm,
-    tablets: $tablets,
-    mobile: $mobile,
+  all: $all,
+  desktop: $desktop,
+  laptop: $laptop,
+  tabletl: $tabletl,
+  tabletm: $tabletm,
+  tablets: $tablets,
+  mobile: $mobile,
 ) !default;
 
 /*
@@ -126,5 +124,5 @@ $ease-entrance-b: cubic-bezier(0.4, 0.14, 0.3, 1); //expresive
 $ease-exit-a: cubic-bezier(0.2, 0, 1, 0.9); //productive
 $ease-exit-b: cubic-bezier(0.4, 0.14, 1, 1); //expresive
 
-$zoomPadingDesktop: $measure*15; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In desktop
-$zoomPadingTablets: $measure*12; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In responsive
+$zoomPadingDesktop: $measure * 15; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In desktop
+$zoomPadingTablets: $measure * 12; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In responsive

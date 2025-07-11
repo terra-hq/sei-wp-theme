@@ -1,108 +1,138 @@
-
 @use "@scss/framework/foundation/font/make-font" as *;
 @use "@scss/paths.scss" as paths;
 
 /* Font library */
 
 .f--font-a {
-    @include make-font-a();
+  @include make-font-a();
 }
 
 .f--font-b {
-    @include make-font-b();
+  @include make-font-b();
 }
 
 .f--font-c {
-    @include make-font-c();
+  @include make-font-c();
 }
 
 .f--font-d {
-    @include make-font-d();
+  @include make-font-d();
 }
 
 .f--font-e {
-    @include make-font-e();
+  @include make-font-e();
 }
 
 .f--font-f {
-    @include make-font-f();
+  @include make-font-f();
 }
 
 .f--font-g {
-    @include make-font-g();
+  @include make-font-g();
 }
 
 .f--font-h {
-    @include make-font-h();
+  @include make-font-h();
 }
 
 .f--font-i {
-    @include make-font-i();
+  @include make-font-i();
 }
 
 .f--font-j {
-    @include make-font-j();
+  @include make-font-j();
 }
 
 .f--font-k {
-    @include make-font-k();
+  @include make-font-k();
 }
 
 /* ================================================= Here import the Fonts */
 
 /* ================================================= Here import the Fonts */
+//* fallback fonts
+@font-face {
+  font-family: "AT Lang-fallback";
+  src: local("Trebuchet MS");
+  ascent-override: calc((940 / 1000) * 100%);
+  descent-override: calc((230 / 1000) * 100%);
+  line-gap-override: calc((0 / 1000) * 100%);
+}
 
 @font-face {
-    font-family: "AT Lang";
-    src: url(paths.asset-url("/fonts/ATLang/ATLang-SemiBoldItalic.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLang/ATLang-SemiBoldItalic.woff")) format("woff");
-    font-weight: 600;
-    font-style: italic;
-    font-display: fallback;
-  }
-  
-  @font-face {
-    font-family: "AT Lang Gothic";
-    src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Light.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Light.woff")) format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: fallback;
-  }
-  
-  @font-face {
-    font-family: "AT Lang Gothic";
-    src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-LightItalic.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-LightItalic.woff")) format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-display: fallback;
-  }
-  
-  @font-face {
-    font-family: "AT Lang Gothic";
-    src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Medium.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Medium.woff")) format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: fallback;
-  }
-  
-  @font-face {
-    font-family: "AT Lang Gothic";
-    src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBold.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBold.woff")) format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: fallback;
-  }
-  
-  @font-face {
-    font-family: "AT Lang Gothic";
-    src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff2")) format("woff2"),
-         url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff")) format("woff");
-    font-weight: 600;
-    font-style: italic;
-    font-display: fallback;
-  }
-  
+  font-family: "AT Lang Gothic-fallback";
+  src: local("Garamond");
+  ascent-override: calc((940 / 1000) * 100%);
+  descent-override: calc((230 / 1000) * 100%);
+  line-gap-override: calc((0 / 1000) * 100%);
+}
+
+@font-face {
+  font-family: "AT Lang";
+  src: url(paths.asset-url("/fonts/ATLang/ATLang-SemiBoldItalic.woff2"))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLang/ATLang-SemiBoldItalic.woff"))
+      format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "AT Lang Gothic";
+  src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Light.woff2"))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Light.woff"))
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "AT Lang Gothic";
+  src: url(paths.asset-url(
+        "/fonts/ATLangGothic/ATLangGothic-LightItalic.woff2"
+      ))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-LightItalic.woff"))
+      format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "AT Lang Gothic";
+  src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Medium.woff2"))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-Medium.woff"))
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "AT Lang Gothic";
+  src: url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBold.woff2"))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBold.woff"))
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "AT Lang Gothic";
+  src: url(paths.asset-url(
+        "/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff2"
+      ))
+      format("woff2"),
+    url(paths.asset-url("/fonts/ATLangGothic/ATLangGothic-SemiBoldItalic.woff"))
+      format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
+}
