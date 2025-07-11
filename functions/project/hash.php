@@ -10,6 +10,6 @@
  * Usage: This constant is utilized in functions/project/enqueues.php
  */
 
-define('hash', 'hb7');
+define('hash', 'f9q');
 
 ?>
