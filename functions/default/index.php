@@ -10,6 +10,9 @@
 
 require get_template_directory() . '/functions/default/blocks/block-cta.php'; 
 require get_template_directory() . '/functions/default/blocks/block-slider.php'; 
+require get_template_directory() . '/functions/default/blocks/block-stats.php'; 
+require get_template_directory() . '/functions/default/blocks/block-pills.php'; 
+require get_template_directory() . '/functions/default/blocks/block-icon-title.php'; 
 
 require get_template_directory() . '/functions/default/cleanHouse.php'; 
 require get_template_directory() . '/functions/default/terraClasses/index.php'; 
