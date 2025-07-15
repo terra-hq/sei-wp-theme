@@ -33,11 +33,11 @@ function acf_block_icontitle_block($block, $content = '', $is_preview = false, $
     ?>
     <?php 
     if($image_option === 'problem') :
-        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+        $icon_image = get_template_directory_uri() . '/img/icon-problem.svg';
     elseif($image_option === 'solution') :
-        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+        $icon_image = get_template_directory_uri() . '/img/icon-solution.svg';
     elseif($image_option === 'results') :
-        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+        $icon_image = get_template_directory_uri() . '/img/icon-results.svg';
     endif;
     ?>
 
