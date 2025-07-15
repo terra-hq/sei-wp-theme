@@ -30,8 +30,8 @@ function acf_block_pills_block($block, $content = '', $is_preview = false, $post
     <?php if($pills) : ?>
         <div class="c--pills-a">
             <?php foreach($pills as $pill) : ?>
-                <?php if($pill['pill_link']) : ?>
-                    <a class="g--pill-01" href="<?= get_the_permalink($pill['pill_link'])?>" ><?= $pill['pill_title'] ?></a>
+                <?php if($pill['pill_link'] && count($pill['pill_link']) > 0) :?>
+                    <a class="g--pill-01" href="<?= get_the_permalink($pill['pill_link'][0])?>" ><?= $pill['pill_title'] ?></a>
                 <?php endif; ?>
             <?php endforeach ;?>
         </div>
