@@ -9,8 +9,8 @@ function register_custom_pills()
         // register a hubspot embed block.
         acf_register_block_type(array(
             'name'              => 'pills_block', // slug
-            'title'             => __('Custom pills'),
-            'description'       => __('A Custom pills'),
+            'title'             => __('Custom List of Capabilities'),
+            'description'       => __('A Custom list of capabilities.'),
             'render_callback'   => 'acf_block_pills_block',
             'category'          => 'layout',
             'keywords' => array('pills'),
@@ -30,8 +30,8 @@ function acf_block_pills_block($block, $content = '', $is_preview = false, $post
     <?php if($pills) : ?>
         <div class="c--pills-a">
             <?php foreach($pills as $pill) : ?>
-                <?php if($pill) : ?>
-                    <a class="g--pill-01" href="<?=$pill['pill_link']['url']?>"  <?= get_target_link($pill['pill_link']['target'], $pill['pill_link']['title']); ?>><?= $pill['pill_link']['title'] ?></a>
+                <?php if($pill['pill_link']) : ?>
+                    <a class="g--pill-01" href="<?= get_the_permalink($pill['pill_link'])?>" ><?= $pill['pill_title'] ?></a>
                 <?php endif; ?>
             <?php endforeach ;?>
         </div>
@@ -46,7 +46,7 @@ if (function_exists('acf_add_local_field_group')) :
         'fields' => array(
             array(
                 'key' => 'field_5esfazhty15629954',
-                'label' => 'Custom Pills Block',
+                'label' => 'List of Capabilities',
                 'name' => 'custom_pills',
                 'type' => 'group',
                 'instructions' => '',
@@ -61,7 +61,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5eg9c6f1e1c4737',
-                        'label' => 'Pills',
+                        'label' => 'Capabilities / Subcapabilities',
                         'name' => 'pills',
                         'type' => 'repeater',
                         'instructions' => '',
@@ -78,12 +78,11 @@ if (function_exists('acf_add_local_field_group')) :
                         'layout' => 'table',
                         'button_label' => '',
                         'sub_fields' => array(
-                           
                             array(
-                                'key' => 'field_g5eckk2ec56map', // Unique key for the subfield.
-                                'label' => 'Pill Link', // Label for the subfield.
-                                'name' => 'pill_link', // Name of the subfield used in the template.
-                                'type' => 'link', // Subfield type (link).
+                                'key' => 'field_5e0df4d9s89k9n671', // Unique key for the subfield.
+                                'label' => 'Title', // Label for the subfield.
+                                'name' => 'pill_title', // Name of the subfield used in the template.
+                                'type' => 'text', // Subfield type (textarea).
                                 'instructions' => '', // Instructions for the subfield (if any).
                                 'required' => 0, // Whether the subfield is required.
                                 'conditional_logic' => 0, // Conditional logic for the subfield (if any).
@@ -92,16 +91,34 @@ if (function_exists('acf_add_local_field_group')) :
                                     'class' => '',
                                     'id' => '',
                                 ),
-                                'return_format' => 'array', // Format in which the link field value is returned.
-                                'preview_size' => 'thumbnail', // Preview size for the link (if applicable).
-                                'library' => 'all', // Media library restriction (if any).
-                                'min_width' => '', // Minimum width for the media (if any).
-                                'min_height' => '', // Minimum height for the media (if any).
-                                'min_size' => '', // Minimum file size (if any).
-                                'max_width' => '', // Maximum width for the media (if any).
-                                'max_height' => '', // Maximum height for the media (if any).
-                                'max_size' => '', // Maximum file size (if any).
-                                'mime_types' => '', // Allowed MIME types for the field (if any).
+                                'default_value' => '', // Default value for the subfield.
+                                'placeholder' => '', // Placeholder text for the subfield.
+                                'maxlength' => '', // Maximum length for the textarea.
+                            ),
+                            array(
+                                'key' => 'field_g5eckk2ec56map',
+                                'label' => 'Pill Link',
+                                'name' => 'pill_link',
+                                'type' => 'relationship',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'post_type' => array(
+                                    0 => 'capability',
+                                ),
+                                'taxonomy' => '',
+                                'filters' => array(
+                                    0 => 'search',
+                                ),
+                                'elements' => '',
+                                'min' => '',
+                                'max' => '1',
+                                'return_format' => 'id',
                             ),
                         ),
                     ),

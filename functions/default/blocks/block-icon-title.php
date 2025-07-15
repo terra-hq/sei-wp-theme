@@ -24,16 +24,27 @@ function acf_block_icontitle_block($block, $content = '', $is_preview = false, $
     if(is_preview()){
         $icon_title = $block['data']['custom_icontitle']['icon_title'];
         $icon_image = $block['data']['custom_icontitle']['icon_img'];
+        $image_option = $block['data']['custom_icontitle']['image_option'];
     }else{
         $icon_title = get_field('custom_icontitle')['icon_title'];
         $icon_image = get_field('custom_icontitle')['icon_img'];
+        $image_option = get_field('custom_icontitle')['image_option'];
     }
+    ?>
+    <?php 
+    if($image_option === 'problem') :
+        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+    elseif($image_option === 'solution') :
+        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+    elseif($image_option === 'results') :
+        $icon_image = get_template_directory_uri() . '/public/assets/img/error-icon.png';
+    endif;
     ?>
 
     <?php if($icon_title || $icon_image) : ?>
         <div class="c--icon-heading-a">
             <?php
-            if($icon_image):
+            if($icon_image && $image_option === 'custom') :
                 $image_tag_args = array(
                     'image' => $icon_image,
                     'sizes' => '48px',
@@ -47,6 +58,10 @@ function acf_block_icontitle_block($block, $content = '', $is_preview = false, $
                 generate_image_tag($image_tag_args);
             endif;
             ?> 
+            <?php
+            if($image_option != 'custom' ) : ?>
+                <img src="<?= $icon_image ?>" alt="<?= $icon_title ?>" class="c--icon-heading-a__artwork" />
+            <?php endif;?> 
             <h2 class="c--icon-heading-a__title"><?= $icon_title ?></h2>
         </div>
     <?php endif;?>
@@ -73,6 +88,36 @@ if (function_exists('acf_add_local_field_group')) :
                 ),
                 'layout' => 'block',
                 'sub_fields' => array(
+                    array(
+                        'key' => 'field_6876158b07f81',
+                        'label' => 'Image Option',
+                        'name' => 'image_option',
+                        'aria-label' => '',
+                        'type' => 'select',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '33%',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array(
+                            'problem' => 'Problem',
+                            'solution' => 'Solution',
+                            'results' => 'Results',
+                            'custom' => 'Custom',
+                        ),
+                        'default_value' => 'custom',
+                        'return_format' => 'value',
+                        'multiple' => 0,
+                        'allow_custom' => 0,
+                        'placeholder' => '',
+                        'search_placeholder' => '',
+                        'allow_null' => 0,
+                        'ui' => 0,
+                        'ajax' => 0,
+                    ),
                      array(
                         'key' => 'field_5e04d9s89k9n671', // Unique key for the subfield.
                         'label' => 'Title', // Label for the subfield.
@@ -82,7 +127,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'required' => 0, // Whether the subfield is required.
                         'conditional_logic' => 0, // Conditional logic for the subfield (if any).
                         'wrapper' => array( // Wrapper attributes for the subfield.
-                            'width' => '',
+                            'width' => '33%',
                             'class' => '',
                             'id' => '',
                         ),
@@ -97,9 +142,17 @@ if (function_exists('acf_add_local_field_group')) :
                         'type' => 'image',
                         'instructions' => '',
                         'required' => 0,
-                        'conditional_logic' => 0,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_6876158b07f81',
+                                    'operator' => '==',
+                                    'value' => 'custom',
+                                ),
+                            ),
+                        ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '33%',
                             'class' => '',
                             'id' => '',
                         ),
