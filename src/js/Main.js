@@ -1,5 +1,6 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
+import ModalHandler from "./handler/modal/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -19,6 +20,13 @@ class Main extends Core {
       boostify: payload.boostify,
       terraDebug: payload.terraDebug,
     });
+    this.handler = {
+      emitter: this.emitter,
+      boostify: this.boostify,
+      instances: this.instances,
+      terraDebug: this.terraDebug,
+      libManager: this.libManager,
+    };
     this.init();
     this.events();
   }
@@ -26,6 +34,7 @@ class Main extends Core {
   init() {
     // Loads Core init function
     super.init();
+    new ModalHandler(this.handler);
   }
 
   events() {
@@ -35,6 +44,7 @@ class Main extends Core {
 
   async contentReplaced() {
     super.contentReplaced();
+    this.emitter.emit("MitterContentReplaced");
 
     //Inject cookie
     if (document.querySelectorAll(".js--inyect-cookie").length) {
@@ -97,6 +107,7 @@ class Main extends Core {
           });
         });
     }
+
 
     //Zoom a
     if (document.querySelectorAll(".js--zoom").length) {
@@ -253,7 +264,7 @@ class Main extends Core {
         },
       });
     }
-    
+
 
     /**
      * Horizontal accordion
@@ -461,8 +472,8 @@ class Main extends Core {
         },
         isPagination: false,
         callback: {
-          onStart: () => {},
-          onComplete: () => {},
+          onStart: () => { },
+          onComplete: () => { },
         },
       };
       document
@@ -530,8 +541,8 @@ class Main extends Core {
         },
         isPagination: false,
         callback: {
-          onStart: () => {},
-          onComplete: () => {},
+          onStart: () => { },
+          onComplete: () => { },
         },
       };
       document
@@ -610,6 +621,7 @@ class Main extends Core {
 
   willReplaceContent() {
     super.willReplaceContent();
+    this.emitter.emit("MitterWillReplaceContent");
 
     if (
       document.querySelectorAll(".js--load-jobs").length &&

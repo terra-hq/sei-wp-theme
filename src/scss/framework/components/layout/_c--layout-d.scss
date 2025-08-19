@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--layout-d {
+    &__hd {
+         @extend .u--pb-tabletm-4;
+        &__title {
+            @extend .f--font-i;
+            @extend .f--color-c;
+            margin-bottom: $measure * 3;
+        }
+        &__subtitle {
+            @extend .f--font-e;
+            @extend .f--color-a;
+        }
+    }
+
+    &__ft {
+        @extend .u--pb-tabletm-4;
+        &__content {
+            @extend .f--font-g;
+            @extend .u--font-light;
+            @extend .f--color-a;
+            margin-bottom: $measure * 4;
+        }
+    }
+
+    &__wrapper {
+         @extend .u--pb-tabletm-4;
+        height: 100%;
+        position: relative;
+        min-height: 521px;
+        @media all and ($viewport-type: $tabletm) {
+           min-height: auto;
+        }
+
+        &__media {
+            height: 100%;
+        }
+
+        &__artwork {
+            position: absolute;
+            top: 50%;    // 👈 centrado vertical
+            left: 50%;   // 👈 centrado horizontal
+            transform: translate(-50%, -50%); // 👈 corrección exacta al centro
+        }
+    }
+
+    &--second &{
+          &__hd {
+        
+        &__subtitle {
+            @extend .f--font-e;
+            @extend .f--color-b;
+        }
+    }
+
+    &__ft {
+        &__content {
+         
+            @extend .f--color-b;
+           
+        }
+    }
+
+    }
+}

@@ -52,6 +52,7 @@
 @use "@scss/framework/components/card/_c--card-e";
 @use "@scss/framework/components/card/_c--card-f";
 @use "@scss/framework/components/card/_c--card-g";
+@use "@scss/framework/components/card/_c--card-m";
 @use "@scss/framework/components/card/_c--card-h";
 @use "@scss/framework/components/card/_c--card-i";
 @use "@scss/framework/components/card/_c--card-j";
@@ -126,6 +127,7 @@
 @use "@scss/framework/components/layout/_c--layout-a";
 @use "@scss/framework/components/layout/_c--layout-b";
 @use "@scss/framework/components/layout/_c--layout-c";
+@use "@scss/framework/components/layout/_c--layout-d";
 
 //* lazy
 @use "@scss/global-components/lazy/_g--lazy-01";
@@ -204,3 +206,5 @@
 
 //* icon heading
 @use "@scss/framework/components/icon-heading/_c--icon-heading-a";
+
+@use "@scss/global-components/modal/_g--modal-01";

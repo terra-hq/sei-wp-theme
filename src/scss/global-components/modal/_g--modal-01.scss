@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@terrahq/gc/library" as *;
+@use "@scss/global-components/vars.scss" as *;
+@use "sass:color";
+
+.g--modal-01 {
+    @include make-modal-01();
+    @include make-modal-01-modifier(
+        $modal-options: (
+            "size": large,
+            "opacity": yes,
+            "zoom": yes,
+        ),
+        $background-options: (
+            "background-color":  map.get($color-options, a),
+        ),
+        $overlay-options: (
+            "background-color": rgba(map.get($color-options, l), .90),
+        ),
+        $border-options: (
+            "border-radius": 20px,
+        ),
+        $close-btn-options: (
+            "stroke":  map.get($color-options, b),
+            "width": 16px,
+            "height": 16px,
+        ),
+        $custom-options: (
+            ".g--modal-01__wrapper__btn__icon path": (
+                "transition": stroke $time-a $ease-standard-a,
+            ),
+            ".g--modal-01__wrapper__btn:hover .g--modal-01__wrapper__btn__icon path": (
+                "stroke":  color.adjust(map.get($color-options, b), $lightness: -15%),
+            ),
+        ),
+    );
+
+    @media all and ($viewport-type: $tablets) {
+        @include make-modal-01-modifier(
+            $custom-options: (
+                ".g--modal-01__wrapper__btn": (
+                    "top": $measure * 1.5,
+                    "right": $measure * 1.5,
+                ),
+            ),
+        );
+    }
+}

@@ -4,6 +4,7 @@ import SwupDebugPlugin from "@swup/debug-plugin";
 import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 import SwupFormsPlugin from "@swup/forms-plugin";
+import mitt from "mitt"
 
 import { createTransitionOptions } from "@jsMotion/transition/index";
 
@@ -15,6 +16,7 @@ class Core {
     this.isBlazy = payload.blazy;
     this.boostify = payload.boostify;
     this.form7 = payload.form7.enable;
+    this.emitter = mitt();
     this.instances = [];
     const commonPlugins = [new SwupHeadPlugin({ persistAssets: true }), ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []), new SwupJsPlugin(createTransitionOptions({ boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop }))];
     const virtualPlugins = [...commonPlugins, new SwupScriptsPlugin({ head: true, body: true })];
@@ -35,10 +37,10 @@ class Core {
     new Navbar({
       burguer: document.querySelector(".js--burger"),
       navbar: document.querySelector(".js--navbar"),
-      boostify: this.boostify, 
-      
+      boostify: this.boostify,
+
     });
- 
+
     /**
      *  Since we are using Boostify, we need to check if the Google Scripts are loaded a few seconds after the page is loaded
      *  If they are, we load the GTM script
@@ -76,12 +78,12 @@ class Core {
     });
 
     this.swup.hooks.on("page:view", async () => {
-      if(this.detected){
-          window.dataLayer.push({
-              event: "VirtualPageview",
-              virtualPageURL: window.location.pathname + window.location.search,
-              virtualPageTitle: document.title,
-          });
+      if (this.detected) {
+        window.dataLayer.push({
+          event: "VirtualPageview",
+          virtualPageURL: window.location.pathname + window.location.search,
+          virtualPageTitle: document.title,
+        });
       }
     });
   }
@@ -109,10 +111,10 @@ class Core {
 
   willReplaceContent() {
     if (this.isBlazy?.enable) {
-        if (this.instances["Blazy"]) {
-            this.instances["Blazy"].destroy();
-            this.instances["Blazy"] = false
-        }
+      if (this.instances["Blazy"]) {
+        this.instances["Blazy"].destroy();
+        this.instances["Blazy"] = false
+      }
     }
   }
 }
