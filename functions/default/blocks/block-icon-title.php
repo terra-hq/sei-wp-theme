@@ -22,9 +22,16 @@ function acf_block_icontitle_block($block, $content = '', $is_preview = false, $
 {
 
     if(is_preview()){
-        $icon_title = $block['data']['custom_icontitle']['icon_title'];
-        $icon_image = $block['data']['custom_icontitle']['icon_img'];
-        $image_option = $block['data']['custom_icontitle']['image_option'];
+        if($block['data']['custom_icontitle']){
+            $icon_title = $block['data']['custom_icontitle']['icon_title'];
+            $icon_image = $block['data']['custom_icontitle']['icon_img'];
+            $image_option = $block['data']['custom_icontitle']['image_option'];
+        }else{
+            $icon_title = get_field('custom_icontitle')['icon_title'];
+            $icon_image = get_field('custom_icontitle')['icon_img'];
+            $image_option = get_field('custom_icontitle')['image_option'];
+        }
+       
     }else{
         $icon_title = get_field('custom_icontitle')['icon_title'];
         $icon_image = get_field('custom_icontitle')['icon_img'];

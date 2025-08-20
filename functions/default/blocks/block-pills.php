@@ -22,7 +22,11 @@ function acf_block_pills_block($block, $content = '', $is_preview = false, $post
 {
 
     if(is_preview()){
-        $pills = $block['data']['custom_pills']['pills'];
+        if($block['data'] && $block['data']['custom_pills'] && $block['data']['custom_pills']['pills']){
+            $pills = $block['data']['custom_pills']['pills'];
+        }else{
+             $pills = get_field('custom_pills')['pills'];
+        }
     }else{
         $pills = get_field('custom_pills')['pills'];
     }

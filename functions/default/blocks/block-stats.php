@@ -21,8 +21,12 @@ function register_custom_stats()
 function acf_block_stats_block($block, $content = '', $is_preview = false, $post_id = 0)
 {
 
-    if(is_preview()){
-        $stats = $block['data']['custom_stats']['stats'];
+     if(is_preview()){
+        if($block['data']['custom_stats']){
+            $stats = $block['data']['custom_stats']['stats'];
+        }else{
+            $stats = get_field('custom_stats')['stats'];
+        }
     }else{
         $stats = get_field('custom_stats')['stats'];
     }
