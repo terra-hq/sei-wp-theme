@@ -77,6 +77,20 @@ new Custom_Taxonomy((object) array(
         'rewrite' => array('slug' => 'news-type', 'with_front' => false)
     )
 ));
+new Custom_Taxonomy((object) array(
+    'taxonomy' => 'case-study-type',
+    'object_type' => array('case-study'),
+    'singular_name' => 'Case Study Type',
+    'plural_name' => 'Case Study Types',
+    'args' => (object) array(
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'case-study-type', 'with_front' => false)
+    )
+));
 
 
 
