@@ -78,19 +78,34 @@ new Custom_Taxonomy((object) array(
     )
 ));
 new Custom_Taxonomy((object) array(
-    'taxonomy' => 'case-study-type',
+    'taxonomy' => 'case-study-industry',
     'object_type' => array('case-study'),
-    'singular_name' => 'Case Study Type',
-    'plural_name' => 'Case Study Types',
+    'singular_name' => 'Case Study Indsutry',
+    'plural_name' => 'Case Study Indsutries',
     'args' => (object) array(
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'show_in_rest' => true,
-        'rewrite' => array('slug' => 'case-study-type', 'with_front' => false)
+        'rewrite' => array('slug' => 'case-study-industry', 'with_front' => false)
     )
 ));
+new Custom_Taxonomy((object) array(
+    'taxonomy' => 'case-study-capability',
+    'object_type' => array('case-study'),
+    'singular_name' => 'Case Study Capability',
+    'plural_name' => 'Case Study Capabilities',
+    'args' => (object) array(
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'case-study-capability', 'with_front' => false)
+    )
+));
+
 
 
 
