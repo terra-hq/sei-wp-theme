@@ -80,8 +80,8 @@ new Custom_Taxonomy((object) array(
 new Custom_Taxonomy((object) array(
     'taxonomy' => 'case-study-industry',
     'object_type' => array('case-study'),
-    'singular_name' => 'Case Study Indsutry',
-    'plural_name' => 'Case Study Indsutries',
+    'singular_name' => 'Case Study Industry',
+    'plural_name' => 'Case Study Industries',
     'args' => (object) array(
         'hierarchical' => true,
         'show_ui' => true,
