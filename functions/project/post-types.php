@@ -120,7 +120,7 @@ new Custom_Post_Type((object) array(
 new Custom_Post_Type((object) array(
     'post_type' => 'case-study',
     'singular_name' => 'Case Study',
-    'plural_name' => 'Case Studys',
+    'plural_name' => 'Case Studies',
     'args' => array(
         'menu_icon' => 'dashicons-image-filter',
         'rewrite' => array('slug' => 'case-study'),
