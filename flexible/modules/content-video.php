@@ -1,6 +1,6 @@
 <?php
 $bg_color = $module['background_color'];
-$spacing = get_spacing($module['section_spacing']);
+$spacing = get_spacing($module['spacing']);
 $legend = $module['pre-title'];
 $title = $module['title'];
 $content = $module['content'];
@@ -11,7 +11,7 @@ $video_url = $module['video_url'];
 $video_file = $module['video_file'];
 $poster_image = $module['poster_image'];
 ?>
-<section class="c--layout-d <?= $bg_color == 'cream' ?  'c--layout-d--second':'f--background-c' ?>">
+<section class="c--layout-d <?= $bg_color == 'cream' ?  'c--layout-d--second':'f--background-c' ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12">
