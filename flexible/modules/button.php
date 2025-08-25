@@ -1,6 +1,6 @@
 <?php
 $spacing = get_spacing($module['spacing']);
-$background_color = $module['background_color']
+$background_color = $module['background_color'];
 $position_class = match ($module['button_position']) {
     'left'   => 'u--justify-content-start',
     'right'  => 'u--justify-content-flex-end',

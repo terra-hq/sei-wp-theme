@@ -40,7 +40,7 @@ $case_studies = $module['case_studies'];
                                             </div>
                                         </div>
                                       
-                                        <?php $types = get_the_terms($single_case_study->ID, 'case-study-type'); ?>
+                                        <?php $types = get_the_terms($single_case_study->ID, 'case-study-capability'); ?>
                                         <?php if($types)  { ?>
                                               <div class="f--col-4 f--col-tabletm-12">
                                                 <div class="c--card-m__ft">
