@@ -12,14 +12,14 @@ $case_studies = $module['case_studies'];
                         <?php foreach ($case_studies as $key => $single_case_study) { ?>
                             <div class="c--slider-a__wrapper__item">
                                 <div class="c--card-m">
-                                    <div class="f--row">
+                                    <div class="f--row u--display-flex u--align-items-center">
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <div class="c--card-m__wrapper">
                                                 <?php $image = get_post_thumbnail_id($single_case_study->ID); ?>
                                                 <?php
                                                     $image_tag_args = array(
                                                         'image' => $image,
-                                                        'sizes' => '',
+                                                        'sizes' => '(max-width: 810px) 50vw, 100vw',
                                                         'class' => 'c--card-m__wrapper__media',
                                                         'isLazy' => false,
                                                         'showAspectRatio' => true,
@@ -39,18 +39,19 @@ $case_studies = $module['case_studies'];
                                                 <a class="g--link-01 g--link-01--fourth" href="<?= get_the_permalink($single_case_study->ID) ?>">Learn More</a>
                                             </div>
                                         </div>
+                                      
                                         <?php $types = get_the_terms($single_case_study->ID, 'case-study-type'); ?>
                                         <?php if($types)  { ?>
-                                            <div class="f--col-4 f--col-tabletm-12">
+                                              <div class="f--col-4 f--col-tabletm-12">
                                                 <div class="c--card-m__ft">
-                                                    <p class="c--card-m__ft__title">how we helped</p>
+                                                    <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                                     <div class="c--card-m__ft__items">
                                                         <?php foreach ($types as $type) { ?>
                                                             <a class="g--pill-01" href="<?= get_term_link($type) ?>"><?= $type->name ?></a>
                                                         <?php } ?>
                                                     </div>
                                                 </div>
-                                            </div>
+                                             </div>
                                         <?php } ?>
                                     </div>  
                                 </div>   
