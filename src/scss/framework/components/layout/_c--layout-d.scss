@@ -9,7 +9,7 @@
         &__title {
             @extend .f--font-i;
             @extend .f--color-c;
-            margin-bottom: $measure * 3;
+          margin-bottom: $measure * 3;  
         }
         &__subtitle {
             @extend .f--font-e;
@@ -28,17 +28,19 @@
     }
 
     &__wrapper {
-         @extend .u--pb-tabletm-4;
         height: 100%;
         position: relative;
         min-height: 521px;
         @media all and ($viewport-type: $tabletm) {
-           min-height: auto;
+           min-height: unset;
         }
 
         &__media {
-            height: 100%;
+             height: 100%;
             object-fit: cover;
+                @media all and ($viewport-type: $mobile) {
+                 height: unset;
+                }
         }
 
         &__artwork {

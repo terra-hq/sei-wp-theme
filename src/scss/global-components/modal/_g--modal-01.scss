@@ -48,4 +48,13 @@
             ),
         );
     }
+    @media all and ($viewport-type: $mobile) {
+        @include make-modal-01-modifier(
+            $custom-options: (
+                ".g--modal-01__wrapper": (
+                    "width": 100%,
+                ),
+            ),
+        );
+    }
 }
