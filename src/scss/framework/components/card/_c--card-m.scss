@@ -3,7 +3,6 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-m {
-    @extend .u--display-flex;
     @extend .u--pt-5;
     background-color: transparent;
     @extend .u--pb-5;
