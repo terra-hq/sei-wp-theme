@@ -24,7 +24,7 @@ $poster_image = $module['poster_image'];
                     <?php endif; ?>
                 </div>
             </div>
-             <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12">
+             <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12  u--pb-tabletm-4">
                  <button
                     type="button"
                     class="c--layout-d__wrapper"
@@ -52,5 +52,5 @@ $poster_image = $module['poster_image'];
             </div>
         </div>
     </div>
-    <?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
 </section>
+ <?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
