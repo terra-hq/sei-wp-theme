@@ -676,32 +676,6 @@ function variables_in_header()
         ));
     }
 
-    /**
-     * Add HTTP headers to disable caching.
-     * 
-     * This function ensures that HTTP headers are set to prevent caching on the client side and proxies.
-     * @return void
-     * 
-     * @example
-     * add_action('send_headers', 'no_cache_headers');
-     * 
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers For more information on HTTP headers.
-     */
-    function no_cache_headers() {
-        header('X-UA-Compatible: IE=edge');
-        session_cache_limiter('');
-        $ts = gmdate("D, d M Y H:i:s") . " GMT";
-        header("Expires: $ts");
-        header("Last-Modified: $ts");
-        header('Cache-Control: private, no-cache');
-        header('Cache-Control: post-check=0, pre-check=0', FALSE);
-        header('Pragma: no-cache');
-        if (!session_id()) {
-            session_start();
-        }
-    }
-    add_action('send_headers', 'no_cache_headers');
-
      /**
      * Modifies WordPress default queries to ensure the 'has_password' 
      * parameter is set to 'false' if it is not already defined.

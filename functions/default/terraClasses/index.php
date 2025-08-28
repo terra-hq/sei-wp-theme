@@ -15,4 +15,5 @@ require get_template_directory() . '/functions/default/terraClasses/MailTo.php';
 require get_template_directory() . '/functions/default/terraClasses/TerraLighthouse.php'; 
 require get_template_directory() . '/functions/default/terraClasses/Custom_API_Endpoint.php'; 
 require get_template_directory() . '/functions/default/terraClasses/Custom_Search_Modules.php'; 
+require get_template_directory() . '/functions/default/terraClasses/cache.php'; 
 ?>
