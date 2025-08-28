@@ -8,7 +8,7 @@
   // ============================================================================
 
   (new Terra_CacheHeaders([
-    'allowed_tlds'        =>  ['stifelinstitutional.com', 'localhost', 'wp-stifel-institutional', 'localhost/wp-stifel-institutional','localhost/wp-stf-upgrade'],
+    'allowed_tlds'        =>  ['sei.com', 'localhost', 'wp-sei', 'localhost/wp-sei'],
     'nonprod_host_pattern'=> '/wpengine/i',
     'respect_wp_env'      => true, //cambiar a true si se quiere respetar el entorno de WordPress
     'max_age'             => 300, // 60 para desaroll, 300 para produccion
