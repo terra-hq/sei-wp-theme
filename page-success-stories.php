@@ -243,36 +243,35 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 while ($the_query->have_posts()) :
                     $the_query->the_post();
                     ?>
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
-                        <!-- INSIGHT CARD -->
-                        <?php
-                                $insight_types = get_the_terms($post->ID, 'insight-types');
-                                if ($insight_types && !is_wp_error($insight_types)) {
-                                    $insight_type = $insight_types[0];
-                                    $insight_type_name = $insight_type->name;
-                                }
-                                $title = get_the_title($post->ID);
-                                $topics = get_the_terms($post->ID, 'topics');
-                                if (!$topics) {
-                                    $topics = array();
-                                }
-                                if ($insight_types[0]->name == 'Case Study') {
-                                    if(get_field('case_study_type', $post->ID) == "external"){
-                                        $permalink = get_field('download_pdf', $post->ID);
-                                        $target = "target='_blank'";
-                                    } else {
-                                        $permalink = get_permalink($post->ID);
-                                        $target = null;
-                                    }
-                                } else {
-                                    $permalink = get_permalink($post->ID);
-                                    $target = null;
-                                }
-                                $image = get_post_thumbnail_id($post->ID);
+                     <div class="f--col-12">
+                        <div class="c--card-m u--mb-5">
+                            <div class="f--row u--display-flex u--align-items-center">
+                                <div class="f--col-4 f--col-tabletm-12">
+                                    <div class="c--card-m__wrapper">
+                                        <img class="c--card-m__wrapper__media" src="http://placeholder.terrahq.com/img-1by1.webp" alt="">
+                                    </div>
+                                </div>
                                 
-
-                                include(locate_template('components/card/card-24.php', false, false));
-                                ?>
+                                <div class="f--col-4 f--col-tabletm-12">
+                                    <div class="c--card-m__hd">
+                                        <p class="c--card-m__hd__title">WE ARE SEI</p>
+                                        <p class="c--card-m__hd__paragraph">SEI is a management consulting firm delivering fresh perspectives and reliable results.</p>
+                                        <a class="g--link-01 g--link-01--fourth" href="">Learn More</a>
+                                    </div>
+                                </div>
+                                <div class="f--col-4 f--col-tabletm-12">
+                                    <div class="c--card-m__ft">
+                                        <p class="c--card-m__ft__title">WE ARE SEI</p>
+                                        <div class="c--card-m__ft__items">
+                                            <a class="g--pill-01" href="">Change Management</a>
+                                            <a class="g--pill-01" href="">Management</a>
+                                            <a class="g--pill-01" href="">Management Management</a>
+                                            <a class="g--pill-01" href="">Change Management</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>                                      
                     </div>
 
             <?php
