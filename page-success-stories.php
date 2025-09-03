@@ -48,6 +48,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
 <section class="u--pb-10 u--pb-tablets-7 js--section-container">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
+
             <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
                 <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
@@ -223,7 +224,6 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 while ($the_query->have_posts()) :
                     $the_query->the_post();
                     ?>
-<<<<<<< HEAD
                      <div class="f--col-12">
                         <div class="c--card-m u--mb-5">
                             <div class="f--row u--display-flex u--align-items-center">
@@ -253,38 +253,6 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                 </div>
                             </div>  
                         </div>                                      
-=======
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
-                        <!-- INSIGHT CARD -->
-                        <?php
-                                $insight_types = get_the_terms($post->ID, 'insight-types');
-                                if ($insight_types && !is_wp_error($insight_types)) {
-                                    $insight_type = $insight_types[0];
-                                    $insight_type_name = $insight_type->name;
-                                }
-                                $title = get_the_title($post->ID);
-                                $topics = get_the_terms($post->ID, 'topics');
-                                if (!$topics) {
-                                    $topics = array();
-                                }
-                                if ($insight_types[0]->name == 'Case Study') {
-                                    if(get_field('case_study_type', $post->ID) == "external"){
-                                        $permalink = get_field('download_pdf', $post->ID);
-                                        $target = "target='_blank'";
-                                    } else {
-                                        $permalink = get_permalink($post->ID);
-                                        $target = null;
-                                    }
-                                } else {
-                                    $permalink = get_permalink($post->ID);
-                                    $target = null;
-                                }
-                                $image = get_post_thumbnail_id($post->ID);
-                                
-
-                                include(locate_template('components/card/card-24.php', false, false));
-                                ?>
->>>>>>> 72bae3bdff36587f14544c0840dcddc88b1641be
                     </div>
 
             <?php
