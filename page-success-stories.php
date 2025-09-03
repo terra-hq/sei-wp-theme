@@ -14,7 +14,7 @@ Template Name: Success Stories
 // CAPABILITY FILTER
 $capability_query = array();
 if (isset($_GET['cap']) && !empty($_GET['cap'])) {
-    array_push($capability_query, array('insight-capability' => htmlspecialchars($_GET['cap'])));
+    array_push($capability_query, array('case-study-capability' => htmlspecialchars($_GET['cap'])));
 }
 
 // TOPICS FILTER
@@ -53,16 +53,16 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
-                        <select name="cap" data-taxonomy="insight-capability" data-taxonomy-slug="cap" data-type="insight-capability"  onchange="this.dataset.chosen = this.value;" data-chosen="all"  class="js--insight-capability-dropdown">>
-                            <option value="all">All Capabilities</option>
+                        <select name="cap" data-taxonomy="case-study-capability" data-taxonomy-slug="cap" data-type="case-study-capability"  onchange="this.dataset.chosen = this.value;" data-chosen="all"  class="js--case-study-capability-dropdown">>
+                            <option value="all">Capability</option>
                             <?php
                             $terms = get_terms(array(
-                                'taxonomy' => 'insight-capability',
+                                'taxonomy' => 'case-study-capability',
                                 'hide_empty' => false,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
-                                <option value="<?= $term->slug; ?>" <?= isset($_GET['cap']) && $term->slug === htmlspecialchars($_GET['cap']) ? 'selected' : ''; ?>>
+                                <option value="<?= $term->slug; ?>" <?= isset($_GET['case-study-capability']) && $term->slug === htmlspecialchars($_GET['case-study-capability']) ? 'selected' : ''; ?>>
                                     <?= $term->name; ?>
                                 </option>
                             <?php endforeach; ?>
@@ -75,16 +75,16 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 <!-- TOPIC FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
-                        <select name="topic" data-taxonomy="topics" data-taxonomy-slug="topic" data-type="topics" onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--topics-dropdown">>
-                            <option value="all">All Topics</option>
+                        <select name="topic" data-taxonomy="case-study-industry" data-taxonomy-slug="topic" data-type="case-study-industry" onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--case-study-industry-dropdown">>
+                            <option value="all">Industry</option>
                             <?php
                             $terms = get_terms(array(
-                                'taxonomy' => 'topics',
+                                'taxonomy' => 'case-study-industry',
                                 'hide_empty' => false,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
-                                <option value="<?= $term->slug; ?>" <?= isset($_GET['topic']) && $term->slug === htmlspecialchars($_GET['topic']) ? 'selected' : ''; ?>>
+                                <option value="<?= $term->slug; ?>" <?= isset($_GET['case-study-industry']) && $term->slug === htmlspecialchars($_GET['case-study-industry']) ? 'selected' : ''; ?>>
                                     <?= $term->name; ?>
                                 </option>
                             <?php endforeach; ?>
