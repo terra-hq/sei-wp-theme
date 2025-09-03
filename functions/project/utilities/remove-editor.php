@@ -33,6 +33,7 @@
                 remove_post_type_support('page', 'editor');
                 break;
             case 'page-insights.php':
+            case 'page-success-stories.php':
                 remove_post_type_support('page', 'editor');
                 break;
             default:

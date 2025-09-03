@@ -36,5 +36,6 @@ require get_template_directory() . '/functions/project/utilities/remove-editor.p
 
 // Lighthouse performance feature
 require get_template_directory() . '/functions/project/terraLighthouse.php'; 
+require get_template_directory() . '/functions/project/cache.php'; 
 require get_template_directory() . '/functions/project/custom-search-module.php'; 
 ?>
