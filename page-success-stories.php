@@ -48,26 +48,6 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
 <section class="u--pb-10 u--pb-tablets-7 js--section-container">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
-            <!-- <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
-                <form class="c--filter-a c--filter-a--second">
-                    <div class="c--filter-a__item">
-                        <select name="type" data-taxonomy="insight-types" data-taxonomy-slug="type" data-type="insight-types"  onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--insight-types-dropdown">
-                            <option value="all">Category</option>
-                            <?php
-                            //$terms = get_terms(array(
-                                //'taxonomy' => 'insight-types',
-                                //'hide_empty' => true,
-                            //));
-                            ?>
-                            <?php //foreach ($terms as $term) : ?>
-                                <option value="<?//= $term->slug; ?>" <?//= isset($_GET['type']) && $term->slug === htmlspecialchars($_GET['type']) ? 'selected' : ''; ?>>
-                                    <?//= $term->name; ?>
-                                </option>
-                            <?php //endforeach; ?>
-                        </select>
-                    </div>
-                </form>
-            </div> -->
             <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
                 <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
