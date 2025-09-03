@@ -5,22 +5,16 @@ Template Name: Success Stories
 ?>
 
 <?php
-// TYPE FILTER
-// $type_query = array();
-// if (isset($_GET['type']) && !empty($_GET['type'])) {
-//     array_push($type_query, array('insight-types' => htmlspecialchars($_GET['type'])));
-// }
+// INDUSTRY FILTER
+$industry_query = array();
+if (isset($_GET['ind']) && !empty($_GET['ind'])) {
+    array_push($industry_query, array('case-study-industry' => htmlspecialchars($_GET['ind'])));
+}
 
 // CAPABILITY FILTER
 $capability_query = array();
 if (isset($_GET['cap']) && !empty($_GET['cap'])) {
-    array_push($capability_query, array('insight-capability' => htmlspecialchars($_GET['cap'])));
-}
-
-// TOPICS FILTER
-$topic_query = array();
-if (isset($_GET['topic']) && !empty($_GET['topic'])) {
-    array_push($capability_query, array('topics' => htmlspecialchars($_GET['topic'])));
+    array_push($capability_query, array('case-study-capability' => htmlspecialchars($_GET['cap'])));
 }
 
 // SEARCH FILTER
@@ -50,19 +44,19 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         <div class="f--row f--sp-a f--gap-c">
 
             <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
-                <!-- CAPABILITY FILTER -->
+                <!-- INDUSTRY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
-                        <select name="cap" data-taxonomy="insight-capability" data-taxonomy-slug="cap" data-type="insight-capability"  onchange="this.dataset.chosen = this.value;" data-chosen="all"  class="js--insight-capability-dropdown">>
-                            <option value="all">All Capabilities</option>
+                        <select name="ind" data-taxonomy="case-study-industry" data-taxonomy-slug="ind" data-type="case-study-industry" onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--case-study-industry-dropdown">
+                            <option value="all">All Industries</option>
                             <?php
                             $terms = get_terms(array(
-                                'taxonomy' => 'insight-capability',
+                                'taxonomy' => 'case-study-industry',
                                 'hide_empty' => false,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
-                                <option value="<?= $term->slug; ?>" <?= isset($_GET['cap']) && $term->slug === htmlspecialchars($_GET['cap']) ? 'selected' : ''; ?>>
+                                <option value="<?= $term->slug; ?>" <?= isset($_GET['ind']) && $term->slug === htmlspecialchars($_GET['ind']) ? 'selected' : ''; ?>>
                                     <?= $term->name; ?>
                                 </option>
                             <?php endforeach; ?>
@@ -72,19 +66,19 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 </form>
             </div>
             <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
-                <!-- TOPIC FILTER -->
+                <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
-                        <select name="topic" data-taxonomy="topics" data-taxonomy-slug="topic" data-type="topics" onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--topics-dropdown">>
-                            <option value="all">All Topics</option>
+                        <select name="cap" data-taxonomy="case-study-capability" data-taxonomy-slug="cap" data-type="case-study-capability" onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--case-study-capability-dropdown">
+                            <option value="all">All Capabilities</option>
                             <?php
                             $terms = get_terms(array(
-                                'taxonomy' => 'topics',
+                                'taxonomy' => 'case-study-capability',
                                 'hide_empty' => false,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
-                                <option value="<?= $term->slug; ?>" <?= isset($_GET['topic']) && $term->slug === htmlspecialchars($_GET['topic']) ? 'selected' : ''; ?>>
+                                <option value="<?= $term->slug; ?>" <?= isset($_GET['cap']) && $term->slug === htmlspecialchars($_GET['cap']) ? 'selected' : ''; ?>>
                                     <?= $term->name; ?>
                                 </option>
                             <?php endforeach; ?>
@@ -132,36 +126,36 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
             <!-- FEATURED INSIGHT -->
 
             <?php
-            $featured_insight = get_field('featured_insight');
+            $featured_case_study = get_field('featured_case_study');
             
-            $posts_per_page = 9;
+            $posts_per_page = 6;
             $offset = 0;
-            $postType = 'insight';
+            $postType = 'case-study';
 
             $query_args = array(
-                "post_type" => "insight",
-                "post__not_in" => array($featured_insight[0]->ID),
-                "posts_per_page" => 7,
+                "post_type" => "case-study",
+                "post__not_in" => $featured_case_study ? array($featured_case_study[0]->ID) : array(),
+                "posts_per_page" => 6,
                 "offset" => $offset,
                 "post_status" => "publish",
                 'order' => 'DESC', 
                 'orderby' => 'date',
             );
 
-            // Combine tax_query for type and capability
+            // Combine tax_query for industry and capability
             $tax_query = array('relation' => 'AND');
 
-            // if (!empty($type_query)) {
-            //     foreach ($type_query as $tax) {
-            //         $taxonomy = key($tax);
-            //         $term = current($tax);
-            //         $tax_query[] = array(
-            //             'taxonomy' => $taxonomy,
-            //             'field' => 'slug',
-            //             'terms' => $term
-            //         );
-            //     }
-            // }
+            if (!empty($industry_query)) {
+                foreach ($industry_query as $tax) {
+                    $taxonomy = key($tax);
+                    $term = current($tax);
+                    $tax_query[] = array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'slug',
+                        'terms' => $term
+                    );
+                }
+            }
 
             if (!empty($capability_query)) {
                 foreach ($capability_query as $tax) {
@@ -187,31 +181,60 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
             $the_query = new WP_Query($query_args);
             $index = 0; ?>
 
-            <?php if ($the_query->have_posts()) : ?>
+            <?php if ($the_query->have_posts() && $featured_case_study) : ?>
                <div class="f--col-12">
                 <div class="c--card-m u--mb-5">
                     <div class="f--row u--display-flex u--align-items-center">
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__wrapper">
-                                <img class="c--card-m__wrapper__media" src="http://placeholder.terrahq.com/img-1by1.webp" alt="">
+                                <?php 
+                                $featured_image = get_post_thumbnail_id($featured_case_study[0]->ID);
+                                $image_to_use = $featured_image ? $featured_image : get_field('placeholder_image', 'options');
+                                
+                                if ($image_to_use) :
+                                    $image_tag_args = array(
+                                        'image' => $image_to_use,
+                                        'sizes' => '(max-width: 810px) 95vw, 33vw',
+                                        'class' => 'c--card-m__wrapper__media',
+                                        'isLazy' => false,
+                                        'lazyClass' => 'g--lazy-01',
+                                        'showAspectRatio' => false,
+                                        'decodingAsync' => true,
+                                        'fetchPriority' => false,
+                                        'addFigcaption' => false,
+                                    );
+                                    generate_image_tag($image_tag_args);
+                                endif;
+                                ?>
                             </div>
                         </div>
                         
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__hd">
-                                <p class="c--card-m__hd__title">WE ARE SEI</p>
-                                <p class="c--card-m__hd__paragraph">SEI is a management consulting firm delivering fresh perspectives and reliable results.</p>
-                                <a class="g--link-01 g--link-01--fourth" href="">Learn More</a>
+                                <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                <p class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></p>
+                                <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($featured_case_study[0]->ID); ?>">Learn More</a>
                             </div>
                         </div>
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__ft">
-                                <p class="c--card-m__ft__title">WE ARE SEI</p>
+                                <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                 <div class="c--card-m__ft__items">
-                                    <a class="g--pill-01" href="">Change Management</a>
-                                    <a class="g--pill-01" href="">Management</a>
-                                    <a class="g--pill-01" href="">Management Management</a>
-                                    <a class="g--pill-01" href="">Change Management</a>
+                                    <?php 
+                                    $capabilities = get_the_terms($featured_case_study[0]->ID, 'case-study-capability');
+                                    if ($capabilities && !is_wp_error($capabilities)) :
+                                        foreach ($capabilities as $capability) : 
+                                            $capability_post = get_posts(array(
+                                                'post_type' => 'capability',
+                                                'name' => $capability->slug,
+                                                'posts_per_page' => 1,
+                                                'post_status' => 'publish'
+                                            ));
+                                            $capability_link = !empty($capability_post) ? get_permalink($capability_post[0]->ID) : '#';
+                                            ?>
+                                            <a class="g--pill-01" href="<?= $capability_link; ?>"><?= $capability->name; ?></a>
+                                        <?php endforeach;
+                                    endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -229,25 +252,54 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                             <div class="f--row u--display-flex u--align-items-center">
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__wrapper">
-                                        <img class="c--card-m__wrapper__media" src="http://placeholder.terrahq.com/img-1by1.webp" alt="">
+                                        <?php 
+                                        $post_image = get_post_thumbnail_id($post->ID);
+                                        $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
+                                        
+                                        if ($image_to_use) :
+                                            $image_tag_args = array(
+                                                'image' => $image_to_use,
+                                                'sizes' => '(max-width: 810px) 95vw, 33vw',
+                                                'class' => 'c--card-m__wrapper__media',
+                                                'isLazy' => false,
+                                                'lazyClass' => 'g--lazy-01',
+                                                'showAspectRatio' => false,
+                                                'decodingAsync' => true,
+                                                'fetchPriority' => false,
+                                                'addFigcaption' => false,
+                                            );
+                                            generate_image_tag($image_tag_args);
+                                        endif;
+                                        ?>
                                     </div>
                                 </div>
                                 
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__hd">
-                                        <p class="c--card-m__hd__title">WE ARE SEI</p>
-                                        <p class="c--card-m__hd__paragraph">SEI is a management consulting firm delivering fresh perspectives and reliable results.</p>
-                                        <a class="g--link-01 g--link-01--fourth" href="">Learn More</a>
+                                        <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                        <p class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></p>
+                                        <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                                     </div>
                                 </div>
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__ft">
-                                        <p class="c--card-m__ft__title">WE ARE SEI</p>
+                                        <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                         <div class="c--card-m__ft__items">
-                                            <a class="g--pill-01" href="">Change Management</a>
-                                            <a class="g--pill-01" href="">Management</a>
-                                            <a class="g--pill-01" href="">Management Management</a>
-                                            <a class="g--pill-01" href="">Change Management</a>
+                                            <?php 
+                                            $capabilities = get_the_terms($post->ID, 'case-study-capability');
+                                            if ($capabilities && !is_wp_error($capabilities)) :
+                                                foreach ($capabilities as $capability) : 
+                                                    $capability_post = get_posts(array(
+                                                        'post_type' => 'capability',
+                                                        'name' => $capability->slug,
+                                                        'posts_per_page' => 1,
+                                                        'post_status' => 'publish'
+                                                    ));
+                                                    $capability_link = !empty($capability_post) ? get_permalink($capability_post[0]->ID) : '#';
+                                                    ?>
+                                                    <a class="g--pill-01" href="<?= $capability_link; ?>"><?= $capability->name; ?></a>
+                                                <?php endforeach;
+                                            endif; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +335,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         <div class="f--row">
             <div class="f--col-12 u--display-flex u--justify-content-center">
                 <div class="c--spinner-wrapper-a u--mt-8 u--mt-tablets-5">
-                    <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-category="<?= $categoryName ?>" data-post-type="<?= $postType ?>" data-featured-insight-id="<?= $featured_insight_id ?>"></data-feature>
+                    <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-post-type="<?= $postType ?>" data-featured-case-study-id="<?= $featured_case_study ? $featured_case_study[0]->ID : '' ?>">
                         <span class="g--btn-03__content">Load More</span>
                         <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>
                     </button>
