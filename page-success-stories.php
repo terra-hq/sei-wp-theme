@@ -184,7 +184,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
             <?php if ($the_query->have_posts() && $featured_case_study) : ?>
                <div class="f--col-12">
                 <div class="c--card-m u--mb-5">
-                    <div class="f--row u--display-flex u--align-items-center">
+                    <div class="f--row u--display-flex u--align-items-start">
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__wrapper">
                                 <?php 
@@ -249,12 +249,12 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     ?>
                      <div class="f--col-12">
                         <div class="c--card-m u--mb-5">
-                            <div class="f--row u--display-flex u--align-items-center">
+                            <div class="f--row u--display-flex u--align-items-start">
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__wrapper">
                                         <?php 
                                         $post_image = get_post_thumbnail_id($post->ID);
-                                        $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
+                                        $image_to_use = $post_image ? $post_image : +++get_field('placeholder_image', 'options');
                                         
                                         if ($image_to_use) :
                                             $image_tag_args = array(

@@ -123,13 +123,11 @@
   font-family: $type-a;
   font-weight: $weight;
   line-height: 1.4;
-  font-size: 1.125rem;
-  @media all and ($viewport-type: $desktop) {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+  font-size: 1rem;
+ 
   @media all and ($viewport-type: $tablets) {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    line-height: 1.3;
   }
 }
 
