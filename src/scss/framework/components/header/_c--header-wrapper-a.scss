@@ -10,7 +10,6 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
-    opacity: 0;
 
     @media all and ($viewport-type: $tablets) {
         top: 0;
