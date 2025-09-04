@@ -254,7 +254,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                     <div class="c--card-m__wrapper">
                                         <?php 
                                         $post_image = get_post_thumbnail_id($post->ID);
-                                        $image_to_use = $post_image ? $post_image : +++get_field('placeholder_image', 'options');
+                                        $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
                                         
                                         if ($image_to_use) :
                                             $image_tag_args = array(
