@@ -46,10 +46,11 @@
   }
   &__ft {
     &__title{
-            @extend .f--font-i;
+          @extend .f--font-i;
           @extend .f--color-i;
-           @extend .u--pb-4;
-           @extend .u--pb-tabletm-3;
+          @extend .u--pb-4;
+          @extend .u--pb-tabletm-3;
+          letter-spacing: 4.16px;
            
     }
     &__items{
