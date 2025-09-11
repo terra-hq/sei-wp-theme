@@ -124,6 +124,12 @@ switch ($module['acf_fc_layout']) {
     case 'custom_accordion':
         include (locate_template('flexible/modules/custom-accordion.php', false, false));
         break;   
+     case 'content_video':
+        include (locate_template('flexible/modules/content-video.php', false, false));
+        break; 
+     case 'case_studies_slider':
+        include (locate_template('flexible/modules/case-studies-slider.php', false, false));
+        break;   
 
         
 }

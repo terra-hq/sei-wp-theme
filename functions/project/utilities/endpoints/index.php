@@ -16,5 +16,6 @@
  require get_template_directory() . '/functions/project/utilities/endpoints/get-news.php'; 
  require get_template_directory() . '/functions/project/utilities/endpoints/get-search-results.php'; 
  require get_template_directory() . '/functions/project/utilities/endpoints/load-insights.php'; 
+ require get_template_directory() . '/functions/project/utilities/endpoints/load-case-studies.php';
 
 ?>

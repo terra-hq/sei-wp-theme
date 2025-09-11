@@ -64,7 +64,7 @@ class Handler {
                                         url: {
                                             mp4: this.currentTrigger.getAttribute("data-modal-video-url"),
                                         },
-                                        style: { aspectRatio: "16/7", width: "100%" },
+                                        style: { aspectRatio: "16/9", width: "100%", height: "100%" },
                                         attributes: {
                                             class: "video-file",
                                             id: "MyVideo",
@@ -81,7 +81,7 @@ class Handler {
                                         url: this.currentTrigger.getAttribute("data-modal-video-url"),
                                         autoplay: true,
                                         appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
-                                        style: { aspectRatio: "16/7", width: "100%" },
+                                        style: { aspectRatio: "16/9", width: "100%", height: "100%" },
                                     });
                                 }
                             },

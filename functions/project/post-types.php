@@ -117,7 +117,17 @@ new Custom_Post_Type((object) array(
     )
 ));
 
-
+new Custom_Post_Type((object) array(
+    'post_type' => 'case-study',
+    'singular_name' => 'Case Study',
+    'plural_name' => 'Case Studies',
+    'args' => array(
+        'menu_icon' => 'dashicons-image-filter',
+        'rewrite' => array('slug' => 'case-study'),
+        'rewrite' => array('slug' => 'case-study', 'with_front' => false),
+        'supports' => array('title', 'editor', 'thumbnail'),
+    )
+));
 
 add_filter('wpseo_exclude_from_sitemap_by_post_ids', 'exclude_news_from_sitemap');
 function exclude_news_from_sitemap($excluded_posts)
