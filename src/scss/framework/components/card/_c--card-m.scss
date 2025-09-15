@@ -29,7 +29,6 @@
 
   &__hd {
     @extend .u--display-flex;
-    @extend .u--justify-content-space-between;
     @extend .u--flex-direction-column;
     @extend .u--height-100;
     min-height: 12.1875rem;
@@ -54,7 +53,6 @@
   }
   &__ft {
     @extend .u--display-flex;
-    @extend .u--justify-content-space-between;
     @extend .u--flex-direction-column;
     @extend .u--height-100;
     min-height: 12.1875rem;
