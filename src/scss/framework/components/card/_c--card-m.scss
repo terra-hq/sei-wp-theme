@@ -4,9 +4,9 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 .c--card-m {
     @extend .u--pt-5;
-    background-color: transparent;
     @extend .u--pb-5;
     border-bottom: 1px solid map.get($color-options, h);
+    background-color: transparent;
   &__wrapper {
     @extend .u--pr-5;
     @extend .u--mb-tabletm-3;
@@ -16,10 +16,11 @@
     max-height: 350px;
     }
     &__media{
-        height: 100%;
-        width: 100%;
+       @extend .u--width-100;
+       @extend .u--height-100;
         max-height: 12.1875rem;
         object-fit: cover;
+        min-height: 12.1875rem;
         @media all and ($viewport-type: $tabletm) {
         max-height: 350px;
         }
@@ -27,8 +28,15 @@
   }
 
   &__hd {
-    height: 100%;
+    @extend .u--display-flex;
+    @extend .u--justify-content-space-between;
+    @extend .u--flex-direction-column;
+    @extend .u--height-100;
+    min-height: 12.1875rem;
     @extend .u--mb-tabletm-3;
+     @media all and ($viewport-type: $tabletm) {
+        min-height: auto;
+        }
     &__title{
           @extend .f--font-i;
           @extend .f--color-i;
@@ -45,6 +53,14 @@
     }
   }
   &__ft {
+    @extend .u--display-flex;
+    @extend .u--justify-content-space-between;
+    @extend .u--flex-direction-column;
+    @extend .u--height-100;
+    min-height: 12.1875rem;
+     @media all and ($viewport-type: $tabletm) {
+      min-height: auto;
+      }
     &__title{
           @extend .f--font-i;
           @extend .f--color-i;
