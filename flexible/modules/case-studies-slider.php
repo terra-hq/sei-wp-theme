@@ -34,7 +34,7 @@ $case_studies = $module['case_studies'];
                                         
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <div class="c--card-m__hd">
-                                                <p class="c--card-m__hd__title">Our Support</p>
+                                                <p class="c--card-m__hd__title">OUR SUPPORT</p>
                                                 <p class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID) ?></p>
                                                 <a class="g--link-01 g--link-01--fourth" href="<?= get_the_permalink($single_case_study->ID) ?>">Learn More</a>
                                             </div>
