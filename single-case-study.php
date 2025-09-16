@@ -4,7 +4,7 @@
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
-        <a href="<?php echo esc_url(home_url('/insights')) ?>" class="c--back-link-a u--mb-10 u--mt-5">Back to All Insights</a>
+        <a href="<?php echo esc_url(home_url('/success-stories')) ?>" class="c--back-link-a u--mb-10 u--mt-5">Back to All Case Studies</a>
         <?php
         $insight_types = get_the_terms(get_the_ID(), 'insight-types');
         if ($insight_types && !is_wp_error($insight_types)) {
@@ -49,7 +49,7 @@
             $topic_name = $topic->name;
             $topic_slug = $topic->slug;
             $topic_link = get_term_link($topic);
-            echo '<a href="' . esc_url(home_url('/insights/?topic=' . $topic_slug)) . '" class="c--list-a__item g--pill-01 g--pill-01--third">' . esc_html($topic_name) . '</a>';
+            echo '<a href="' . esc_url(home_url('/success-stories/?cap=' . $topic_slug)) . '" class="c--list-a__item g--pill-01 g--pill-01--third">' . esc_html($topic_name) . '</a>';
           }
           ?></div><?php
         } ?>
