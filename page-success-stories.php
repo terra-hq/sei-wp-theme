@@ -208,12 +208,23 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                 ?>
                             </div>
                         </div>
-                        
+                        <?php 
+                            $is_external = get_field('case_study_type', $featured_case_study[0]->ID) === "external";
+                            if($is_external) {
+                                $featured_case_study_link =  get_field('download_pdf', $featured_case_study[0]->ID);
+                                $target= '_blank';
+                                $rel = 'noopener noreferrer';
+                            } else {
+                                $featured_case_study_link = get_permalink($featured_case_study[0]->ID);
+                                $target = '';
+                                $rel = '';
+                            }
+                        ?>
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__hd">
                                 <p class="c--card-m__hd__title">THE STARTING POINT</p>
                                 <p class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></p>
-                                <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($featured_case_study[0]->ID); ?>">Learn More</a>
+                                <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" <?= $target ?> <?= $self ?>>Learn More</a>
                             </div>
                         </div>
                         <div class="f--col-4 f--col-tabletm-12">

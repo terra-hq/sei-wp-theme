@@ -32,14 +32,26 @@ $case_studies = $module['case_studies'];
                                             </div>
                                         </div>
                                         
+                                        <?php 
+                                            $is_external = get_field('case_study_type', $single_case_study->ID) === "external";
+                                            if($is_external) {
+                                                $featured_case_study_link =  get_field('download_pdf', $single_case_study->ID);
+                                                $target= '_blank';
+                                                $rel = 'noopener noreferrer';
+                                            } else {
+                                                $featured_case_study_link = get_permalink($single_case_study->ID);
+                                                $target = '';
+                                                $rel = '';
+                                            }
+                                        ?>
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <div class="c--card-m__hd">
                                                 <p class="c--card-m__hd__title">THE STARTING POINT</p>
-                                                <p class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID) ?></p>
-                                                <a class="g--link-01 g--link-01--fourth" href="<?= get_the_permalink($single_case_study->ID) ?>">Learn More</a>
+                                                <p class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></p>
+                                                <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                                             </div>
                                         </div>
-                                      
+
                                         <?php $types = get_the_terms($single_case_study->ID, 'case-study-capability'); ?>
                                         <?php if($types)  { ?>
                                               <div class="f--col-4 f--col-tabletm-12">

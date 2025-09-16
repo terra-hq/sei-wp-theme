@@ -70,6 +70,12 @@
             }
         }
 
+        if ($post->post_type == "case-study") {
+            if (get_field('case_study_type', $id) == 'external') {
+                remove_post_type_support('case-study', 'editor');
+            }
+        }
+
         if ($post->post_name == 'about') {
             remove_post_type_support('page', 'editor');
         }

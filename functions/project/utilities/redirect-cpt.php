@@ -21,6 +21,13 @@
              }
          }
      }
+    if ( is_single() && 'case-study' ==  $queried_post_type) {
+        if (get_field('case_study_type', $queried_id) == "external"){
+            $principalUrl  = esc_url( home_url( '/' ) ). 'success-stories';
+            wp_redirect($principalUrl, 301 );
+            exit;
+        }
+    }
 
      if (is_single() && 'news' == $queried_post_type) {
         // Verificar si el post tiene la taxonomía 'type' y que no sea 'internal'
