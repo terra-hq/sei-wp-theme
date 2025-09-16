@@ -10,7 +10,7 @@
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
-        <a href="<?php echo esc_url(home_url('/success-stories')) ?>" class="c--back-link-a u--mt-5 u--mb-10">Back to Success Stories</a>
+      <a href="<?php echo esc_url(home_url('/insights')) ?>" class="c--back-link-a u--mb-10">Back to All Insights</a>
         <?php
         $insight_types = get_the_terms(get_the_ID(), 'insight-types');
         if ($insight_types && !is_wp_error($insight_types)) {
