@@ -315,3 +315,10 @@ body {
     align-self: stretch;
   }
 }
+
+.acf-tooltip.acf-fc-popup.top-right > ul{
+    grid-gap: 0 !important;
+}
+.acf-tooltip.acf-fc-popup.top-right > ul li {
+    height: 26px;
+}
