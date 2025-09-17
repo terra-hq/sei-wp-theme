@@ -186,27 +186,29 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 <div class="c--card-m u--mb-5">
                     <div class="f--row u--display-flex u--align-items-start">
                         <div class="f--col-4 f--col-tabletm-12">
-                            <div class="c--card-m__wrapper">
-                                <?php 
-                                $featured_image = get_post_thumbnail_id($featured_case_study[0]->ID);
-                                $image_to_use = $featured_image ? $featured_image : get_field('placeholder_image', 'options');
-                                
-                                if ($image_to_use) :
-                                    $image_tag_args = array(
-                                        'image' => $image_to_use,
-                                        'sizes' => '(max-width: 810px) 95vw, 33vw',
-                                        'class' => 'c--card-m__wrapper__media',
-                                        'isLazy' => false,
-                                        'lazyClass' => 'g--lazy-01',
-                                        'showAspectRatio' => false,
-                                        'decodingAsync' => true,
-                                        'fetchPriority' => false,
-                                        'addFigcaption' => false,
-                                    );
-                                    generate_image_tag($image_tag_args);
-                                endif;
-                                ?>
-                            </div>
+                            <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="u--overflow-hidden">
+                                <div class="c--card-m__wrapper">
+                                    <?php 
+                                    $featured_image = get_post_thumbnail_id($featured_case_study[0]->ID);
+                                    $image_to_use = $featured_image ? $featured_image : get_field('placeholder_image', 'options');
+                                    
+                                    if ($image_to_use) :
+                                        $image_tag_args = array(
+                                            'image' => $image_to_use,
+                                            'sizes' => '(max-width: 810px) 95vw, 33vw',
+                                            'class' => 'c--card-m__wrapper__media',
+                                            'isLazy' => false,
+                                            'lazyClass' => 'g--lazy-01',
+                                            'showAspectRatio' => false,
+                                            'decodingAsync' => true,
+                                            'fetchPriority' => false,
+                                            'addFigcaption' => false,
+                                        );
+                                        generate_image_tag($image_tag_args);
+                                    endif;
+                                    ?>
+                                </div>
+                            </a>    
                         </div>
                         <?php 
                             $is_external = get_field('case_study_type', $featured_case_study[0]->ID) === "external";
@@ -222,9 +224,9 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                         ?>
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__hd">
-                                <a class="c--card-m__hd__title">THE STARTING POINT</a>
-                                <p class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></p>
-                                <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" <?= $target ?> <?= $self ?>>Learn More</a>
+                                <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                <a class="c--card-m__hd__paragraph" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>"><?= get_the_title($featured_case_study[0]->ID); ?></a>
+                                <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                             </div>
                         </div>
                         <div class="f--col-4 f--col-tabletm-12">
@@ -261,34 +263,36 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                      <div class="f--col-12">
                         <div class="c--card-m u--mb-5">
                             <div class="f--row u--display-flex u--align-items-start">
-                                <div class="f--col-4 f--col-tabletm-12">
-                                    <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__wrapper">
-                                        <?php 
-                                        $post_image = get_post_thumbnail_id($post->ID);
-                                        $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
-                                        
-                                        if ($image_to_use) :
-                                            $image_tag_args = array(
-                                                'image' => $image_to_use,
-                                                'sizes' => '(max-width: 810px) 95vw, 33vw',
-                                                'class' => 'c--card-m__wrapper__media',
-                                                'isLazy' => false,
-                                                'lazyClass' => 'g--lazy-01',
-                                                'showAspectRatio' => false,
-                                                'decodingAsync' => true,
-                                                'fetchPriority' => false,
-                                                'addFigcaption' => false,
-                                            );
-                                            generate_image_tag($image_tag_args);
-                                        endif;
-                                        ?>
+                                <div class="f--col-4 f--col-tabletm-12 u--overflow-hidden">
+                                    <a href="<?= get_permalink($post->ID); ?>" class="u--overflow-hidden">
+                                        <div  class="c--card-m__wrapper">
+                                            <?php 
+                                            $post_image = get_post_thumbnail_id($post->ID);
+                                            $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
+                                            
+                                            if ($image_to_use) :
+                                                $image_tag_args = array(
+                                                    'image' => $image_to_use,
+                                                    'sizes' => '(max-width: 810px) 95vw, 33vw',
+                                                    'class' => 'c--card-m__wrapper__media',
+                                                    'isLazy' => false,
+                                                    'lazyClass' => 'g--lazy-01',
+                                                    'showAspectRatio' => false,
+                                                    'decodingAsync' => true,
+                                                    'fetchPriority' => false,
+                                                    'addFigcaption' => false,
+                                                );
+                                                generate_image_tag($image_tag_args);
+                                            endif;
+                                            ?>
+                                        </div>
                                     </a>
                                 </div>
                                 
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__hd">
-                                        <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
-                                        <p class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></p>
+                                        <p  class="c--card-m__hd__title">THE STARTING POINT</p>
+                                        <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></a>
                                         <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                                     </div>
                                 </div>

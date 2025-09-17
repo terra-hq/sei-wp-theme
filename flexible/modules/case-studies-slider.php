@@ -14,21 +14,23 @@ $case_studies = $module['case_studies'];
                                 <div class="c--card-m">
                                     <div class="f--row u--display-flex u--align-items-center">
                                         <div class="f--col-4 f--col-tabletm-12">
-                                            <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__wrapper">
-                                                <?php $image = get_post_thumbnail_id($single_case_study->ID); ?>
-                                                <?php
-                                                    $image_tag_args = array(
-                                                        'image' => $image,
-                                                        'sizes' => '(max-width: 810px) 50vw, 100vw',
-                                                        'class' => 'c--card-m__wrapper__media',
-                                                        'isLazy' => false,
-                                                        'showAspectRatio' => true,
-                                                        'decodingAsync' => true,
-                                                        'fetchPriority' => false,
-                                                        'addFigcaption' => false,
-                                                    );
-                                                    generate_image_tag($image_tag_args)
-                                                    ?>
+                                            <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="u--overflow-hidden">
+                                                <div class="c--card-m__wrapper">
+                                                    <?php $image = get_post_thumbnail_id($single_case_study->ID); ?>
+                                                    <?php
+                                                        $image_tag_args = array(
+                                                            'image' => $image,
+                                                            'sizes' => '(max-width: 810px) 50vw, 100vw',
+                                                            'class' => 'c--card-m__wrapper__media',
+                                                            'isLazy' => false,
+                                                            'showAspectRatio' => true,
+                                                            'decodingAsync' => true,
+                                                            'fetchPriority' => false,
+                                                            'addFigcaption' => false,
+                                                        );
+                                                        generate_image_tag($image_tag_args)
+                                                        ?>
+                                                </div>
                                             </a>
                                         </div>
                                         
@@ -46,8 +48,8 @@ $case_studies = $module['case_studies'];
                                         ?>
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <div class="c--card-m__hd">
-                                                <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
-                                                <p class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></p>
+                                                <p  class="c--card-m__hd__title">THE STARTING POINT</p>
+                                                <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>"  class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></a>
                                                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                                             </div>
                                         </div>

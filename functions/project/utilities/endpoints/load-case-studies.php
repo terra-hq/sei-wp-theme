@@ -79,7 +79,8 @@ function load_case_studies()
         <div class="c--card-m u--mb-5">
             <div class="f--row u--display-flex u--align-items-center">
                 <div class="f--col-4 f--col-tabletm-12">
-                    <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__wrapper">
+                     <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>"  class="u--overflow-hidden">
+                    <div class="c--card-m__wrapper">
                         <?php 
                         $featured_image = get_post_thumbnail_id($featured_case_study[0]->ID);
                         $image_to_use = $featured_image ? $featured_image : get_field('placeholder_image', 'options');
@@ -99,7 +100,7 @@ function load_case_studies()
                             generate_image_tag($image_tag_args);
                         endif;
                         ?>
-                    </a>
+                    </div>
                 </div>
                 
                 <?php 
@@ -116,8 +117,8 @@ function load_case_studies()
                 ?>
                 <div class="f--col-4 f--col-tabletm-12">
                     <div class="c--card-m__hd">
-                        <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
-                        <p class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></p>
+                        <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                        <a  href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></a>
                         <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                     </div>
                 </div>
@@ -154,33 +155,35 @@ function load_case_studies()
             <div class="c--card-m u--mb-5">
                 <div class="f--row u--display-flex u--align-items-center">
                     <div class="f--col-4 f--col-tabletm-12">
-                        <a ref="<?= get_permalink($post->ID); ?>" class="c--card-m__wrapper">
-                            <?php 
-                            $post_image = get_post_thumbnail_id($post->ID);
-                            $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
-                            
-                            if ($image_to_use) :
-                                $image_tag_args = array(
-                                    'image' => $image_to_use,
-                                    'sizes' => '(max-width: 810px) 95vw, 33vw',
-                                    'class' => 'c--card-m__wrapper__media',
-                                    'isLazy' => false,
-                                    'lazyClass' => 'g--lazy-01',
-                                    'showAspectRatio' => false,
-                                    'decodingAsync' => true,
-                                    'fetchPriority' => false,
-                                    'addFigcaption' => false,
-                                );
-                                generate_image_tag($image_tag_args);
-                            endif;
-                            ?>
+                         <a href="<?= get_permalink($post->ID); ?>" class="u--overflow-hidden">
+                            <div  class="c--card-m__wrapper">
+                                <?php 
+                                $post_image = get_post_thumbnail_id($post->ID);
+                                $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
+                                
+                                if ($image_to_use) :
+                                    $image_tag_args = array(
+                                        'image' => $image_to_use,
+                                        'sizes' => '(max-width: 810px) 95vw, 33vw',
+                                        'class' => 'c--card-m__wrapper__media',
+                                        'isLazy' => false,
+                                        'lazyClass' => 'g--lazy-01',
+                                        'showAspectRatio' => false,
+                                        'decodingAsync' => true,
+                                        'fetchPriority' => false,
+                                        'addFigcaption' => false,
+                                    );
+                                    generate_image_tag($image_tag_args);
+                                endif;
+                                ?>
+                            </div>
                         </a>
                     </div>
                     
                     <div class="f--col-4 f--col-tabletm-12">
                         <div class="c--card-m__hd">
-                            <a ref="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
-                            <p class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></p>
+                            <p  class="c--card-m__hd__title">THE STARTING POINT</p>
+                            <a class="c--card-m__hd__paragraph" ref="<?= get_permalink($post->ID); ?>"><?= get_the_title($post->ID); ?></a>
                             <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                         </div>
                     </div>
