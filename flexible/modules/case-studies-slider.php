@@ -14,7 +14,7 @@ $case_studies = $module['case_studies'];
                                 <div class="c--card-m">
                                     <div class="f--row u--display-flex u--align-items-center">
                                         <div class="f--col-4 f--col-tabletm-12">
-                                            <div class="c--card-m__wrapper">
+                                            <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__wrapper">
                                                 <?php $image = get_post_thumbnail_id($single_case_study->ID); ?>
                                                 <?php
                                                     $image_tag_args = array(
@@ -29,7 +29,7 @@ $case_studies = $module['case_studies'];
                                                     );
                                                     generate_image_tag($image_tag_args)
                                                     ?>
-                                            </div>
+                                            </a>
                                         </div>
                                         
                                         <?php 
@@ -46,7 +46,7 @@ $case_studies = $module['case_studies'];
                                         ?>
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <div class="c--card-m__hd">
-                                                <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                                <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
                                                 <p class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></p>
                                                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                                             </div>

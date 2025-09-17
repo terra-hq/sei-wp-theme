@@ -222,7 +222,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                         ?>
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__hd">
-                                <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                <a class="c--card-m__hd__title">THE STARTING POINT</a>
                                 <p class="c--card-m__hd__paragraph"><?= get_the_title($featured_case_study[0]->ID); ?></p>
                                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" <?= $target ?> <?= $self ?>>Learn More</a>
                             </div>
@@ -262,7 +262,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                         <div class="c--card-m u--mb-5">
                             <div class="f--row u--display-flex u--align-items-start">
                                 <div class="f--col-4 f--col-tabletm-12">
-                                    <div class="c--card-m__wrapper">
+                                    <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__wrapper">
                                         <?php 
                                         $post_image = get_post_thumbnail_id($post->ID);
                                         $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');
@@ -282,12 +282,12 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                             generate_image_tag($image_tag_args);
                                         endif;
                                         ?>
-                                    </div>
+                                    </a>
                                 </div>
                                 
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__hd">
-                                        <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                        <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__title">THE STARTING POINT</a>
                                         <p class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></p>
                                         <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                                     </div>
