@@ -7,15 +7,16 @@
   // or include it from your theme’s functions.php. Adjust the config if needed.
   // ============================================================================
 
-  (new Terra_CacheHeaders([
-    'allowed_tlds'        =>  ['sei.com', 'localhost', 'wp-sei', 'localhost/wp-sei'],
-    'nonprod_host_pattern'=> '/wpengine/i',
-    'respect_wp_env'      => true, //cambiar a true si se quiere respetar el entorno de WordPress
-    'max_age'             => 300, // 60 para desaroll, 300 para produccion
-    's_maxage'            => 1800, // 900 para desaroll, 1800 para produccion
-    'send_last_modified'  => true,
-    'vary_cookie'         => true,
-    'emit_markers'        => true,
+  (new Cache([
+    'apply_on' => [
+      'https://sei.com',
+      'https://stagesei.wpengine.com/',
+      'https://seidevelopment.wpengine.com/',
+      'http://localhost/wp-sei/', // localhost
+    ],
+    'time_to_live_browser' => 300,
+    'time_to_live_cdn'     => 1800,
+    'enable_logged_in'     => false,
   ]))->init();
 
 ?>
