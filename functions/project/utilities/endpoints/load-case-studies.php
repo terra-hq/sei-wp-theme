@@ -130,12 +130,33 @@ function load_case_studies()
                             $capabilities = get_the_terms($featured_case_study[0]->ID, 'case-study-capability');
                             if ($capabilities && !is_wp_error($capabilities)) :
                                 foreach ($capabilities as $capability) : 
+                                    // First try with the exact slug
                                     $capability_post = get_posts(array(
                                         'post_type' => 'capability',
                                         'name' => $capability->slug,
                                         'posts_per_page' => 1,
                                         'post_status' => 'publish'
                                     ));
+                                    
+                                    // If not found, search by normalized name
+                                    if (empty($capability_post)) {
+                                        $capability_posts = get_posts(array(
+                                            'post_type' => 'capability',
+                                            'posts_per_page' => -1,
+                                            'post_status' => 'publish'
+                                        ));
+                                        
+                                        $term_name_clean = strtolower(str_replace(array('&', ' ', ','), array('', '', ''), html_entity_decode($capability->name)));
+                                        
+                                        foreach($capability_posts as $cap_post) {
+                                            $post_title_clean = strtolower(str_replace(array('&', ' ', ','), array('', '', ''), $cap_post->post_title));
+                                            if ($term_name_clean === $post_title_clean) {
+                                                $capability_post = array($cap_post);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
                                     $capability_link = !empty($capability_post) ? get_permalink($capability_post[0]->ID) : '#';
                                     ?>
                                     <a class="g--pill-01" href="<?= $capability_link; ?>"><?= $capability->name; ?></a>
@@ -195,12 +216,33 @@ function load_case_studies()
                                 $capabilities = get_the_terms($post->ID, 'case-study-capability');
                                 if ($capabilities && !is_wp_error($capabilities)) :
                                     foreach ($capabilities as $capability) : 
+                                        // First try with the exact slug
                                         $capability_post = get_posts(array(
                                             'post_type' => 'capability',
                                             'name' => $capability->slug,
                                             'posts_per_page' => 1,
                                             'post_status' => 'publish'
                                         ));
+                                        
+                                        // If not found, search by normalized name
+                                        if (empty($capability_post)) {
+                                            $capability_posts = get_posts(array(
+                                                'post_type' => 'capability',
+                                                'posts_per_page' => -1,
+                                                'post_status' => 'publish'
+                                            ));
+                                            
+                                            $term_name_clean = strtolower(str_replace(array('&', ' ', ','), array('', '', ''), html_entity_decode($capability->name)));
+                                            
+                                            foreach($capability_posts as $cap_post) {
+                                                $post_title_clean = strtolower(str_replace(array('&', ' ', ','), array('', '', ''), $cap_post->post_title));
+                                                if ($term_name_clean === $post_title_clean) {
+                                                    $capability_post = array($cap_post);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        
                                         $capability_link = !empty($capability_post) ? get_permalink($capability_post[0]->ID) : '#';
                                         ?>
                                         <a class="g--pill-01" href="<?= $capability_link; ?>"><?= $capability->name; ?></a>
