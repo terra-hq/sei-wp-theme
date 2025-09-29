@@ -42,18 +42,8 @@
           }
           ?>
         </p>
-        <?php $topics = get_the_terms(get_the_ID(), 'topics');
-        if ($topics && !is_wp_error($topics)) {
-          ?><div class="c--list-a u--pt-4 u--pt-tablets-3"><?php
-          foreach ($topics as $topic) {
-            $topic_name = $topic->name;
-            $topic_slug = $topic->slug;
-            $topic_link = get_term_link($topic);
-            echo '<a href="' . esc_url(home_url('/success-stories/?cap=' . $topic_slug)) . '" class="c--list-a__item g--pill-01 g--pill-01--third">' . esc_html($topic_name) . '</a>';
-          }
-          ?></div><?php
-        } ?>
-        <article class="u--pt-8 u--pt-tablets-5 u--pb-4">
+        
+        <article class="u--pt-4 u--pt-tablets-3 u--pb-4">
           <div class="c--content-a">
             <?php the_content() ?>
           </div>
