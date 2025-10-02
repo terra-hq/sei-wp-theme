@@ -52,9 +52,6 @@
 
     <!-- transitions -->
     <div class="c--transition-a js--transition">
-        <div class="c--transition-a__media-wrapper">
-            <img src="<?php bloginfo('template_url'); ?>/img/swirl-filled.webp" alt="spinner" class="c--transition-a__media-wrapper__media" width=312 height=301>
-        </div>
         <svg class="c--transition-a__artwork" viewBox="0 0 100 100" preserveAspectRatio="none">
 			<path vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 		</svg>

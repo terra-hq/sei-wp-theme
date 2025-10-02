@@ -12,36 +12,11 @@
 	z-index: 1000;
 	pointer-events: none;
 	@extend .u--height-100;
-    &__media-wrapper {
-        @extend .u--position-absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        &__media {
-            @extend .u--display-block;
-            width: auto;
-            height: 150px;
-            opacity: 0;
-            animation: rotateSwirl 2s ease-in-out infinite;
-        }
-    }
     &__artwork {
         @extend .u--width-100;
         @extend .u--height-100;
         path {
             fill: map.get($color-options, k);
         }
-    }
-}
-
-@keyframes rotateSwirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    90% {
-        transform: rotate(720deg);
-    }
-    100% {
-        transform: rotate(720deg);
     }
 }

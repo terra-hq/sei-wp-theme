@@ -11,6 +11,26 @@ function getQueryParam(param) {
   return urlParams.has(param); // returns true if the parameter is present, otherwise false
 }
 
+// * show swirl on first load only 
+// if swirl has already been shown, add class no-swirl and remove node
+const PRELOADER_FLAG = "swirlShown";
+if (sessionStorage.getItem(PRELOADER_FLAG)) {
+  document.documentElement.classList.add("no-swirl");
+  document.querySelector(".c--preloader-a__media-wrapper")?.remove();
+}
+// for swup events
+document.addEventListener("swup:willReplaceContent", () => {
+  document.documentElement.classList.add("no-swirl");
+  document.querySelector(".c--preloader-a__media-wrapper")?.remove();
+});
+document.addEventListener("swup:contentReplaced", () => {
+  if (sessionStorage.getItem(PRELOADER_FLAG)) {
+    document.documentElement.classList.add("no-swirl");
+    document.querySelector(".c--preloader-a__media-wrapper")?.remove();
+  }
+});
+
+
 class Project {
   constructor() {
     window.isFired = true; // prevent multiple instances of the project class
@@ -224,6 +244,13 @@ class Project {
       if (this.DOM.heroB) {
         tl.add(new window["animations"]["heroB"].default(), "-=.3");
       }
+
+      // remove the swirl once it's shown for the first time
+      tl.add(() => {
+        console.log ("SWIRL SHOWN");
+        sessionStorage.setItem("swirlShown", "1");
+        document.documentElement.classList.add("no-swirl");
+      });
     }
   }
 }

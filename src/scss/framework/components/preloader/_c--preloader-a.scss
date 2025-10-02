@@ -32,6 +32,11 @@
     }
 }
 
+.no-swirl .c--preloader-a__media-wrapper {
+  display: none !important;
+}
+
+
 @keyframes rotateSwirl {
     0% {
         transform: rotate(0deg);
