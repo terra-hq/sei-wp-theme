@@ -50,7 +50,7 @@ if (function_exists('acf_add_local_field_group')) :
         'fields' => array(
             array(
                 'key' => 'field_5esfazhty15629954',
-                'label' => 'List of Capabilities',
+                'label' => 'List of Capabilities + Industry',
                 'name' => 'custom_pills',
                 'type' => 'group',
                 'instructions' => '',
@@ -65,7 +65,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5eg9c6f1e1c4737',
-                        'label' => 'Capabilities / Subcapabilities',
+                        'label' => 'List of Capabilities + Industry',
                         'name' => 'pills',
                         'type' => 'repeater',
                         'instructions' => '',
@@ -114,6 +114,7 @@ if (function_exists('acf_add_local_field_group')) :
                                 ),
                                 'post_type' => array(
                                     0 => 'capability',
+                                    1 => 'industry',
                                 ),
                                 'taxonomy' => '',
                                 'filters' => array(
