@@ -312,7 +312,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                 
                                 <div class="f--col-4 f--col-tabletm-12">
                                     <div class="c--card-m__hd">
-                                        <p  class="c--card-m__hd__title">THE STARTING POINT</p>
+                                        <p  class="c--card-m__hd__title">WHAT WE DID</p>
                                         <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></a>
                                         <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                                     </div>
