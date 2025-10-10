@@ -35,7 +35,7 @@
         ?>
         <div class="f--col-4 f--col-tabletm-12">
             <div class="c--card-m__hd">
-                <p  class="c--card-m__hd__title">THE STARTING POINT</p>
+                <p  class="c--card-m__hd__title">WHAT WE DID</p>
                 <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></a>
                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
             </div>

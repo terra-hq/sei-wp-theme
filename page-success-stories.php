@@ -224,7 +224,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                         ?>
                         <div class="f--col-4 f--col-tabletm-12">
                             <div class="c--card-m__hd">
-                                <p class="c--card-m__hd__title">THE STARTING POINT</p>
+                                <p class="c--card-m__hd__title">WHAT WE DID</p>
                                 <a class="c--card-m__hd__paragraph" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>"><?= get_the_title($featured_case_study[0]->ID); ?></a>
                                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                             </div>
