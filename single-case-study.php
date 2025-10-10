@@ -4,7 +4,7 @@
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
-        <a href="<?php echo esc_url(home_url('/success-stories')) ?>" class="c--back-link-a u--mb-10 u--mt-5">Back to All Case Studies</a>
+        <a href="<?php echo esc_url(home_url('/client-stories')) ?>" class="c--back-link-a u--mb-10 u--mt-5">Back to All Case Studies</a>
         <?php
         $insight_types = get_the_terms(get_the_ID(), 'insight-types');
         if ($insight_types && !is_wp_error($insight_types)) {
@@ -44,6 +44,67 @@
         </p>
         
         <article class="u--pt-4 u--pt-tablets-3 u--pb-4">
+          <?php
+          // Get capabilities and industries taxonomies
+          $capabilities = get_the_terms(get_the_ID(), 'case-study-capability');
+          $industries = get_the_terms(get_the_ID(), 'case-study-industry');
+          
+          // Prepare pills array
+          $pills = array();
+          
+          // Process capabilities
+          if ($capabilities && !is_wp_error($capabilities)) {
+            foreach ($capabilities as $capability) {
+              // Get the related capability post from ACF relationship field
+              $related_capability = get_field('capabilities', 'case-study-capability_' . $capability->term_id);
+              
+              $capability_link = '#';
+              if ($related_capability && !empty($related_capability)) {
+                // ACF relationship returns an array, get the first post
+                $capability_post = is_array($related_capability) ? $related_capability[0] : $related_capability;
+                $capability_link = get_permalink($capability_post);
+              }
+              
+              $pills[] = array(
+                'name' => $capability->name,
+                'link' => $capability_link
+              );
+            }
+          }
+          
+          // Process industries
+          if ($industries && !is_wp_error($industries)) {
+            foreach ($industries as $industry) {
+              // Get the related industry post from ACF relationship field
+              $related_industry = get_field('industries', 'case-study-industry_' . $industry->term_id);
+              
+              $industry_link = '#';
+              if ($related_industry && !empty($related_industry)) {
+                // ACF relationship returns an array, get the first post
+                $industry_post = is_array($related_industry) ? $related_industry[0] : $related_industry;
+                $industry_link = get_permalink($industry_post);
+              }
+              
+              $pills[] = array(
+                'name' => $industry->name,
+                'link' => $industry_link
+              );
+            }
+          }
+          
+          // Display pills if there are any
+          if (!empty($pills)) : ?>
+            <div class="c--pills-a u--mb-4">
+              <?php foreach ($pills as $pill) : ?>
+                <?php if ($pill['link'] !== '#') : ?>
+                  <a class="g--pill-01" href="<?php echo esc_url($pill['link']); ?>"><?php echo esc_html($pill['name']); ?></a>
+                <?php else : ?>
+                  <span class="g--pill-01"><?php echo esc_html($pill['name']); ?></span>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+          
           <div class="c--content-a">
             <?php the_content() ?>
           </div>

@@ -135,5 +135,12 @@ function projectcategory_permalink_structure($post_link, $post, $leavename, $sam
     return $post_link;
 }
 
+add_action('admin_head', function () {
+    $screen = get_current_screen();
+    if (isset($screen->taxonomy) && in_array($screen->taxonomy, ['case-study-capability', 'case-study-industry'])) {
+        echo '<style>.term-description-wrap {display: none !important;}</style>';
+    }
+});
+
 
 ?>
