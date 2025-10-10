@@ -44,6 +44,7 @@
         </p>
         
         <article class="u--pt-4 u--pt-tablets-3 u--pb-4">
+          <p class="f--font-i u--font-bold u--pb-3">Applied Expertise</p>
           <?php
           // Get capabilities and industries taxonomies
           $capabilities = get_the_terms(get_the_ID(), 'case-study-capability');
