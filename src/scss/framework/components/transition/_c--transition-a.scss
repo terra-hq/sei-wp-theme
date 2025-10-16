@@ -12,6 +12,20 @@
 	z-index: 1000;
 	pointer-events: none;
 	@extend .u--height-100;
+    &__media-wrapper {
+        @extend .u--position-absolute;
+        right: $measure * 4;
+        bottom: $measure * 4;
+        transform: none;
+        pointer-events: none;
+        &__media {
+            @extend .u--display-block;
+            width: auto;
+            height: clamp($measure * 5, 6vw, $measure * 7);
+            opacity: 0;
+            animation: rotateSwirl 2s linear infinite;
+        }
+    }
     &__artwork {
         @extend .u--width-100;
         @extend .u--height-100;
