@@ -52,7 +52,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                             <?php
                             $terms = get_terms(array(
                                 'taxonomy' => 'case-study-industry',
-                                'hide_empty' => false,
+                                'hide_empty' => true,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
@@ -74,7 +74,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                             <?php
                             $terms = get_terms(array(
                                 'taxonomy' => 'case-study-capability',
-                                'hide_empty' => false,
+                                'hide_empty' => true,
                             ));
                             ?>
                             <?php foreach ($terms as $term) : ?>
