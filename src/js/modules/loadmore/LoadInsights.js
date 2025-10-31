@@ -16,7 +16,8 @@ class LoadInsights {
         this.payload.dom.loader.style.display = 'none';
         this.payload.dom.spinner.style.display = 'none';
         this.payload.dom.resultsNumber.style.display = 'none';
-        this.payload.dom.resultsContainer.style.display = 'flex';
+        var postTotal = this.payload.dom.triggerElement.dataset.postsTotal
+        this.payload.dom.resultsContainer.style.display = postTotal == 0 ? 'block' : 'flex';
         this.checkVisibilityLoadMore();
         if (this.payload.dom.searchBar) {
             this.searchBarFunctionality();
@@ -47,7 +48,8 @@ class LoadInsights {
             this.payload.dom.resultsNumber.style.display = 'none';
         } else {
             this.payload.dom.resultsNumber.style.display = 'block';
-            this.payload.dom.resultsNumber.children[0].innerHTML = `${this.payload.dom.triggerElement.dataset.postsTotal} ${this.payload.dom.triggerElement.dataset.postsTotal === 1 ? 'result' : 'results'}`;
+            var postsTotal = this.payload.dom.triggerElement.dataset.postsTotal ? this.payload.dom.triggerElement.dataset.postsTotal : 0;this.payload.dom.triggerElement.dataset.postsTotal
+            this.payload.dom.resultsNumber.children[0].innerHTML = `${postsTotal} ${postsTotal === 1 ? 'result' : 'results'}`;
         }
     }
 

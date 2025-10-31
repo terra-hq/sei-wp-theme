@@ -359,7 +359,6 @@ class Main extends Core {
           name: "Marquee",
 
           callback: async () => {
-            // Lógica de validación por número de ítems y tamaño de viewport
             const items = element.querySelectorAll(".c--marquee-a__item");
             const itemCount = element.querySelectorAll(
               ".c--marquee-a__item"
@@ -373,7 +372,6 @@ class Main extends Core {
               return;
             }
 
-            // Importar e instanciar el módulo solo si pasa la validación
             const { default: InfiniteMarquee } = await import(
               "@jsModules/marquee/InfiniteMarquee.js"
             );
@@ -558,16 +556,21 @@ class Main extends Core {
               },
               element: element,
               callback: async () => {
-                this.instances["LoadCaseStudies"] = [];
-                await import("@jsModules/loadMore/LoadCaseStudies").then(
-                  ({ default: LoadCaseStudies }) => {
-                    window["lib"]["LoadCaseStudies"] = LoadCaseStudies;
-                  }
-                );
+              if (element.dataset.caseStudiesLoaded === "true") return;
+              element.dataset.caseStudiesLoaded = "true";
 
-                this.instances["LoadCaseStudies"][index] = new window["lib"][
-                  "LoadCaseStudies"
-                ](caseStudiesLoadMore);
+              if (!window.lib?.LoadCaseStudies) {
+                const { default: LoadCaseStudies } = await import(
+                  "@jsModules/loadMore/LoadCaseStudies"
+                );
+                window.lib = window.lib || {};
+                window.lib.LoadCaseStudies = LoadCaseStudies;
+              }
+
+              this.instances["LoadCaseStudies"] = this.instances["LoadCaseStudies"] || [];
+              this.instances["LoadCaseStudies"][index] = new window.lib.LoadCaseStudies(
+                caseStudiesLoadMore
+              );
               },
             });
           });
@@ -616,16 +619,21 @@ class Main extends Core {
               },
               element: element,
               callback: async () => {
-                this.instances["LoadInsights"] = [];
-                await import("@jsModules/loadMore/LoadInsights").then(
-                  ({ default: LoadInsights }) => {
-                    window["lib"]["LoadInsights"] = LoadInsights;
-                  }
-                );
+                if (element.dataset.insightsLoaded === "true") return;
+                element.dataset.insightsLoaded = "true";
 
-                this.instances["LoadInsights"][index] = new window["lib"][
-                  "LoadInsights"
-                ](insightsLoadMore);
+                if (!window.lib?.LoadInsights) {
+                  const { default: LoadInsights } = await import(
+                    "@jsModules/loadMore/LoadInsights"
+                  );
+                  window.lib = window.lib || {};
+                  window.lib.LoadInsights = LoadInsights;
+                }
+
+                this.instances["LoadInsights"] = this.instances["LoadInsights"] || [];
+                this.instances["LoadInsights"][index] = new window.lib.LoadInsights(
+                  insightsLoadMore
+                );
               },
             });
           });
