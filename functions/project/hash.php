@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 's35');
+define('hash', 'rau');
 
 ?>
