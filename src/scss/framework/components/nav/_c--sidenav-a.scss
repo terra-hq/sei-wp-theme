@@ -9,10 +9,15 @@
     position: fixed;
     overflow: auto;
     right: -200%;
-    top: 0;
+    top: -($measure*4);
     min-width: 350px;
     height: 100vh;
     z-index: 8;
+
+    @media all and ($viewport-type: $tablets) {
+        top: 0;
+    }
+
     @media all and ($viewport-type: $mobile) {
         width: 100%;
         min-width: 0;
