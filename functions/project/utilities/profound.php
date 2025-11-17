@@ -15,7 +15,7 @@ add_action('wp_footer', function () {
         array(
             'headers' => array(
                 'Content-Type' => 'application/json',
-                'x-api-key' => 'bot_81245185-f9e0-4c1d-a36e-a8092dfe730f'
+                'x-api-key' => get_field('profound_api_key', 'options'),
             ),
             'body' => json_encode($data)
         )
