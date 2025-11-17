@@ -19,6 +19,7 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php'); // Include WordPress up
 require get_template_directory() . '/functions/default/terraClasses/lighthouse/getReport.php'; // Include report class
 require get_template_directory() . '/functions/default/terraClasses/lighthouse/showTable.php';  // Include table class
 require get_template_directory() . '/functions/default/terraClasses/lighthouse/updateMetricWithAjax.php';   // Include AJAX functions
+require get_template_directory() . '/functions/default/terraClasses/lighthouse/register-hook.php';
 global $terraLighthouse; // Declare a global variable for TerraLighthouse instance
 
 class TerraLighthouse {
