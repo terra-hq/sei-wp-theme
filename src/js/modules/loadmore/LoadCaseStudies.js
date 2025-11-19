@@ -1,6 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 import { u_addClass, u_removeClass, u_style } from "@andresclua/jsutil";
+import { createHistoryRecord } from 'swup';
 const postURL = base_wp_api.ajax_url;
 
 class LoadCaseStudies {
@@ -169,11 +170,12 @@ class LoadCaseStudies {
         } else {
             value ? urlParams.set(query, value) : urlParams.delete(query);
         }
-        if (urlParams.size > 0) {
-            window.history.replaceState({}, "", `${location.pathname}?${urlParams}`);
-        } else {
-            window.history.replaceState({}, "", `${location.pathname}`);
-        }
+
+        const newSearch = urlParams.toString();
+        const newUrl = newSearch ? `${location.pathname}?${newSearch}` : `${location.pathname}`;
+
+        createHistoryRecord(newUrl);
+        return;
     }
 
     destroy() {
