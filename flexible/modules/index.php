@@ -133,5 +133,7 @@ switch ($module['acf_fc_layout']) {
     case 'center_heading_with_text':
         include (locate_template('flexible/modules/center-heading-with-text.php', false, false));
         break;
-        
+    case 'full_width_lottie':
+        include (locate_template('flexible/modules/full-width-lottie.php', false, false));
+        break;
 }
