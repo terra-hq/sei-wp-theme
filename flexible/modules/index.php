@@ -130,6 +130,8 @@ switch ($module['acf_fc_layout']) {
      case 'case_studies_slider':
         include (locate_template('flexible/modules/case-studies-slider.php', false, false));
         break;   
-
+    case 'center_heading_with_text':
+        include (locate_template('flexible/modules/center-heading-with-text.php', false, false));
+        break;
         
 }
