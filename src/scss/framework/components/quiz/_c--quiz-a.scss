@@ -1,0 +1,207 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/form/_c--form-d" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+@use "@scss/framework/components/link/_c--back-link-a" as *;
+
+.c--quiz-a {
+    @extend .u--display-none;
+    @extend .u--flex-direction-column;
+    @extend .f--background-b;
+    @extend .u--pt-5;
+    @extend .u--pb-5;
+    @extend .u--pl-7;
+    @extend .u--pr-7;
+    @extend .u--width-100;
+    gap: $measure * 6;
+    margin: 0 auto;
+    max-width: 720px;
+
+    &--is-active {
+        @extend .u--display-flex;
+    }
+
+    &__hd {
+        @extend .u--width-100;
+
+        &__title {
+            @extend .f--font-f;
+            @extend .u--font-medium;
+            @extend .f--color-b;
+            @extend .u--text-center;
+        }
+    }
+
+    &__bd {
+        @extend .c--form-d;
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        @extend .u--width-100;
+        min-height: 492px;
+        padding: $measure * 4 $measure * 5 !important;
+
+        &__subtitle {
+            @extend .f--font-h;
+            @extend .u--font-medium;
+            @extend .f--color-b;
+            @extend .u--mb-3;
+        }
+
+        &__content {
+            @extend .u--display-flex;
+            @extend .u--flex-direction-column;
+            @extend .u--width-100;
+            @extend .u--mb-3;
+            gap: $measure * 4;
+
+            &:first-child {
+                @extend .u--align-items-flex-end;
+                @extend .u--mb-5;
+                gap: $measure;
+            }
+
+            &__item {
+                .c--quiz-a__bd__content:first-child > &:first-child {
+                    @extend .f--font-j;
+                    @extend .f--color-j;
+                }
+            }
+
+            &__wrapper {
+                @extend .u--width-100;
+                height: $measure * 1.5;
+                border-radius: $measure * 3;
+                background-color: rgba(map.get($color-options, b), 0.1);
+                overflow: hidden;
+
+                &__item {
+                    @extend .u--display-block;
+                    @extend .f--background-f;
+                    @extend .u--height-100;
+                    @extend .u--width-100;
+                    border-radius: $measure * 3;
+                    width: var(--quiz-progress, 0%);
+                }
+            }
+        }
+
+        &__ft {
+            @extend .u--display-flex;
+            @extend .u--align-items-center;
+            @extend .u--justify-content-space-between;
+            @extend .u--width-100;
+            margin-top: auto;
+
+            &__link {
+                @extend .c--back-link-a;
+            }
+
+            &__btn {
+                @extend .g--btn-01;
+                margin-top: 0;
+                margin-left: auto;
+
+                &--second {
+                    @extend .g--btn-01--third;
+                }
+            }
+        }
+    }
+}
+
+// ! Estos estilos no están en el proyecto, moverlos a su .scss e incluirlos, o extenderlos o algo
+.c--form-group-a {
+    @extend .u--width-100;
+    @extend .u--display-flex;
+    @extend .u--flex-direction-column;
+}
+
+.c--label-a {
+    @extend .f--font-j;
+    color: rgba(map.get($color-options, b), 0.6);
+    @extend .u--mb-2;
+}
+
+.c--form-input-a {
+    @extend .u--width-100;
+    @extend .u--display-block;
+
+    &__item {
+        @extend .u--width-100;
+        @extend .f--font-i;
+        @extend .u--font-light;
+        color: map.get($color-options, b) !important;
+        background: transparent !important;
+        padding: $measure $measure $measure 0;
+        border-width: 0 0 1px 0;
+        border-color: map.get($color-options, b);
+        border-radius: 0;
+        border-style: solid;
+
+        &::placeholder {
+            @extend .f--font-i;
+            @extend .u--font-light;
+            color: rgba(map.get($color-options, b), 0.6);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: map.get($color-options, b);
+        }
+    }
+
+    textarea.c--form-input-a__item {
+        width: 100% !important;
+        resize: none !important;
+        min-height: $measure * 15;
+    }
+}
+
+.c--form-select-a {
+    @extend .u--width-100;
+    @extend .u--position-relative;
+    @extend .u--display-block;
+
+    &__item {
+        @extend .u--width-100;
+        @extend .f--font-i;
+        @extend .u--font-light;
+        color: map.get($color-options, b) !important;
+        background: transparent !important;
+        padding: $measure $measure $measure 0;
+        border-width: 0 0 1px 0;
+        border-color: map.get($color-options, b);
+        border-radius: 0;
+        border-style: solid;
+        appearance: none;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+            border-color: map.get($color-options, b);
+        }
+    }
+
+    &::after {
+        @extend .u--position-absolute;
+        @extend .u--display-block;
+        pointer-events: none;
+        content: "";
+        width: 11px;
+        height: 11px;
+        top: 50%;
+        right: $measure * 2;
+        border-bottom: 1px solid map.get($color-options, b);
+        border-right: 1px solid map.get($color-options, b);
+        transform: rotate(45deg) translateY(-100%);
+    }
+}
+
+.c--form-error-a {
+    @extend .f--font-j;
+    @extend .f--color-c;
+    @extend .u--display-none;
+    margin-top: $measure;
+}
