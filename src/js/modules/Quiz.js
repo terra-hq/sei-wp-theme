@@ -26,6 +26,7 @@ class Quiz {
         });
 
         this.attachButtonListeners();
+        this.setupFieldValidation();
         this.setProgressBar();
     }
 
@@ -85,6 +86,72 @@ class Quiz {
         }
     }
 
+    setupFieldValidation() {
+        const fields = this.DOM.quiz.querySelectorAll("input, select, textarea");
+
+        fields.forEach((field) => {
+            field.addEventListener("blur", () => {
+                this.validateField(field);
+            });
+
+            if (field.tagName === "SELECT") {
+                field.addEventListener("change", () => {
+                    this.validateField(field);
+                });
+            }
+        });
+    }
+
+    validateField(field) {
+        const formGroup = field.closest(".c--form-group-a");
+        if (!formGroup) return;
+
+        let errorSpan = formGroup.querySelector(".c--form-error-a");
+
+        if (!errorSpan) {
+            errorSpan = document.createElement("span");
+            errorSpan.classList.add("c--form-error-a");
+            errorSpan.style.display = "none";
+            formGroup.appendChild(errorSpan);
+        }
+
+        if (!field.checkValidity()) {
+            const customMessage = this.getCustomErrorMessage(field);
+            errorSpan.textContent = customMessage || field.validationMessage;
+            errorSpan.style.display = "block";
+        } else {
+            errorSpan.textContent = "";
+            errorSpan.style.display = "none";
+        }
+    }
+
+    getCustomErrorMessage(field) {
+        if (field.validity.valueMissing) {
+            if (field.id === "quiz-company") {
+                return "Company name cannot be empty";
+            }
+            if (field.id === "quiz-email") {
+                return "Email address cannot be empty";
+            }
+            if (field.id === "quiz-role") {
+                return "Please select your role";
+            }
+            if (field.id === "quiz-industry") {
+                return "Please select your industry";
+            }
+            if (field.id === "quiz-journey") {
+                return "Please select where you are in your AI transformation journey";
+            }
+            return "This field is required";
+        }
+
+        if (field.validity.typeMismatch && field.type === "email") {
+            return "Please enter a valid email address";
+        }
+
+        return null;
+    }
+
     isStepValid(stepElement) {
         if (!stepElement) {
             return true;
@@ -95,6 +162,8 @@ class Quiz {
         let firstInvalid = null;
 
         fields.forEach((field) => {
+            this.validateField(field);
+
             if (!field.checkValidity()) {
                 isValid = false;
                 if (!firstInvalid) {
@@ -104,7 +173,7 @@ class Quiz {
         });
 
         if (!isValid && firstInvalid) {
-            firstInvalid.reportValidity();
+            firstInvalid.focus();
         }
 
         return isValid;
