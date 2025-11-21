@@ -1,6 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 import { u_addClass, u_removeClass, u_style } from "@andresclua/jsutil";
+import { createHistoryRecord } from 'swup';
 const postURL = base_wp_api.ajax_url;
 
 class LoadInsights {
@@ -169,17 +170,18 @@ class LoadInsights {
     handleQueryParams(query, value, slug) {
         const urlParams = new URLSearchParams(window.location.search);
         if (query !== "query" && query !== "pagination") {
-            value !== "all" ? urlParams.set(slug, value) : urlParams.delete(slug);
+        value !== "all" ? urlParams.set(slug, value) : urlParams.delete(slug);
         } else if (query == "pagination") {
-            urlParams.set(query, value);
+        urlParams.set(query, value);
         } else {
-            value ? urlParams.set(query, value) : urlParams.delete(query);
+        value ? urlParams.set(query, value) : urlParams.delete(query);
         }
-        if (urlParams.size > 0) {
-            window.history.replaceState({}, "", `${location.pathname}?${urlParams}`);
-        } else {
-            window.history.replaceState({}, "", `${location.pathname}`);
-        }
+
+        const newSearch = urlParams.toString();
+        const newUrl = newSearch ? `${location.pathname}?${newSearch}` : `${location.pathname}`;
+
+        createHistoryRecord(newUrl);
+        return;
     }
 
     destroy() {

@@ -686,6 +686,22 @@ class Main extends Core {
         });
       });
     }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"] = [];
+      this.instances["Collapse"] = [];
+
+      const { default: Quiz } = await import("@jsModules/Quiz");
+      window["lib"]["Quiz"] = Quiz;
+
+      const { default: Collapse } = await import("@terrahq/collapsify");
+      window["lib"]["Collapse"] = Collapse;
+
+      document.querySelectorAll(".js--quiz-a").forEach((element, index) => {
+        this.instances["Quiz"][index] = new window["lib"]["Quiz"]();
+      });
+    }
+
   }
 
   willReplaceContent() {
