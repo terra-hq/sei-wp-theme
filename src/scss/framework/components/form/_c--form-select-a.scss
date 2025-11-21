@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--form-input-a {
+    @extend .u--width-100;
+    @extend .u--display-block;
+
+    &__item {
+        @extend .u--width-100;
+        @extend .f--font-i;
+        @extend .u--font-light;
+        color: map.get($color-options, b) !important;
+        background: transparent !important;
+        padding: $measure $measure $measure 0;
+        border-width: 0 0 1px 0;
+        border-color: map.get($color-options, b);
+        border-radius: 0;
+        border-style: solid;
+
+        &::placeholder {
+            @extend .f--font-i;
+            @extend .u--font-light;
+            color: rgba(map.get($color-options, b), 0.6);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: map.get($color-options, b);
+        }
+    }
+
+    textarea.c--form-input-a__item {
+        width: 100% !important;
+        resize: none !important;
+        min-height: $measure * 15;
+    }
+}
