@@ -3,22 +3,12 @@ $spacing = get_spacing($module['section_spacing']);
 $left_label_accordion = $module['left_label_accordion'] ?? '';
 $right_label_accordion = $module['right_label_accordion'] ?? '';
 $accordion_items = $module['accordion_items'] ?? [];
-$heading = $module['heading'] ?? '';
-$text = $module['text'] ?? '';
 ?>
 
 <section class="<?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-
-                <?php if ($heading): ?>
-                    <h2><?= $heading ?></h2>
-                <?php endif; ?>
-
-                <?php if ($text): ?>
-                    <p><strong>Text:</strong> <?= $text ?></p>
-                <?php endif; ?>
 
                 <?php if (!empty($accordion_items)): ?>
                     <?php foreach ($accordion_items as $index => $item): ?>
@@ -53,4 +43,4 @@ $text = $module['text'] ?? '';
     </div>
 </section>
 
-<?php unset($spacing, $left_label_accordion, $right_label_accordion, $accordion_items, $heading, $text); ?>
+<?php unset($spacing, $left_label_accordion, $right_label_accordion, $accordion_items); ?>
