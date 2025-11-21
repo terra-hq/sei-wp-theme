@@ -6,14 +6,12 @@ class Quiz {
         this.DOM = {
             quiz: document.querySelector(".js--quiz-a"),
             steps: null,
-            buttons: null,
         };
-
-        this.handleButtonClick = this.handleButtonClick.bind(this);
 
         if (this.DOM.quiz) {
             this.DOM.form = this.DOM.quiz.querySelector("form.hs-form");
             this.DOM.steps = this.DOM.quiz.querySelectorAll(".c--quiz-a");
+            this.handleButtonClick = this.handleButtonClick.bind(this);
             this.init();
         }
     }
