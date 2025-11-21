@@ -1,4 +1,5 @@
 import Collapsify from "@terrahq/collapsify";
+import Gradient from "./HeroBg";
 
 class Quiz {
 
@@ -28,6 +29,11 @@ class Quiz {
         this.attachButtonListeners();
         this.setupFieldValidation();
         this.setProgressBar();
+
+        let heroBg = document.querySelector("#gradient-canvas");
+        if (heroBg) {
+            new Gradient().initGradient("#gradient-canvas");
+        }
     }
 
     attachButtonListeners() {

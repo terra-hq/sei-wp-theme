@@ -1,7 +1,11 @@
-<section class="js--quiz-a u--pt-22 u--pb-22 u--pt-mobile-15 u--pb-mobile-15">
-    <div class="f--container u--pl-mobile-0 u--pr-mobile-0">
+<div class="c--webgl-a__bg-items">
+    <canvas id="gradient-canvas"></canvas>
+</div>
+
+<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-10 u--pb-mobile-15">
+    <div class="f--container f--container--tablets-fluid">
         <div class="f--row u--justify-content-center">
-            <div class="f--col-5 f--col-desktop-6 f--col-tabletl-8 f--col-tabletm-12 u--pl-mobile-0 u--pr-mobile-0">
+            <div class="f--col-5 f--col-desktop-6 f--col-tabletl-8 f--col-tabletm-12 f--background-b u--pl-mobile-0 u--pr-mobile-0">
 
                 <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
 

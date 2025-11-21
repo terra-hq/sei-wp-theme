@@ -14,6 +14,8 @@
     @extend .u--pl-7;
     @extend .u--pr-7;
     @extend .u--width-100;
+    @extend .u--position-relative;
+    z-index: 4;
     gap: $measure * 6;
 
     @media screen and ($viewport-type: $mobile) {
