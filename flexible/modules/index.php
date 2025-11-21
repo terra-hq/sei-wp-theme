@@ -139,4 +139,7 @@ switch ($module['acf_fc_layout']) {
     case 'uses_cases_slider':
         include (locate_template('flexible/modules/uses-cases-slider.php', false, false));
         break;
+    case 'general_accordion':
+        include (locate_template('flexible/modules/general-accordion.php', false, false));
+        break;
 }
