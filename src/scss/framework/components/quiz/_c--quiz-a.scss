@@ -16,6 +16,10 @@
     @extend .u--width-100;
     gap: $measure * 6;
 
+    @media screen and ($viewport-type: $mobile) {
+        padding: $measure * 4 $measure * 3;
+    }
+
     &__hd {
         @extend .u--display-flex;
         @extend .u--flex-direction-column;
@@ -42,7 +46,10 @@
         @extend .u--width-100;
         gap: $measure * 6;
         margin: 0 auto;
-        max-width: 720px;
+
+        @media screen and ($viewport-type: $mobile) {
+            padding: $measure * 4 $measure * 3;
+        }
 
         &--is-active {
             @extend .u--display-flex;
@@ -73,9 +80,7 @@
                     @extend .u--display-block;
                     @extend .f--background-f;
                     @extend .u--height-100;
-                    @extend .u--width-100;
                     border-radius: $measure * 3;
-                    width: var(--quiz-progress, 0%);
                 }
             }
         }
@@ -100,10 +105,31 @@
                 @extend .u--mb-3;
                 gap: $measure * 4;
 
+                &--second {
+                    @extend .u--align-items-center;
+                    @extend .u--justify-content-center;
+                    min-height: 358px;
+                }
+
                 &:first-child {
                     @extend .u--align-items-flex-end;
                     @extend .u--mb-5;
                     gap: $measure;
+                }
+
+                &__title {
+                    @extend .f--font-d;
+                    @extend .f--color-c;
+                    @extend .u--text-center;
+                    @extend .u--width-100;
+                    margin-bottom: $measure * 3;
+                }
+
+                &__text {
+                    @extend .f--font-i;
+                    @extend .f--color-b;
+                    @extend .u--text-center;
+                    margin: 0;
                 }
             }
         }
@@ -123,6 +149,10 @@
                 @extend .g--btn-01;
                 margin-top: 0;
                 margin-left: auto;
+
+                @media screen and ($viewport-type: $mobile) {
+                    width: fit-content;
+                }
 
                 &--second {
                     @extend .g--btn-01--third;

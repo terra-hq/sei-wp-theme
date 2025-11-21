@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Modules
+Template Name: Gotzon
 */
 ?>
 <?php get_header() ?>
