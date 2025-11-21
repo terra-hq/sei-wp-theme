@@ -142,4 +142,7 @@ switch ($module['acf_fc_layout']) {
     case 'general_accordion':
         include (locate_template('flexible/modules/general-accordion.php', false, false));
         break;
+    case 'text_left_team_cards_right':
+        include (locate_template('flexible/modules/text-left-team-cards-right.php', false, false));
+        break;
 }
