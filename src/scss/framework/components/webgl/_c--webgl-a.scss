@@ -26,7 +26,7 @@
         &__item {}
     }
     &__bg-items {
-        @extend .u--position-absolute;
+        @extend .u--position-fixed;
         @extend .u--width-100;
         @extend .u--height-100;
         top: 0;
