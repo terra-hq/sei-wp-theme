@@ -136,4 +136,7 @@ switch ($module['acf_fc_layout']) {
     case 'full_width_lottie':
         include (locate_template('flexible/modules/full-width-lottie.php', false, false));
         break;
+    case 'uses_cases_slider':
+        include (locate_template('flexible/modules/uses-cases-slider.php', false, false));
+        break;
 }
