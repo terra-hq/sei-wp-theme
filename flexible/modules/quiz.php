@@ -2,7 +2,7 @@
     <canvas id="gradient-canvas"></canvas>
 </div>
 
-<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-10 u--pb-mobile-0">
+<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-2">
     <div class="f--container f--container--tablets-fluid">
         <div class="f--row u--justify-content-center">
             <div class="f--col-5 f--col-desktop-6 f--col-tabletl-8 f--col-tabletm-12 u--pl-mobile-0 u--pr-mobile-0">
