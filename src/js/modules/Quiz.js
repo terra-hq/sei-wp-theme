@@ -8,6 +8,8 @@ class Quiz {
             steps: null,
         };
 
+        this.progress = 0;
+
         if (this.DOM.quiz) {
             this.DOM.form = this.DOM.quiz.querySelector("form.hs-form");
             this.DOM.steps = this.DOM.quiz.querySelectorAll(".c--quiz-a__wrapper");
@@ -24,6 +26,7 @@ class Quiz {
         });
 
         this.attachButtonListeners();
+        this.setProgressBar();
     }
 
     attachButtonListeners() {
@@ -58,16 +61,9 @@ class Quiz {
             }
         }
 
-        if (isSubmit) {
-            if (this.DOM.form) {
-                this.DOM.form.submit();
-            }
-            return;
-        }
-
         let targetStepID = null;
 
-        if (isNext) {
+        if (isNext || isSubmit) {
             const currentStepIndex = Array.from(this.DOM.steps).indexOf(currentStep);
             const nextStep = this.DOM.steps[currentStepIndex + 1];
             
@@ -112,6 +108,18 @@ class Quiz {
         }
 
         return isValid;
+    }
+
+    setProgressBar() {
+        const steps = Array.from(this.DOM.steps);
+
+        steps.forEach((step) => {
+            const stepIndex = steps.indexOf(step);
+            const progress = (stepIndex / (steps.length - 1)) * 100;
+            step.querySelector(".js--progressbar-wrapper").setAttribute("aria-valuenow", progress);
+            step.querySelector(".js--progressbar-item").style.width = progress + "%";
+            step.querySelector(".js--progressbar-text").textContent = Math.round(progress) + "%";
+        });
     }
 
     destroy() {
