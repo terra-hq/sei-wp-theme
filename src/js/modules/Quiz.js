@@ -10,7 +10,7 @@ class Quiz {
 
         if (this.DOM.quiz) {
             this.DOM.form = this.DOM.quiz.querySelector("form.hs-form");
-            this.DOM.steps = this.DOM.quiz.querySelectorAll(".c--quiz-a");
+            this.DOM.steps = this.DOM.quiz.querySelectorAll(".c--quiz-a__wrapper");
             this.handleButtonClick = this.handleButtonClick.bind(this);
             this.init();
         }
@@ -27,7 +27,7 @@ class Quiz {
     }
 
     attachButtonListeners() {
-        const buttons = this.DOM.quiz.querySelectorAll(".c--quiz-a__bd__ft__btn, .c--quiz-a__bd__ft__link");
+        const buttons = this.DOM.quiz.querySelectorAll(".c--quiz-a__wrapper__ft__btn, .c--quiz-a__wrapper__ft__link");
 
         buttons.forEach((button) => {
             button.addEventListener("click", this.handleButtonClick);
@@ -38,17 +38,17 @@ class Quiz {
         event.preventDefault();
         
         const button = event.currentTarget;
-        const currentStep = button.closest(".c--quiz-a");
+        const currentStep = button.closest(".c--quiz-a__wrapper");
 
         if (!currentStep) {
             return;
         }
 
         const currentStepID = currentStep.getAttribute("data-tab-content");
-        const isPrevious = button.classList.contains("c--quiz-a__bd__ft__link");
+        const isPrevious = button.classList.contains("c--quiz-a__wrapper__ft__link");
         const buttonText = button.textContent.trim().toLowerCase();
-        const isSubmit = button.classList.contains("c--quiz-a__bd__ft__btn") && buttonText === "submit";
-        const isNext = button.classList.contains("c--quiz-a__bd__ft__btn") && !isSubmit && !isPrevious;
+        const isSubmit = button.classList.contains("c--quiz-a__wrapper__ft__btn") && buttonText === "submit";
+        const isNext = button.classList.contains("c--quiz-a__wrapper__ft__btn") && !isSubmit && !isPrevious;
 
         if (isNext || isSubmit) {
             const isValid = this.isStepValid(currentStep);

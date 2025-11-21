@@ -3,25 +3,24 @@
         <div class="f--row">
             <div class="f--col-12">
 
-                <form class="hs-form" action="#" method="post" novalidate>
+                <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
+
+                    <div class="c--quiz-a__hd">
+                        <p class="c--quiz-a__hd__title">Talk to our experience team and discover your next step with AI</p>
+                    </div>
 
                     <!-- Step 1 -->
-                    <fieldset class="c--quiz-a c--quiz-a--is-active" data-step="1" data-tab-content="quiz-step-01" aria-hidden="false">
-                        <div class="c--quiz-a__hd">
-                            <p class="c--quiz-a__hd__title">Talk to our experience team and discover your next step with AI</p>
-                        </div>
-
-                        <div class="c--quiz-a__bd" style="--quiz-progress: 0%;">
-                            <div class="c--quiz-a__bd__content">
-                                <span class="c--quiz-a__bd__content__item">0%</span>
-                                <div class="c--quiz-a__bd__content__wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <span class="c--quiz-a__bd__content__wrapper__item" aria-hidden="true"></span>
-                                </div>
+                    <fieldset class="c--quiz-a__wrapper c--quiz-a__wrapper--is-active" data-step="1" data-tab-content="quiz-step-01" aria-hidden="false">
+                        <div class="c--quiz-a__wrapper__hd">
+                            <span class="c--quiz-a__wrapper__hd__item">0%</span>
+                            <div class="c--quiz-a__wrapper__hd__wrapper" style="--quiz-progress: 0%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                <span class="c--quiz-a__wrapper__hd__wrapper__item" aria-hidden="true"></span>
                             </div>
+                        </div>
+                        <div class="c--quiz-a__wrapper__bd">
+                            <p class="c--quiz-a__wrapper__bd__subtitle">Contact Details</p>
 
-                            <p class="c--quiz-a__bd__subtitle">Contact Details</p>
-
-                            <div class="c--quiz-a__bd__content">
+                            <div class="c--quiz-a__wrapper__bd__wrapper">
                                 <div class="c--form-group-a">
                                     <label class="c--label-a" for="quiz-company">Company*</label>
                                     <div class="c--form-input-a">
@@ -41,31 +40,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="c--quiz-a__bd__ft">
-                                <button type="button" class="c--quiz-a__bd__ft__btn c--quiz-a__bd__ft__btn--second">
-                                    Next step
-                                </button>
-                            </div>
+                        </div>
+                        <div class="c--quiz-a__wrapper__ft">
+                            <button type="button" class="c--quiz-a__wrapper__ft__btn c--quiz-a__wrapper__ft__btn--second">
+                                Next step
+                            </button>
                         </div>
                     </fieldset>
 
                     <!-- Step 2 -->
-                    <fieldset class="c--quiz-a" data-step="2" data-tab-content="quiz-step-02" aria-hidden="true">
-                        <div class="c--quiz-a__hd">
-                            <p class="c--quiz-a__hd__title">Talk to our experience team and discover your next step with AI</p>
-                        </div>
-
-                        <div class="c--quiz-a__bd" style="--quiz-progress: 50%;">
-                            <div class="c--quiz-a__bd__content">
-                                <span class="c--quiz-a__bd__content__item">50%</span>
-                                <div class="c--quiz-a__bd__content__wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-                                    <span class="c--quiz-a__bd__content__wrapper__item" aria-hidden="true"></span>
-                                </div>
+                    <fieldset class="c--quiz-a__wrapper" data-step="2" data-tab-content="quiz-step-02" aria-hidden="true">
+                        <div class="c--quiz-a__wrapper__hd">
+                            <span class="c--quiz-a__wrapper__hd__item">50%</span>
+                            <div class="c--quiz-a__wrapper__hd__wrapper" style="--quiz-progress: 50%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                                <span class="c--quiz-a__wrapper__hd__wrapper__item" aria-hidden="true"></span>
                             </div>
-
-                            <p class="c--quiz-a__bd__subtitle">Position and Sector</p>
-
-                            <div class="c--quiz-a__bd__content">
+                        </div>
+                        <div class="c--quiz-a__wrapper__bd">
+                            <p class="c--quiz-a__wrapper__bd__subtitle">Position and Sector</p>
+                            <div class="c--quiz-a__wrapper__bd__wrapper">
                                 <div class="c--form-group-a">
                                     <label class="c--label-a" for="quiz-role">What is your role?*</label>
                                     <div class="c--form-select-a">
@@ -91,34 +84,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="c--quiz-a__bd__ft">
-                                <button type="button" class="c--quiz-a__bd__ft__link">
-                                    Previous step
-                                </button>
-                                <button type="button" class="c--quiz-a__bd__ft__btn c--quiz-a__bd__ft__btn--second">
-                                    Next step
-                                </button>
-                            </div>
+                        </div>
+                        <div class="c--quiz-a__wrapper__ft">
+                            <button type="button" class="c--quiz-a__wrapper__ft__link">
+                                Previous step
+                            </button>
+                            <button type="button" class="c--quiz-a__wrapper__ft__btn c--quiz-a__wrapper__ft__btn--second">
+                                Next step
+                            </button>
                         </div>
                     </fieldset>
 
                     <!-- Step 3 -->
-                    <fieldset class="c--quiz-a" data-step="3" data-tab-content="quiz-step-03" aria-hidden="true">
-                        <div class="c--quiz-a__hd">
-                            <p class="c--quiz-a__hd__title">Talk to our experience team and discover your next step with AI</p>
-                        </div>
-
-                        <div class="c--quiz-a__bd" style="--quiz-progress: 75%;">
-                            <div class="c--quiz-a__bd__content">
-                                <span class="c--quiz-a__bd__content__item">75%</span>
-                                <div class="c--quiz-a__bd__content__wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-                                    <span class="c--quiz-a__bd__content__wrapper__item" aria-hidden="true"></span>
-                                </div>
+                    <fieldset class="c--quiz-a__wrapper" data-step="3" data-tab-content="quiz-step-03" aria-hidden="true">
+                        <div class="c--quiz-a__wrapper__hd">
+                            <span class="c--quiz-a__wrapper__hd__item">75%</span>
+                            <div class="c--quiz-a__wrapper__hd__wrapper" style="--quiz-progress: 75%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+                                <span class="c--quiz-a__wrapper__hd__wrapper__item" aria-hidden="true"></span>
                             </div>
-
-                            <p class="c--quiz-a__bd__subtitle">Let's Talk About Your Needs</p>
-
-                            <div class="c--quiz-a__bd__content">
+                        </div>
+                        <div class="c--quiz-a__wrapper__bd">
+                            <p class="c--quiz-a__wrapper__bd__subtitle">Let's Talk About Your Needs</p>
+                            <div class="c--quiz-a__wrapper__bd__wrapper">
                                 <div class="c--form-group-a">
                                     <label class="c--label-a" for="quiz-challenge">What is your challenge?*</label>
                                     <div class="c--form-select-a">
@@ -150,34 +137,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="c--quiz-a__bd__ft">
-                                <button type="button" class="c--quiz-a__bd__ft__link">
-                                    Previous step
-                                </button>
-                                <button type="button" class="c--quiz-a__bd__ft__btn">
-                                    Submit
-                                </button>
-                            </div>
+                        </div>
+                        <div class="c--quiz-a__wrapper__ft">
+                            <button type="button" class="c--quiz-a__wrapper__ft__link">
+                                Previous step
+                            </button>
+                            <button type="button" class="c--quiz-a__wrapper__ft__btn">
+                                Submit
+                            </button>
                         </div>
                     </fieldset>
 
                     <!-- Step 4 -->
-                    <fieldset class="c--quiz-a" data-step="4" data-tab-content="quiz-step-04" aria-hidden="true">
-                        <div class="c--quiz-a__hd">
-                            <p class="c--quiz-a__hd__title">Talk to our experience team and discover your next step with AI</p>
-                        </div>
-
-                        <div class="c--quiz-a__bd" style="--quiz-progress: 100%;">
-                            <div class="c--quiz-a__bd__content">
-                                <span class="c--quiz-a__bd__content__item">100%</span>
-                                <div class="c--quiz-a__bd__content__wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
-                                    <span class="c--quiz-a__bd__content__wrapper__item" aria-hidden="true"></span>
-                                </div>
+                    <fieldset class="c--quiz-a__wrapper" data-step="4" data-tab-content="quiz-step-04" aria-hidden="true">
+                        <div class="c--quiz-a__wrapper__hd">
+                            <span class="c--quiz-a__wrapper__hd__item">100%</span>
+                            <div class="c--quiz-a__wrapper__hd__wrapper" style="--quiz-progress: 100%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                                <span class="c--quiz-a__wrapper__hd__wrapper__item" aria-hidden="true"></span>
                             </div>
-
-                            
+                        </div>
+                        <div class="c--quiz-a__wrapper__bd">
+                            <div class="c--quiz-a__wrapper__bd__wrapper">
+                                Thank you
+                            </div>
                         </div>
                     </fieldset>
+
                 </form>
 
             </div>
