@@ -1,7 +1,7 @@
-<section class="js--quiz-a" style="padding: 56px 0 192px;">
+<section class="js--quiz-a u--pt-15">
     <div class="f--container">
         <div class="f--row u--justify-content-center">
-            <div class="f--col-5">
+            <div class="f--col-5 f--col-laptop-8 f--col-tabletm-12">
 
                 <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
 
