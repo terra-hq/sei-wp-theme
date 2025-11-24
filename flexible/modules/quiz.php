@@ -60,7 +60,7 @@
                                 <label class="c--label-a" for="quiz-role">What is your role?*</label>
                                 <div class="c--form-select-a">
                                     <select class="c--form-select-a__item" name="role" id="quiz-role" required>
-                                        <option value="">Select your role</option>
+                                        <option value="" disabled selected>Select your role</option>
                                         <option value="Executive / Leadership">Executive / Leadership</option>
                                         <option value="Business Unit / P&L Leader">Business Unit / P&L Leader</option>
                                         <option value="Operations / Transformation Lead">Operations / Transformation Lead</option>
@@ -75,7 +75,7 @@
                                 <label class="c--label-a" for="quiz-industry">What's your industry?*</label>
                                 <div class="c--form-select-a">
                                     <select class="c--form-select-a__item" name="industry" id="quiz-industry" required>
-                                        <option value="">Select your industry</option>
+                                        <option value="" disabled selected>Select your industry</option>
                                         <option value="Automotive & Transportation">Automotive & Transportation</option>
                                         <option value="Construction & Real Estate">Construction & Real Estate</option>
                                         <option value="Consumer Products">Consumer Products</option>
@@ -123,7 +123,7 @@
                                 <label class="c--label-a" for="quiz-purpose">What's your purpose for using AI?</label>
                                 <div class="c--form-select-a">
                                     <select class="c--form-select-a__item" name="purpose" id="quiz-purpose">
-                                        <option value="">Select your purpose</option>
+                                        <option value="" disabled selected>Select your purpose</option>
                                         <option value="Unclear strategy / use cases">Unclear strategy / use cases</option>
                                         <option value="Talent & skills gap">Talent & skills gap</option>
                                         <option value="Data readiness / infrastructure">Data readiness / infrastructure</option>
@@ -138,7 +138,7 @@
                                 <label class="c--label-a" for="quiz-journey">Where are you in your AI transformation journey?*</label>
                                 <div class="c--form-select-a">
                                     <select class="c--form-select-a__item" name="journey" id="quiz-journey" required>
-                                        <option value="">Select..</option>
+                                        <option value="" disabled selected>Select..</option>
                                         <option value="Exploring">Exploring</option>
                                         <option value="Experimenting / Piloting">Experimenting / Piloting</option>
                                         <option value="Scaling">Scaling</option>
