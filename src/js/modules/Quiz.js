@@ -19,7 +19,7 @@ class Quiz {
         }
     }
 
-    init() {
+    async init() {
         this.collapsify = new Collapsify({
             nameSpace: "tab",
             isTab: true,
@@ -32,6 +32,12 @@ class Quiz {
 
         let heroBg = document.querySelector("#gradient-canvas");
         if (heroBg) {
+            const { breakpoints } = await import("@terrahq/helpers/breakpoints");
+            const bk = breakpoints.reduce((target, inner) => Object.assign(target, inner), {});
+            const viewport = window.innerWidth;
+            if (viewport < bk.mobile) {
+                return;
+            }
             new Gradient().initGradient("#gradient-canvas");
         }
     }
