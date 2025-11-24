@@ -3,8 +3,9 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 
-.c--form-input-a {
+.c--form-select-a {
     @extend .u--width-100;
+    @extend .u--position-relative;
     @extend .u--display-block;
 
     &__item {
@@ -18,12 +19,8 @@
         border-color: map.get($color-options, b);
         border-radius: 0;
         border-style: solid;
-
-        &::placeholder {
-            @extend .f--font-i;
-            @extend .u--font-light;
-            color: rgba(map.get($color-options, b), 0.6);
-        }
+        appearance: none;
+        cursor: pointer;
 
         &:focus {
             outline: none;
@@ -31,9 +28,17 @@
         }
     }
 
-    textarea.c--form-input-a__item {
-        width: 100% !important;
-        resize: none !important;
-        min-height: $measure * 15;
+    &::after {
+        @extend .u--position-absolute;
+        @extend .u--display-block;
+        pointer-events: none;
+        content: "";
+        width: 11px;
+        height: 11px;
+        top: 50%;
+        right: $measure * 2;
+        border-bottom: 1px solid map.get($color-options, c);
+        border-right: 1px solid map.get($color-options, c);
+        transform: rotate(45deg) translateY(-100%);
     }
 }

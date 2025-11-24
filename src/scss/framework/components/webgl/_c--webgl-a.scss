@@ -6,43 +6,26 @@
 .c--webgl-a {
     @extend .u--position-relative;
     @extend .f--background-a;
+    @extend .u--position-fixed;
+    @extend .u--width-100;
+    @extend .u--height-100;
+    top: 0;
+    left: 0;
+    z-index: 1;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
-    &__ft-items {
-        @extend .u--width-100;
-        @extend .u--position-fixed;
-        @extend .u--display-tablets-none;
-        left: 0;
-        top: 0;
-        z-index: 500;
-        pointer-events: none;
-        z-index: 3;
-    }
-    &__md-items {
-        @extend .u--position-relative;
-        @extend .u--width-100;
-        z-index: 2;
-        &__item {}
-    }
-    &__bg-items {
-        @extend .u--position-fixed;
+
+    canvas {
         @extend .u--width-100;
         @extend .u--height-100;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        canvas {
-            @extend .u--width-100;
-            @extend .u--height-100;
-            transition: background 2s ease;
-            --gradient-color-1: #705E74; 
-            --gradient-color-2: #402848; 
-            --gradient-color-3: #402848;  
-            --gradient-color-4: #402848;
-            --gradient-color-5: #402848;
-            --gradient-color-6: #2A1C30;
-            --gradient-color-7: #705E74;
-        }
+        transition: background 2s ease;
+        --gradient-color-1: #705E74; 
+        --gradient-color-2: #402848; 
+        --gradient-color-3: #402848;  
+        --gradient-color-4: #402848;
+        --gradient-color-5: #402848;
+        --gradient-color-6: #2A1C30;
+        --gradient-color-7: #705E74;
     }
 }
