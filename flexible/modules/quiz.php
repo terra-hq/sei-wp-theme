@@ -3,7 +3,7 @@
 <section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0">
     <div class="f--container f--container--tablets-fluid">
         <div class="f--row u--justify-content-center">
-            <div class="f--col-5 f--col-desktop-6 f--col-laptop-8 f--col-tabletm-10 f--col-mobile-12 u--pl-mobile-0 u--pr-mobile-0">
+            <div class="f--col-4 f--col-desktop-5 f--col-tabletl-7 f--col-tabletm-10 f--col-mobile-12 u--pl-mobile-0 u--pr-mobile-0">
 
                 <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
 
