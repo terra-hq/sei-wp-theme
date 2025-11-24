@@ -1,4 +1,5 @@
 import Collapsify from "@terrahq/collapsify";
+import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "./HeroBg";
 
 class Quiz {
@@ -19,7 +20,7 @@ class Quiz {
         }
     }
 
-    async init() {
+    init() {
         this.collapsify = new Collapsify({
             nameSpace: "tab",
             isTab: true,
@@ -32,7 +33,6 @@ class Quiz {
 
         let heroBg = document.querySelector("#gradient-canvas");
         if (heroBg) {
-            const { breakpoints } = await import("@terrahq/helpers/breakpoints");
             const bk = breakpoints.reduce((target, inner) => Object.assign(target, inner), {});
             const viewport = window.innerWidth;
             if (viewport < bk.mobile) {
