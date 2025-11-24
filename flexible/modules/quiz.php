@@ -1,6 +1,6 @@
 <?php load_template(locate_template('flexible/modules/webgl-gradient-canvas.php', false, false)); ?>
 
-<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-2">
+<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0">
     <div class="f--container f--container--tablets-fluid">
         <div class="f--row u--justify-content-center">
             <div class="f--col-5 f--col-desktop-6 f--col-laptop-8 f--col-tabletm-10 f--col-mobile-12 u--pl-mobile-0 u--pr-mobile-0">
