@@ -6,13 +6,18 @@
 .c--progress-a {
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
+    @extend .u--align-items-center;
+    @extend .u--justify-content-space-between;
     @extend .u--width-100;
+    @extend .f--background-a;
+    gap: $measure;
+    margin-top: $measure * 4;
+    padding: $measure * 4 $measure * 5 $measure * 5;
 
     &__hd {
         @extend .f--font-j;
         @extend .f--color-j;
         margin-left: auto;
-        margin-bottom: $measure;
     }
 
     &__bd {
@@ -28,6 +33,7 @@
             @extend .u--height-100;
             width: 0;
             border-radius: $measure * 3;
+            transition: width $time-b $ease-standard-a;
         }
     }
 }

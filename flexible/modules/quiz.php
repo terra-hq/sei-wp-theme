@@ -9,20 +9,18 @@
                     <div class="c--quiz-a__hd">
                         <h1 class="c--quiz-a__hd__title">Get insight into your AI readiness</h1>
                         <p class="c--quiz-a__hd__subtitle">See how ready you are for AI implementation with a quick, expert-led evaluation.</p>
+                        <div class="c--progress-a">
+                            <span class="c--progress-a__hd js--progressbar-text"></span>
+                            <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                <span class="c--progress-a__bd__item js--progressbar-item" aria-hidden="true"></span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Step 1 -->
                     <fieldset class="c--quiz-a__wrapper c--quiz-a__wrapper--is-active" data-step="1" data-tab-content="quiz-step-01" aria-hidden="false">
-                        <div class="c--quiz-a__wrapper__hd">
-                            <div class="c--progress-a">
-                                <span class="c--progress-a__hd js--progressbar-text"></span>
-                                <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <span class="c--progress-a__bd__item js--progressbar-item" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <h2 class="c--quiz-a__wrapper__title">Contact Details</h2>
                         <div class="c--quiz-a__wrapper__bd">
-                            <p class="c--quiz-a__wrapper__bd__subtitle">Contact Details</p>
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-company">Company name*</label>
                                 <div class="c--form-input-a">
@@ -45,16 +43,9 @@
 
                     <!-- Step 2 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="2" data-tab-content="quiz-step-02" aria-hidden="true">
-                        <div class="c--quiz-a__wrapper__hd">
-                            <div class="c--progress-a">
-                                <span class="c--progress-a__hd js--progressbar-text"></span>
-                                <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <span class="c--progress-a__bd__item js--progressbar-item" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
+                    
+                        <h2 class="c--quiz-a__wrapper__title">Position and Sector</h2>
                         <div class="c--quiz-a__wrapper__bd">
-                            <p class="c--quiz-a__wrapper__bd__subtitle">Position and Sector</p>
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-role">What is your role?*</label>
                                 <div class="c--form-select-a">
@@ -108,16 +99,9 @@
 
                     <!-- Step 3 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="3" data-tab-content="quiz-step-03" aria-hidden="true">
-                        <div class="c--quiz-a__wrapper__hd">
-                            <div class="c--progress-a">
-                                <span class="c--progress-a__hd js--progressbar-text"></span>
-                                <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <span class="c--progress-a__bd__item js--progressbar-item" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        <h2 class="c--quiz-a__wrapper__title">Let's Talk About Your Needs</h2>
                         <div class="c--quiz-a__wrapper__bd">
-                            <p class="c--quiz-a__wrapper__bd__subtitle">Let's Talk About Your Needs</p>
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-purpose">What's your purpose for using AI?</label>
                                 <div class="c--form-select-a">
@@ -164,14 +148,6 @@
 
                     <!-- Step 4 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="4" data-tab-content="quiz-step-04" aria-hidden="true">
-                        <div class="c--quiz-a__wrapper__hd">
-                            <div class="c--progress-a">
-                                <span class="c--progress-a__hd js--progressbar-text"></span>
-                                <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <span class="c--progress-a__bd__item js--progressbar-item" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="c--quiz-a__wrapper__bd c--quiz-a__wrapper__bd--second">
                             <h2 class="c--quiz-a__wrapper__bd__title">Thank you</h2>
                             <p class="c--quiz-a__wrapper__bd__text">Thank you for exploring your organization's AI readiness with us. We're looking forward to sharing what we've learned and how our AI expertise can help you take the next step.</p>
