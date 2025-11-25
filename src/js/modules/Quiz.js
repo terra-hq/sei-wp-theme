@@ -15,6 +15,11 @@ class Quiz {
         if (this.DOM.quiz) {
             this.DOM.form = this.DOM.quiz.querySelector("form.hs-form");
             this.DOM.steps = this.DOM.quiz.querySelectorAll(".c--quiz-a__wrapper");
+            this.DOM.progress = {
+                wrapper: this.DOM.quiz.querySelector(".js--progressbar-wrapper"),
+                item: this.DOM.quiz.querySelector(".js--progressbar-item"),
+                text: this.DOM.quiz.querySelector(".js--progressbar-text"),
+            };
             this.handleButtonClick = this.handleButtonClick.bind(this);
             this.init();
         }
@@ -95,6 +100,10 @@ class Quiz {
         if (targetStepID) {
             this.collapsify.close(currentStepID, true, true);
             this.collapsify.open(targetStepID, true, true);
+            const upcomingStep = Array.from(this.DOM.steps).find(
+                (step) => step.getAttribute("data-tab-content") === targetStepID
+            );
+            this.setProgressBar(upcomingStep);
         }
     }
 
@@ -191,16 +200,38 @@ class Quiz {
         return isValid;
     }
 
-    setProgressBar() {
-        const steps = Array.from(this.DOM.steps);
+    setProgressBar(targetStep = null) {
+        const steps = Array.from(this.DOM.steps || []);
 
-        steps.forEach((step) => {
-            const stepIndex = steps.indexOf(step);
-            const progress = (stepIndex / (steps.length - 1)) * 100;
-            step.querySelector(".js--progressbar-wrapper").setAttribute("aria-valuenow", progress);
-            step.querySelector(".js--progressbar-item").style.width = progress + "%";
-            step.querySelector(".js--progressbar-text").textContent = Math.round(progress) + "%";
-        });
+        if (!steps.length || !this.DOM.progress) {
+            return;
+        }
+
+        let activeStep = targetStep;
+
+        if (!activeStep) {
+            activeStep = this.DOM.quiz.querySelector(".c--quiz-a__wrapper--is-active") || steps[0];
+        }
+
+        const activeIndex = steps.indexOf(activeStep);
+
+        if (activeIndex === -1) {
+            return;
+        }
+
+        const progress = steps.length === 1 ? 100 : (activeIndex / (steps.length - 1)) * 100;
+
+        if (this.DOM.progress.wrapper) {
+            this.DOM.progress.wrapper.setAttribute("aria-valuenow", progress);
+        }
+
+        if (this.DOM.progress.item) {
+            this.DOM.progress.item.style.width = progress + "%";
+        }
+
+        if (this.DOM.progress.text) {
+            this.DOM.progress.text.textContent = Math.round(progress) + "%";
+        }
     }
 
     destroy() {
