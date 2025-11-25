@@ -52,7 +52,7 @@
         margin: 0 auto;
 
         @media screen and ($viewport-type: $mobile) {
-            padding: $measure * 4 $measure * 3;
+            padding: 0 $measure * 4 $measure * 3;
         }
 
         &--is-active {
