@@ -1,6 +1,7 @@
 import Collapsify from "@terrahq/collapsify";
 import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "./HeroBg";
+import confetti from "https://esm.sh/canvas-confetti@1";
 
 class Quiz {
 
@@ -231,6 +232,26 @@ class Quiz {
 
         if (this.DOM.progress.text) {
             this.DOM.progress.text.textContent = Math.round(progress) + "%";
+        }
+
+        if (progress === 100) {
+
+            // Get the position of the progress bar text
+            const progressBarRect = this.DOM.progress.text.getBoundingClientRect();
+            const originX = (progressBarRect.left + progressBarRect.width / 2) / window.innerWidth;
+            const originY = (progressBarRect.top + progressBarRect.height / 2) / window.innerHeight;
+
+            // Wait for the progress bar to finish the fill animation
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    spread: 60,
+                    origin: {
+                        x: originX,
+                        y: originY
+                    }
+                });
+            }, 300);
         }
     }
 
