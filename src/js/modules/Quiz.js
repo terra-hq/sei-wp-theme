@@ -237,19 +237,29 @@ class Quiz {
         if (progress === 100) {
 
             // Get the position of the progress bar text
-            const progressBarRect = this.DOM.progress.text.getBoundingClientRect();
-            const originX = (progressBarRect.left + progressBarRect.width / 2) / window.innerWidth;
-            const originY = (progressBarRect.top + progressBarRect.height / 2) / window.innerHeight;
+            const formRect = this.DOM.form.getBoundingClientRect();
+            const originX = (formRect.left + formRect.width / 2) / window.innerWidth;
+            const originY = Math.min(1, Math.max(0, (formRect.bottom + 200) / window.innerHeight));
+
+            var myCanvas = document.createElement('canvas');
+            myCanvas.classList.add("c--quiz-a__artwork");
+            this.DOM.form.appendChild(myCanvas);
+
+            var myConfetti = confetti.create(myCanvas, {
+                resize: true,
+                useWorker: false
+            });
 
             // Wait for the progress bar to finish the fill animation
             setTimeout(() => {
-                confetti({
+                myConfetti({
                     particleCount: 150,
                     spread: 60,
                     origin: {
                         x: originX,
                         y: originY
-                    }
+                    },
+                    zIndex: 4
                 });
             }, 300);
         }
