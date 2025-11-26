@@ -241,11 +241,11 @@ class Quiz {
             const originX = (formRect.left + formRect.width / 2) / window.innerWidth;
             const originY = Math.min(1, Math.max(0, (formRect.bottom + 200) / window.innerHeight));
 
-            var myCanvas = document.createElement('canvas');
+            const myCanvas = document.createElement('canvas');
             myCanvas.classList.add("c--quiz-a__artwork");
             this.DOM.form.appendChild(myCanvas);
 
-            var myConfetti = confetti.create(myCanvas, {
+            const myConfetti = confetti.create(myCanvas, {
                 resize: true,
                 useWorker: false
             });
