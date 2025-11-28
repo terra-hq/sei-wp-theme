@@ -1,11 +1,11 @@
-<section class="c--layout-b">
+<section class="c--layout-e">
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
             <div class="f--col-5 f--col-tabletm-10 f--col-mobile-12">
-                <h2 class="c--layout-b__title">
+                <h2 class="c--layout-e__title">
                     Meet Your Advisory Experts
                 </h2>
-                <div class="c--layout-b__content">
+                <div class="c--layout-e__content">
                     <p>These are the senior consultants who will be in your corner—each specifically chosen for their expertise in solving challenges like yours. You're in exceptionally capable hands.</p>
                 </div>
             </div>
