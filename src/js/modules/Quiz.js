@@ -2,6 +2,7 @@ import Collapsify from "@terrahq/collapsify";
 import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "./HeroBg";
 import confetti from "https://esm.sh/canvas-confetti@1";
+import { getCookie } from "@jsModules/utilities/utilities.js";
 
 class Quiz {
 
@@ -290,19 +291,28 @@ class Quiz {
             API_KEY: publicKey,
             action: "submit",
         });
+
         if(google_access_token){
+            const hutk = getCookie("hubspotutk");
+            console.log(hutk);
+            
             var payload = {
                 portalId: "6210663",
                 formId: "7bede634-3926-4c37-89a0-f351dd4b8f7b",
                 formInputs: {
                     company: "Terra",
-                    email: "john.doe@terrahq.com",
+                    email: "dev@terrahq.com",
                     ai_form__what_is_your_role_: "Executive / Leadership",
                     ai_form__what_s_your_industry_ : "Environmental Services",
                     ai_form__what_s_your_purpose_for_using_ai_ : "Unclear strategy / use cases",
                     ai_form__where_are_you_in_your_ai_transformation_journey_ : "Exploring",
                     ai_form__context :"test"
-                }
+                },
+                context: {
+                    hutk,                     // ✅ critical bit
+                    pageUri: window.location.href,
+                    pageName: document.title,
+                },
             }
             
             console.log(payload);
