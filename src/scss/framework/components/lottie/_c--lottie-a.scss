@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--lottie-a {
+    &__media-wrapper {
+        @extend .u--display-flex;
+        @extend .u--justify-content-center;
+        @extend .u--align-items-center;
+        @extend .u--width-100;
+        @extend .u--height-100;
+    }
+}
