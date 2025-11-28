@@ -5,7 +5,7 @@ import confetti from "https://esm.sh/canvas-confetti@1";
 
 class Quiz {
 
-    constructor(payload) {
+    constructor() {
         this.DOM = {
             quiz: document.querySelector(".js--quiz-a"),
             steps: null,
@@ -56,7 +56,7 @@ class Quiz {
         });
     }
 
-    handleButtonClick(event) {
+    async handleButtonClick(event) {
         event.preventDefault();
         
         const button = event.currentTarget;
@@ -88,6 +88,11 @@ class Quiz {
             
             if (nextStep) {
                 targetStepID = nextStep.getAttribute("data-tab-content");
+            }
+
+            if(isSubmit){
+                this.submitForm()
+                
             }
         } else if (isPrevious) {
             const currentStepIndex = Array.from(this.DOM.steps).indexOf(currentStep);
@@ -262,6 +267,54 @@ class Quiz {
                     zIndex: 4
                 });
             }, 300);
+        }
+    }
+
+    /**
+     * Submits the form to HubSpot using reCAPTCHA v3.
+     * Steps:
+     * 1) Load reCAPTCHA script
+     * 2) Get client token
+     * 3) Build HubSpot payload (including hutk cookie for contact attribution)
+     * 4) Submit to HubSpot
+     */
+    async submitForm(){
+        const { submitToHubspot } = await import("@terrahq/helpers/hubspot");
+        const { GET_RECAPTCHA_SCRIPT_FROM_GOOGLE, GET_RECAPTCHA_CLIENT_TOKEN } = await import("@terrahq/helpers/recaptcha");
+
+        const publicKey = "6Lc7khosAAAAAMejjgAgi198Ou3YPMluxtocfRQR";
+        const loadRecaptchaScript = await GET_RECAPTCHA_SCRIPT_FROM_GOOGLE({
+            API_KEY: publicKey,
+        });
+        const google_access_token = await GET_RECAPTCHA_CLIENT_TOKEN({
+            API_KEY: publicKey,
+            action: "submit",
+        });
+        if(google_access_token){
+            var payload = {
+                portalId: "6210663",
+                formId: "7bede634-3926-4c37-89a0-f351dd4b8f7b",
+                formInputs: {
+                    company: "Terra",
+                    email: "john.doe@terrahq.com",
+                    ai_form__what_is_your_role_: "Executive / Leadership",
+                    ai_form__what_s_your_industry_ : "Environmental Services",
+                    ai_form__what_s_your_purpose_for_using_ai_ : "Unclear strategy / use cases",
+                    ai_form__where_are_you_in_your_ai_transformation_journey_ : "Exploring",
+                    ai_form__context :"test"
+                }
+            }
+            
+            console.log(payload);
+            
+            // try {
+            //     const submissionResult = await submitToHubspot(payload);
+            //     console.log(submissionResult.message);
+            // } catch (error) {
+            //     console.error("Submission error:", error.message);
+            // }
+        } else {
+            console.log("Recaptcha Failed: " + res.message);
         }
     }
 

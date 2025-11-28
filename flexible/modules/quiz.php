@@ -1,4 +1,18 @@
-<section class="js--quiz-a u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0">
+<?php 
+$quizTitle = $module['title'];
+$quizSubtitle = $module['subtitle'];
+$contactDetails = $module['contact_details'];
+$positionAndSector = $module['position_and_sector'];
+$previousStep = $module['previous_step'];
+$nextStep = $module['next_step'];
+$letsTalk = $module['lets_talk_about_your_needs'];
+$submit = $module['submit'];
+$thankYou = $module['thank_you'];
+$thankYouText = $module['thank_you_text'];
+$sectionSpacing =get_spacing($module['section_spacing']) //u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0
+
+?>
+<section class="js--quiz-a u <?= $sectionSpacing ?>">
     <?php load_template(locate_template('flexible/modules/webgl-gradient-canvas.php', false, false)); ?>
     <div class="f--container f--container--mobile-fluid">
         <div class="f--row u--justify-content-center">
@@ -7,8 +21,8 @@
                 <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
 
                     <div class="c--quiz-a__hd">
-                        <h1 class="c--quiz-a__hd__title">Get insight into your AI readiness</h1>
-                        <p class="c--quiz-a__hd__subtitle">See how ready you are for AI implementation with a quick, expert-led evaluation.</p>
+                        <h1 class="c--quiz-a__hd__title"><?= $quizTitle ?></h1>
+                        <p class="c--quiz-a__hd__subtitle"><?= $quizSubtitle ?></p>
                         <div class="c--progress-a">
                             <span class="c--progress-a__hd js--progressbar-text"></span>
                             <div class="c--progress-a__bd js--progressbar-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -19,7 +33,7 @@
 
                     <!-- Step 1 -->
                     <fieldset class="c--quiz-a__wrapper c--quiz-a__wrapper--is-active" data-step="1" data-tab-content="quiz-step-01" aria-hidden="false">
-                        <h2 class="c--quiz-a__wrapper__title">Contact Details</h2>
+                        <h2 class="c--quiz-a__wrapper__title"><?= $quizSubtitle ?></h2>
                         <div class="c--quiz-a__wrapper__bd">
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-company">Company name*</label>
@@ -36,7 +50,7 @@
                         </div>
                         <div class="c--quiz-a__wrapper__ft">
                             <button type="button" class="c--quiz-a__wrapper__ft__btn c--quiz-a__wrapper__ft__btn--second">
-                                Next step
+                                <?= $nextStep ?>
                             </button>
                         </div>
                     </fieldset>
@@ -44,7 +58,7 @@
                     <!-- Step 2 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="2" data-tab-content="quiz-step-02" aria-hidden="true">
                     
-                        <h2 class="c--quiz-a__wrapper__title">Position and Sector</h2>
+                        <h2 class="c--quiz-a__wrapper__title"><?= $positionAndSector ?></h2>
                         <div class="c--quiz-a__wrapper__bd">
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-role">What is your role?*</label>
@@ -89,10 +103,10 @@
                         </div>
                         <div class="c--quiz-a__wrapper__ft">
                             <button type="button" class="c--quiz-a__wrapper__ft__link">
-                                Previous step
+                                <?= $previousStep ?>
                             </button>
                             <button type="button" class="c--quiz-a__wrapper__ft__btn c--quiz-a__wrapper__ft__btn--second">
-                                Next step
+                                <?= $nextStep ?>
                             </button>
                         </div>
                     </fieldset>
@@ -100,7 +114,7 @@
                     <!-- Step 3 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="3" data-tab-content="quiz-step-03" aria-hidden="true">
                         
-                        <h2 class="c--quiz-a__wrapper__title">Let's Talk About Your Needs</h2>
+                        <h2 class="c--quiz-a__wrapper__title"><?= $letsTalk ?></h2>
                         <div class="c--quiz-a__wrapper__bd">
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-purpose">What's your purpose for using AI?</label>
@@ -138,10 +152,10 @@
                         </div>
                         <div class="c--quiz-a__wrapper__ft">
                             <button type="button" class="c--quiz-a__wrapper__ft__link">
-                                Previous step
+                                <?= $previousStep ?>
                             </button>
                             <button type="button" class="c--quiz-a__wrapper__ft__btn">
-                                Submit
+                                <?= $submit ?>
                             </button>
                         </div>
                     </fieldset>
@@ -149,8 +163,8 @@
                     <!-- Step 4 -->
                     <fieldset class="c--quiz-a__wrapper" data-step="4" data-tab-content="quiz-step-04" aria-hidden="true">
                         <div class="c--quiz-a__wrapper__bd c--quiz-a__wrapper__bd--second">
-                            <h2 class="c--quiz-a__wrapper__bd__title">Thank you</h2>
-                            <p class="c--quiz-a__wrapper__bd__text">Thank you for exploring your organization's AI readiness with us. We're looking forward to sharing what we've learned and how our AI expertise can help you take the next step.</p>
+                            <h2 class="c--quiz-a__wrapper__bd__title"><?= $thankYou ?></h2>
+                            <p class="c--quiz-a__wrapper__bd__text"><?= $thankYouText ?></p>
                         </div>
                     </fieldset>
 

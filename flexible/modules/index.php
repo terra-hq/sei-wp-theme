@@ -130,6 +130,7 @@ switch ($module['acf_fc_layout']) {
      case 'case_studies_slider':
         include (locate_template('flexible/modules/case-studies-slider.php', false, false));
         break;   
-
-        
+    case 'quiz':
+        include(locate_template('flexible/modules/quiz.php', false, false)); 
+        break;   
 }
