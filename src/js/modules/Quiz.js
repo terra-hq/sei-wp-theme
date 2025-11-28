@@ -294,19 +294,21 @@ class Quiz {
 
         if(google_access_token){
             const hutk = getCookie("hubspotutk");
-            console.log(hutk);
+
+            const formData = new FormData(this.DOM.form);
+            const formDataObject = Object.fromEntries(formData.entries());
             
             var payload = {
                 portalId: "6210663",
                 formId: "7bede634-3926-4c37-89a0-f351dd4b8f7b",
                 formInputs: {
-                    company: "Terra",
-                    email: "dev@terrahq.com",
-                    ai_form__what_is_your_role_: "Executive / Leadership",
-                    ai_form__what_s_your_industry_ : "Environmental Services",
-                    ai_form__what_s_your_purpose_for_using_ai_ : "Unclear strategy / use cases",
-                    ai_form__where_are_you_in_your_ai_transformation_journey_ : "Exploring",
-                    ai_form__context :"test"
+                    company: formDataObject.company ?? "",
+                    email: formDataObject.email ?? "",
+                    ai_form__what_is_your_role_: formDataObject.role ?? "",
+                    ai_form__what_s_your_industry_ : formDataObject.industry ?? "",
+                    ai_form__what_s_your_purpose_for_using_ai_ : formDataObject.purpose ?? "",
+                    ai_form__where_are_you_in_your_ai_transformation_journey_ : formDataObject.journey ?? "",
+                    ai_form__context : formDataObject.context ?? "",
                 },
                 context: {
                     hutk,                     // ✅ critical bit
