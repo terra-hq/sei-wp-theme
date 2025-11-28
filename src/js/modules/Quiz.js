@@ -2,10 +2,11 @@ import Collapsify from "@terrahq/collapsify";
 import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "./HeroBg";
 import confetti from "https://esm.sh/canvas-confetti@1";
+import { getCookie } from "@jsModules/utilities/utilities.js";
 
 class Quiz {
 
-    constructor(payload) {
+    constructor() {
         this.DOM = {
             quiz: document.querySelector(".js--quiz-a"),
             steps: null,
@@ -56,7 +57,7 @@ class Quiz {
         });
     }
 
-    handleButtonClick(event) {
+    async handleButtonClick(event) {
         event.preventDefault();
         
         const button = event.currentTarget;
@@ -88,6 +89,11 @@ class Quiz {
             
             if (nextStep) {
                 targetStepID = nextStep.getAttribute("data-tab-content");
+            }
+
+            if(isSubmit){
+                this.submitForm()
+                
             }
         } else if (isPrevious) {
             const currentStepIndex = Array.from(this.DOM.steps).indexOf(currentStep);
@@ -241,11 +247,11 @@ class Quiz {
             const originX = (formRect.left + formRect.width / 2) / window.innerWidth;
             const originY = Math.min(1, Math.max(0, (formRect.bottom + 200) / window.innerHeight));
 
-            var myCanvas = document.createElement('canvas');
+            const myCanvas = document.createElement('canvas');
             myCanvas.classList.add("c--quiz-a__artwork");
             this.DOM.form.appendChild(myCanvas);
 
-            var myConfetti = confetti.create(myCanvas, {
+            const myConfetti = confetti.create(myCanvas, {
                 resize: true,
                 useWorker: false
             });
@@ -262,6 +268,65 @@ class Quiz {
                     zIndex: 4
                 });
             }, 300);
+        }
+    }
+
+    /**
+     * Submits the form to HubSpot using reCAPTCHA v3.
+     * Steps:
+     * 1) Load reCAPTCHA script
+     * 2) Get client token
+     * 3) Build HubSpot payload (including hutk cookie for contact attribution)
+     * 4) Submit to HubSpot
+     */
+    async submitForm(){
+        const { submitToHubspot } = await import("@terrahq/helpers/hubspot");
+        const { GET_RECAPTCHA_SCRIPT_FROM_GOOGLE, GET_RECAPTCHA_CLIENT_TOKEN } = await import("@terrahq/helpers/recaptcha");
+
+        const publicKey = "6Lc7khosAAAAAMejjgAgi198Ou3YPMluxtocfRQR";
+        const loadRecaptchaScript = await GET_RECAPTCHA_SCRIPT_FROM_GOOGLE({
+            API_KEY: publicKey,
+        });
+        const google_access_token = await GET_RECAPTCHA_CLIENT_TOKEN({
+            API_KEY: publicKey,
+            action: "submit",
+        });
+
+        if(google_access_token){
+            const hutk = getCookie("hubspotutk");
+
+            const formData = new FormData(this.DOM.form);
+            const formDataObject = Object.fromEntries(formData.entries());
+            
+            var payload = {
+                portalId: "6210663",
+                formId: "7bede634-3926-4c37-89a0-f351dd4b8f7b",
+                formInputs: {
+                    company: formDataObject.company ?? "",
+                    email: formDataObject.email ?? "",
+                    ai_form__what_is_your_role_: formDataObject.role ?? "",
+                    ai_form__what_s_your_industry_ : formDataObject.industry ?? "",
+                    ai_form__what_s_your_purpose_for_using_ai_ : formDataObject.purpose ?? "",
+                    ai_form__where_are_you_in_your_ai_transformation_journey_ : formDataObject.journey ?? "",
+                    ai_form__context : formDataObject.context ?? "",
+                },
+                context: {
+                    hutk,                     // ✅ critical bit
+                    pageUri: window.location.href,
+                    pageName: document.title,
+                },
+            }
+            
+            console.log(payload);
+            
+            // try {
+            //     const submissionResult = await submitToHubspot(payload);
+            //     console.log(submissionResult.message);
+            // } catch (error) {
+            //     console.error("Submission error:", error.message);
+            // }
+        } else {
+            console.log("Recaptcha Failed: " + res.message);
         }
     }
 
