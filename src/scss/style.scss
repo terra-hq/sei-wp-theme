@@ -71,6 +71,14 @@
 @use "@scss/global-components/card/_g--card-33";
 @use "@scss/global-components/card/_g--card-34";
 
+@use "@scss/framework/components/quiz/_c--quiz-a";
+
+//* webgl
+@use "@scss/framework/components/webgl/_c--webgl-a";
+
+//* progress
+@use "@scss/framework/components/progress/_c--progress-a";
+
 //* content
 @use "@scss/framework/components/content/_c--content-a";
 
@@ -100,6 +108,11 @@
 @use "@scss/framework/components/form/_c--form-a";
 @use "@scss/framework/components/form/_c--form-b";
 @use "@scss/framework/components/form/_c--form-d";
+@use "@scss/framework/components/form/_c--form-group-a";
+@use "@scss/framework/components/form/_c--form-input-a";
+@use "@scss/framework/components/form/_c--form-select-a";
+@use "@scss/framework/components/form/_c--form-error-a";
+@use "@scss/framework/components/form/_c--label-a";
 
 //* lottie
 @use "@scss/framework/components/lottie/_c--lottie-a";

@@ -145,4 +145,7 @@ switch ($module['acf_fc_layout']) {
     case 'text_left_team_cards_right':
         include (locate_template('flexible/modules/text-left-team-cards-right.php', false, false));
         break;
+    case 'quiz':
+        include(locate_template('flexible/modules/quiz.php', false, false)); 
+        break;   
 }
