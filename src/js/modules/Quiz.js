@@ -3,6 +3,8 @@ import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "./HeroBg";
 import confetti from "https://esm.sh/canvas-confetti@1";
 import { getCookie } from "@jsModules/utilities/utilities.js";
+import Form from "@jsModules/quiz/Form.js";
+import FormConfigs from "@jsModules/quiz/FormConfigs.js";
 
 class Quiz {
 
@@ -12,6 +14,7 @@ class Quiz {
             steps: null,
         };
 
+        this.form = null;
         this.progress = 0;
 
         if (this.DOM.quiz) {
@@ -35,7 +38,7 @@ class Quiz {
         });
 
         this.attachButtonListeners();
-        this.setupFieldValidation();
+        this.initForm();
         this.setProgressBar();
 
         let heroBg = document.querySelector("#gradient-canvas");
@@ -47,6 +50,23 @@ class Quiz {
             }
             new Gradient().initGradient("#gradient-canvas");
         }
+    }
+
+    initForm() {
+        this.form = new Form({
+            element: this.DOM.form,
+            fields: FormConfigs(),
+            submitButtonSelector: ".c--quiz-a__wrapper__ft__btn[type='submit']",
+            onComplete: async () => {
+                this.showConfetti();
+            },
+            onSubmit: async () => {
+                await this.submitForm();
+            },
+            onError: (invalidFields) => {
+                console.error("Form contains errors:", invalidFields);
+            },
+        });
     }
 
     attachButtonListeners() {
@@ -114,72 +134,6 @@ class Quiz {
         }
     }
 
-    setupFieldValidation() {
-        const fields = this.DOM.quiz.querySelectorAll("input, select, textarea");
-
-        fields.forEach((field) => {
-            field.addEventListener("blur", () => {
-                this.validateField(field);
-            });
-
-            if (field.tagName === "SELECT") {
-                field.addEventListener("change", () => {
-                    this.validateField(field);
-                });
-            }
-        });
-    }
-
-    validateField(field) {
-        const formGroup = field.closest(".c--form-group-a");
-        if (!formGroup) return;
-
-        let errorSpan = formGroup.querySelector(".c--form-error-a");
-
-        if (!errorSpan) {
-            errorSpan = document.createElement("span");
-            errorSpan.classList.add("c--form-error-a");
-            errorSpan.style.display = "none";
-            formGroup.appendChild(errorSpan);
-        }
-
-        if (!field.checkValidity()) {
-            const customMessage = this.getCustomErrorMessage(field);
-            errorSpan.textContent = customMessage || field.validationMessage;
-            errorSpan.style.display = "block";
-        } else {
-            errorSpan.textContent = "";
-            errorSpan.style.display = "none";
-        }
-    }
-
-    getCustomErrorMessage(field) {
-        if (field.validity.valueMissing) {
-            if (field.id === "quiz-company") {
-                return "Company name cannot be empty";
-            }
-            if (field.id === "quiz-email") {
-                return "Email address cannot be empty";
-            }
-            if (field.id === "quiz-role") {
-                return "Please select your role";
-            }
-            if (field.id === "quiz-industry") {
-                return "Please select your industry";
-            }
-            if (field.id === "quiz-journey") {
-                return "Please select where you are in your AI transformation journey";
-            }
-            return "This field is required";
-        }
-
-        if (field.validity.typeMismatch && field.type === "email") {
-            return "Please enter a valid email address";
-        }
-
-        return null;
-    }
-
     isStepValid(stepElement) {
         if (!stepElement) {
             return true;
@@ -187,23 +141,17 @@ class Quiz {
 
         const fields = stepElement.querySelectorAll("input, select, textarea");
         let isValid = true;
-        let firstInvalid = null;
 
         fields.forEach((field) => {
-            this.validateField(field);
-
-            if (!field.checkValidity()) {
-                isValid = false;
-                if (!firstInvalid) {
-                    firstInvalid = field;
+            let fieldToValidate = this.form.fields.find((f) => f.element === field);
+            if(fieldToValidate) {
+                let result = this.form.validateField(fieldToValidate);
+                if(!result.isValid) {
+                    isValid = false;
+                    return isValid;
                 }
             }
         });
-
-        if (!isValid && firstInvalid) {
-            firstInvalid.focus();
-        }
-
         return isValid;
     }
 
@@ -239,36 +187,36 @@ class Quiz {
         if (this.DOM.progress.text) {
             this.DOM.progress.text.textContent = Math.round(progress) + "%";
         }
+    }
 
-        if (progress === 100) {
+    showConfetti() {
+        // Get the position of the progress bar text
+        const formRect = this.DOM.form.getBoundingClientRect();
+        const originX = (formRect.left + formRect.width / 2) / window.innerWidth;
+        const originY = Math.min(1, Math.max(0, (formRect.bottom + 200) / window.innerHeight));
 
-            // Get the position of the progress bar text
-            const formRect = this.DOM.form.getBoundingClientRect();
-            const originX = (formRect.left + formRect.width / 2) / window.innerWidth;
-            const originY = Math.min(1, Math.max(0, (formRect.bottom + 200) / window.innerHeight));
+        const myCanvas = document.createElement('canvas');
+        myCanvas.classList.add("c--quiz-a__artwork");
+        this.DOM.form.appendChild(myCanvas);
 
-            const myCanvas = document.createElement('canvas');
-            myCanvas.classList.add("c--quiz-a__artwork");
-            this.DOM.form.appendChild(myCanvas);
+        const myConfetti = confetti.create(myCanvas, {
+            resize: true,
+            useWorker: false
+        });
 
-            const myConfetti = confetti.create(myCanvas, {
-                resize: true,
-                useWorker: false
+        // Wait for the progress bar to finish the fill animation
+        setTimeout(() => {
+            myConfetti({
+                particleCount: 150,
+                spread: 60,
+                origin: {
+                    x: originX,
+                    y: originY
+                },
+                zIndex: 4
             });
+        }, 300);
 
-            // Wait for the progress bar to finish the fill animation
-            setTimeout(() => {
-                myConfetti({
-                    particleCount: 150,
-                    spread: 60,
-                    origin: {
-                        x: originX,
-                        y: originY
-                    },
-                    zIndex: 4
-                });
-            }, 300);
-        }
     }
 
     /**
