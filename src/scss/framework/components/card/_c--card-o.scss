@@ -156,7 +156,7 @@
     @extend .g--btn-03;
     @extend .g--btn-03--second;
     width: 100%;
-    margin-top: $measure * 3;
+    margin-top: auto;
 
     &:hover & {
       &__artwork {
