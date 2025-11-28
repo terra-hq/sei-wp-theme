@@ -24,6 +24,7 @@
     "@andresclua/debounce-throttle": "^1.0.2",
     "@andresclua/infinite-marquee-gsap": "^0.0.14",
     "@andresclua/jsutil": "^4.0.4",
+    "@andresclua/validate": "^0.0.14",
     "@swup/debug-plugin": "^4.0.4",
     "@swup/forms-plugin": "^3.6.0",
     "@swup/head-plugin": "^2.2.0",

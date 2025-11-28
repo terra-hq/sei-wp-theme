@@ -154,7 +154,7 @@ $sectionSpacing =get_spacing($module['section_spacing']) //u--pt-30 u--pb-22 u--
                             <button type="button" class="c--quiz-a__wrapper__ft__link">
                                 <?= $previousStep ?>
                             </button>
-                            <button type="button" class="c--quiz-a__wrapper__ft__btn">
+                            <button type="submit" class="c--quiz-a__wrapper__ft__btn">
                                 <?= $submit ?>
                             </button>
                         </div>
