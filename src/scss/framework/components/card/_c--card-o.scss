@@ -129,6 +129,8 @@
 
   &__media-wrapper {
     @extend .u--position-relative;
+    flex-grow: 1;
+    margin-bottom: $measure * 2;
 
     &__overlay {
       @extend .u--position-absolute;
@@ -147,6 +149,7 @@
     }
 
     &__media {
+      height: 100%;
       object-fit: cover;
     }
 
