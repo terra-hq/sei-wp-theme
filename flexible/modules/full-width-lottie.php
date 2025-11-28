@@ -1,0 +1,1 @@
+<?php include(locate_template('components/lottie/lottie-a.php', false, false)); ?>

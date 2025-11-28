@@ -8,7 +8,7 @@
 .c--card-n {
     @extend .u--display-flex;
     @extend .u--width-100;
-    background-color: map.get($color-options, d);
+    @extend .f--background-g;
     padding: $measure*7 $measure*6;
     gap: $measure*5 $measure*9;
     flex-wrap: wrap;
@@ -20,8 +20,8 @@
     }
     &__wrapper {
         @extend .u--display-flex;
+        @extend .u--flex-direction-column;
         @extend .u--width-100;
-        flex-direction: column;
         &__title {
             @extend .f--font-f;
             @extend .f--color-a;

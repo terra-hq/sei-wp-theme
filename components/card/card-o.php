@@ -69,6 +69,10 @@
         <div class="f--col-4 f--col-tabletm-12">
 
             <div class="c--card-o__media-wrapper">
+                <div class="c--card-o__media-wrapper__overlay">
+                    <span class="c--card-o__media-wrapper__overlay__pill">Pharmaceutical</span>
+                    <span class="c--card-o__media-wrapper__overlay__pill">Global Pharmaceutical Company</span>
+                </div>
                 <?php
                     // $image_tag_args = array(
                     //     'image' => $image,
@@ -83,10 +87,6 @@
                     // );
                     // generate_image_tag($image_tag_args)
                 ?>
-                <div class="c--card-o__media-wrapper__overlay">
-                    <span class="c--card-o__media-wrapper__overlay__pill">Pharmaceutical</span>
-                    <span class="c--card-o__media-wrapper__overlay__pill">Global Pharmaceutical Company</span>
-                </div>
                 <img src="http://placeholder.terrahq.com/img-1by1.webp" alt="Case Study Image" class="c--card-o__media-wrapper__media">
             </div>
         
