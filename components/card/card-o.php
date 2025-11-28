@@ -68,34 +68,38 @@
 
         <div class="f--col-4 f--col-tabletm-12">
 
-            <div class="c--card-o__media-wrapper">
-                <div class="c--card-o__media-wrapper__overlay">
-                    <span class="c--card-o__media-wrapper__overlay__pill">Pharmaceutical</span>
-                    <span class="c--card-o__media-wrapper__overlay__pill">Global Pharmaceutical Company</span>
+            <div class="u--display-flex u--flex-direction-column u--height-100">
+
+                <div class="c--card-o__media-wrapper">
+                    <div class="c--card-o__media-wrapper__overlay">
+                        <span class="c--card-o__media-wrapper__overlay__pill">Pharmaceutical</span>
+                        <span class="c--card-o__media-wrapper__overlay__pill">Global Pharmaceutical Company</span>
+                    </div>
+                    <?php
+                        // $image_tag_args = array(
+                        //     'image' => $image,
+                        //     'sizes' => '580px',
+                        //     'class' => 'c--card-o__media-wrapper__media',
+                        //     'isLazy' => true,
+                        //     'lazyClass' => 'g--lazy-01',
+                        //     'showAspectRatio' => true,
+                        //     'decodingAsync' => true,
+                        //     'fetchPriority' => false,
+                        //     'addFigcaption' => false,
+                        // );
+                        // generate_image_tag($image_tag_args)
+                    ?>
+                    <img src="http://placeholder.terrahq.com/img-1by1.webp" alt="Case Study Image" class="c--card-o__media-wrapper__media">
                 </div>
-                <?php
-                    // $image_tag_args = array(
-                    //     'image' => $image,
-                    //     'sizes' => '580px',
-                    //     'class' => 'c--card-o__media-wrapper__media',
-                    //     'isLazy' => true,
-                    //     'lazyClass' => 'g--lazy-01',
-                    //     'showAspectRatio' => true,
-                    //     'decodingAsync' => true,
-                    //     'fetchPriority' => false,
-                    //     'addFigcaption' => false,
-                    // );
-                    // generate_image_tag($image_tag_args)
-                ?>
-                <img src="http://placeholder.terrahq.com/img-1by1.webp" alt="Case Study Image" class="c--card-o__media-wrapper__media">
+            
+                <a href="#" class="c--card-o__btn">
+                    <svg class="c--card-o__btn__artwork" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
+                        <path d="M1 8.91406L21 8.91406M21 8.91406L13.5 16.4141M21 8.91406L13.5 1.41406" stroke="#FFFFF8" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                    </svg>
+                    <span>See the Full Story</span>
+                </a>
+
             </div>
-        
-            <a href="#" class="c--card-o__btn">
-                <svg class="c--card-o__btn__artwork" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
-                    <path d="M1 8.91406L21 8.91406M21 8.91406L13.5 16.4141M21 8.91406L13.5 1.41406" stroke="#FFFFF8" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-                </svg>
-                <span>See the Full Story</span>
-            </a>
 
         </div>
     </div>
