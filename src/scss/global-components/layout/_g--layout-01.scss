@@ -29,7 +29,37 @@
     &--second {
         @include make-layout-01-modifier(
             $background-options: (
+                "background-color": map.get($colorbg-options, c),
+            ),
+            $item-primary-options: (
+                "color": map.get($color-options, a),
+            ),
+            $list-group-item-options: (
+                "className": g--btn-03,
+                "color": map.get($color-options, a),
+            ),
+        );
+    }
+
+    &--third {
+        @include make-layout-01-modifier(
+            $background-options: (
                 "background-color": map.get($colorbg-options, b),
+            ),
+            $item-primary-options: (
+                "color": map.get($color-options, b),
+            ),
+            $list-group-item-options: (
+                "className": g--btn-03,
+                "color": map.get($color-options, b),
+            ),
+        );
+    }
+
+    &--fourth {
+        @include make-layout-01-modifier(
+            $background-options: (
+                "background-color": map.get($colorbg-options, a),
             ),
             $item-primary-options: (
                 "color": map.get($color-options, b),
