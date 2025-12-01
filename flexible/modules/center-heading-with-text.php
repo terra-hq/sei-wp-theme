@@ -1,64 +1,28 @@
 <?php
-$spacing = get_spacing($module['section_spacing']) ?? 'u--pt-15 u--pb-15';
-$bg_color = $module['bg_color'];
+$spacing = get_spacing($module['section_spacing']);
+$bg_color = trim($module['bg_color']);
 $heading = $module['heading'];
 $text = $module['text'];
+
+$bg_classes = [
+    'f--background-d' => '',                     // dark purple
+    'f--background-c' => 'g--layout-01--second', // light purple
+    'f--background-b' => 'g--layout-01--third',  // grey
+    'f--background-a' => 'g--layout-01--fourth', // white
+];
+
+$layout_modifier = isset($bg_classes[$bg_color]) ? $bg_classes[$bg_color] : '';
 ?>
 
-<section class="g--layout-01 <?= $spacing; ?>">
+<section class="g--layout-01 <?= $spacing; ?><?= $layout_modifier ? ' ' . $layout_modifier : ''; ?>">
     <div class="g--layout-01__wrapper">
         <div class="g--layout-01__wrapper__content">
             <h2 class="g--layout-01__wrapper__content__item-primary">
-                SEI Takes An Outcomes-First Approach to AI Adoption
+                <?= $heading; ?>
             </h2>
             <div class="g--layout-01__wrapper__content__list-group">
                 <p class="g--layout-01__wrapper__content__list-group__item">
-                    We bring trusted expertise and a pragmatic approach that ensures your AI strategy is clear, responsible, and built to last.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="g--layout-01 <?= $spacing; ?> g--layout-01--second">
-    <div class="g--layout-01__wrapper">
-        <div class="g--layout-01__wrapper__content">
-            <h2 class="g--layout-01__wrapper__content__item-primary">
-                SEI Takes An Outcomes-First Approach to AI Adoption
-            </h2>
-            <div class="g--layout-01__wrapper__content__list-group">
-                <p class="g--layout-01__wrapper__content__list-group__item">
-                    We bring trusted expertise and a pragmatic approach that ensures your AI strategy is clear, responsible, and built to last.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="g--layout-01 <?= $spacing; ?> g--layout-01--third">
-    <div class="g--layout-01__wrapper">
-        <div class="g--layout-01__wrapper__content">
-            <h2 class="g--layout-01__wrapper__content__item-primary">
-                SEI Takes An Outcomes-First Approach to AI Adoption
-            </h2>
-            <div class="g--layout-01__wrapper__content__list-group">
-                <p class="g--layout-01__wrapper__content__list-group__item">
-                    We bring trusted expertise and a pragmatic approach that ensures your AI strategy is clear, responsible, and built to last.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="g--layout-01 <?= $spacing; ?> g--layout-01--fourth">
-    <div class="g--layout-01__wrapper">
-        <div class="g--layout-01__wrapper__content">
-            <h2 class="g--layout-01__wrapper__content__item-primary">
-                SEI Takes An Outcomes-First Approach to AI Adoption
-            </h2>
-            <div class="g--layout-01__wrapper__content__list-group">
-                <p class="g--layout-01__wrapper__content__list-group__item">
-                    We bring trusted expertise and a pragmatic approach that ensures your AI strategy is clear, responsible, and built to last.
+                    <?= $text; ?>
                 </p>
             </div>
         </div>
