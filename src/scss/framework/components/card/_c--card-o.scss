@@ -141,10 +141,7 @@
 
       &__pill {
         @extend .g--pill-01;
-        @extend .g--pill-01--third;
-        @extend .f--font-j;
-        width: fit-content;
-        padding: $measure * 0.5 $measure * 1.5 $measure * 0.75 $measure * 1.5;
+        @extend .g--pill-01--fifth;
       }
     }
 
