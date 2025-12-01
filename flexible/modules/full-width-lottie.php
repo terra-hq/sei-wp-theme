@@ -1,4 +1,3 @@
-<?php include(locate_template('components/lottie/lottie-a.php', false, false)); ?>
 <?php
 $spacing = get_spacing($module['section_spacing']);
 $lottie = $module['lottie'];
