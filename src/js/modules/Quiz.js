@@ -204,6 +204,21 @@ class Quiz {
             useWorker: false
         });
 
+        const confettiColors = [
+            '#fffff8', // $color-a
+            '#141018', // $color-b
+            '#f01840', // $color-c
+            '#c01830', // $color-d
+            '#901226', // $color-e
+            '#600c1c', // $color-f
+            '#300810', // $color-g
+            '#d0c8c8', // $color-h
+            '#a0949e', // $color-i
+            '#705e74', // $color-j
+            '#402848', // $color-k
+            '#2a1c30'  // $color-l
+        ];
+
         // Wait for the progress bar to finish the fill animation
         setTimeout(() => {
             myConfetti({
@@ -213,6 +228,7 @@ class Quiz {
                     x: originX,
                     y: originY
                 },
+                colors: confettiColors,
                 zIndex: 4
             });
         }, 300);
