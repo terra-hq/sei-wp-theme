@@ -1,5 +1,6 @@
 <?php
 $spacing = get_spacing($module['section_spacing']);
+$bg_color = $module['bg_color'];
 $lottie = $module['lottie'];
 ?>
 

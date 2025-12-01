@@ -26,7 +26,6 @@ $slider_items = $module['slider_items'] ?? [];
                                     $pills = $item['pills'] ?? [];
                                     $form_title = $module['form_title'];
                                     $form_id = $module['form_id'];
-                                    $form_portal_id = $module['form_portal_id'];
                                     include(locate_template('components/card/card-o.php', false, false));
                                 ?>
                             </div>
