@@ -57,4 +57,27 @@
             ),
         );
     }
+
+    &--second {
+        @include make-modal-01-modifier(
+            $background-options: (
+                "background-color": transparent,
+            ),
+            $custom-options: (
+                ".g--modal-01__wrapper": (
+                    "padding": 0,
+                    "max-width": 412px,
+                ),
+                ".g--modal-01__wrapper__btn": (
+                    "z-index": 10,
+                ),
+                ".g--modal-01__wrapper__btn__icon path, .g--modal-01__wrapper__btn:hover .g--modal-01__wrapper__btn__icon path": (
+                    "stroke":  color.adjust(map.get($color-options, a), $lightness: -15%),
+                ),
+                ".g--modal-01__wrapper__content": (
+                    "min-height": 600px,
+                ),
+            ),
+        );
+    }
 }

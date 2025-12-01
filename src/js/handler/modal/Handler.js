@@ -83,6 +83,22 @@ class Handler {
                                         appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
                                         style: { aspectRatio: "16/9", width: "100%", height: "100%" },
                                     });
+                                } else if (this.currentTrigger.getAttribute("data-modal-form-type") === "form-b") {
+                                    this.boostify.loadScript({
+                                        url: "https://js.hsforms.net/forms/v2.js",
+                                    });
+                                    this.boostify.loadScript({
+                                        inlineScript: `
+                                            hbspt.forms.create({
+                                                region: "na1",
+                                                portalId: "${this.currentTrigger.getAttribute("data-modal-form-portal-id")}",
+                                                formId: "${this.currentTrigger.getAttribute("data-modal-form-id")}",
+                                            });
+                                        `,
+                                        appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
+                                    });
+                                    modal.classList.add("g--modal-01--second");
+                                    modal.querySelector(".g--modal-01__wrapper__content").classList.add("c--form-b");
                                 }
                             },
                             onClose: (modal) => {
