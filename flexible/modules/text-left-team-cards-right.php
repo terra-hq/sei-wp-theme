@@ -55,7 +55,9 @@ $experts = $module['experts'] ?? [];
                                             </div>
                                         <?php endif; ?>
                                         <?php if (!empty($expert->people_single_years)): ?>
-                                            <span class="g--pill-01"><?= $expert->people_single_years ?></span>
+                                            <span class="g--pill-01">
+                                                <?= intval($expert->people_single_years) ?>+ years
+                                            </span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
