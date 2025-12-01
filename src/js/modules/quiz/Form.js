@@ -11,6 +11,10 @@ class Form {
             ? document.querySelector(submitButtonSelector)
             : null; // Botón de envío personalizado
 
+        this.fieldListeners = [];
+        this.submitButtonHandler = null;
+        this.formSubmitHandler = null;
+
         // Configurar eventos para los campos y el botón de envío
         this.initializeFields();
         this.initializeSubmit();
@@ -23,15 +27,19 @@ class Form {
             if (!element) throw new Error("Each field must have an element.");
             if (!validationFunction) throw new Error("A validation function is required.");
 
-            // Añadir eventos personalizados a cada campo
-            element.addEventListener(on || "blur", () => {
+            const eventType = on || "blur";
+            const handler = () => {
                 const result = validationFunction({
                     element: element.value,
                     config,
                 });
 
                 this.updateFieldState(element, result);
-            });
+            };
+
+            // Guardamos los eventos para limpiarlos en destroy
+            this.fieldListeners.push({ element, eventType, handler });
+            element.addEventListener(eventType, handler);
         });
     }
 
@@ -97,19 +105,21 @@ class Form {
     }
 
     initializeSubmit() {
-        // Manejar el evento de clic en el botón personalizado (si está definido)
         if (this.submitButton) {
-            this.submitButton.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevenir el comportamiento por defecto
+            this.submitButtonHandler = (event) => {
+                event.preventDefault();
                 this.handleValidation();
-            });
+            };
+            this.submitButton.addEventListener("click", this.submitButtonHandler);
         }
 
-        // Manejar el evento submit del formulario
-        this.formElement.addEventListener("submit", (event) => {
-            event.preventDefault(); // Prevenir el envío por defecto
-            this.handleValidation();
-        });
+        if (this.formElement) {
+            this.formSubmitHandler = (event) => {
+                event.preventDefault();
+                this.handleValidation();
+            };
+            this.formElement.addEventListener("submit", this.formSubmitHandler);
+        }
     }
 
     handleValidation() {
@@ -131,6 +141,32 @@ class Form {
                 this.onError(invalidFields); // Execute error callback with details
             }
         }
+    }
+
+    destroy() {
+        this.fieldListeners.forEach(({ element, eventType, handler }) => {
+            if (element && handler) {
+                element.removeEventListener(eventType, handler);
+            }
+        });
+        this.fieldListeners = [];
+
+        if (this.submitButton && this.submitButtonHandler) {
+            this.submitButton.removeEventListener("click", this.submitButtonHandler);
+            this.submitButtonHandler = null;
+        }
+
+        if (this.formElement && this.formSubmitHandler) {
+            this.formElement.removeEventListener("submit", this.formSubmitHandler);
+            this.formSubmitHandler = null;
+        }
+
+        this.formElement = null;
+        this.fields = null;
+        this.submitButton = null;
+        this.onSubmit = null;
+        this.onComplete = null;
+        this.onError = null;
     }
 }
 

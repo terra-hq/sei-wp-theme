@@ -905,6 +905,15 @@ class Main extends Core {
       });
       this.instances["Marquee"] = [];
     }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"].forEach((instance, index) => {
+        if (instance && typeof instance.destroy === "function") {
+          instance.destroy();
+        }
+      });
+      this.instances["Quiz"] = [];
+    }
   }
 }
 
