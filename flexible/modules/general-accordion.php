@@ -1,5 +1,5 @@
 <?php
-    $spacing = get_spacing($module['spacing']) ?? 'u--pt-15 u--pb-15';
+    $spacing = get_spacing($module['spacing']);
     $left_label_accordion = $module['left_label_accordion'] ?? '';
     $right_label_accordion = $module['right_label_accordion'] ?? '';
     $accordion_items = $module['accordion_items'] ?? [];

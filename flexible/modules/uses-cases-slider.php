@@ -24,6 +24,9 @@ $slider_items = $module['slider_items'] ?? [];
                                     $button_label = $item['button_label'] ?? '';
                                     $button_link = $item['button_link'] ?? '#';
                                     $pills = $item['pills'] ?? [];
+                                    $form_title = $module['form_title'];
+                                    $form_id = $module['form_id'];
+                                    $form_portal_id = $module['form_portal_id'];
                                     include(locate_template('components/card/card-o.php', false, false));
                                 ?>
                             </div>
@@ -36,4 +39,6 @@ $slider_items = $module['slider_items'] ?? [];
     </div>
 </section>
 
-<?php unset($spacing, $slider_items, $title, $columns_left_label, $columns_left_content, $columns_right_label, $columns_right_content, $bottom_label, $bottom_cards, $image, $button_label, $button_link, $pills); ?>
+<?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
+
+<?php unset($spacing, $slider_items, $title, $columns_left_label, $columns_left_content, $columns_right_label, $columns_right_content, $bottom_label, $bottom_cards, $image, $button_label, $button_link, $pills, $form_title, $form_id, $form_portal_id); ?>

@@ -97,12 +97,18 @@
                 </div>
             
                 <?php if (!empty($button_label)) : ?>
-                    <a href="<?= esc_url($button_link); ?>" class="c--card-o__btn">
+                    <button 
+                        data-modal-open="my-modal"
+                        data-modal-form-type="form-b"
+                        data-modal-form-portal-id="<?= htmlspecialchars($form_portal_id, ENT_QUOTES); ?>"
+                        data-modal-form-id="<?= htmlspecialchars($form_id, ENT_QUOTES); ?>"
+                        class="c--card-o__btn"
+                    >
                         <svg class="c--card-o__btn__artwork" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
                             <path d="M1 8.91406L21 8.91406M21 8.91406L13.5 16.4141M21 8.91406L13.5 1.41406" stroke="#FFFFF8" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
                         </svg>
                         <span><?= htmlspecialchars($button_label, ENT_QUOTES); ?></span>
-                    </a>
+                    </button>
                 <?php endif; ?>
 
             </div>
