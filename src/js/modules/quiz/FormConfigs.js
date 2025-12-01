@@ -50,6 +50,17 @@ export default function FormConfigs() {
             on: "blur",
         },
         {
+            element: document.querySelector("#quiz-purpose"),
+            validationFunction: isSelect,
+            config: {
+                required: true,
+                customMessage: {
+                    required: "Please select your purpose for using AI",
+                },
+            },
+            on: "blur",
+        },
+        {
             element: document.querySelector("#quiz-journey"),
             validationFunction: isSelect,
             config: {
