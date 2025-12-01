@@ -9,7 +9,7 @@ $letsTalk = $module['lets_talk_about_your_needs'];
 $submit = $module['submit'];
 $thankYou = $module['thank_you'];
 $thankYouText = $module['thank_you_text'];
-$sectionSpacing =get_spacing($module['section_spacing']) //u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0
+$sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0' //u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0
 
 ?>
 <section class="js--quiz-a u <?= $sectionSpacing ?>">
@@ -33,7 +33,7 @@ $sectionSpacing =get_spacing($module['section_spacing']) //u--pt-30 u--pb-22 u--
 
                     <!-- Step 1 -->
                     <fieldset class="c--quiz-a__wrapper c--quiz-a__wrapper--is-active" data-step="1" data-tab-content="quiz-step-01" aria-hidden="false">
-                        <h2 class="c--quiz-a__wrapper__title"><?= $quizSubtitle ?></h2>
+                        <h2 class="c--quiz-a__wrapper__title"><?= $contactDetails ?></h2>
                         <div class="c--quiz-a__wrapper__bd">
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-company">Company name*</label>
@@ -154,7 +154,7 @@ $sectionSpacing =get_spacing($module['section_spacing']) //u--pt-30 u--pb-22 u--
                             <button type="button" class="c--quiz-a__wrapper__ft__link">
                                 <?= $previousStep ?>
                             </button>
-                            <button type="button" class="c--quiz-a__wrapper__ft__btn">
+                            <button type="submit" class="c--quiz-a__wrapper__ft__btn">
                                 <?= $submit ?>
                             </button>
                         </div>
