@@ -110,11 +110,6 @@ class Quiz {
             if (nextStep) {
                 targetStepID = nextStep.getAttribute("data-tab-content");
             }
-
-            if(isSubmit){
-                this.submitForm()
-                
-            }
         } else if (isPrevious) {
             const currentStepIndex = Array.from(this.DOM.steps).indexOf(currentStep);
             const previousStep = this.DOM.steps[currentStepIndex - 1];
@@ -297,6 +292,9 @@ class Quiz {
     destroy() {
         if (this.collapsify && typeof this.collapsify.destroy === "function") {
             this.collapsify.destroy();
+        }
+        if (this.form && typeof this.form.destroy === "function") {
+            this.form.destroy();
         }
     }
 }
