@@ -14,4 +14,4 @@ $lottie = $module['lottie'];
     </div>
 </section>
 
-<?php unset($spacing, $lottie); ?>
+<?php unset($spacing, $lottie, $bg_color); ?>

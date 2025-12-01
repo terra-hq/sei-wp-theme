@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'vis');
+define('hash', 'siu');
 
 ?>
