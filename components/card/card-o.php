@@ -86,7 +86,7 @@
                                 'class' => 'c--card-o__media-wrapper__media',
                                 'isLazy' => true,
                                 'lazyClass' => 'g--lazy-01',
-                                'showAspectRatio' => true,
+                                'showAspectRatio' => false,
                                 'decodingAsync' => true,
                                 'fetchPriority' => false,
                                 'addFigcaption' => false,
