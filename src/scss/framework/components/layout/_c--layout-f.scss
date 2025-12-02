@@ -7,7 +7,7 @@
 @use "@scss/global-components/pill/_g--pill-01" as *;
 @use "@scss/framework/components/content/_c--content-a" as *;
 
-.c--card-o {
+.c--layout-f {
   @extend .u--display-flex;
   @extend .u--width-100;
   background-color: rgba(map.get($color-options, h), 0.1);
@@ -149,7 +149,7 @@
     &__media {
       height: 100%;
       object-fit: cover;
-      aspect-ratio: 396/537;
+      aspect-ratio: 396/476;
     }
 
   }

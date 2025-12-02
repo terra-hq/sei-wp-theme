@@ -55,6 +55,17 @@
         }
     }
 
+    &--second {
+        background-color: map.get($colorbg-options, b);
+
+        .c--card-e__title {
+            @extend .f--font-h;
+        }
+        .c--card-e__subtitle {
+            @extend .f--font-i;
+        }
+    }
+
 
 }
 

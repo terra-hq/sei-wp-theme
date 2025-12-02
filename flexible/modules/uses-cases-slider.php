@@ -23,10 +23,10 @@ $slider_items = $module['slider_items'] ?? [];
                                     $image = $item['image'] ?? null;
                                     $button_label = $item['button_label'] ?? '';
                                     $button_link = $item['button_link'] ?? '#';
-                                    $pills = $item['pills'] ?? [];
+                                    $pills = $item['image_pills'] ?? [];
                                     $form_title = $module['form_title'];
                                     $form_id = $module['form_id'];
-                                    include(locate_template('components/card/card-o.php', false, false));
+                                    include(locate_template('components/layout/layout-f.php', false, false));
                                 ?>
                             </div>
                         <?php endforeach; ?>
