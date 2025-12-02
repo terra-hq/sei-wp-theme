@@ -49,9 +49,9 @@ $experts = $module['experts'] ?? [];
                                         <h3 class="c--card-c__wrapper__title">
                                             <?= get_the_title($expert->ID) ?>
                                         </h3>
-                                        <?php if (!empty($expert->people_single_description)): ?>
+                                        <?php if (!empty($expert->job_position)): ?>
                                             <div class="c--card-c__wrapper__subtitle">
-                                                <?= $expert->people_single_description ?>
+                                                <?= $expert->job_position ?>
                                             </div>
                                         <?php endif; ?>
                                         <?php if (!empty($expert->people_single_years)): ?>
