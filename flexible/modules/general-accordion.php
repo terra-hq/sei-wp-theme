@@ -33,7 +33,7 @@
                                                             <?= $left_label_accordion ?>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="c--content-a c--content-a--second-color u--mb-5">
+                                                    <div class="c--content-a c--content-a--third-color u--mb-5">
                                                         <?php if (!empty($item['left_content'])): ?>
                                                             <?= $item['left_content'] ?>
                                                         <?php endif; ?>
@@ -45,7 +45,7 @@
                                                             <?= $right_label_accordion ?>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="c--content-a c--content-a--second-color u--mb-5">
+                                                    <div class="c--content-a c--content-a--third-color u--mb-5">
                                                         <?php if (!empty($item['right_content'])): ?>
                                                             <?= $item['right_content'] ?>
                                                         <?php endif; ?>
