@@ -23,7 +23,7 @@
                             </div>
                             <div class="c--accordion-a__item__wrapper">
                                 <div class="c--accordion-a__item__wrapper__content">
-                                    <div class="u--display-flex u--width-100 f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6">
+                                    <div class="u--display-flex u--width-100 f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6 u--pb-mobile-4 u--pl-mobile-4 u--pr-mobile-4 u--pt-mobile-4">
                                         <div class="u--display-flex u--flex-direction-column u--width-100">
                                             <h4 class="f--font-f f--color-a u--mb-3"><?= $card_title ?></h4>
                                             <div class="f--row">
