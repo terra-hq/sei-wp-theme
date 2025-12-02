@@ -3,6 +3,8 @@
     $subtitle = $hero['subtitle'];
     $description = $hero['description'];
     $bg_color = isset($hero['bg_color']) ? $hero['bg_color'] : 'f--background-f';
+    $add_button = $hero['add_button'] ?? false;
+    $button = $hero['button'] ?? [];
 
     $current_post_id = get_the_ID();
     $parent_id = wp_get_post_parent_id($current_post_id);
@@ -87,6 +89,13 @@
                         <p><?= $description ?></p>
                     </div>
                 </div>
+            <?php endif; ?>
+            <!-- DEJO EL BOTÓN FUNCIONAL AQUÍ -->
+            <?php if ($add_button && $button) : ?>
+                <a href="<?= esc_url($button['url']) ?>" class="g--btn-03" <?= get_target_link($button['target'], $button['title']) ?>>
+                    <span ><?= esc_html($button['title']) ?></span>
+                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                </a>
             <?php endif; ?>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="c--layout-f">
     <div class="f--row f--gap-c">
-        <div class="f--col-8 f--col-tabletl-12 u--display-flex u--flex-direction-column">
+        <div class="f--col-8 f--col-tabletl-7 f--col-tablets-12 u--display-flex u--flex-direction-column">
 
             <?php if (!empty($title)) : ?>
                 <div class="c--layout-f__hd">
@@ -12,7 +12,7 @@
                 <div class="c--layout-f__bd">
                     <div class="f--row f--gap-c">
                         <?php if (!empty($columns_left_content)) : ?>
-                            <div class="f--col-6 f--col-tablets-12">
+                            <div class="f--col-6 f--col-tabletl-12">
                                 <?php if (!empty($columns_left_label)) : ?>
                                     <p class="c--layout-f__bd__subtitle c--layout-f__bd__subtitle--second"><?= htmlspecialchars($columns_left_label, ENT_QUOTES); ?></p>
                                 <?php endif; ?>
@@ -22,7 +22,7 @@
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($columns_right_content)) : ?>
-                            <div class="f--col-6 f--col-tablets-12">
+                            <div class="f--col-6 f--col-tabletl-12">
                                 <?php if (!empty($columns_right_label)) : ?>
                                     <p class="c--layout-f__bd__subtitle"><?= htmlspecialchars($columns_right_label, ENT_QUOTES); ?></p>
                                 <?php endif; ?>
@@ -45,7 +45,7 @@
                             
                             <div class="f--row f--gap-d">
                                 <?php foreach ($bottom_cards as $card) : ?>
-                                    <div class="f--col-4 f--col-tablets-12 u--display-flex">
+                                    <div class="f--col-4 f--col-tabletm-12 u--display-flex">
                                         <?php
                                             $title = $card['card_title'] ?? '';
                                             $subtitle = $card['card_subtitle'] ?? '';
@@ -61,7 +61,7 @@
 
         </div>
 
-        <div class="f--col-4 f--col-tabletl-12 u--display-flex u--flex-direction-column">
+        <div class="f--col-4 f--col-tabletl-5 f--col-tablets-12 u--display-flex u--flex-direction-column">
 
 
                 <div class="c--layout-f__media-wrapper">
