@@ -23,17 +23,17 @@
                             </div>
                             <div class="c--accordion-a__item__wrapper">
                                 <div class="c--accordion-a__item__wrapper__content">
-                                    <div class="c--card-n">
-                                        <div class="c--card-n__wrapper">
-                                            <h4 class="c--card-n__wrapper__title"><?= $card_title ?></h4>
+                                    <div class="u--display-flex u--width-100 f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6">
+                                        <div class="u--display-flex u--flex-direction-column u--width-100">
+                                            <h4 class="f--font-f f--color-a u--mb-3"><?= $card_title ?></h4>
                                             <div class="f--row">
                                                 <div class="f--col-6 f--col-tablets-12">
                                                     <?php if ($left_label_accordion): ?>
-                                                        <div class="c--card-n__wrapper__subtitle">
+                                                        <div class="f--font-i f--color-a u--font-bold u--mb-2">
                                                             <?= $left_label_accordion ?>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="c--card-n__wrapper__content">
+                                                    <div class="c--content-a c--content-a--second-color u--mb-5">
                                                         <?php if (!empty($item['left_content'])): ?>
                                                             <?= $item['left_content'] ?>
                                                         <?php endif; ?>
@@ -41,11 +41,11 @@
                                                 </div>
                                                 <div class="f--col-6 f--col-tablets-12">
                                                     <?php if ($right_label_accordion): ?>
-                                                        <div class="c--card-n__wrapper__subtitle">
+                                                        <div class="f--font-i f--color-a u--font-bold u--mb-2">
                                                             <?= $right_label_accordion ?>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="c--card-n__wrapper__content">
+                                                    <div class="c--content-a c--content-a--second-color u--mb-5">
                                                         <?php if (!empty($item['right_content'])): ?>
                                                             <?= $item['right_content'] ?>
                                                         <?php endif; ?>
