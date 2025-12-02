@@ -184,7 +184,7 @@
     );
   }
 
-  //* second: white text
+  //* second: white text with red bullets (for dark pink backgrounds)
   &--second-color {
     @include make-content-modifier(
       $headings-options: (
@@ -257,7 +257,7 @@
     }
   }
 
-  //* third: white text and white bullets
+  //* third: white text and white bullets (for red backgrounds)
   &--third-color {
     @include make-content-modifier(
       $headings-options: (
