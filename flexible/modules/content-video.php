@@ -33,7 +33,19 @@ $poster_image = $module['poster_image'];
                     data-modal-video-type="<?= $video_type == 'file' ? 'file' : 'embed' ?>"
                     data-modal-video-url=<?= $video_type == 'file' ? $video_file :  $video_url ?>
                 >
-                   <img class="c--layout-d__wrapper__media" src="<?= $poster_image ?>" alt="Poster Image">
+                    <?php
+                        $image_tag_args = array(
+                            'image' => $poster_image,
+                            'sizes' => '(max-width: 810px) 100vw, 40vw',
+                            'class' => 'c--layout-d__wrapper__media',
+                            'isLazy' => true,
+                            'showAspectRatio' => true,
+                            'decodingAsync' => true,
+                            'fetchPriority' => false,
+                            'addFigcaption' => false,
+                        );
+                        generate_image_tag($image_tag_args); 
+                    ?>
                     <svg class="c--layout-d__wrapper__artwork" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
                         <rect width="56" height="56" rx="28" fill="#FFFFF8"/>
                         <path d="M18.6641 11.9941V44.6608L44.3307 28.3275L18.6641 11.9941Z" fill="#F01840"/>
