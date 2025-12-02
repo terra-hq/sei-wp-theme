@@ -1,6 +1,6 @@
 <div class="c--layout-f">
     <div class="f--row f--gap-c">
-        <div class="f--col-8 f--col-tabletm-12 u--display-flex u--flex-direction-column u--height-100">
+        <div class="f--col-8 f--col-tabletl-12 u--display-flex u--flex-direction-column">
 
             <?php if (!empty($title)) : ?>
                 <div class="c--layout-f__hd">
@@ -45,7 +45,7 @@
                             
                             <div class="f--row f--gap-d">
                                 <?php foreach ($bottom_cards as $card) : ?>
-                                    <div class="f--col-4 f--col-tablets-12">
+                                    <div class="f--col-4 f--col-tablets-12 u--display-flex">
                                         <?php
                                             $title = $card['card_title'] ?? '';
                                             $subtitle = $card['card_subtitle'] ?? '';
@@ -61,9 +61,8 @@
 
         </div>
 
-        <div class="f--col-4 f--col-tabletm-12">
+        <div class="f--col-4 f--col-tabletl-12 u--display-flex u--flex-direction-column">
 
-            <div class="u--display-flex u--flex-direction-column u--height-100">
 
                 <div class="c--layout-f__media-wrapper">
                     <?php if (!empty($pills)) : ?>
@@ -100,14 +99,11 @@
                         data-modal-form-id="<?= htmlspecialchars($form_id, ENT_QUOTES); ?>"
                         class="c--layout-f__btn"
                     >
-                        <svg class="c--layout-f__btn__artwork" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
-                            <path d="M1 8.91406L21 8.91406M21 8.91406L13.5 16.4141M21 8.91406L13.5 1.41406" stroke="#FFFFF8" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-                        </svg>
+                        <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
                         <span><?= htmlspecialchars($button_label, ENT_QUOTES); ?></span>
                     </button>
                 <?php endif; ?>
 
-            </div>
 
         </div>
     </div>
