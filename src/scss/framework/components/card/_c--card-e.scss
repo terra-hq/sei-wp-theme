@@ -63,6 +63,7 @@
         }
         .c--card-e__subtitle {
             @extend .f--font-i;
+            margin-bottom: $measure * 0;
         }
     }
 
