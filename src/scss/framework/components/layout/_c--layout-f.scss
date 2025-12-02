@@ -8,15 +8,10 @@
 @use "@scss/framework/components/content/_c--content-a" as *;
 
 .c--layout-f {
-  @extend .u--display-flex;
-  @extend .u--width-100;
   background-color: rgba(map.get($color-options, h), 0.1);
   padding: $measure*7 $measure*6;
-  gap: $measure * 6;
 
   @media all and ($viewport-type: $tabletl) {
-    flex-direction: column;
-    gap: $measure * 4;
     padding: $measure*4 $measure*3;
   }
 
