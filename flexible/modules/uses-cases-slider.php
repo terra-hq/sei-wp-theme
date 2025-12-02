@@ -3,15 +3,15 @@ $spacing = get_spacing($module['section_spacing'] ?? '');
 $slider_items = $module['slider_items'] ?? [];
 ?>
 
-<section class="c--slider-c <?= htmlspecialchars($spacing, ENT_QUOTES); ?>">
+<section class="<?= htmlspecialchars($spacing, ENT_QUOTES); ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="c--slider-c__wrapper js--slider-a">
+                <div class="u--display-flex js--slider-a">
 
                     <?php if (!empty($slider_items)) : ?>
                         <?php foreach ($slider_items as $item) : ?>
-                            <div class="c--slider-c__wrapper__item">
+                            <div class="u--width-100">
                                 <?php
                                     $title = $item['title'] ?? '';
                                     $columns_left_label = $item['columns_left_label'] ?? '';
@@ -37,7 +37,5 @@ $slider_items = $module['slider_items'] ?? [];
         </div>
     </div>
 </section>
-
-<?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
 
 <?php unset($spacing, $slider_items, $title, $columns_left_label, $columns_left_content, $columns_right_label, $columns_right_content, $bottom_label, $bottom_cards, $image, $button_label, $button_link, $pills, $form_title, $form_id, $form_portal_id); ?>
