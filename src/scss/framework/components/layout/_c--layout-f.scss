@@ -8,15 +8,10 @@
 @use "@scss/framework/components/content/_c--content-a" as *;
 
 .c--layout-f {
-  @extend .u--display-flex;
-  @extend .u--width-100;
   background-color: rgba(map.get($color-options, h), 0.1);
   padding: $measure*7 $measure*6;
-  gap: $measure * 6;
 
-  @media all and ($viewport-type: $tabletm) {
-    flex-direction: column;
-    gap: $measure * 4;
+  @media all and ($viewport-type: $tabletl) {
     padding: $measure*4 $measure*3;
   }
 
@@ -26,7 +21,7 @@
     @extend .f--color-b;
     margin-bottom: $measure * 5;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
       margin-bottom: $measure * 4;
     }
   }
@@ -49,7 +44,7 @@
     @extend .u--flex-direction-column;
     margin-bottom: $measure * 5;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
       margin-bottom: $measure * 4;
     }
 
@@ -65,7 +60,7 @@
     @extend .u--flex-direction-column;
     margin-bottom: $measure * 5;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
       margin-bottom: $measure * 4;
     }
 
@@ -147,9 +142,10 @@
     }
 
     &__media {
+      display: block;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
-      aspect-ratio: 396/476;
+      object-fit: contain;
     }
 
   }
@@ -159,15 +155,6 @@
     @extend .g--btn-03--second;
     width: 100%;
     margin-top: auto;
-
-    &:hover & {
-      &__artwork {
-        path {
-          stroke: map.get($color-options, c);
-        }
-      }
-    }
-
   }
 
 }
