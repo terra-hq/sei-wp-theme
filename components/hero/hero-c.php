@@ -76,27 +76,38 @@
                     </h1>
                 <?php } ?>
             </div>
-            <?php if($description): ?>
-                <div class="f--col-6 f--col-tabletl-10 f--col-mobile-12">
-                    <?php if($subtitle): ?>
-                        <?php if ($hero['subtitle_h1']){ ?>
-                            <h1 class="c--hero-c__subtitle"><?= $subtitle ?></h1>
-                        <?php } else { ?>
-                            <h2 class="c--hero-c__subtitle"><?= $subtitle ?></h2>
-                        <?php } ?>
+
+            <div class="f--col-6 f--col-tabletl-10 f--col-mobile-12">
+                <div class="f--row f--gap-c">
+
+                    <?php if($description): ?>
+                        <div class="f--col-12">
+                            <?php if($subtitle): ?>
+                                <?php if ($hero['subtitle_h1']){ ?>
+                                    <h1 class="c--hero-c__subtitle"><?= $subtitle ?></h1>
+                                <?php } else { ?>
+                                    <h2 class="c--hero-c__subtitle"><?= $subtitle ?></h2>
+                                <?php } ?>
+                            <?php endif; ?>
+                            <div class="c--hero-c__content c--content-a c--content-a--second-color c--content-a--third-text">
+                                <p><?= $description ?></p>
+                            </div>
+                        </div>
                     <?php endif; ?>
-                    <div class="c--hero-c__content c--content-a c--content-a--second-color c--content-a--third-text">
-                        <p><?= $description ?></p>
-                    </div>
+
+                    <?php if ($add_button && $button) : ?>
+                        <div class="f--col-12">
+                            <a href="<?= esc_url($button['url']) ?>" class="g--btn-03" <?= get_target_link($button['target'], $button['title']) ?>>
+                                <span ><?= esc_html($button['title']) ?></span>
+                                <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
                 </div>
-            <?php endif; ?>
-            <!-- DEJO EL BOTÓN FUNCIONAL AQUÍ -->
-            <?php if ($add_button && $button) : ?>
-                <a href="<?= esc_url($button['url']) ?>" class="g--btn-03" <?= get_target_link($button['target'], $button['title']) ?>>
-                    <span ><?= esc_html($button['title']) ?></span>
-                    <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
-                </a>
-            <?php endif; ?>
+
+            </div>
+
         </div>
     </div>
 </section>
