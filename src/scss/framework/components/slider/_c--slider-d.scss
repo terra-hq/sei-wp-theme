@@ -6,10 +6,15 @@
 .c--slider-d {
   overflow: hidden;
   &__wrapper {
-    display: flex;
+    @extend .u--display-flex;
+    @extend .f--gap-c;
+
+    @media all and ($viewport-type: $tablets) {
+      flex-direction: column;
+    }
 
     &__item {
-      // height: fit-content;
+      display: flex;
     }
   }
   .tns-nav {

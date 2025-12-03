@@ -1,6 +1,6 @@
 <div class="c--layout-f">
     <div class="f--row f--gap-c">
-        <div class="f--col-8 f--col-tabletl-7 f--col-tablets-12 u--display-flex u--flex-direction-column u--pr-5 u--pr-tabletm-2">
+        <div class="f--col-8 f--col-tabletl-7 f--col-tablets-12 u--display-flex u--flex-direction-column "> <!-- u--pr-5 u--pr-tabletm-2 -->
 
             <?php if (!empty($title)) : ?>
                 <div class="c--layout-f__hd">

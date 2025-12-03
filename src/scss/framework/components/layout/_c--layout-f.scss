@@ -58,6 +58,7 @@
   &__bd {
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
+    margin-bottom: $measure * 5;
 
     &:last-child {
       margin-top: auto;
@@ -116,6 +117,7 @@
 
   &__media-wrapper {
     @extend .u--position-relative;
+    max-height: 420px;
     margin-bottom: $measure * 3;
 
     &__overlay {
@@ -135,7 +137,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
 
   }
