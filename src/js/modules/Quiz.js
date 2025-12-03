@@ -60,8 +60,10 @@ class Quiz {
             onComplete: async () => {
                 this.showConfetti();
             },
-            onSubmit: async () => {
-                await this.submitForm();
+            onSubmit: async (data) => {
+                await this.submitForm({
+                    data
+                });
             },
             onError: (invalidFields) => {
                 console.error("Form contains errors:", invalidFields);
@@ -238,7 +240,7 @@ class Quiz {
      * 3) Build HubSpot payload (including hutk cookie for contact attribution)
      * 4) Submit to HubSpot
      */
-    async submitForm(){
+    async submitForm({data}){
         const { submitToHubspot } = await import("@terrahq/helpers/hubspot");
         const { GET_RECAPTCHA_SCRIPT_FROM_GOOGLE, GET_RECAPTCHA_CLIENT_TOKEN } = await import("@terrahq/helpers/recaptcha");
 
@@ -251,39 +253,37 @@ class Quiz {
             action: "submit",
         });
 
+        const resp = await fetch(`${base_wp_api.root_url}/wp-json/acf/v2/options`);
+        const acfData = await resp.json();
+        var hubspotPortalId = acfData?.acf?.form_portal_id || null;
+        var hubspotForm = "7bede634-3926-4c37-89a0-f351dd4b8f7b"|| null;
         if(google_access_token){
             const hutk = getCookie("hubspotutk");
-
-            const formData = new FormData(this.DOM.form);
-            const formDataObject = Object.fromEntries(formData.entries());
-            
             var payload = {
-                portalId: "6210663",
-                formId: "7bede634-3926-4c37-89a0-f351dd4b8f7b",
+                portalId: hubspotPortalId,
+                formId: hubspotForm,
                 formInputs: {
-                    company: formDataObject.company ?? "",
-                    email: formDataObject.email ?? "",
-                    ai_form__what_is_your_role_: formDataObject.role ?? "",
-                    ai_form__what_s_your_industry_ : formDataObject.industry ?? "",
-                    ai_form__what_s_your_purpose_for_using_ai_ : formDataObject.purpose ?? "",
-                    ai_form__where_are_you_in_your_ai_transformation_journey_ : formDataObject.journey ?? "",
-                    ai_form__context : formDataObject.context ?? "",
+                    company: data.quizCompany ?? "",
+                    email: data.quizEmail ?? "",
+                    ai_form__what_is_your_role_: data.quizRole ?? "",
+                    ai_form__what_s_your_industry_ : data.quizIndustry ?? "",
+                    ai_form__what_s_your_purpose_for_using_ai_ : data.quizPurpose ?? "",
+                    ai_form__where_are_you_in_your_ai_transformation_journey_ : data.quizJourney ?? "",
+                    ai_form__context : data.quizMessage ?? "",
                 },
                 context: {
-                    hutk,                     // ✅ critical bit
+                    hutk, 
                     pageUri: window.location.href,
                     pageName: document.title,
                 },
             }
             
-            console.log(payload);
-            
-            // try {
-            //     const submissionResult = await submitToHubspot(payload);
-            //     console.log(submissionResult.message);
-            // } catch (error) {
-            //     console.error("Submission error:", error.message);
-            // }
+            try {
+                const submissionResult = await submitToHubspot(payload);
+                console.log(submissionResult.message);
+            } catch (error) {
+                console.error("Submission error:", error.message);
+            }
         } else {
             console.log("Recaptcha Failed: " + res.message);
         }

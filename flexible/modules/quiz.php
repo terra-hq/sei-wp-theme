@@ -38,13 +38,13 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-company">Company name*</label>
                                 <div class="c--form-input-a">
-                                    <input class="c--form-input-a__item" type="text" name="company" id="quiz-company" placeholder="Your company" required />
+                                    <input class="c--form-input-a__item" type="text" name="company" id="quiz-company" placeholder="Your company" required data-name="quizCompany" />
                                 </div>
                             </div>
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-email">Email address*</label>
                                 <div class="c--form-input-a">
-                                    <input class="c--form-input-a__item" type="email" name="email" id="quiz-email" placeholder="Your email address" required />
+                                    <input class="c--form-input-a__item" type="email" name="email" id="quiz-email" placeholder="Your email address" required data-name="quizEmail"/>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-role">What is your role?*</label>
                                 <div class="c--form-select-a">
-                                    <select class="c--form-select-a__item" name="role" id="quiz-role" required>
+                                    <select class="c--form-select-a__item" name="role" id="quiz-role" required data-name="quizRole">
                                         <option value="" disabled selected>Select your role</option>
                                         <option value="Executive / Leadership">Executive / Leadership</option>
                                         <option value="Business Unit / P&L Leader">Business Unit / P&L Leader</option>
@@ -78,7 +78,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-industry">What's your industry?*</label>
                                 <div class="c--form-select-a">
-                                    <select class="c--form-select-a__item" name="industry" id="quiz-industry" required>
+                                    <select class="c--form-select-a__item" name="industry" id="quiz-industry" required data-name="quizIndustry">
                                         <option value="" disabled selected>Select your industry</option>
                                         <option value="Automotive & Transportation">Automotive & Transportation</option>
                                         <option value="Construction & Real Estate">Construction & Real Estate</option>
@@ -119,7 +119,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-purpose">What's your purpose for using AI?</label>
                                 <div class="c--form-select-a">
-                                    <select class="c--form-select-a__item" name="purpose" id="quiz-purpose">
+                                    <select class="c--form-select-a__item" name="purpose" id="quiz-purpose" data-name="quizPurpose">
                                         <option value="" disabled selected>Select your purpose</option>
                                         <option value="Unclear strategy / use cases">Unclear strategy / use cases</option>
                                         <option value="Talent & skills gap">Talent & skills gap</option>
@@ -134,7 +134,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-journey">Where are you in your AI transformation journey?*</label>
                                 <div class="c--form-select-a">
-                                    <select class="c--form-select-a__item" name="journey" id="quiz-journey" required>
+                                    <select class="c--form-select-a__item" name="journey" id="quiz-journey" required data-name="quizJourney">
                                         <option value="" disabled selected>Select..</option>
                                         <option value="Exploring">Exploring</option>
                                         <option value="Experimenting / Piloting">Experimenting / Piloting</option>
@@ -146,7 +146,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                             <div class="c--form-group-a">
                                 <label class="c--label-a" for="quiz-message">Message</label>
                                 <div class="c--form-input-a">
-                                    <textarea class="c--form-input-a__item" name="message" id="quiz-message" rows="4" placeholder="Share any additional details"></textarea>
+                                    <textarea class="c--form-input-a__item" name="message" id="quiz-message" rows="4" placeholder="Share any additional details" data-name="quizMessage"></textarea>
                                 </div>
                             </div>
                         </div>
