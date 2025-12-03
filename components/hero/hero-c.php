@@ -77,6 +77,7 @@
                 <?php } ?>
             </div>
 
+            <?php if ($description || $add_button && $button) : ?>
             <div class="f--col-6 f--col-tabletl-10 f--col-mobile-12">
                 <div class="f--row f--gap-c">
 
@@ -107,6 +108,7 @@
                 </div>
 
             </div>
+            <?php endif; ?>
 
         </div>
     </div>
