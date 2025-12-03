@@ -7,7 +7,7 @@ $experts = $module['experts'] ?? [];
 
 <section class="c--layout-e <?= $spacing; ?>">
     <div class="f--container">
-        <div class="f--row f--gap-c u--justify-content-space-between">
+        <div class="f--row f--gap-b u--justify-content-space-between">
             <div class="f--col-5 f--col-tabletl-10 f--col-mobile-12">
                 <?php if ($title): ?>
                     <h2 class="c--layout-e__title">
