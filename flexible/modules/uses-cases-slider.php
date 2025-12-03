@@ -7,7 +7,7 @@ $slider_items = $module['slider_items'] ?? [];
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="u--display-flex js--slider-a">
+                <div class="u--display-flex u--flex-direction-tablets-column f--gap-b js--slider-d">
 
                     <?php if (!empty($slider_items)) : ?>
                         <?php foreach ($slider_items as $item) : ?>
