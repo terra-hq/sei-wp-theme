@@ -45,7 +45,7 @@
                             
                             <div class="f--row f--gap-d">
                                 <?php foreach ($bottom_cards as $card) : ?>
-                                    <div class="f--col-4 f--col-tabletm-12 u--display-flex">
+                                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
                                         <?php
                                             $title = $card['card_title'] ?? '';
                                             $subtitle = $card['card_subtitle'] ?? '';
