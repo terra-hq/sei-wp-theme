@@ -125,12 +125,7 @@
 
   &__media-wrapper {
     @extend .u--position-relative;
-    flex-grow: 1;
     margin-bottom: $measure * 2;
-
-    @media all and ($viewport-type: $tabletl) {
-      flex-grow: 0;
-    }
 
     &__overlay {
       @extend .u--position-absolute;
@@ -159,14 +154,6 @@
     @extend .g--btn-03--second;
     width: 100%;
     margin-top: auto;
-
-    @media all and ($viewport-type: $tabletl) {
-      margin-top: 0;
-    }
-
-    @media all and ($viewport-type: $tablets) {
-      margin-top: auto;
-    }
   }
 
 }
