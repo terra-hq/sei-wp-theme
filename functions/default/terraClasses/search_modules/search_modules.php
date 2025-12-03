@@ -15,7 +15,7 @@ function filtered_content($search_name) {
                     ? $field_object['layouts'][$module_id]['label'] 
                     : $module_id;
                 
-                $found_names[$module_name][$current_page_title] = '✔️';
+                $found_names[$module_name][$current_page_title."-".get_the_ID()] = '✔️';
             }
         }
     }
