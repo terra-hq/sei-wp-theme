@@ -24,9 +24,9 @@
                             <div class="c--accordion-a__item__wrapper">
                                 <div class="c--accordion-a__item__wrapper__content">
                                     <div class="f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6 u--pb-mobile-4 u--pl-mobile-4 u--pr-mobile-4 u--pt-mobile-4">
-                                        <div class="f--row f--gap-d">
+                                        <div class="f--row f--gap-b">
                                             <div class="f--col-12">
-                                                <h4 class="f--font-f f--color-a u--mb-3"><?= $card_title ?></h4>
+                                                <h4 class="f--font-e f--color-a"><?= $card_title ?></h4>
                                             </div>
                                             <div class="f--col-6 f--col-tablets-12">
                                                 <?php if ($left_label_accordion): ?>
