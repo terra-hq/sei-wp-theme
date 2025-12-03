@@ -125,7 +125,8 @@ class Form {
     handleValidation() {
         // Ejecutar el callback `onSubmit`, si está definido
         if (this.onSubmit) {
-            this.onSubmit();
+            var data = this.getFieldsValue()
+            this.onSubmit(data);
         }
 
         const invalidFields = this.validateAllFields();
@@ -141,6 +142,24 @@ class Form {
                 this.onError(invalidFields); // Execute error callback with details
             }
         }
+    }
+
+    getFieldsValue() {
+        const fieldsValue = {};
+
+        this.fields?.forEach(element => {
+            const dataName = element?.element?.getAttribute('data-name');
+            console.log(element?.element);
+            
+            console.log(dataName);
+            
+            if (!dataName) return;
+
+            fieldsValue[dataName] = element?.element?.value;
+        });
+
+        console.log(fieldsValue);
+        return fieldsValue;
     }
 
     destroy() {
