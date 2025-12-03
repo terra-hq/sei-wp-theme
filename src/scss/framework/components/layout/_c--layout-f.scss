@@ -110,6 +110,10 @@
       }
 
       @media all and ($viewport-type: $tablets) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media all and ($viewport-type: $mobile) {
         grid-template-columns: repeat(1, 1fr);
       }
     }
