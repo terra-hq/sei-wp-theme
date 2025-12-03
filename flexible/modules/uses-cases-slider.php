@@ -3,15 +3,15 @@ $spacing = get_spacing($module['section_spacing'] ?? '');
 $slider_items = $module['slider_items'] ?? [];
 ?>
 
-<section class="<?= htmlspecialchars($spacing, ENT_QUOTES); ?>">
+<section class="c--slider-d <?= htmlspecialchars($spacing, ENT_QUOTES); ?>">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="u--display-flex u--flex-direction-tablets-column f--gap-b js--slider-d">
+                <div class="c--slider-d__wrapper js--slider-d">
 
                     <?php if (!empty($slider_items)) : ?>
                         <?php foreach ($slider_items as $item) : ?>
-                            <div class="u--width-100">
+                            <div class="c--slider-d__wrapper__item">
                                 <?php
                                     $title = $item['title'] ?? '';
                                     $columns_left_label = $item['columns_left_label'] ?? '';

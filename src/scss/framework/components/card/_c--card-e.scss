@@ -62,6 +62,7 @@
     &--second & {
         &__title {
             @extend .f--font-h;
+            margin-bottom: $measure;
         }
         &__subtitle {
             @extend .f--font-i;

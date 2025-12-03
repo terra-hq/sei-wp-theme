@@ -58,11 +58,6 @@
   &__bd {
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
-    margin-bottom: $measure * 5;
-
-    @media all and ($viewport-type: $tabletl) {
-      margin-bottom: $measure * 4;
-    }
 
     &:last-child {
       margin-top: auto;
@@ -104,28 +99,24 @@
       margin-bottom: $measure * 3;
     }
 
-    &__item {
-      @extend .f--background-b;
-      padding: $measure * 3;
-      border-radius: $border-radius-a;
+    &__list-item {
+      @extend .u--display-grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $measure * 2;
 
-      &__title {
-        @extend .f--font-h;
-        @extend .u--font-medium;
-        @extend .f--color-b;
-        margin-bottom: $measure * 1;
+      @media all and ($viewport-type: $tabletm) {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      &__subtitle {
-        @extend .f--font-i;
-        @extend .f--color-b;
+      @media all and ($viewport-type: $tablets) {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
 
   &__media-wrapper {
     @extend .u--position-relative;
-    margin-bottom: $measure * 2;
+    margin-bottom: $measure * 3;
 
     &__overlay {
       @extend .u--position-absolute;

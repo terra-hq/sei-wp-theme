@@ -1,6 +1,6 @@
 <div class="c--layout-f">
     <div class="f--row f--gap-c">
-        <div class="f--col-8 f--col-tabletl-7 f--col-tablets-12 u--display-flex u--flex-direction-column">
+        <div class="f--col-8 f--col-tabletl-7 f--col-tablets-12 u--display-flex u--flex-direction-column u--pr-5 u--pr-tabletm-2">
 
             <?php if (!empty($title)) : ?>
                 <div class="c--layout-f__hd">
@@ -39,20 +39,22 @@
                 <div class="c--layout-f__ft">
                     <div class="f--row">
                         <div class="f--col-12">
-                            <?php if (!empty($bottom_label)) : ?>
-                                <p class="c--layout-f__ft__subtitle"><?= htmlspecialchars($bottom_label, ENT_QUOTES); ?></p>
-                            <?php endif; ?>
-                            
-                            <div class="f--row f--gap-d">
-                                <?php foreach ($bottom_cards as $card) : ?>
-                                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
+                            <div class="f--row f--row--remove-gutter">
+                                <div class="f--col-12">
+                                <?php if (!empty($bottom_label)) : ?>
+                                    <p class="c--layout-f__ft__subtitle"><?= htmlspecialchars($bottom_label, ENT_QUOTES); ?></p>
+                                <?php endif; ?>
+
+                                    <div class="c--layout-f__ft__list-item">
+                                    <?php foreach ($bottom_cards as $key => $card) : ?>
                                         <?php
                                             $title = $card['card_title'] ?? '';
                                             $subtitle = $card['card_subtitle'] ?? '';
                                             include(locate_template('components/card/card-e-second.php', false, false));
                                         ?>
+                                    <?php endforeach; ?>
                                     </div>
-                                <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>

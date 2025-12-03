@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--slider-d {
+  overflow: hidden;
+  &__wrapper {
+    display: flex;
+
+    &__item {
+      // height: fit-content;
+    }
+  }
+  .tns-nav {
+    margin-top: $measure * 4;
+  }
+}
