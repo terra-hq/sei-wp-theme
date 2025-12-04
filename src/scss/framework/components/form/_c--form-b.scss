@@ -66,7 +66,7 @@
             }
             .input {
                 margin: 0;
-                input {
+                input, select, textarea {
                     @extend .u--display-block;
                     width: 100% !important;
                     padding: $measure $measure $measure 0;
