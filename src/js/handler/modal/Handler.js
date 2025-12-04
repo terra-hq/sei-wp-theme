@@ -122,10 +122,10 @@ class Handler {
                     }
                   }
 
-                  this.boostify.loadScript({
+                  await this.boostify.loadScript({
                     url: "https://js.hsforms.net/forms/v2.js",
                   });
-                  this.boostify.loadScript({
+                  await this.boostify.loadScript({
                     inlineScript: `
                                         hbspt.forms.create({
                                             region: "na1",
