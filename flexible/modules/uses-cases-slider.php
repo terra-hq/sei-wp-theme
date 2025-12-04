@@ -25,7 +25,7 @@ $slider_items = $module['slider_items'] ?? [];
                                     $button_link = $item['button_link'] ?? '#';
                                     $pills = $item['image_pills'] ?? [];
                                     $form_title = $module['form_title'];
-                                    $form_id = $module['form_id'];
+                                    $form_id = $item['data_form_id'] ?? '';
                                     include(locate_template('components/layout/layout-f.php', false, false));
                                 ?>
                             </div>
