@@ -392,9 +392,15 @@ class Main extends Core {
               ".c--marquee-a__item"
             ).length;
             const isMobile = window.innerWidth <= 768;
+            const isTablets = window.innerWidth <= 810;
+            const isTabletm = window.innerWidth <= 1024;
 
             const shouldInit =
-              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
+              (isMobile && itemCount >= 3) 
+              || (!isMobile && itemCount >= 7) 
+              || (isTablets && itemCount >= 5) 
+              || (isTabletm && itemCount >= 4)
+            ;
             if (!shouldInit) {
               element.classList.add("js--marquee--disabled");
               return;
