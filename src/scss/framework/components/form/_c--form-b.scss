@@ -236,11 +236,18 @@
         }
     }
     .hbspt-form {
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        @extend .u--justify-content-center;
+        @extend .u--align-items-center;
+        min-height: 500px;
+
         .submitted-message {
             @extend .u--position-relative;
             @extend .f--font-g;
             @extend .f--color-h;
             @extend .u--font-light;
+            @extend .u--height-100;
         }
     }
 }
