@@ -244,10 +244,11 @@
 
         .submitted-message {
             @extend .u--position-relative;
-            @extend .f--font-g;
-            @extend .f--color-h;
+            @extend .f--font-h;
+            @extend .f--color-a;
             @extend .u--font-light;
             @extend .u--height-100;
+            text-align: center;
         }
     }
 }
