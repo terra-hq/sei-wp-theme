@@ -93,19 +93,16 @@
                     <?php endif; ?>
                 </div>
             
-                <?php if (!empty($button_label)) : ?>
-                    <button 
-                        data-modal-open="my-modal"
-                        data-modal-form-type="form-b"
-                        data-modal-form-portal-id="<?= htmlspecialchars($form_portal_id, ENT_QUOTES); ?>"
-                        data-modal-form-id="<?= htmlspecialchars($form_id, ENT_QUOTES); ?>"
+                <?php if (!empty($download_button) && !empty($download_button['url'])) : ?>
+                    <a 
+                        href="<?= esc_url($download_button['url']); ?>" 
+                        <?= get_target_link($download_button['target'] ?? '_self', $download_button['title'] ?? ''); ?>
                         class="c--layout-f__btn"
                     >
                         <?php include(locate_template('img/btn-03-arrow.svg', false, false)); ?>
-                        <span><?= htmlspecialchars($button_label, ENT_QUOTES); ?></span>
-                    </button>
+                        <span><?= $download_button['title'] ?></span>
+                    </a>
                 <?php endif; ?>
-
 
         </div>
     </div>
