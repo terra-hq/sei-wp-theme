@@ -51,7 +51,7 @@ Template Name: Awards
                     if ($year >= 2021) {
                         ?>
                         <div class="f--col-12">
-                            <div class="c--accordion-b js--accordion-b <?php echo $is_active; ?>"">
+                            <div class="c--accordion-b js--accordion-b <?php echo $is_active; ?>">
                                 <div class="c--accordion-b__hd">
                                     <h3 class="c--accordion-b__hd__title"><?php echo $year; ?></h3>
                                     <button class="c--accordion-b__hd__btn">
