@@ -135,7 +135,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
                                 <label class="c--label-a" for="quiz-journey">Where are you in your AI transformation journey?*</label>
                                 <div class="c--form-select-a">
                                     <select class="c--form-select-a__item" name="journey" id="quiz-journey" required data-name="quizJourney">
-                                        <option value="" disabled selected>Select..</option>
+                                        <option value="" disabled selected>Select...</option>
                                         <option value="Exploring">Exploring</option>
                                         <option value="Experimenting / Piloting">Experimenting / Piloting</option>
                                         <option value="Scaling">Scaling</option>
