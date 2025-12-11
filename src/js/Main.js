@@ -1,6 +1,7 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
+import TestHandler from "@jsHandler/collapsify/handler.js";
 
 class Main extends Core {
   constructor(payload) {
@@ -35,6 +36,7 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
+    new TestHandler(this.handler);
   }
 
   events() {

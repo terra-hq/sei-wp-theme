@@ -110,6 +110,7 @@ export default defineConfig({
         "@jsModules": path.resolve(__dirname, "./src/js/modules"),
         "@jsMotion": path.resolve(__dirname, "./src/js/motion"),
         '@vuejs': path.resolve(__dirname, './src/js/vue'),
+        "@jsHandler": path.resolve(__dirname, "./src/js/handler"),
     }
   }
 })
