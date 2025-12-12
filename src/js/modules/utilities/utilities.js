@@ -24,13 +24,3 @@ export function modifyTag({ selector = null, element = null, attributes, delay =
         }, delay); // Configurable delay
     });
 }
-
-// export const tf_sto = (time) =>
-//     new Promise(async (resolve) => {
-//         setTimeout(
-//             () => {
-//                 resolve()
-//             },
-//             time ? time : 200
-//         )
-//     })

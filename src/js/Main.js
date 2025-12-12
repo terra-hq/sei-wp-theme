@@ -269,22 +269,6 @@ class Main extends Core {
 
 
 
-    // /**
-    //  * Awards accordion
-    //  */
-    // if (document.querySelectorAll(".js--accordion-b").length) {
-    //   this.instances["AccordionB"] = [];
-    //   const { default: AccordionB } = await import("@jsModules/AccordionB");
-    //   window["lib"]["AccordionB"] = AccordionB;
-    //   document
-    //     .querySelectorAll(".js--accordion-b")
-    //     .forEach((element, index) => {
-    //       this.instances["AccordionB"][index] = new window["lib"]["AccordionB"](
-    //         element
-    //       );
-    //     });
-    // }
-
     //LocationJobs
     if (document.querySelectorAll(".js--load-jobs").length) {
       this.instances["LocationJobs"] = [];
