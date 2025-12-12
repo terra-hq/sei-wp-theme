@@ -1,7 +1,7 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
-import TestHandler from "@jsHandler/collapsify/handler.js";
+import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
 
 class Main extends Core {
   constructor(payload) {
@@ -36,7 +36,7 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
-    new TestHandler(this.handler);
+    new CollapsifyHandler(this.handler);
   }
 
   events() {
@@ -268,61 +268,22 @@ class Main extends Core {
     }
 
 
-    /**
-     * Horizontal accordion
-     */
-    if (document.querySelectorAll(".c--accordion-a").length) {
-      this.instances["AccordionA"] = [];
-      this.boostify.scroll({
-        distance: 300,
-        name: "AccordionA",
-        callback: async () => {
-          const { default: AccordionA } = await import("@jsModules/AccordionA");
-          window["lib"]["AccordionA"] = AccordionA;
-          document
-            .querySelectorAll(".c--accordion-a")
-            .forEach((element, index) => {
-              this.instances["AccordionA"][index] = new window["lib"][
-                "AccordionA"
-              ]({});
-            });
-        },
-      });
-    }
-    /**
-     * Awards accordion
-     */
-    if (document.querySelectorAll(".js--accordion-b").length) {
-      this.instances["AccordionB"] = [];
-      const { default: AccordionB } = await import("@jsModules/AccordionB");
-      window["lib"]["AccordionB"] = AccordionB;
-      document
-        .querySelectorAll(".js--accordion-b")
-        .forEach((element, index) => {
-          this.instances["AccordionB"][index] = new window["lib"]["AccordionB"](
-            element
-          );
-        });
-    }
 
-    /**
-     * Accordion-02
-     */
-    if (document.querySelectorAll(".js--accordion-02").length) {
-      this.instances["Accordion02"] = [];
-      const { default: Accordion02 } = await import("@terrahq/collapsify");
-      window["lib"]["Accordion02"] = Accordion02;
-      document
-        .querySelectorAll(".js--accordion-02")
-        .forEach((element, index) => {
-          this.instances["Accordion02"][index] = new window["lib"][
-            "Accordion02"
-          ]({
-            nameSpace: "accordion02",
-            closeOthers: true,
-          });
-        });
-    }
+    // /**
+    //  * Awards accordion
+    //  */
+    // if (document.querySelectorAll(".js--accordion-b").length) {
+    //   this.instances["AccordionB"] = [];
+    //   const { default: AccordionB } = await import("@jsModules/AccordionB");
+    //   window["lib"]["AccordionB"] = AccordionB;
+    //   document
+    //     .querySelectorAll(".js--accordion-b")
+    //     .forEach((element, index) => {
+    //       this.instances["AccordionB"][index] = new window["lib"]["AccordionB"](
+    //         element
+    //       );
+    //     });
+    // }
 
     //LocationJobs
     if (document.querySelectorAll(".js--load-jobs").length) {
@@ -787,17 +748,7 @@ class Main extends Core {
       this.instances["Counter"] = [];
     }
 
-    //Destroy accordion
-    if (
-      document.querySelectorAll(".c--accordion-a").length &&
-      this.instances["AccordionA"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 300, name: "AccordionA" });
-      document.querySelectorAll(".c--accordion-a").forEach((element, index) => {
-        this.instances["AccordionA"][index].destroy();
-      });
-      this.instances["AccordionA"] = [];
-    }
+
 
     //Destroy accordion-02
     if (
