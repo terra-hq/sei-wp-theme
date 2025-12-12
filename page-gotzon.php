@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Modules
+Template Name: Gotzon
 */
 ?>
 <?php get_header() ?>
@@ -12,14 +12,13 @@ if ($heros) {
     endforeach;
 } ?>
 
+<?php include(locate_template('flexible/modules/quiz.php', false, false)); ?>
+
 <?php $modules = get_field('modules');
 if ($modules) { 
     foreach ($modules as $keyIndexModule => $module):
        include(locate_template('flexible/modules/index.php', false, false)); 
     endforeach;
 } ?>
-
-<!-- EMPTY MODAL TO USE BY MODULES -->
-<?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
 
 <?php get_footer() ?>

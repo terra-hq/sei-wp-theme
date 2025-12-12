@@ -1,0 +1,137 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+@use "@scss/framework/components/link/_c--back-link-a" as *;
+
+.c--quiz-a {
+    @extend .u--display-flex;
+    @extend .u--flex-direction-column;
+    @extend .f--background-b;
+    @extend .u--pt-5;
+    @extend .u--pb-6;
+    @extend .u--pl-7;
+    @extend .u--pr-7;
+    @extend .u--width-100;
+    @extend .u--position-relative;
+    margin: 0 auto;
+    z-index: 1;
+
+    @media screen and ($viewport-type: $mobile) {
+        padding: $measure * 20 $measure * 3 $measure * 15;
+    }
+
+    &__hd {
+        @extend .u--display-flex;
+        @extend .u--flex-direction-column;
+        @extend .u--align-items-center;
+        @extend .u--justify-content-space-between;
+        @extend .u--width-100;
+        @extend .u--text-center;
+
+        &__title {
+            @extend .f--font-f;
+        }
+
+        &__subtitle {
+            @extend .f--font-i;
+            margin-top: $measure * 2;
+            text-wrap: balance;
+        }
+    }
+
+    &__wrapper {
+        @extend .u--display-none;
+        @extend .u--flex-direction-column;
+        @extend .f--background-a;
+        @extend .u--pb-4;
+        @extend .u--pl-5;
+        @extend .u--pr-5;
+        @extend .u--width-100;
+        margin: 0 auto;
+
+        @media screen and ($viewport-type: $mobile) {
+            padding: 0 $measure * 4 $measure * 3;
+        }
+
+        &--is-active {
+            @extend .u--display-flex;
+        }
+
+        
+        &__title {
+            @extend .f--font-h;
+            @extend .u--font-medium;
+            @extend .f--color-b;
+            @extend .u--mb-3;
+        }
+
+        &__bd {
+            @extend .u--display-flex;
+            @extend .u--flex-direction-column;
+            @extend .u--align-items-flex-start;
+            @extend .u--width-100;
+            gap: $measure * 4;
+            padding: 0;
+
+
+            &--second {
+                @extend .u--align-items-center;
+                @extend .u--justify-content-center;
+                gap: $measure * 3;
+                min-height: 358px;
+            }
+
+            &__title {
+                @extend .f--font-k;
+                @extend .f--color-c;
+                @extend .u--text-center;
+                @extend .u--width-100;
+            }
+
+            &__text {
+                @extend .f--font-i;
+                @extend .f--color-b;
+                @extend .u--text-center;
+                margin: 0;
+            }
+
+        }
+
+        &__ft {
+            @extend .u--display-flex;
+            @extend .u--align-items-center;
+            @extend .u--justify-content-space-between;
+            @extend .u--width-100;
+            @extend .u--mt-3;
+
+            &__link {
+                @extend .c--back-link-a;
+                @extend .c--back-link-a--second;
+            }
+
+            &__btn {
+                @extend .g--btn-01;
+                @extend .g--btn-01--third;
+                margin-top: 0;
+                margin-left: auto;
+
+                @media screen and ($viewport-type: $mobile) {
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+    &__artwork {
+        @extend .u--display-block;
+        @extend .u--width-100;
+        @extend .u--height-100;
+        @extend .u--position-absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        overflow: hidden;
+    }
+}

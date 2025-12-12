@@ -154,4 +154,17 @@
             }
         }
     }
+
+    &--second & {
+        &__item {
+            &__btn:checked {
+                & ~ .c--accordion-a__item {
+                    &__hd {
+                        @extend .u--display-none;
+                        width: 0;
+                    }
+                }
+            }
+        }
+    }
 }
