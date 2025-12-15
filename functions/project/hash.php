@@ -11,6 +11,6 @@
  */
 
 
-define('hash', '4cr');
+define('hash', 'u8e');
 
 ?>
