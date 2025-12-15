@@ -31,7 +31,7 @@
     "@swup/scripts-plugin": "^2.1.0",
     "@teamthunderfoot/anchor-to": "0.0.10",
     "@terrahq/collapsify": "^0.0.19",
-    "@terrahq/gc": "file:terrahq-gc-0.0.10.tgz",
+    "@terrahq/gc": "file:terrahq-gc-0.0.12.tgz",
     "@terrahq/helpers": "^0.0.87",
     "@terrahq/wysiwyg": "file:terrahq-wysiwyg-0.0.13.tgz",
     "@vitejs/plugin-vue": "^5.0.5",
