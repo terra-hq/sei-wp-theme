@@ -4,73 +4,149 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@terrahq/gc/library" as *;
 @use "@scss/global-components/vars.scss" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
 
 .g--accordion-02 {
   @include make-accordion-02();
-
   @include make-accordion-02-modifier(
-    $border-options: (
-      "border-width": 0 0 1px 0,
-      "border-style": solid,
-      "border-color": rgba(map.get($color-options, b), 0.4),
-    ),
-    $item-primary-options: (
-      "className": f--font-g u--font-medium,
-      "color": map.get($color-options, b),
-    ),
-    $icon-options: (
-      "top": 0px,
-      "width": 26px,
-    ),
-    $custom-options: (
-      ".g--accordion-02__hd__icon": (
-        "height": 26px,
-        "border": 1.5px solid map.get($color-options, c),
-        "border-radius": 50%,
-        "display": grid,
-        "place-items": center,
+      $border-options: (
+          "border-width": 0 0 1px 0,
+          "border-style": solid,
+          "border-color": rgba(map.get($color-options, b), 0.4)
       ),
-      ".g--accordion-02__bd__content": (
-        "class": f--font-h u--font-light,
-        "padding-right": $measure * 6.5,
-        "padding-bottom": $measure * 4,
+      $item-primary-options: (
+          "className": f--font-e,
       ),
-    )
+      $item-primary-hover-options: (
+          "color": map.get($color-options, c),
+      ),
+      $icon-options: (
+          "top": 0px,
+          "width": 26px,
+      ),
+      $custom-options: (
+        ".g--accordion-02__hd__icon": (
+           "height": 26px,
+           "z-index": 0,
+           "border-radius": 50%,
+           "border": 1px solid map.get($color-options, c),
+           "transition": background-color $time-b $ease-entrance-a,
+        ),
+        ".g--accordion-02__hd__icon:after": (
+          "position": absolute,
+          "content": '',
+          "width": 15px,
+          "height": 2px,
+          "top": 45%,
+          "left": 50%,
+          "z-index": 0,
+          "background-color": map.get($color-options, c),
+          "transform": translate(-50%),
+          "transition": background-color $time-b $ease-entrance-a,
+       ),
+       ".g--accordion-02__hd__icon:before": (
+          "width": 2px,
+          "height": 15px,
+          "background-color": map.get($color-options, c),
+          "transition": background-color $time-b $ease-entrance-a,
+        ),
+        "&:hover .g--accordion-02__hd__icon": (
+          "background-color": map.get($color-options, c),
+        ),
+        "&:hover .g--accordion-02__hd__icon:before": (
+          "background-color": map.get($color-options, a),
+        ),
+        "&:hover .g--accordion-02__hd__icon:after": (
+          "background-color": map.get($color-options, a),
+        ),
+      )
   );
-
-  .g--accordion-02__hd--is-active {
-    svg {
-      path:last-child {
-        display: none;
-      }
-    }
-  }
-
   &--second {
     @include make-accordion-02-modifier(
       $border-options: (
-        "border-color": rgba(map.get($color-options, a), 0.4),
+          "border-color": rgba(map.get($color-options, b), 0.4)
       ),
       $item-primary-options: (
-        "color": map.get($color-options, a),
+          "color": map.get($color-options, b),
+          "className": f--font-g,
+          "opacity": 1
+      ),
+      $item-primary-hover-options: (
+          "color": map.get($color-options, b),
       ),
       $custom-options: (
+        "&:hover .g--accordion-02__hd__icon": (
+          "background-color": transparent,
+        ),
+        "&:hover .g--accordion-02__hd__icon:before": (
+          "background-color": map.get($color-options, c),
+        ),
+        "&:hover .g--accordion-02__hd__icon:after": (
+          "background-color": map.get($color-options, c),
+        ),
         ".g--accordion-02__bd__content": (
+          "class": c--content-a c--content-a--second-text u--pb-4,
+        )
+      )
+    );
+  }
+  &--third {
+    @include make-accordion-02-modifier(
+      $border-options: (
+          "border-color": rgba(map.get($color-options, a), 0.4)
+      ),
+      $item-primary-options: (
           "color": map.get($color-options, a),
-        ),
-        ".g--accordion-02__bd__content p > a": (
+          "className": f--font-g,
+          "opacity": 1
+      ),
+      $item-primary-hover-options: (
           "color": map.get($color-options, a),
+      ),
+      $custom-options: (
+        "&:hover .g--accordion-02__hd__icon": (
+          "background-color": transparent,
         ),
+        "&:hover .g--accordion-02__hd__icon:before": (
+          "background-color": map.get($color-options, c),
+        ),
+        "&:hover .g--accordion-02__hd__icon:after": (
+          "background-color": map.get($color-options, c),
+        ),
+        ".g--accordion-02__bd__content": (
+          "class": c--content-a c--content-a--second-text c--content-a--second-color u--pb-4,
+        )
+      )
+    );
+  }
+  &--fourth {
+    @include make-accordion-02-modifier(
+      $border-options: (
+          "border-color": rgba(map.get($color-options, b), 0.4)
+      ),
+      $item-primary-options: (
+          "color": map.get($color-options, b),
+          "className": f--font-g,
+          "opacity": 1
+      ),
+      $item-primary-hover-options: (
+          "color": map.get($color-options, c),
+      ),
+      $custom-options: (
+        "&:hover .g--accordion-02__hd__icon": (
+          "background-color": transparent,
+        ),
+        "&:hover .g--accordion-02__hd__icon:before": (
+          "background-color": map.get($color-options, c),
+        ),
+        "&:hover .g--accordion-02__hd__icon:after": (
+          "background-color": map.get($color-options, c),
+        ),
+        ".g--accordion-02__bd__content": (
+          "class": c--content-a c--content-a--second-text u--pb-4,
+        )
       )
     );
   }
 
-  // 🔁 Hover específico para .g--accordion-02--third
-  @media (hover: hover) {
-    &--third {
-      .g--accordion-02__hd:hover .g--accordion-02__hd__item-primary {
-        color: map.get($color-options, c);
-      }
-    }
-  }
 }

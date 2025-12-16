@@ -5,7 +5,7 @@ $eyebrow = $module['eyebrow'] ?? '';
 $title = $module['title'] ?? '';
 $description = $module['description'] ?? '';
 $accordion_items = $module['accordion_items'] ?? [];
-$modifier = 'g--accordion-02--third';
+$modifier = 'g--accordion-02--fourth';
 ?>
 
 <section class="<?= $spacing ?>">
@@ -40,19 +40,12 @@ $modifier = 'g--accordion-02--third';
                             <button class="g--accordion-02__hd" type="button"
                                     data-accordion02-control="acc-0<?= $key ?>-<?= $keyIndexModule ?>" aria-expanded="false">
                                 <div class="g--accordion-02__hd__item-primary">
-                                    <?php if ($modifier === 'g--accordion-02--third'): ?>
+                                    <?php if ($modifier === 'g--accordion-02--fourth'): ?>
                                         <span class="f--color-c"><?= $key < 9 ? '0' : '' ?><?= $key + 1 ?>&nbsp;</span>
                                     <?php endif; ?>
                                     <span><?= esc_html($accItem['accordion_title']) ?></span>
                                 </div>
                                 <span class="g--accordion-02__hd__icon" role="presentation">
-                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.51953 7.5H14.4795" stroke="#F01840" stroke-width="2"
-                                              stroke-linecap="square"/>
-                                        <path d="M8 1.02002V13.98" stroke="#F01840" stroke-width="2"
-                                              stroke-linecap="square"/>
-                                    </svg>
                                 </span>
                             </button>
                             <div class="g--accordion-02__bd"
