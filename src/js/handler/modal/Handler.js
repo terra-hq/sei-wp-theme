@@ -1,6 +1,4 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-import { u_matches, u_addClass, u_removeClass } from "@andresclua/jsutil";
-import gsap from "gsap";
 
 class Handler {
     constructor(payload) {
@@ -14,10 +12,16 @@ class Handler {
         this.currentTrigger = null;
         this.triggerClickHandler = null;
 
+        this.modalClassSelector= "#my-modal";
+
         this.modalConfig = {
+            selector: this.modalClassSelector,
             openTrigger: "data-modal-open",
             closeTrigger: "data-modal-close",
             openClass: "g--modal-01--is-open",
+            disableScroll: true,
+            awaitOpenAnimation: true,
+            awaitCloseAnimation: true
         };
 
         this.init();
@@ -26,7 +30,7 @@ class Handler {
 
     get updateTheDOM() {
         return {
-            modalAElements: document.querySelectorAll(".js--modal"),
+            modalAElements: document.querySelectorAll(this.modalClassSelector),
         };
     }
 
@@ -96,8 +100,12 @@ class Handler {
                 if (!window['lib'] || !window['lib']['Modal']) {
                     if (!window['lib']) window['lib'] = {};
                     
-                    const { default: Modal } = await import("./Modal.js");
-                    window['lib']['Modal'] = Modal;
+                    try {
+                        const { default: Modal } = await import("@terrahq/modal");
+                        window['lib']['Modal'] = Modal;
+                    } catch (e) {
+                        this.terraDebug && console.error("Error loading @terrahq/modal", e);
+                    }
                 }
 
                 this.DOM.modalAElements.forEach((modal, index) => {
@@ -109,6 +117,11 @@ class Handler {
                             name: "Modal",
                             callback: async () => {
                                 try {
+                                    if (!window['lib']['Modal']) {
+                                         const { default: Modal } = await import("@terrahq/modal");
+                                         window['lib']['Modal'] = Modal;
+                                    }
+
                                     if (!this.instances["Modal"][index]) {
                                         this.createModalInstance({ element: modal, index });
                                     }
@@ -126,7 +139,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
 
             if (this.DOM?.modalAElements?.length && this.instances["Modal"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "Modal" });
+                    this.boostify.destroyscroll({ distance: 10, name: "Modal" });
 
                 this.DOM.modalAElements.forEach((_, index) => {
                     if (this.instances["Modal"] && this.instances["Modal"][index]) {
