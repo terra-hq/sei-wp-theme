@@ -1,12 +1,5 @@
 <?php if($module['accordion_items']): ?>
-<?php
-    $modifier = '';
-    if ($module['bg_color'] === 'f--background-a' || $module['bg_color'] === 'f--background-b') {
-    $modifier = 'g--accordion-02--second';
-    } elseif ($module['bg_color'] === 'f--background-c' || $module['bg_color'] === 'f--background-d') {
-    $modifier = 'g--accordion-02--third';
-    }
-?>
+<?php if ($module['bg_color'] === 'f--background-c' || $module['bg_color'] === 'f--background-d') $modifier = 'g--accordion-02--second'; ?>
 <section class="<?= get_spacing($module['section_spacing']) ?> <?= $module['bg_color'] ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-center">

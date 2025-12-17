@@ -5,7 +5,7 @@ $eyebrow = $module['eyebrow'] ?? '';
 $title = $module['title'] ?? '';
 $description = $module['description'] ?? '';
 $accordion_items = $module['accordion_items'] ?? [];
-$modifier = 'g--accordion-02--fourth';
+$modifier = 'g--accordion-02--third';
 ?>
 
 <section class="<?= $spacing ?>">
@@ -40,7 +40,7 @@ $modifier = 'g--accordion-02--fourth';
                             <button class="g--accordion-02__hd" type="button"
                                     data-accordion02-control="acc-0<?= $key ?>-<?= $keyIndexModule ?>" aria-expanded="false">
                                 <div class="g--accordion-02__hd__item-primary">
-                                    <?php if ($modifier === 'g--accordion-02--fourth'): ?>
+                                    <?php if ($modifier === 'g--accordion-02--third'): ?>
                                         <span class="f--color-c"><?= $key < 9 ? '0' : '' ?><?= $key + 1 ?>&nbsp;</span>
                                     <?php endif; ?>
                                     <span><?= esc_html($accItem['accordion_title']) ?></span>
