@@ -40,25 +40,6 @@ class Core {
       boostify: this.boostify,
 
     });
-
-    /**
-     *  Since we are using Boostify, we need to check if the Google Scripts are loaded a few seconds after the page is loaded
-     *  If they are, we load the GTM script
-     *  This project utilizes page transitions, necessitating a custom event after each page change to correspond with a page view in GTM.
-     */
-    var response = await import("@terrahq/helpers/hasGoogleScripts");
-    const hasGoogleScripts = response.hasGoogleScripts;
-    await hasGoogleScripts({ maxTime: 5000 }).then((detected) => {
-      if (detected) {
-        window.dataLayer.push({
-          event: "VirtualPageview",
-          virtualPageURL: window.location.pathname + window.location.search,
-          virtualPageTitle: document.title,
-        });
-      } else {
-        //console.log("Google Scripts not detected");
-      }
-    });
   }
 
   events() {
