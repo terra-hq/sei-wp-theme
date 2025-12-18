@@ -37,10 +37,11 @@ class Project {
       license: import.meta.env.VITE_LICENSE_KEY,
     });
 
-    this.boostify.onload({
-      // if performance is low, increment number
-      maxTime: 2400,
-    });
+    if (document.querySelector("script[type='text/boostify']")) {
+      this.boostify.onload({
+        maxTime: 2400,
+      });
+    }
 
     if (this.terraDebug) {
       console.log("server is running in " + import.meta.env.MODE + " mode");
