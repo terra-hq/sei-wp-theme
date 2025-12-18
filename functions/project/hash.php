@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'ywk');
+define('hash', '3m3');
 
 ?>

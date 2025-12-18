@@ -58,15 +58,20 @@ class Core {
       this.willReplaceContent();
     });
 
-    this.swup.hooks.on("page:view", async () => {
-      if (this.detected) {
-        window.dataLayer.push({
-          event: "VirtualPageview",
-          virtualPageURL: window.location.pathname + window.location.search,
-          virtualPageTitle: document.title,
-        });
-      }
-    });
+     this.swup.hooks.on("page:view", async (data) => {
+          this.terraDebug && console.log(data);
+          this.terraDebug && console.log(window.location.href);
+          this.terraDebug && console.log(document.title);
+          this.terraDebug && console.log(window.location.pathname);
+          this.terraDebug && console.log(window.location.protocol + "//" + window.location.host + data?.from?.url);
+          window.dataLayer.push({
+              event: "VirtualPageview",
+              virtualPageURL: window.location.href, // URL completa
+              virtualPageTitle: document.title, // Título de la página
+              virtualPagePath: window.location.pathname, // Path sin el hostname
+              virtualPageReferrer: window.location.protocol + "//" + window.location.host + data?.from?.url, // Referente, si aplica
+          });
+      });
   }
 
   contentReplaced() {
