@@ -11,7 +11,6 @@
  */
 
 
-define('hash', 'siu');
-define('hash', 'h2t');
+define('hash', 'bq3');
 
 ?>
