@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'yy2');
+define('hash', 've5');
 
 ?>
