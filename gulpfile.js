@@ -189,3 +189,17 @@ async function remove(done) {
 }
 
 exports.remove = remove;
+
+// Task to deploy all files in the dist folder except images and fonts + functions/project/hash.php
+function ddistscripts(done) {
+  var env = args.env;
+  console.log('Environment:', env);
+  var sftpConfig = getSFTPConfig(env);
+  return gulp
+    .src(["dist/*.js", "dist/*.css", "functions/project/hash.php"], { base: "./", encoding: false }) 
+    .pipe(sftp({
+      ...sftpConfig,
+    }))
+    .on('end', done);
+}
+exports.ddistscripts = ddistscripts;

@@ -12,5 +12,6 @@
 
 
 define('hash', 'siu');
+define('hash', 'h2t');
 
 ?>
