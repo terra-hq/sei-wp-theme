@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'h2t');
+define('hash', 'yy2');
 
 ?>
