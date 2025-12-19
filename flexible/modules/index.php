@@ -148,4 +148,7 @@ switch ($module['acf_fc_layout']) {
     case 'quiz':
         include(locate_template('flexible/modules/quiz.php', false, false)); 
         break;   
+    case 'featured_case_studies':
+        include (locate_template('flexible/modules/featured-case-studies.php', false, false));
+        break;
 }
