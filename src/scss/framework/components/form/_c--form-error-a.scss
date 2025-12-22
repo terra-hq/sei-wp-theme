@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--form-error-a {
+    @extend .f--font-j;
+    @extend .f--color-c;
+    @extend .u--display-none;
+    margin-top: $measure;
+}

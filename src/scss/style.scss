@@ -52,12 +52,12 @@
 @use "@scss/framework/components/card/_c--card-e";
 @use "@scss/framework/components/card/_c--card-f";
 @use "@scss/framework/components/card/_c--card-g";
-@use "@scss/framework/components/card/_c--card-m";
 @use "@scss/framework/components/card/_c--card-h";
 @use "@scss/framework/components/card/_c--card-i";
 @use "@scss/framework/components/card/_c--card-j";
 @use "@scss/framework/components/card/_c--card-k";
 @use "@scss/framework/components/card/_c--card-l";
+@use "@scss/framework/components/card/_c--card-m";
 @use "@scss/global-components/card/_g--card-01";
 @use "@scss/global-components/card/_g--card-03";
 @use "@scss/global-components/card/_g--card-04";
@@ -68,6 +68,14 @@
 @use "@scss/global-components/card/_g--card-24";
 @use "@scss/global-components/card/_g--card-33";
 @use "@scss/global-components/card/_g--card-34";
+
+@use "@scss/framework/components/quiz/_c--quiz-a";
+
+//* webgl
+@use "@scss/framework/components/webgl/_c--webgl-a";
+
+//* progress
+@use "@scss/framework/components/progress/_c--progress-a";
 
 //* content
 @use "@scss/framework/components/content/_c--content-a";
@@ -98,6 +106,11 @@
 @use "@scss/framework/components/form/_c--form-a";
 @use "@scss/framework/components/form/_c--form-b";
 @use "@scss/framework/components/form/_c--form-d";
+@use "@scss/framework/components/form/_c--form-group-a";
+@use "@scss/framework/components/form/_c--form-input-a";
+@use "@scss/framework/components/form/_c--form-select-a";
+@use "@scss/framework/components/form/_c--form-error-a";
+@use "@scss/framework/components/form/_c--label-a";
 
 //* footer
 @use "@scss/framework/components/footer/_c--footer-a";
@@ -123,11 +136,14 @@
 @use "@scss/framework/components/icon/_c--icon-a";
 
 //* layout
+@use "@scss/global-components/layout/_g--layout-01";
 @use "@scss/global-components/layout/_g--layout-02";
 @use "@scss/framework/components/layout/_c--layout-a";
 @use "@scss/framework/components/layout/_c--layout-b";
 @use "@scss/framework/components/layout/_c--layout-c";
 @use "@scss/framework/components/layout/_c--layout-d";
+@use "@scss/framework/components/layout/_c--layout-e";
+@use "@scss/framework/components/layout/_c--layout-f";
 
 //* lazy
 @use "@scss/global-components/lazy/_g--lazy-01";
@@ -172,6 +188,7 @@
 //* slider
 @use "@scss/framework/components/slider/_c--slider-a";
 @use "@scss/framework/components/slider/_c--slider-b";
+@use "@scss/framework/components/slider/_c--slider-d";
 @use "@scss/framework/components/slider/_tiny-slider";
 
 //* social

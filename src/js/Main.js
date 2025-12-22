@@ -244,6 +244,116 @@ class Main extends Core {
       });
     }
 
+    let sliderDElements = document.querySelectorAll(".js--slider-d");
+    if (sliderDElements.length) {
+      this.instances["sliderD"] = [];
+      this.boostify.scroll({
+        distance: 15,
+        name: "sliderD",
+        callback: async () => {
+          const { sliderDConfig } = await import(
+            "@jsModules/slider/slidersConfig"
+          );
+          const { default: SliderD } = await import(
+            "@jsModules/slider/Slider.js"
+          );
+          window["lib"]["SliderD"] = SliderD;
+
+          sliderDElements.forEach((slider, index) => {
+            this.instances["sliderD"][index] = new window["lib"]["SliderD"]({
+              slider: slider,
+              nav: slider.nextElementSibling,
+              config: sliderDConfig,
+              windowName: "SliderD",
+              index: index,
+            });
+          });
+        },
+      });
+    }
+    /**
+     * GSAP animation for timeline-a
+     */
+    if (document.querySelectorAll(".js--timeline-a").length) {
+      this.instances["Timeline"] = [];
+      this.boostify.scroll({
+        distance: 15,
+        name: "Timeline",
+        callback: async () => {
+          const { default: Timeline } = await import(
+            "@jsModules/timeline/Timeline"
+          );
+          window["lib"]["Timeline"] = Timeline;
+          document
+            .querySelectorAll(".js--timeline-a")
+            .forEach((element, index) => {
+              this.instances["Timeline"][index] = new window["lib"]["Timeline"](
+                {
+                  element: element,
+                }
+              );
+            });
+        },
+      });
+    }
+
+
+    /**
+     * Horizontal accordion
+     */
+    if (document.querySelectorAll(".c--accordion-a").length) {
+      this.instances["AccordionA"] = [];
+      this.boostify.scroll({
+        distance: 300,
+        name: "AccordionA",
+        callback: async () => {
+          const { default: AccordionA } = await import("@jsModules/AccordionA");
+          window["lib"]["AccordionA"] = AccordionA;
+          document
+            .querySelectorAll(".c--accordion-a")
+            .forEach((element, index) => {
+              this.instances["AccordionA"][index] = new window["lib"][
+                "AccordionA"
+              ]({});
+            });
+        },
+      });
+    }
+    /**
+     * Awards accordion
+     */
+    if (document.querySelectorAll(".js--accordion-b").length) {
+      this.instances["AccordionB"] = [];
+      const { default: AccordionB } = await import("@jsModules/AccordionB");
+      window["lib"]["AccordionB"] = AccordionB;
+      document
+        .querySelectorAll(".js--accordion-b")
+        .forEach((element, index) => {
+          this.instances["AccordionB"][index] = new window["lib"]["AccordionB"](
+            element
+          );
+        });
+    }
+
+    /**
+     * Accordion-02
+     */
+    if (document.querySelectorAll(".js--accordion-02").length) {
+      this.instances["Accordion02"] = [];
+      const { default: Accordion02 } = await import("@terrahq/collapsify");
+      window["lib"]["Accordion02"] = Accordion02;
+      document
+        .querySelectorAll(".js--accordion-02")
+        .forEach((element, index) => {
+          this.instances["Accordion02"][index] = new window["lib"][
+            "Accordion02"
+          ]({
+            nameSpace: "accordion02",
+            closeOthers: true,
+          });
+        });
+    }
+
     //LocationJobs
     if (document.querySelectorAll(".js--load-jobs").length) {
       this.instances["LocationJobs"] = [];
@@ -286,9 +396,15 @@ class Main extends Core {
               ".c--marquee-a__item"
             ).length;
             const isMobile = window.innerWidth <= 768;
+            const isTablets = window.innerWidth <= 810;
+            const isTabletm = window.innerWidth <= 1024;
 
             const shouldInit =
-              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
+              (isMobile && itemCount >= 3) 
+              || (!isMobile && itemCount >= 7) 
+              || (isTablets && itemCount >= 5) 
+              || (isTabletm && itemCount >= 4)
+            ;
             if (!shouldInit) {
               element.classList.add("js--marquee--disabled");
               return;
@@ -608,6 +724,22 @@ class Main extends Core {
         });
       });
     }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"] = [];
+      this.instances["Collapse"] = [];
+
+      const { default: Quiz } = await import("@jsModules/Quiz");
+      window["lib"]["Quiz"] = Quiz;
+
+      const { default: Collapse } = await import("@terrahq/collapsify");
+      window["lib"]["Collapse"] = Collapse;
+
+      document.querySelectorAll(".js--quiz-a").forEach((element, index) => {
+        this.instances["Quiz"][index] = new window["lib"]["Quiz"]();
+      });
+    }
+
   }
 
   willReplaceContent() {
@@ -788,6 +920,15 @@ class Main extends Core {
         }
       });
       this.instances["Marquee"] = [];
+    }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"].forEach((instance, index) => {
+        if (instance && typeof instance.destroy === "function") {
+          instance.destroy();
+        }
+      });
+      this.instances["Quiz"] = [];
     }
   }
 }

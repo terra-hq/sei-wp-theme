@@ -24,3 +24,19 @@ export function modifyTag({ selector = null, element = null, attributes, delay =
         }, delay); // Configurable delay
     });
 }
+
+export function getCookie (name){
+    if (typeof document === "undefined") return null;
+    const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+    return match ? decodeURIComponent(match[2]) : null;
+}
+
+// export const tf_sto = (time) =>
+//     new Promise(async (resolve) => {
+//         setTimeout(
+//             () => {
+//                 resolve()
+//             },
+//             time ? time : 200
+//         )
+//     })
