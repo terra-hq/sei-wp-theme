@@ -1,0 +1,119 @@
+/**
+ * Responsive styles for ACF Module Descriptions table
+ */
+
+@media screen and (max-width: 782px) {
+    /* Asegurarse de que solo se vea la columna principal */
+    .wp-list-table thead tr th:not(.column-primary),
+    .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary) {
+        display: none;
+    }
+    
+    /* Solo mostrar las celdas expandidas */
+    .wp-list-table tr.is-expanded td:not(.column-primary) {
+        display: block !important;
+        overflow: hidden;
+    }
+    
+    /* Hacer que la primera columna ocupe el 100% */
+    .wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary {
+        display: block !important;
+        width: 100% !important;
+        clear: both !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        padding: 12px 50px 12px 10px !important; /* Espacio para el botón */
+        min-height: 46px !important; /* Altura mínima para asegurar espacio suficiente */
+        line-height: 1.5 !important;
+    }
+    
+    /* Solución completa para el botón toggle */
+    .wp-list-table .toggle-row {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        color: #72777c !important;
+        cursor: pointer !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        width: 40px !important;
+        height: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-indent: 0 !important;
+        /* Usar flexbox para centrar */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Establecer estilos dashicon desde cero */
+    .wp-list-table .toggle-row:before {
+        content: "\f140" !important;
+        top: 10px !important;
+        font-family: dashicons !important;
+        font-size: 20px !important;
+        display: block !important;
+        color: #72777c !important;
+        width: 20px !important;
+        height: 20px !important;
+        line-height: 1 !important;
+        text-indent: 0 !important;
+    }
+    
+    /* Cambiar icono cuando está expandido */
+    .wp-list-table tr.is-expanded .toggle-row:before {
+        content: "\f142" !important;
+    }
+    
+    /* Eliminar cualquier otro contenido */
+    .wp-list-table .toggle-row span,
+    .wp-list-table .toggle-row:after {
+        display: none !important;
+    }
+    
+    /* Estilo para las filas expandidas */
+    .wp-list-table tr.is-expanded td:not(.column-primary) {
+        padding: 10px 10px 10px 45% !important;
+        margin-bottom: 0 !important;
+        border-top: 1px solid #f2f2f2 !important;
+        position: relative !important;
+    }
+    
+    /* Estilo para las etiquetas de columna */
+    .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
+        position: absolute !important;
+        left: 10px !important;
+        width: 40% !important;
+        padding-right: 10px !important;
+        white-space: nowrap !important;
+        content: attr(data-colname) !important;
+        font-weight: bold !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* Centrar contenido en celdas de descripción y preview */
+    .wp-list-table tr.is-expanded td[data-colname="Description"],
+    .wp-list-table tr.is-expanded td[data-colname="Preview"] {
+        text-align: left !important;
+    }
+    
+    /* Íconos y enlaces en las filas expandidas */
+    .wp-list-table tr.is-expanded td[data-colname="Description"] span,
+    .wp-list-table tr.is-expanded td[data-colname="Preview"] span,
+    .wp-list-table tr.is-expanded td[data-colname="Preview"] a {
+        display: inline-block !important;
+        margin-left: 0 !important;
+    }
+    
+    /* Botones en acciones */
+    .wp-list-table tr.is-expanded td[data-colname="Actions"] a.button {
+        display: block !important;
+        text-align: center !important;
+        margin-top: 5px !important;
+    }
+}

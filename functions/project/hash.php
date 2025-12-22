@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'aj6');
+define('hash', 've5');
 
 ?>

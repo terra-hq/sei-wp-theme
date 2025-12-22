@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
+@use "@scss/global-components/btn/_g--btn-01" as *;
+
+.c--layout-e {
+
+    &__title {
+        @extend .f--font-e;
+        @extend .u--font-medium;
+        @extend .u--mb-2;
+    }
+
+    &__content {
+        @extend .c--content-a;
+        margin-top: $measure*2;
+        @media all and ($viewport-type:$tabletl) {
+            margin-top: 0;
+        }
+    }
+}

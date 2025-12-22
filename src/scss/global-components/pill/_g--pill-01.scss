@@ -87,6 +87,31 @@
             ),
         ); 
     }
+
+    &--fifth {
+        @include make-pill-01-modifier(
+            $background-options: (
+                "background-color": map.get($color-options, m),
+            ),
+            $border-options: (
+                "border-color": map.get($color-options, m),
+                "border-radius": $measure * 12.5,
+                "border-width": 1px,
+                "border-style": solid,
+            ),
+            $font-options: (
+                "color": map.get($color-options, b),
+                "className": f--font-j,
+                "font-weight": 300,
+            ),
+            $custom-options: (
+                "parent": (
+                    "width": fit-content,
+                    "padding": $measure * 0.5 $measure * 1.5,
+                ),
+            ),
+        ); 
+    }
 }
 
 a.g--pill-01,

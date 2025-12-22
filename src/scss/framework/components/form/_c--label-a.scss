@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--label-a {
+    @extend .f--font-j;
+    color: rgba(map.get($color-options, b), 0.6);
+    margin-bottom: $measure * 0.5;
+}

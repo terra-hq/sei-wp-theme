@@ -1,12 +1,43 @@
- <div class="c--card-m">
+<?php
+/**
+ * Required:
+ * $case_study_id (int)
+ */
+
+$left_column_label  = isset($left_column_label) ? $left_column_label : 'WHAT WE DID';
+$right_column_label = isset($right_column_label) ? $right_column_label : 'HOW WE HELPED';
+
+$is_external = get_field('case_study_type', $case_study_id) === 'external';
+if ($is_external) {
+    $case_link = get_field('download_pdf', $case_study_id);
+    $target    = '_blank';
+    $rel       = 'noopener noreferrer';
+} else {
+    $case_link = get_permalink($case_study_id);
+    $target    = '';
+    $rel       = '';
+}
+
+// Image fallback
+$image        = get_post_thumbnail_id($case_study_id);
+$image_to_use = $image ? $image : get_field('placeholder_image', 'options');
+?>
+
+<div class="c--card-m">
     <div class="f--row u--display-flex u--align-items-center">
+
+        <!-- IMAGE -->
         <div class="f--col-4 f--col-tabletm-12">
-             <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="u--overflow-hidden">
+            <a href="<?= esc_url($case_link) ?>"
+               <?= $target ? 'target="'.$target.'"' : '' ?>
+               <?= $rel ? 'rel="'.$rel.'"' : '' ?>
+               class="u--overflow-hidden">
+
                 <div class="c--card-m__wrapper">
-                    <?php $image = get_post_thumbnail_id($single_case_study->ID); ?>
                     <?php
-                        $image_tag_args = array(
-                            'image' => $image,
+                    if ($image_to_use) {
+                        generate_image_tag(array(
+                            'image' => $image_to_use,
                             'sizes' => '(max-width: 810px) 50vw, 100vw',
                             'class' => 'c--card-m__wrapper__media',
                             'isLazy' => false,
@@ -14,45 +45,79 @@
                             'decodingAsync' => true,
                             'fetchPriority' => false,
                             'addFigcaption' => false,
-                        );
-                        generate_image_tag($image_tag_args)
-                        ?>
+                        ));
+                    }
+                    ?>
                 </div>
             </a>
         </div>
-        
-        <?php 
-            $is_external = get_field('case_study_type', $single_case_study->ID) === "external";
-            if($is_external) {
-                $featured_case_study_link =  get_field('download_pdf', $single_case_study->ID);
-                $target= '_blank';
-                $rel = 'noopener noreferrer';
-            } else {
-                $featured_case_study_link = get_permalink($single_case_study->ID);
-                $target = '';
-                $rel = '';
-            }
-        ?>
+
+        <!-- WHAT WE DID -->
         <div class="f--col-4 f--col-tabletm-12">
             <div class="c--card-m__hd">
-                <p  class="c--card-m__hd__title">WHAT WE DID</p>
-                <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="c--card-m__hd__paragraph"><?= get_the_title($single_case_study->ID); ?></a>
-                <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
+                <p class="c--card-m__hd__title"><?= esc_html($left_column_label); ?></p>
+                <a href="<?= esc_url($case_link) ?>"
+                   <?= $target ? 'target="'.$target.'"' : '' ?>
+                   <?= $rel ? 'rel="'.$rel.'"' : '' ?>
+                   class="c--card-m__hd__paragraph">
+                    <?= esc_html(get_the_title($case_study_id)); ?>
+                </a>
+                <a class="g--link-01 g--link-01--fourth"
+                   href="<?= esc_url($case_link) ?>"
+                   <?= $target ? 'target="'.$target.'"' : '' ?>
+                   <?= $rel ? 'rel="'.$rel.'"' : '' ?>>
+                    Learn More
+                </a>
             </div>
         </div>
 
-        <?php $types = get_the_terms($single_case_study->ID, 'case-study-capability'); ?>
-        <?php if($types)  { ?>
-                <div class="f--col-4 f--col-tabletm-12">
-                <div class="c--card-m__ft">
-                    <p class="c--card-m__ft__title">HOW WE HELPED</p>
-                    <div class="c--card-m__ft__items">
-                        <?php foreach ($types as $type) { ?>
-                            <a class="g--pill-01" href="<?= get_term_link($type) ?>"><?= $type->name ?></a>
-                        <?php } ?>
-                    </div>
+        <!-- HOW WE HELPED -->
+        <div class="f--col-4 f--col-tabletm-12">
+            <div class="c--card-m__ft">
+                <p class="c--card-m__ft__title"><?= esc_html($right_column_label); ?></p>
+                <div class="c--card-m__ft__items">
+
+                    <?php
+                    // Capabilities
+                    $capabilities = get_the_terms($case_study_id, 'case-study-capability');
+                    if ($capabilities && !is_wp_error($capabilities)) :
+                        foreach ($capabilities as $cap) :
+                            $related_post = get_field('capabilities', 'case-study-capability_' . $cap->term_id);
+                            $pill_link = '#';
+                            if ($related_post) {
+                                $cap_post = is_array($related_post) ? $related_post[0] : $related_post;
+                                if (!empty($cap_post->ID)) {
+                                    $pill_link = get_permalink($cap_post->ID);
+                                }
+                            }
+                            echo $pill_link !== '#'
+                                ? '<a class="g--pill-01" href="'.esc_url($pill_link).'">'.esc_html($cap->name).'</a>'
+                                : '<span class="g--pill-01">'.esc_html($cap->name).'</span>';
+                        endforeach;
+                    endif;
+
+                    // Industries
+                    $industries = get_the_terms($case_study_id, 'case-study-industry');
+                    if ($industries && !is_wp_error($industries)) :
+                        foreach ($industries as $ind) :
+                            $related_post = get_field('industries', 'case-study-industry_' . $ind->term_id);
+                            $pill_link = '#';
+                            if ($related_post) {
+                                $ind_post = is_array($related_post) ? $related_post[0] : $related_post;
+                                if (!empty($ind_post->ID)) {
+                                    $pill_link = get_permalink($ind_post->ID);
+                                }
+                            }
+                            echo $pill_link !== '#'
+                                ? '<a class="g--pill-01" href="'.esc_url($pill_link).'">'.esc_html($ind->name).'</a>'
+                                : '<span class="g--pill-01">'.esc_html($ind->name).'</span>';
+                        endforeach;
+                    endif;
+                    ?>
+
                 </div>
-                </div>
-        <?php } ?>
-    </div>  
-</div>   
+            </div>
+        </div>
+
+    </div>
+</div>
