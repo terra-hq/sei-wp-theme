@@ -34,7 +34,7 @@
                 "display": flex,
                 "flex-direction": column,
                 "justify-content": center,
-                "padding": $g-measure * 15 $g-measure * 12,
+                "padding": $measure * 15 $measure * 12,
             ),
             ".g--card-34__media-wrapper__overlay": (
                 "position": absolute,
@@ -52,14 +52,14 @@
                 "position": absolute,
                 "display": flex,
                 "flex-direction": column,
-                "row-gap": $g-measure*3,
+                "row-gap": $measure*3,
                 "align-items": center,
                 "justify-content": center,
                 "width": 100%,
                 "height": auto,
                 "bottom": 0,
                 "z-index": 1,
-                "padding": $g-measure*5,
+                "padding": $measure*5,
                 "border-top": 1px solid rgba(255, 255, 255, 0.10),
                 "background": rgba(255, 255, 255, 0.03),
                 "backdrop-filter": blur(6px),
@@ -86,7 +86,7 @@
         @include make-card-34-modifier(
             $custom-options: (
                 ".g--card-34__wrapper": (
-                    "padding": $g-measure * 10,
+                    "padding": $measure * 10,
                 ),
             )
         );
@@ -95,7 +95,7 @@
         @include make-card-34-modifier(
             $custom-options: (
                 ".g--card-34__wrapper": (
-                    "padding": $g-measure * 5,
+                    "padding": $measure * 5,
                 ),
             )
         );

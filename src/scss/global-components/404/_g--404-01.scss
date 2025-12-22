@@ -9,7 +9,7 @@
     @include make-404-01-modifier(
         $error-404-options: (
             "align": center,
-            "top-extra-space": $g-measure*9,
+            "top-extra-space": $measure*9,
             //"breakpoint-bigger-columns": 1024px,
             "breakpoint-full-width": 580px,
         ),

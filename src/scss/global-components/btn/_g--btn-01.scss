@@ -13,7 +13,7 @@
         ),
         $border-options: (
             "border-color": map.get($color-options, c),
-            "border-radius": $g-measure*10,
+            "border-radius": $measure*10,
             "border-width": 1px,
             "border-style": solid,
         ),

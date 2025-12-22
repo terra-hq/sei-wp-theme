@@ -24,7 +24,7 @@
             "fill": map.get($color-options, c),
             "background-color": map.get($color-options, a),
             "color": map.get($color-options, c),
-            "icon-transform": translateX($g-measure*.5),
+            "icon-transform": translateX($measure*.5),
         ),
         $font-options: (
             "className": f--font-g f--color-a,
