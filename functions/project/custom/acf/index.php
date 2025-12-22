@@ -15,6 +15,5 @@
  require get_template_directory() . '/functions/project/custom/acf/acf-light-backgrounds/init.php'; 
  require get_template_directory() . '/functions/project/custom/acf/acf-message/init.php'; 
  require get_template_directory() . '/functions/project/custom/acf/acf-spacing/init.php'; 
- require get_template_directory() . '/functions/project/custom/acf/visual-acf-modules/init.php'; 
 
 ?>

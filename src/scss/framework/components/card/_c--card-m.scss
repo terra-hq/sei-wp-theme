@@ -6,13 +6,8 @@
 .c--card-m {
   @extend .u--pt-5;
   @extend .u--pb-5;
+  border-bottom: 1px solid map.get($color-options, h);
   background-color: transparent;
-
-  &:not(:last-child),
-  &:only-child {
-    border-bottom: 1px solid map.get($color-options, h);
-  }
-
    @media (hover: hover) and (pointer: fine) {
         &:hover &  {
           &__wrapper{

@@ -55,21 +55,6 @@
         }
     }
 
-    &--second {
-        background-color: map.get($colorbg-options, b);
-    }
-
-    &--second & {
-        &__title {
-            @extend .f--font-h;
-            margin-bottom: $measure;
-        }
-        &__subtitle {
-            @extend .f--font-i;
-            margin-bottom: $measure * 0;
-        }
-    }
-
 
 }
 
