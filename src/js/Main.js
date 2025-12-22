@@ -1,8 +1,6 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
-import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
-import TimelineHandler from "@jsHandler/timeline/Handler.js";
 
 class Main extends Core {
   constructor(payload) {
@@ -37,8 +35,6 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
-    new CollapsifyHandler(this.handler);
-    new TimelineHandler(this.handler);
   }
 
   events() {
@@ -792,6 +788,18 @@ class Main extends Core {
       this.instances["ZoomScroll"] = [];
     }
 
+    //Destroy timeline
+    if (
+      document.querySelectorAll(".js--timeline-a").length &&
+      this.instances["Timeline"].length
+    ) {
+      this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
+      document.querySelectorAll(".js--timeline-a").forEach((element, index) => {
+        this.instances["Timeline"][index].destroy();
+      });
+      this.instances["Timeline"] = [];
+    }
+
     //Destroy slider
     if (
       document.querySelectorAll(".js--slider-a").length &&
@@ -827,7 +835,17 @@ class Main extends Core {
       this.instances["Counter"] = [];
     }
 
-
+    //Destroy accordion
+    if (
+      document.querySelectorAll(".c--accordion-a").length &&
+      this.instances["AccordionA"].length
+    ) {
+      this.boostify.destroyscroll({ distance: 300, name: "AccordionA" });
+      document.querySelectorAll(".c--accordion-a").forEach((element, index) => {
+        this.instances["AccordionA"][index].destroy();
+      });
+      this.instances["AccordionA"] = [];
+    }
 
     //Destroy accordion-02
     if (

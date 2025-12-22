@@ -1,6 +1,7 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 import { u_matches, u_addClass, u_removeClass } from "@andresclua/jsutil";
 import gsap from "gsap";
+import Modal from "./Modal.js"; // 👈 asegúrate de tener este import
 
 class Handler {
   constructor(payload) {
