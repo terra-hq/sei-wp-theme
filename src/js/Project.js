@@ -37,6 +37,11 @@ class Project {
       license: import.meta.env.VITE_LICENSE_KEY,
     });
 
+    this.boostify.onload({
+      // if performance is low, increment number
+      maxTime: 2400,
+    });
+
     if (this.terraDebug) {
       console.log("server is running in " + import.meta.env.MODE + " mode");
       console.log("Terra Virtual Variable:", terraVirtual);
@@ -75,19 +80,6 @@ class Project {
             if (this.terraDebug) {
               console.log("All lotties loaded", payload);
             }
-            payload.forEach(element => {
-              this.boostify.observer({
-                options: {
-                  root: null,
-                  rootMargin: "0px",
-                  threshold: 0.5,
-                },
-                element: element.wrapper,
-                callback: () => {
-                  element.play();
-                },
-              });
-            });
           },
         });
       }
@@ -176,23 +168,6 @@ class Project {
     } catch (e) {
       console.log(e);
     } finally {
-
-      if (document.querySelector("script[type='text/boostify']")) {
-          this.boostify.onload({
-              maxTime: 1200,
-              callback: async () => {
-                  if (!window.dataLayer) window.dataLayer = [];
-                  window.dataLayer.push({
-                      event: "VirtualPageview",
-                      virtualPageURL: window.location.href, // full URL
-                      virtualPageTitle: document.title, // Page title
-                      virtualPagePath: window.location.pathname, // Path w/o hostname
-                  });
-                  console.log("windowdatalayer", window.dataLayer);
-              },
-          });
-      }
-
       var tl = gsap.timeline({
         defaults: { duration: 0.8, ease: "power1.inOut" },
         onUpdate: async () => {

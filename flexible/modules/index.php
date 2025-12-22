@@ -130,25 +130,6 @@ switch ($module['acf_fc_layout']) {
      case 'case_studies_slider':
         include (locate_template('flexible/modules/case-studies-slider.php', false, false));
         break;   
-    case 'center_heading_with_text':
-        include (locate_template('flexible/modules/center-heading-with-text.php', false, false));
-        break;
-    case 'full_width_lottie':
-        include (locate_template('flexible/modules/full-width-lottie.php', false, false));
-        break;
-    case 'uses_cases_slider':
-        include (locate_template('flexible/modules/uses-cases-slider.php', false, false));
-        break;
-    case 'general_accordion':
-        include (locate_template('flexible/modules/general-accordion.php', false, false));
-        break;
-    case 'text_left_team_cards_right':
-        include (locate_template('flexible/modules/text-left-team-cards-right.php', false, false));
-        break;
-    case 'quiz':
-        include(locate_template('flexible/modules/quiz.php', false, false)); 
-        break;   
-    case 'featured_case_studies':
-        include (locate_template('flexible/modules/featured-case-studies.php', false, false));
-        break;
+
+        
 }
