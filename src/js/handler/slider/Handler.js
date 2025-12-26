@@ -11,7 +11,8 @@ class SliderHandler {
         this.slidersDefs = [
             { id: 'sliderA', selector: '.js--slider-a', windowName: 'SliderA' },
             { id: 'sliderB', selector: '.js--slider-b', windowName: 'SliderB' },
-            { id: 'sliderC', selector: '.js--slider-c', windowName: 'SliderC' }
+            { id: 'sliderC', selector: '.js--slider-c', windowName: 'SliderC' },
+            { id: 'sliderD', selector: '.js--slider-d', windowName: 'SliderD' }
         ];
 
         this.init();
