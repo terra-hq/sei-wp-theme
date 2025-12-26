@@ -1,7 +1,6 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
-import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
 import SliderHandler from "@jsHandler/slider/Handler.js";
 
 class Main extends Core {
@@ -37,7 +36,6 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
-    new CollapsifyHandler(this.handler);
     new SliderHandler(this.handler);
   }
 
