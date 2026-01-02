@@ -1,6 +1,28 @@
 import Marquee from "./Marquee";
 
+/**
+ * @class MarqueeHandler
+ * This class is responsible for initializing and managing the Marquee instances.
+ * 
+ * @returns {MarqueeHandler} The MarqueeHandler instance.
+ * 
+ * @example
+ * const marqueeHandler = new MarqueeHandler({
+ *   emitter: emitter,
+ *   instances: instances,
+ *   boostify: boostify,
+ *   terraDebug: terraDebug,
+ *   libManager: libManager,
+ * });
+ */
 class MarqueeHandler {
+
+  /**
+   * Constructor for the MarqueeHandler class.
+   * @param {Object} payload - The payload object containing, for example, emitter, instances, boostify, terraDebug, and libManager instances.
+   * 
+   * @returns {void}
+   */
   constructor(payload) {
     var { emitter, instances, boostify, terraDebug, libManager } = payload;
     this.boostify = boostify;
@@ -24,6 +46,10 @@ class MarqueeHandler {
     });
   }
 
+  /**
+   * Updates the DOM elements for the Marquee instances.
+   * @returns {Object} The updated DOM elements.
+   */
   get updateTheDOM() {
     return {
       marqueeAElements: document.querySelectorAll(".js--marquee"),
@@ -31,12 +57,23 @@ class MarqueeHandler {
     };
   }
 
+  /**
+   * Initializes the Marquee instances.
+   * 
+   * @returns {void}
+   */
   init() {
     this.instances["Marquee"] = [];
     this.initMarqueeA();
     this.initMarqueeB();
   }
 
+  /**
+   * Handles the events for the Marquee instances.
+   * Mainly the events regarding Swup's content replacement to destory and reinitialize the Marquee instances.
+   * 
+   * @returns {void}
+   */
   events() {
     this.emitter.on("MitterContentReplaced", () => {
         this.DOM = this.updateTheDOM;
@@ -114,6 +151,11 @@ class MarqueeHandler {
     }
   }
 
+  /**
+   * Destroys the Marquee instances by clearing the speed and loop.
+   * 
+   * @returns {void}
+   */
   destroy() {
     this.speed = null;
     this.loop.clear();
