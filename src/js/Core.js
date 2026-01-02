@@ -59,6 +59,7 @@ class Core {
     });
 
      this.swup.hooks.on("page:view", async (data) => {
+          if (!window.dataLayer) window.dataLayer = [];
           this.terraDebug && console.log(data);
           this.terraDebug && console.log(window.location.href);
           this.terraDebug && console.log(document.title);

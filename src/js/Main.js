@@ -2,6 +2,7 @@ import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
 import SliderHandler from "@jsHandler/slider/Handler.js";
+import MarqueeHandler from "./handler/marquee/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -37,6 +38,7 @@ class Main extends Core {
     super.init();
     new ModalHandler(this.handler);
     new SliderHandler(this.handler);
+    new MarqueeHandler(this.handler);
   }
 
   events() {
@@ -256,85 +258,6 @@ class Main extends Core {
               .catch((error) => {
                 console.error("Error loading Comparison module:", error);
               });
-          },
-        });
-      });
-    }
-    //marqueee
-    if (document.querySelectorAll(".js--marquee").length) {
-      this.instances["Marquee"] = [];
-
-      document.querySelectorAll(".js--marquee").forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marquee",
-
-          callback: async () => {
-            const items = element.querySelectorAll(".c--marquee-a__item");
-            const itemCount = element.querySelectorAll(
-              ".c--marquee-a__item"
-            ).length;
-            const isMobile = window.innerWidth <= 768;
-            const isTablets = window.innerWidth <= 810;
-            const isTabletm = window.innerWidth <= 1024;
-
-            const shouldInit =
-              (isMobile && itemCount >= 3) 
-              || (!isMobile && itemCount >= 7) 
-              || (isTablets && itemCount >= 5) 
-              || (isTabletm && itemCount >= 4)
-            ;
-            if (!shouldInit) {
-              element.classList.add("js--marquee--disabled");
-              return;
-            }
-
-            const { default: InfiniteMarquee } = await import(
-              "@jsModules/marquee/InfiniteMarquee.js"
-            );
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-
-            this.instances["Marquee"][index] = new window["lib"][
-              "InfiniteMarquee"
-            ]({
-              element: element,
-              speed: element.getAttribute("data-speed")
-                ? parseFloat(element.getAttribute("data-speed"))
-                : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
-              reversed: element.getAttribute("data-reversed"),
-            });
-          },
-        });
-      });
-    }
-
-    if (document.querySelectorAll(".js--marquee-b").length) {
-      this.instances["Marquee"] = [];
-
-      document.querySelectorAll(".js--marquee-b").forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marqueeb",
-
-          callback: async () => {
-            const { default: InfiniteMarquee } = await import(
-              "@jsModules/marquee/InfiniteMarquee.js"
-            );
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-
-            this.instances["Marquee"][index] = new window["lib"][
-              "InfiniteMarquee"
-            ]({
-              element: element,
-              speed: element.getAttribute("data-speed")
-                ? parseFloat(element.getAttribute("data-speed"))
-                : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
-              reversed: element.getAttribute("data-reversed"),
-            });
           },
         });
       });
