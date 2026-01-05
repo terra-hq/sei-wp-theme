@@ -849,20 +849,7 @@ class Main extends Core {
       this.instances["Collapse"] = [];
     }
 
-    //Destroy marquee
-    if (
-      document.querySelectorAll(".js--marquee").length &&
-      this.instances["Marquee"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 50, name: "Marquee" });
-      document.querySelectorAll(".js--marquee").forEach((element, index) => {
-        if (this.instances["Marquee"][index]) {
-          this.instances["Marquee"][index].destroy?.(); // Por si tiene método destroy
-        }
-      });
-      this.instances["Marquee"] = [];
-    }
-
+    // Destroy quiz
     if (document.querySelectorAll(".js--quiz-a").length) {
       this.instances["Quiz"].forEach((instance, index) => {
         if (instance && typeof instance.destroy === "function") {

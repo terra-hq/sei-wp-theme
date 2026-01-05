@@ -1,4 +1,5 @@
 import Marquee from "./Marquee";
+import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 
 /**
  * @class MarqueeHandler
@@ -64,8 +65,40 @@ class MarqueeHandler {
    */
   init() {
     this.instances["Marquee"] = [];
-    this.initMarqueeA();
-    this.initMarqueeB();
+
+    if (this.DOM.marqueeAElements.length > 0) {
+      this.DOM.marqueeAElements.forEach((element) => {
+        if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+          this.initMarqueeA();
+        } else {
+          this.boostify.scroll({
+            distance: 1,
+            element: element,
+            name: "Marquee",
+            callback: async () => {
+              this.initMarqueeA();
+            },
+          });
+        }
+      });
+    }
+
+    if (this.DOM.marqueeBElements.length > 0) {
+      this.DOM.marqueeBElements.forEach((element) => {
+        if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+          this.initMarqueeB();
+        } else {
+          this.boostify.scroll({
+            distance: 1,
+            element: element,
+            name: "Marqueeb",
+            callback: async () => {
+              this.initMarqueeB();
+            },
+          });
+        }
+      });
+    }
   }
 
   /**
@@ -75,11 +108,46 @@ class MarqueeHandler {
    * @returns {void}
    */
   events() {
+
     this.emitter.on("MitterContentReplaced", () => {
         this.DOM = this.updateTheDOM;
-        this.initMarqueeA();
-        this.initMarqueeB();
+
+        if (this.DOM.marqueeAElements.length > 0) {
+          this.DOM.marqueeAElements.forEach((element) => {
+            if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+              this.initMarqueeA();
+            } else {
+              this.boostify.scroll({
+                distance: 1,
+                element: element,
+                name: "Marquee",
+                callback: async () => {
+                  this.initMarqueeA();
+                },
+              });
+            }
+          });
+        }
+
+        if (this.DOM.marqueeBElements.length > 0) {
+          this.DOM.marqueeBElements.forEach((element) => {
+            if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+              this.initMarqueeB();
+            } else {
+              this.boostify.scroll({
+                distance: 1,
+                element: element,
+                name: "Marqueeb",
+                callback: async () => {
+                  this.initMarqueeB();
+                },
+              });
+            }
+          });
+        }
+
     });
+
     this.emitter.on("MitterWillReplaceContent", () => {
       if (
         this.instances["Marquee"] &&
@@ -93,62 +161,41 @@ class MarqueeHandler {
         this.instances["Marquee"] = [];
       }
     });
+  
   }
 
   initMarqueeA() {
-        if (this.DOM.marqueeAElements.length) {
-            this.DOM.marqueeAElements.forEach((element, index) => {
-                this.boostify.scroll({
-                    distance: 1,
-                    element: element,
-                    name: "Marquee",
-                    callback: async () => {
-                        const itemCount = element.querySelectorAll(".c--marquee-a__item").length;
-                        const isMobile = window.innerWidth <= 768;
-                        const isTablets = window.innerWidth <= 810;
-                        const isTabletm = window.innerWidth <= 1024;
+    const itemCount = element.querySelectorAll(".c--marquee-a__item").length;
+    const isMobile = window.innerWidth <= 768;
+    const isTablets = window.innerWidth <= 810;
+    const isTabletm = window.innerWidth <= 1024;
 
-                        const shouldInit =
-                            (isMobile && itemCount >= 3) 
-                            || (!isMobile && itemCount >= 7) 
-                            || (isTablets && itemCount >= 5) 
-                            || (isTabletm && itemCount >= 4)
-                        ;
-                        if (!shouldInit) {
-                            element.classList.add("js--marquee--disabled");
-                            return;
-                        }
+    const shouldInit =
+        (isMobile && itemCount >= 3) 
+        || (!isMobile && itemCount >= 7) 
+        || (isTablets && itemCount >= 5) 
+        || (isTabletm && itemCount >= 4)
+    ;
+    if (!shouldInit) {
+        element.classList.add("js--marquee--disabled");
+        return;
+    }
 
-                        this.instances["Marquee"][index] = new Marquee({
-                            element: element,
-                            speed: element.getAttribute("data-speed") ? parseFloat(element.getAttribute("data-speed")) : 1,
-                            controlsOnHover: element.getAttribute("data-controls-on-hover"),
-                            reversed: element.getAttribute("data-reversed"),
-                        });
-                    },
-                });
-            });
-        }
+    this.instances["Marquee"][index] = new Marquee({
+        element: element,
+        speed: element.getAttribute("data-speed") ? parseFloat(element.getAttribute("data-speed")) : 1,
+        controlsOnHover: element.getAttribute("data-controls-on-hover"),
+        reversed: element.getAttribute("data-reversed"),
+    });
   }
 
   initMarqueeB() {
-    if (this.DOM.marqueeBElements.length) {
-      this.DOM.marqueeBElements.forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marqueeb",
-          callback: async () => {
-            this.instances["Marquee"][index] = new Marquee({
-              element: element,
-              speed: element.getAttribute("data-speed") ? parseFloat(element.getAttribute("data-speed")) : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
-              reversed: element.getAttribute("data-reversed"),
-            });
-          },
-        });
-      });
-    }
+    this.instances["Marquee"][index] = new Marquee({
+      element: element,
+      speed: element.getAttribute("data-speed") ? parseFloat(element.getAttribute("data-speed")) : 1,
+      controlsOnHover: element.getAttribute("data-controls-on-hover"),
+      reversed: element.getAttribute("data-reversed"),
+    });
   }
 
   /**
