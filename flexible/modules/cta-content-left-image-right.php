@@ -13,6 +13,8 @@ $type = $module['type'];
 $first_image = $module['first_image'];
 $second_image = $module['second_image'];
 $second_image_text = $module['second_image_text'];
+$should_be_a_slider = $module['should_be_a_slider'];
+$slider = $module['slider']
 ?>
 
 <section class="<?= $spacing ?> <?= $bg_color ?>">
