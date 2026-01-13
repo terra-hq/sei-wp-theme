@@ -6,7 +6,7 @@ if ($bg_color === 'f--background-c' || $bg_color === 'f--background-d') {
     $modifierClass = 'g--card-34--second';
 }
 $should_be_a_slider = $module['should_be_a_slider'];
-$items = $module['slider']; 
+
 if (!$should_be_a_slider) {
     $items[] = [
         'title' => $module['title'],
@@ -17,6 +17,8 @@ if (!$should_be_a_slider) {
         'second_image' => $module['second_image'],
         'second_image_text' => $module['second_image_text']
     ];
+}else{
+    $items = $module['slider']; 
 }
 ?>
 
