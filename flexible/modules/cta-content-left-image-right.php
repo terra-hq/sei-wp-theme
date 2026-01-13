@@ -6,13 +6,8 @@ if ($bg_color === 'f--background-c' || $bg_color === 'f--background-d') {
     $modifierClass = 'g--card-34--second';
 }
 $should_be_a_slider = $module['should_be_a_slider'];
-$slider = $module['slider'];
-
-$items = [];
-
-if ($slider && !empty($module['cards_repeater'])) {
-    $items = $module['cards_repeater']; 
-} else {
+$items = $module['slider']; 
+if (!$should_be_a_slider) {
     $items[] = [
         'title' => $module['title'],
         'description' => $module['description'],
@@ -25,7 +20,7 @@ if ($slider && !empty($module['cards_repeater'])) {
 }
 ?>
 
-<?php if ($slider): ?>
+<?php if ($should_be_a_slider): ?>
     <section class="c--slider-a">
         <div class="<?= $spacing ?> <?= $bg_color ?>">
 <?php else: ?>
@@ -34,7 +29,7 @@ if ($slider && !empty($module['cards_repeater'])) {
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <?php if ($slider): ?>
+                <?php if ($should_be_a_slider): ?>
                     <div class="c--slider-a__wrapper js--slider-e">
                 <?php endif; ?>
                 <?php 
@@ -102,13 +97,13 @@ if ($slider && !empty($module['cards_repeater'])) {
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <?php if ($slider): ?>
+                <?php if ($should_be_a_slider): ?>
                     </div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
-<?php if ($slider): ?>
+<?php if ($should_be_a_slider): ?>
         </div>
     </section>
 <?php else: ?>
@@ -116,5 +111,5 @@ if ($slider && !empty($module['cards_repeater'])) {
 <?php endif; ?>
 
 <?php 
-unset($spacing, $bg_color, $modifierClass, $items, $slider);
+unset($spacing, $bg_color, $modifierClass, $items, $should_be_a_slider);
 ?>
