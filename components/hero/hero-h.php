@@ -3,9 +3,15 @@
     <div class="c--hero-h__wrapper">
         <div class="f--row f--gap-c">
             <div class="f--col-6 f--col-tabletm-12">
-                <h1 class="c--hero-h__wrapper__title">
-                    <?= $hero_title ?>
-                </h1>
+                <?php if ($hero_h1 && $keyIndexModule == 0) { ?>
+                    <h1 class="c--hero-h__wrapper__title">
+                        <?= $hero_title ?>
+                    </h1>
+                <?php } else { ?>
+                    <h2 class="c--hero-h__wrapper__title">
+                        <?= $hero_title ?>
+                    </h2>
+                <?php } ?>
                 <?php if($hero_subtitle && $hero_subtitle !== '') : ?>
                     <p class="c--hero-h__wrapper__subtitle">
                         <?= $hero_subtitle ?>
