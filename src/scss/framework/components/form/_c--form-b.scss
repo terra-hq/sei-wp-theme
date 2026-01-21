@@ -240,7 +240,7 @@
         @extend .u--flex-direction-column;
         @extend .u--justify-content-center;
         @extend .u--align-items-center;
-        min-height: 500px;
+        min-height: 250px;
 
         .submitted-message {
             @extend .u--position-relative;
