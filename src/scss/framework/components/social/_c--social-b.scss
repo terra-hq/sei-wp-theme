@@ -30,6 +30,7 @@
 
             &__artwork {
                 @extend .c--icon-a;
+                transition: background $time-b $ease-standard-a, opacity $time-b $ease-standard-a;
             }
         }
     }
