@@ -1,0 +1,36 @@
+
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+@use "@scss/framework/components/icon/_c--icon-a" as *;
+
+
+.c--social-b {
+    @extend .u--display-flex;
+    @extend .u--flex-direction-column;
+    @extend .u--justify-content-center;
+    @extend .f--gap-f;
+    height: 100%;
+
+    @media all and ($viewport-type: $tabletm) {
+        margin-top: $measure * 7;
+        height: unset;
+    }
+
+    &__title {
+        @extend .f--font-h;
+        @extend .f--color-a;
+        @extend .u--font-light;
+    }
+
+    &__bd {
+        @extend .u--display-flex;
+        gap: $measure * 3;
+        &__link {
+
+            &__artwork {
+                @extend .c--icon-a;
+            }
+        }
+    }
+}
