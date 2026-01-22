@@ -2,9 +2,9 @@
     <h3><?= $socialbTitle ?></h3>
     <?php foreach ($socialbLinks as $key => $singleAI) { ?>
         <?php 
-            $ia_image_url = $singleAI['url'];
-            $ia_host = parse_url($url, PHP_URL_HOST);      // chatgpt.com
-            $ia_name = preg_replace('/\..*/', '', $host);  
+            $ia_image_url = $singleAI['link'];
+            $ia_host = parse_url($ia_image_url, PHP_URL_HOST);     
+            $ia_name = preg_replace('/\..*/', '', $ia_host);  
         ?>
          <a href="<?= $ia_image_url  ?>" target="_blank" rel="noopener noreferrer" class="" aria-label="<?= $ia_name ?>">
             <?php if($singleAI['image']) : ?>
