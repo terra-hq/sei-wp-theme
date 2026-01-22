@@ -3,7 +3,7 @@
     <div class="c--hero-h__wrapper">
         <div class="f--row f--gap-c">
             <div class="f--col-6 f--col-tabletm-12">
-                <?php if ($hero_h1 && $keyIndexModule == 0) { ?>
+                <?php if ($hero_h1) { ?>
                     <h1 class="c--hero-h__wrapper__title">
                         <?= $hero_title ?>
                     </h1>
