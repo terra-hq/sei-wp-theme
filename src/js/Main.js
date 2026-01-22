@@ -1,6 +1,6 @@
 import Core from "./Core";
-import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
+import GetAllJobsHandler from "./handler/jobs/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -35,6 +35,7 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
+    new GetAllJobsHandler(this.handler);
   }
 
   events() {
@@ -87,26 +88,6 @@ class Main extends Core {
       });
     }
 
-    //Get all jobs
-
-    if (document.querySelectorAll(".js--load-all-jobs").length) {
-      this.instances["GetAllJobs"] = [];
-      document
-        .querySelectorAll(".js--load-all-jobs")
-        .forEach((element, index) => {
-          this.instances["GetAllJobs"][index] = new GetAllJobs({
-            element: element,
-            resultsContainer: document.getElementById(
-              "js--load-all-job-results"
-            ),
-            filterLocation: document.getElementById("js--filter-locations"),
-            filterPracticeAreas: document.getElementById(
-              "js--filter-pratice-areas"
-            ),
-            loader: document.querySelector(".js--loading"),
-          });
-        });
-    }
 
 
     //Zoom a
@@ -785,17 +766,6 @@ class Main extends Core {
       this.instances["LocationJobs"] = [];
     }
 
-    if (
-      Array.isArray(this.instances["GetAllJobs"]) && // Ensure GetAllJobs is an array
-      this.instances["GetAllJobs"].length // Ensure it has elements
-    ) {
-      this.instances["GetAllJobs"].forEach((instance, index) => {
-        if (instance && typeof instance.destroy === "function") {
-          // Check if destroy() exists
-          instance.destroy(); // Call destroy
-        }
-      });
-    }
 
     if (
       document.querySelectorAll(".js--zoom").length &&
