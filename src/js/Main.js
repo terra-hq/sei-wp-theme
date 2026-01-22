@@ -1,6 +1,7 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
+import LoadMoreHandler from "./handler/loadmore/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -35,6 +36,7 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
+    new LoadMoreHandler(this.handler);
   }
 
   events() {
@@ -515,197 +517,6 @@ class Main extends Core {
       });
     }
     /**
-     * News Filter
-     */
-    if (document.querySelectorAll(".js--section-news").length) {
-      const loadMoreButton = document.querySelector(".js--load-more-news");
-      const newsLoadMore = {
-        dom: {
-          resultsContainer: document.querySelector(".js--news-container"),
-          triggerElement: loadMoreButton,
-        },
-        query: {
-          postType: loadMoreButton && loadMoreButton.dataset.postType,
-          postPerPage: parseInt(
-            loadMoreButton && loadMoreButton.dataset.postsPerPage
-          ),
-          offset: parseInt(loadMoreButton && loadMoreButton.dataset.offset),
-          total: parseInt(loadMoreButton && loadMoreButton.dataset.postsTotal),
-          taxonomies: [],
-          action: "load_more",
-        },
-        isPagination: false,
-        callback: {
-          onStart: () => { },
-          onComplete: () => { },
-        },
-      };
-      document
-        .querySelectorAll(".js--section-news")
-        .forEach((element, index) => {
-          this.boostify.observer({
-            options: {
-              root: null,
-              rootMargin: "0px",
-              threshold: 0,
-            },
-            element: element,
-            callback: async () => {
-              this.instances["LoadNews"] = [];
-              await import("@jsModules/loadMore/LoadNews").then(
-                ({ default: LoadNews }) => {
-                  window["lib"]["LoadNews"] = LoadNews;
-                }
-              );
-
-              this.instances["LoadNews"][index] = new window["lib"]["LoadNews"](
-                newsLoadMore
-              );
-            },
-          });
-        });
-    }
-    /**
-     * Insights Filter
-     */
-    if (document.querySelectorAll(".js--section-container").length) {
-      const loadMoreButton = document.querySelector(".js--load-more-posts");
-      const featuredInsightElement = document.querySelector(
-        ".js--featured-insight"
-      );
-      const page_id =
-        featuredInsightElement && featuredInsightElement.dataset.pageId;
-      
-      // Check if we're on success stories page (case studies)
-      const isCaseStudiesPage = loadMoreButton && loadMoreButton.dataset.postType === 'case-study';
-      
-      if (isCaseStudiesPage) {
-        // Case Studies configuration
-        const caseStudiesLoadMore = {
-          dom: {
-            resultsContainer: document.querySelector(".js--results-container"),
-            searchBar: document.querySelector(".js--posts-search"),
-            industryFilter: document.querySelectorAll(".js--case-study-industry-dropdown"),
-            capabilityFilter: document.querySelectorAll(".js--case-study-capability-dropdown"),
-            triggerElement: loadMoreButton,
-            noResultsElement: document.querySelector(".js--no-results-message"),
-            resultsNumber: document.querySelector(".js--results-number"),
-            loader: document.querySelector(".js--loading"),
-            spinner: document.querySelector(".js--spinner-load-more"),
-          },
-          query: {
-            postType: loadMoreButton && loadMoreButton.dataset.postType,
-            postPerPage: parseInt(
-              loadMoreButton && loadMoreButton.dataset.postsPerPage
-            ),
-            offset: parseInt(loadMoreButton && loadMoreButton.dataset.offset),
-            total: parseInt(loadMoreButton && loadMoreButton.dataset.postsTotal),
-            page_id: page_id,
-            taxonomies: [],
-            action: "load_case_studies",
-          },
-          isPagination: false,
-          callback: {
-            onStart: () => { },
-            onComplete: () => { },
-          },
-        };
-        
-        document
-          .querySelectorAll(".js--section-container")
-          .forEach((element, index) => {
-            this.boostify.observer({
-              options: {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0,
-              },
-              element: element,
-              callback: async () => {
-              if (element.dataset.caseStudiesLoaded === "true") return;
-              element.dataset.caseStudiesLoaded = "true";
-
-              if (!window.lib?.LoadCaseStudies) {
-                const { default: LoadCaseStudies } = await import(
-                  "@jsModules/loadMore/LoadCaseStudies"
-                );
-                window.lib = window.lib || {};
-                window.lib.LoadCaseStudies = LoadCaseStudies;
-              }
-
-              this.instances["LoadCaseStudies"] = this.instances["LoadCaseStudies"] || [];
-              this.instances["LoadCaseStudies"][index] = new window.lib.LoadCaseStudies(
-                caseStudiesLoadMore
-              );
-              },
-            });
-          });
-      } else {
-        // Original Insights configuration
-        const insightsLoadMore = {
-          dom: {
-            resultsContainer: document.querySelector(".js--results-container"),
-            searchBar: document.querySelector(".js--posts-search"),
-            typesFilter: document.querySelectorAll(".js--insight-types-dropdown"),
-            capabilityFilter: document.querySelectorAll(
-              ".js--insight-capability-dropdown"
-            ),
-            topicsFilter: document.querySelectorAll(".js--topics-dropdown"),
-            triggerElement: loadMoreButton,
-            noResultsElement: document.querySelector(".js--no-results-message"),
-            resultsNumber: document.querySelector(".js--results-number"),
-            loader: document.querySelector(".js--loading"),
-            spinner: document.querySelector(".js--spinner-load-more"),
-          },
-          query: {
-            postType: loadMoreButton && loadMoreButton.dataset.postType,
-            postPerPage: parseInt(
-              loadMoreButton && loadMoreButton.dataset.postsPerPage
-            ),
-            offset: parseInt(loadMoreButton && loadMoreButton.dataset.offset),
-            total: parseInt(loadMoreButton && loadMoreButton.dataset.postsTotal),
-            page_id: page_id,
-            taxonomies: [],
-            action: "load_insights",
-          },
-          isPagination: false,
-          callback: {
-            onStart: () => { },
-            onComplete: () => { },
-          },
-        };
-        document
-          .querySelectorAll(".js--section-container")
-          .forEach((element, index) => {
-            this.boostify.observer({
-              options: {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0,
-              },
-              element: element,
-              callback: async () => {
-                if (element.dataset.insightsLoaded === "true") return;
-                element.dataset.insightsLoaded = "true";
-
-                if (!window.lib?.LoadInsights) {
-                  const { default: LoadInsights } = await import(
-                    "@jsModules/loadMore/LoadInsights"
-                  );
-                  window.lib = window.lib || {};
-                  window.lib.LoadInsights = LoadInsights;
-                }
-
-                this.instances["LoadInsights"] = this.instances["LoadInsights"] || [];
-                this.instances["LoadInsights"][index] = new window.lib.LoadInsights(
-                  insightsLoadMore
-                );
-              },
-            });
-          });
-      }
-    }
-    /**
      * functions collapse
      */
     if (document.querySelectorAll(".js--collapse").length) {
@@ -904,46 +715,6 @@ class Main extends Core {
           this.instances["FilterPeople"][index].destroy();
         });
       this.instances["FilterPeople"] = [];
-    }
-
-    // Destroy insights
-    if (
-      document.querySelectorAll(".js--section-container").length &&
-      this.instances["LoadInsights"] &&
-      this.instances["LoadInsights"].length
-    ) {
-      document
-        .querySelectorAll(".js--section-container")
-        .forEach((element, index) => {
-          if (this.instances["LoadInsights"][index]) {
-            this.instances["LoadInsights"][index].destroy();
-          }
-        });
-      this.instances["LoadInsights"] = [];
-    }
-
-    // Destroy case studies
-    if (
-      document.querySelectorAll(".js--section-container").length &&
-      this.instances["LoadCaseStudies"] &&
-      this.instances["LoadCaseStudies"].length
-    ) {
-      document
-        .querySelectorAll(".js--section-container")
-        .forEach((element, index) => {
-          if (this.instances["LoadCaseStudies"][index]) {
-            this.instances["LoadCaseStudies"][index].destroy();
-          }
-        });
-      this.instances["LoadCaseStudies"] = [];
-    }
-
-    //Destroy News
-    if (document.querySelectorAll(".js--load-news").length) {
-      document.querySelectorAll(".js--load-news").forEach((element, index) => {
-        this.instances["LoadNews"][index].destroy();
-      });
-      this.instances["LoadNews"] = [];
     }
 
     //Destroy collapse
