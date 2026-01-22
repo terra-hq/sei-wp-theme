@@ -27,10 +27,21 @@
         @extend .u--display-flex;
         gap: $measure * 3;
         &__link {
+            @extend .f--background-b;
+            border-radius: 100%;
+            transition: background $time-b $ease-standard-a, opacity $time-b $ease-standard-a;
+
+            &:hover {
+                @extend .f--background-c;
+            }
 
             &__artwork {
                 @extend .c--icon-a;
-                transition: background $time-b $ease-standard-a, opacity $time-b $ease-standard-a;
+                
+                &:hover {
+                    filter: invert(100%);
+                    background-color: transparent;
+                }
             }
         }
     }
