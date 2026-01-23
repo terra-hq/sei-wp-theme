@@ -4,6 +4,7 @@ import LoadMoreHandler from "./handler/loadmore/Handler";
 import FilterPeopleHandler from "./handler/filter/Handler";
 import GetAllJobsHandler from "./handler/jobs/Handler";
 import HeroScrollHandler from "./handler/heroScroll/Handler";
+import LocationJobsHandler from "./handler/locationJobs/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -42,6 +43,7 @@ class Main extends Core {
     new FilterPeopleHandler(this.handler);
     new GetAllJobsHandler(this.handler);
     new HeroScrollHandler(this.handler);
+    new LocationJobsHandler(this.handler);
   }
 
   events() {
@@ -67,32 +69,6 @@ class Main extends Core {
       });
     }
 
-    //get jobs
-    if (document.querySelectorAll(".js--load-jobs").length) {
-      this.instances["LocationJobs"] = [];
-      document.querySelectorAll(".js--load-jobs").forEach((element, index) => {
-        this.boostify.observer({
-          options: {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.5,
-          },
-          element: element,
-          callback: () => {
-            import("@jsModules/LocationJobs")
-              .then(({ default: LocationJobs }) => {
-                this.instances["LocationJobs"][index] = new LocationJobs({
-                  element: element,
-                  job_id: element.getAttribute("data-location-id"),
-                });
-              })
-              .catch((error) => {
-                console.error("Error loading LocationJobs module:", error);
-              });
-          },
-        });
-      });
-    }
 
 
 
@@ -350,32 +326,6 @@ class Main extends Core {
         });
     }
 
-    //LocationJobs
-    if (document.querySelectorAll(".js--load-jobs").length) {
-      this.instances["LocationJobs"] = [];
-      document.querySelectorAll(".js--load-jobs").forEach((element, index) => {
-        this.boostify.observer({
-          options: {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.5,
-          },
-          element: element,
-          callback: () => {
-            import("@jsModules/LocationJobs")
-              .then(({ default: LocationJobs }) => {
-                this.instances["LocationJobs"][index] = new LocationJobs({
-                  element: element,
-                  job_id: element.getAttribute("data-location-id"),
-                });
-              })
-              .catch((error) => {
-                console.error("Error loading Comparison module:", error);
-              });
-          },
-        });
-      });
-    }
     //marqueee
     if (document.querySelectorAll(".js--marquee").length) {
       this.instances["Marquee"] = [];
@@ -524,16 +474,6 @@ class Main extends Core {
     super.willReplaceContent();
     this.emitter.emit("MitterWillReplaceContent");
 
-    if (
-      document.querySelectorAll(".js--load-jobs").length &&
-      this.instances["LocationJobs"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 1, name: "LocationJobs" });
-      document.querySelectorAll(".js--load-jobs").forEach((element, index) => {
-        this.instances["LocationJobs"][index].destroy();
-      });
-      this.instances["LocationJobs"] = [];
-    }
 
 
 
