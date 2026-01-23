@@ -3,6 +3,7 @@ import ModalHandler from "./handler/modal/Handler";
 import LoadMoreHandler from "./handler/loadmore/Handler";
 import FilterPeopleHandler from "./handler/filter/Handler";
 import GetAllJobsHandler from "./handler/jobs/Handler";
+import HeroScrollHandler from "./handler/heroScroll/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -40,6 +41,7 @@ class Main extends Core {
     new LoadMoreHandler(this.handler);
     new FilterPeopleHandler(this.handler);
     new GetAllJobsHandler(this.handler);
+    new HeroScrollHandler(this.handler);
   }
 
   events() {
@@ -94,25 +96,6 @@ class Main extends Core {
 
 
 
-    //Zoom a
-    if (document.querySelectorAll(".js--zoom").length) {
-      this.instances["HeroScroll"] = [];
-      this.boostify.scroll({
-        distance: 1,
-        name: "HeroScroll",
-        callback: async () => {
-          const { default: HeroScroll } = await import("@jsModules/HeroScroll");
-          window["lib"]["HeroScroll"] = HeroScroll;
-          document.querySelectorAll(".js--zoom").forEach((element, index) => {
-            this.instances["HeroScroll"][index] = new window["lib"][
-              "HeroScroll"
-            ]({
-              element: element,
-            });
-          });
-        },
-      });
-    }
 
     //Zoom b
     if (document.querySelectorAll(".js--zoom-b").length) {
@@ -553,18 +536,6 @@ class Main extends Core {
     }
 
 
-    if (
-      document.querySelectorAll(".js--zoom").length &&
-      this.instances["HeroScroll"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 1, name: "HeroScroll" });
-      document.querySelectorAll(".js--zoom").forEach((element, index) => {
-        if (this.instances["HeroScroll"][index]) {
-          this.instances["HeroScroll"][index].destroy();
-        }
-      });
-      this.instances["HeroScroll"] = [];
-    }
 
     if (document.querySelectorAll(".js--zoom-b").length) {
       this.boostify.destroyscroll({ distance: 5, name: "ZoomScroll" });
