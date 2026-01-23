@@ -1,6 +1,7 @@
 import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
+import TimelineHandler from "./handler/timeline/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -35,6 +36,7 @@ class Main extends Core {
     // Loads Core init function
     super.init();
     new ModalHandler(this.handler);
+    new TimelineHandler(this.handler);
   }
 
   events() {
@@ -299,32 +301,6 @@ class Main extends Core {
         },
       });
     }
-    /**
-     * GSAP animation for timeline-a
-     */
-    if (document.querySelectorAll(".js--timeline-a").length) {
-      this.instances["Timeline"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "Timeline",
-        callback: async () => {
-          const { default: Timeline } = await import(
-            "@jsModules/timeline/Timeline"
-          );
-          window["lib"]["Timeline"] = Timeline;
-          document
-            .querySelectorAll(".js--timeline-a")
-            .forEach((element, index) => {
-              this.instances["Timeline"][index] = new window["lib"]["Timeline"](
-                {
-                  element: element,
-                }
-              );
-            });
-        },
-      });
-    }
-
 
     /**
      * Horizontal accordion
@@ -818,18 +794,6 @@ class Main extends Core {
         }
       });
       this.instances["ZoomScroll"] = [];
-    }
-
-    //Destroy timeline
-    if (
-      document.querySelectorAll(".js--timeline-a").length &&
-      this.instances["Timeline"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
-      document.querySelectorAll(".js--timeline-a").forEach((element, index) => {
-        this.instances["Timeline"][index].destroy();
-      });
-      this.instances["Timeline"] = [];
     }
 
     //Destroy slider
