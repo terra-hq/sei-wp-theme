@@ -39,7 +39,7 @@
                 @extend .c--icon-a;
                 
                 &:hover {
-                    filter: invert(100%);
+                    filter: brightness(0) invert(100%);
                     background-color: transparent;
                 }
             }
