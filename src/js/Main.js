@@ -2,6 +2,7 @@ import Core from "./Core";
 import GetAllJobs from "./modules/GetAllJobs";
 import ModalHandler from "./handler/modal/Handler";
 import LoadMoreHandler from "./handler/loadmore/Handler";
+import FilterPeopleHandler from "./handler/filter/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -37,6 +38,7 @@ class Main extends Core {
     super.init();
     new ModalHandler(this.handler);
     new LoadMoreHandler(this.handler);
+    new FilterPeopleHandler(this.handler);
   }
 
   events() {
@@ -487,33 +489,6 @@ class Main extends Core {
             });
           },
         });
-      });
-    }
-
-    /**
-     * Filter people
-     */
-    if (document.getElementById("team-grid-location")) {
-      this.instances["FilterPeople"] = [];
-      this.boostify.observer({
-        options: {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.5,
-        },
-        element: document.getElementById("team-grid-location"),
-        callback: () => {
-          import("@jsModules/FilterPeople")
-            .then(({ default: FilterPeople }) => {
-              this.instances["FilterPeople"] = new FilterPeople({
-                selectId: "team-grid-location",
-                cardSelector: "#team-grid-people",
-              });
-            })
-            .catch((error) => {
-              console.error("Error loading FilterPeople module:", error);
-            });
-        },
       });
     }
     /**
