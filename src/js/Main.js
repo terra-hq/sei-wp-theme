@@ -6,6 +6,7 @@ import GetAllJobsHandler from "./handler/jobs/Handler";
 import HeroScrollHandler from "./handler/heroScroll/Handler";
 import LocationJobsHandler from "./handler/locationJobs/Handler";
 import CookiesHandler from "./handler/cookies/Handler";
+import ZoomScrollHandler from "./handler/zoomScroll/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -46,6 +47,7 @@ class Main extends Core {
     new HeroScrollHandler(this.handler);
     new LocationJobsHandler(this.handler);
     new CookiesHandler(this.handler);
+    new ZoomScrollHandler(this.handler);
   }
 
   events() {
@@ -56,27 +58,6 @@ class Main extends Core {
   async contentReplaced() {
     super.contentReplaced();
     this.emitter.emit("MitterContentReplaced");
-
-    //Zoom b
-    if (document.querySelectorAll(".js--zoom-b").length) {
-      this.instances["ZoomScroll"] = [];
-      this.boostify.scroll({
-        distance: 50,
-        name: "ZoomScroll",
-        callback: async () => {
-          const { default: ZoomScroll } = await import("@jsModules/ZoomScroll");
-          window["lib"]["ZoomScroll"] = ZoomScroll;
-          document.querySelectorAll(".js--zoom-b").forEach((element, index) => {
-            this.instances["ZoomScroll"][index] = new window["lib"][
-              "ZoomScroll"
-            ]({
-              element: element,
-              hero: element.getAttribute("data-hero"),
-            });
-          });
-        },
-      });
-    }
 
     /**
      * Testimonial slider
@@ -457,19 +438,6 @@ class Main extends Core {
   willReplaceContent() {
     super.willReplaceContent();
     this.emitter.emit("MitterWillReplaceContent");
-
-
-
-
-    if (document.querySelectorAll(".js--zoom-b").length) {
-      this.boostify.destroyscroll({ distance: 5, name: "ZoomScroll" });
-      document.querySelectorAll(".js--zoom-b").forEach((element, index) => {
-        if (this.instances["ZoomScroll"][index]) {
-          this.instances["ZoomScroll"][index].destroy();
-        }
-      });
-      this.instances["ZoomScroll"] = [];
-    }
 
     //Destroy timeline
     if (
