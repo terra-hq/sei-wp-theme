@@ -5,6 +5,7 @@ import FilterPeopleHandler from "./handler/filter/Handler";
 import GetAllJobsHandler from "./handler/jobs/Handler";
 import HeroScrollHandler from "./handler/heroScroll/Handler";
 import LocationJobsHandler from "./handler/locationJobs/Handler";
+import CookiesHandler from "./handler/cookies/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -44,6 +45,7 @@ class Main extends Core {
     new GetAllJobsHandler(this.handler);
     new HeroScrollHandler(this.handler);
     new LocationJobsHandler(this.handler);
+    new CookiesHandler(this.handler);
   }
 
   events() {
@@ -54,24 +56,6 @@ class Main extends Core {
   async contentReplaced() {
     super.contentReplaced();
     this.emitter.emit("MitterContentReplaced");
-
-    //Inject cookie
-    if (document.querySelectorAll(".js--inyect-cookie").length) {
-      this.instances["Cookies"] = [];
-      await import("./modules/SetCookies").then(({ default: Cookies }) => {
-        document
-          .querySelectorAll(".js--inyect-cookie")
-          .forEach(async (element, index) => {
-            this.instances["Cookies"][index] = new Cookies({
-              cookieContainer: element,
-            });
-          });
-      });
-    }
-
-
-
-
 
     //Zoom b
     if (document.querySelectorAll(".js--zoom-b").length) {
