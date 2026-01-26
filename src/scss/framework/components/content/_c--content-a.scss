@@ -184,7 +184,7 @@
     );
   }
 
-  //* second: white text
+  //* second: white text with red bullets (for dark pink backgrounds)
   &--second-color {
     @include make-content-modifier(
       $headings-options: (
@@ -255,6 +255,70 @@
     ol:not([class]) > li::before {
       @include make-font-h(300);
     }
+  }
+
+  //* third: white text and white bullets (for red backgrounds)
+  &--third-color {
+    @include make-content-modifier(
+      $headings-options: (
+        "h2": (
+          "className": f--color-a,
+        ),
+        "h3": (
+          "className": f--color-a,
+        ),
+        "h4": (
+          "className": f--color-a,
+        ),
+        "h6": (
+          "className": f--color-a,
+        ),
+      ),
+      $image-options: (
+        "caption": (
+          "className": f--color-a,
+        ),
+      ),
+      $link-options: (
+        "className": c--link-a c--link-a--second,
+      ),
+      $lists-options: (
+        "number-font": (
+          "className": f--color-a,
+        ),
+        "first-level-number-color": map.get($color-options, a),
+        "font-styles": (
+          "className": f--color-a,
+        ),
+        "first-level-artwork-background": map.get($color-options, h),
+      ),
+      $paragraphs-options: (
+        "className": f--color-a,
+      ),
+      $quote-options: (
+        "border": (
+          "border-color": map.get($color-options, i),
+        ),
+        "paragraph": (
+          "className": f--color-a,
+        ),
+        "cite": (
+          "className": f--color-a,
+        ),
+      ),
+      $footnote-options: (
+        "className": f--color-a,
+      ),
+      $highlighted-options: (
+        "className": f--color-a,
+      ),
+      $separator-options: (
+        "color": map.get($color-options, m),
+      ),
+      $table-options: (
+        "odd-rows-background": map.get($color-options, m),
+      )
+    );
   }
 
   //* Paragraph large (font-g)

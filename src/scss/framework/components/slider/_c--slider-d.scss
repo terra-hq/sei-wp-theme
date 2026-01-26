@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "@scss/framework/_var/_vars.scss" as *;
+@use "@scss/framework/utilities/utilities.scss" as *;
+@use "@scss/framework/foundation/foundation.scss" as *;
+
+.c--slider-d {
+  overflow: hidden;
+  &__wrapper {
+    @extend .u--display-flex;
+    @extend .f--gap-c;
+
+    @media all and ($viewport-type: $tablets) {
+      flex-direction: column;
+    }
+
+    &__item {
+      display: flex;
+    }
+  }
+  .tns-nav {
+    margin-top: $measure * 4;
+  }
+}

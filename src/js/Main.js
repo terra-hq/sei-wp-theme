@@ -241,6 +241,66 @@ class Main extends Core {
         },
       });
     }
+
+    let sliderDElements = document.querySelectorAll(".js--slider-d");
+    if (sliderDElements.length) {
+      this.instances["sliderD"] = [];
+      this.boostify.scroll({
+        distance: 15,
+        name: "sliderD",
+        callback: async () => {
+          const { sliderDConfig } = await import(
+            "@jsModules/slider/slidersConfig"
+          );
+          const { default: SliderD } = await import(
+            "@jsModules/slider/Slider.js"
+          );
+          window["lib"]["SliderD"] = SliderD;
+
+          sliderDElements.forEach((slider, index) => {
+            this.instances["sliderD"][index] = new window["lib"]["SliderD"]({
+              slider: slider,
+              nav: slider.nextElementSibling,
+              config: sliderDConfig,
+              windowName: "SliderD",
+              index: index,
+            });
+          });
+        },
+      });
+    }
+
+    let sliderEElements = document.querySelectorAll(".js--slider-e");
+    if (sliderEElements.length) {
+      this.instances["sliderE"] = [];
+      this.boostify.observer({
+        options: {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.01
+        },
+        element: document.querySelector(".js--slider-e"),
+        callback: async () => {
+          const { sliderEConfig } = await import(
+            "@jsModules/slider/slidersConfig"
+          );
+          const { default: SliderE } = await import(
+            "@jsModules/slider/Slider.js"
+          );
+          window["lib"]["SliderE"] = SliderE;
+
+          sliderEElements.forEach((slider, index) => {
+            this.instances["sliderE"][index] = new window["lib"]["SliderE"]({
+              slider: slider,
+              nav: slider.nextElementSibling,
+              config: sliderEConfig,
+              windowName: "SliderE",
+              index: index,
+            });
+          });
+        },
+      });
+    }
     /**
      * GSAP animation for timeline-a
      */
@@ -311,9 +371,15 @@ class Main extends Core {
               ".c--marquee-a__item"
             ).length;
             const isMobile = window.innerWidth <= 768;
+            const isTablets = window.innerWidth <= 810;
+            const isTabletm = window.innerWidth <= 1024;
 
             const shouldInit =
-              (isMobile && itemCount >= 3) || (!isMobile && itemCount >= 7);
+              (isMobile && itemCount >= 3) 
+              || (!isMobile && itemCount >= 7) 
+              || (isTablets && itemCount >= 5) 
+              || (isTabletm && itemCount >= 4)
+            ;
             if (!shouldInit) {
               element.classList.add("js--marquee--disabled");
               return;
@@ -633,6 +699,22 @@ class Main extends Core {
         });
       });
     }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"] = [];
+      this.instances["Collapse"] = [];
+
+      const { default: Quiz } = await import("@jsModules/Quiz");
+      window["lib"]["Quiz"] = Quiz;
+
+      const { default: Collapse } = await import("@terrahq/collapsify");
+      window["lib"]["Collapse"] = Collapse;
+
+      document.querySelectorAll(".js--quiz-a").forEach((element, index) => {
+        this.instances["Quiz"][index] = new window["lib"]["Quiz"]();
+      });
+    }
+
   }
 
   willReplaceContent() {
@@ -825,6 +907,15 @@ class Main extends Core {
         }
       });
       this.instances["Marquee"] = [];
+    }
+
+    if (document.querySelectorAll(".js--quiz-a").length) {
+      this.instances["Quiz"].forEach((instance, index) => {
+        if (instance && typeof instance.destroy === "function") {
+          instance.destroy();
+        }
+      });
+      this.instances["Quiz"] = [];
     }
   }
 }

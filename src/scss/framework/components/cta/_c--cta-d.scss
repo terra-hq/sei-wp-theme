@@ -12,7 +12,7 @@
     @extend .u--justify-content-center;
     padding: $measure * 3;
     text-decoration: none;
-    background-image: paths.asset-url("/assets/img/cta-d.webp");
+    background-image: url(paths.asset-url("/assets/img/cta-d.webp"));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

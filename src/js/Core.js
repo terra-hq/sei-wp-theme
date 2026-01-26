@@ -40,25 +40,6 @@ class Core {
       boostify: this.boostify,
 
     });
-
-    /**
-     *  Since we are using Boostify, we need to check if the Google Scripts are loaded a few seconds after the page is loaded
-     *  If they are, we load the GTM script
-     *  This project utilizes page transitions, necessitating a custom event after each page change to correspond with a page view in GTM.
-     */
-    var response = await import("@terrahq/helpers/hasGoogleScripts");
-    const hasGoogleScripts = response.hasGoogleScripts;
-    await hasGoogleScripts({ maxTime: 5000 }).then((detected) => {
-      if (detected) {
-        window.dataLayer.push({
-          event: "VirtualPageview",
-          virtualPageURL: window.location.pathname + window.location.search,
-          virtualPageTitle: document.title,
-        });
-      } else {
-        //console.log("Google Scripts not detected");
-      }
-    });
   }
 
   events() {
@@ -77,15 +58,21 @@ class Core {
       this.willReplaceContent();
     });
 
-    this.swup.hooks.on("page:view", async () => {
-      if (this.detected) {
-        window.dataLayer.push({
-          event: "VirtualPageview",
-          virtualPageURL: window.location.pathname + window.location.search,
-          virtualPageTitle: document.title,
-        });
-      }
-    });
+     this.swup.hooks.on("page:view", async (data) => {
+          if (!window.dataLayer) window.dataLayer = [];
+          this.terraDebug && console.log(data);
+          this.terraDebug && console.log(window.location.href);
+          this.terraDebug && console.log(document.title);
+          this.terraDebug && console.log(window.location.pathname);
+          this.terraDebug && console.log(window.location.protocol + "//" + window.location.host + data?.from?.url);
+          window.dataLayer.push({
+              event: "VirtualPageview",
+              virtualPageURL: window.location.href, // URL completa
+              virtualPageTitle: document.title, // Título de la página
+              virtualPagePath: window.location.pathname, // Path sin el hostname
+              virtualPageReferrer: window.location.protocol + "//" + window.location.host + data?.from?.url, // Referente, si aplica
+          });
+      });
   }
 
   contentReplaced() {

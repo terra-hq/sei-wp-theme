@@ -31,6 +31,7 @@
                 margin-bottom: $measure*4;
                 span {
                     @extend .f--font-h;
+                    @extend .u--font-light;
                 }
             }
             .input {

@@ -19,4 +19,7 @@ if ($modules) {
     endforeach;
 } ?>
 
+<!-- EMPTY MODAL TO USE BY MODULES -->
+<?php include(locate_template('components/modal/modal-a.php', false, false)); ?>
+
 <?php get_footer() ?>
