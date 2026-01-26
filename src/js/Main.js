@@ -9,6 +9,7 @@ import CookiesHandler from "./handler/cookies/Handler";
 import ZoomScrollHandler from "./handler/zoomScroll/Handler";
 import TimelineHandler from "./handler/timeline/Handler";
 import SliderHandler from "./handler/slider/Handler";
+import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
 
 class Main extends Core {
   constructor(payload) {
@@ -52,6 +53,7 @@ class Main extends Core {
     new ZoomScrollHandler(this.handler);
     new TimelineHandler(this.handler);
     new SliderHandler(this.handler);
+    new CollapsifyHandler(this.handler);
   }
 
   events() {
@@ -63,61 +65,6 @@ class Main extends Core {
     super.contentReplaced();
     this.emitter.emit("MitterContentReplaced");
 
-    /**
-     * Horizontal accordion
-     */
-    if (document.querySelectorAll(".c--accordion-a").length) {
-      this.instances["AccordionA"] = [];
-      this.boostify.scroll({
-        distance: 300,
-        name: "AccordionA",
-        callback: async () => {
-          const { default: AccordionA } = await import("@jsModules/AccordionA");
-          window["lib"]["AccordionA"] = AccordionA;
-          document
-            .querySelectorAll(".c--accordion-a")
-            .forEach((element, index) => {
-              this.instances["AccordionA"][index] = new window["lib"][
-                "AccordionA"
-              ]({});
-            });
-        },
-      });
-    }
-    /**
-     * Awards accordion
-     */
-    if (document.querySelectorAll(".js--accordion-b").length) {
-      this.instances["AccordionB"] = [];
-      const { default: AccordionB } = await import("@jsModules/AccordionB");
-      window["lib"]["AccordionB"] = AccordionB;
-      document
-        .querySelectorAll(".js--accordion-b")
-        .forEach((element, index) => {
-          this.instances["AccordionB"][index] = new window["lib"]["AccordionB"](
-            element
-          );
-        });
-    }
-
-    /**
-     * Accordion-02
-     */
-    if (document.querySelectorAll(".js--accordion-02").length) {
-      this.instances["Accordion02"] = [];
-      const { default: Accordion02 } = await import("@terrahq/collapsify");
-      window["lib"]["Accordion02"] = Accordion02;
-      document
-        .querySelectorAll(".js--accordion-02")
-        .forEach((element, index) => {
-          this.instances["Accordion02"][index] = new window["lib"][
-            "Accordion02"
-          ]({
-            nameSpace: "accordion02",
-            closeOthers: true,
-          });
-        });
-    }
 
     //marqueee
     if (document.querySelectorAll(".js--marquee").length) {
@@ -279,42 +226,7 @@ class Main extends Core {
       this.instances["Counter"] = [];
     }
 
-    //Destroy accordion
-    if (
-      document.querySelectorAll(".c--accordion-a").length &&
-      this.instances["AccordionA"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 300, name: "AccordionA" });
-      document.querySelectorAll(".c--accordion-a").forEach((element, index) => {
-        this.instances["AccordionA"][index].destroy();
-      });
-      this.instances["AccordionA"] = [];
-    }
 
-    //Destroy accordion-02
-    if (
-      document.querySelectorAll(".js--accordion-02").length &&
-      this.instances["Accordion02"].length
-    ) {
-      document
-        .querySelectorAll(".js--accordion-02")
-        .forEach((element, index) => {
-          this.instances["Accordion02"][index].destroy();
-        });
-      this.instances["Accordion02"] = [];
-    }
-
-    //Destroy collapse
-    if (
-      document.querySelectorAll(".js--collapse").length &&
-      this.instances["Collapse"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 300, name: "Collapse" });
-      document.querySelectorAll(".js--collapse").forEach((element, index) => {
-        this.instances["Collapse"][index].destroy();
-      });
-      this.instances["Collapse"] = [];
-    }
 
     //Destroy marquee
     if (
