@@ -68,27 +68,29 @@ class Project {
           "@terrahq/helpers/preloadLotties"
         );
         window["lib"]["preloadLotties"] = preloadLotties;
-        await preloadLotties({
-          debug: this.terraDebug,
-          selector: document.querySelectorAll(".js--lottie-element"),
-          callback: (payload) => {
-            if (this.terraDebug) {
-              console.log("All lotties loaded", payload);
-            }
-            payload.forEach(element => {
-              this.boostify.observer({
-                options: {
-                  root: null,
-                  rootMargin: "0px",
-                  threshold: 0.5,
-                },
-                element: element.wrapper,
-                callback: () => {
-                  element.play();
-                },
+        this.DOM.lotties.forEach(async (element) => {
+          await preloadLotties({
+            debug: this.terraDebug,
+            selector: element,
+            callback: (payload) => {
+              if (this.terraDebug) {
+                console.log("All lotties loaded", payload);
+              }
+              payload.forEach(element => {
+                this.boostify.observer({
+                  options: {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: 0.5,
+                  },
+                  element: element.wrapper,
+                  callback: () => {
+                    element.play();
+                  },
+                });
               });
-            });
-          },
+            },
+          });
         });
       }
 
