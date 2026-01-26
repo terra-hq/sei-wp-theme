@@ -1,5 +1,5 @@
 import axios from "axios"; // used to make http requests
-import { GET_THEME_OPTIONS } from "./../services/GET/index.js";
+import { GET_THEME_OPTIONS } from "@js/services/GET/index.js";
 
 class SetCookies {
   constructor(payload) {
