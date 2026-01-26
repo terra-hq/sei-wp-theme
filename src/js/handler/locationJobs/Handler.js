@@ -47,7 +47,7 @@ class Handler {
     }
 
     async initializeLocationJobs(element, index) {
-        import("@jsModules/LocationJobs")
+        import("@js/handler/locationJobs/LocationJobs")
         .then(({ default: LocationJobs }) => {
             this.instances["LocationJobs"][index] = new LocationJobs({
                 element: element,

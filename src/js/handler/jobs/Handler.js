@@ -47,7 +47,7 @@ class Handler {
     }
 
     async initializeGetAllJobs(element, index) {
-        import("@jsModules/GetAllJobs")
+        import("@js/handler/jobs/GetAllJobs")
         .then(({ default: GetAllJobs }) => {
             this.instances["GetAllJobs"][index] = new GetAllJobs({
                 element: element,

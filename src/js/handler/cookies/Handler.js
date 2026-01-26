@@ -36,7 +36,7 @@ class Handler {
         }
 
         try {
-            const { default: Cookies } = await import("@jsModules/SetCookies");
+            const { default: Cookies } = await import("@js/handler/cookies/SetCookies");
             this.instances["Cookies"][index] = new Cookies({
                 cookieContainer: element,
             });

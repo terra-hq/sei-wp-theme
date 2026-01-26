@@ -47,7 +47,7 @@ class Handler {
     }
 
     async initializeHeroScroll(element, index) {
-        import("@jsModules/HeroScroll")
+        import("@js/handler/heroScroll/HeroScroll")
         .then(({ default: HeroScroll }) => {
             window["lib"]["HeroScroll"] = HeroScroll;
             this.instances["HeroScroll"][index] = new window["lib"]["HeroScroll"]({

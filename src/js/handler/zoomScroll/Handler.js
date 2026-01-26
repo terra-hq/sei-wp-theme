@@ -47,7 +47,7 @@ class Handler {
     }
 
     async initializeZoomScroll(element, index) {
-        import("@jsModules/ZoomScroll")
+        import("@js/handler/zoomScroll/ZoomScroll")
         .then(({ default: ZoomScroll }) => {
             window["lib"]["ZoomScroll"] = ZoomScroll;
             this.instances["ZoomScroll"][index] = new window["lib"]["ZoomScroll"]({

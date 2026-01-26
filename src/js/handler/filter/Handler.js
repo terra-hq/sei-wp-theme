@@ -49,7 +49,7 @@ class Handler {
     }
 
     async initializeFilterPeople() {
-        import("@jsModules/FilterPeople")
+        import("@js/handler/filter/FilterPeople")
         .then(({ default: FilterPeople }) => {
             this.instances["FilterPeople"] = new FilterPeople({
                 selectId: "team-grid-location",

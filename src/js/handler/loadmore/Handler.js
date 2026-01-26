@@ -87,7 +87,7 @@ class Handler {
             news: {
                 libName: 'LoadNews',
                 lib: async () => {
-                    await import("@jsModules/loadMore/LoadNews").then(({ default: LoadNews }) => {
+                    await import("@js/handler/loadmore/LoadNews").then(({ default: LoadNews }) => {
                         window["lib"]["LoadNews"] = LoadNews;
                     });
                     return window["lib"]["LoadNews"];
@@ -130,7 +130,7 @@ class Handler {
             caseStudies: {
                 libName: 'LoadCaseStudies',
                 lib: async () => {
-                    await import("@jsModules/loadMore/LoadCaseStudies").then(({ default: LoadCaseStudies }) => {
+                    await import("@js/handler/loadmore/LoadCaseStudies").then(({ default: LoadCaseStudies }) => {
                         window["lib"]["LoadCaseStudies"] = LoadCaseStudies;
                     });
                     return window["lib"]["LoadCaseStudies"];
@@ -181,7 +181,7 @@ class Handler {
             insights: {
                 libName: 'LoadInsights',
                 lib: async () => {
-                    await import("@jsModules/loadMore/LoadInsights").then(({ default: LoadInsights }) => {
+                    await import("@js/handler/loadmore/LoadInsights").then(({ default: LoadInsights }) => {
                         window["lib"]["LoadInsights"] = LoadInsights;
                     });
                     return window["lib"]["LoadInsights"];
