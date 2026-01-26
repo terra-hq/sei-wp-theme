@@ -27,7 +27,7 @@ class Handler {
         if (this.DOM.elements.length) {
             this.instances["HeroScroll"] = [];
             this.DOM.elements.forEach((element, index) => {
-                if (isElementInViewport(element)) {
+                if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeHeroScroll(element, index);
                 } else {
                     this.boostify.observer({

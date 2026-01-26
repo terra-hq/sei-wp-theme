@@ -27,7 +27,7 @@ class Handler {
         if (this.DOM.elements.length) {
             this.instances["LocationJobs"] = [];
             this.DOM.elements.forEach((element, index) => {
-                if (isElementInViewport(element)) {
+                if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeLocationJobs(element, index);
                 } else {
                     this.boostify.observer({

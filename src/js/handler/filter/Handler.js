@@ -30,7 +30,7 @@ class Handler {
 
     init() {
         if (this.DOM.selectElement && this.DOM.resultsSection) {
-            if (isElementInViewport(this.DOM.resultsSection)) {
+            if (isElementInViewport({ el: this.DOM.resultsSection, debug: this.terraDebug })) {
                 this.initializeFilterPeople();
             } else {
                 this.boostify.observer({
