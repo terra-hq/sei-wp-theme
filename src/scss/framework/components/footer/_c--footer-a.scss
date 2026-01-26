@@ -11,7 +11,7 @@
   @extend .c--curve-a;
   z-index: 1;
   &__hd {
-    padding: $measure * 8 0 $measure * 4;
+    padding: $measure * 8 0;
     &__link {
       @extend .f--font-a;
       @extend .g--link-01;
