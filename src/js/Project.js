@@ -53,7 +53,7 @@ class Project {
     try {
       // Dynamically import the preloadImages function,
       // and store it in the window.lib object for later use
-      if (this.DOM.images) {
+      if (this.DOM.images && this.DOM.images.length > 0) {
         const { preloadImages } = await import(
           "@terrahq/helpers/preloadImages"
         );
@@ -63,7 +63,7 @@ class Project {
 
       // Dynamically import the preloadLotties function,
       // and store it in the window.lib object for later use
-      if (this.DOM.lotties) {
+      if (this.DOM.lotties && this.DOM.lotties.length > 0) {
         const { preloadLotties } = await import(
           "@terrahq/helpers/preloadLotties"
         );

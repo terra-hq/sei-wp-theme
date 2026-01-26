@@ -4,6 +4,7 @@ import { GET_THEME_OPTIONS } from "@js/services/GET/index.js";
 class SetCookies {
   constructor(payload) {
     this.cookieDiv = payload.cookieContainer;
+    this.boundAcceptCookies = this.acceptCookies.bind(this);
     this.events();
   }
 
@@ -46,7 +47,7 @@ class SetCookies {
           </div>
         </section>
       `;
-      document.querySelector(".js--click-setCookie").addEventListener("click", this.acceptCookies.bind(this));
+      document.querySelector(".js--click-setCookie").addEventListener("click", this.boundAcceptCookies);
     }
   }
 
@@ -91,8 +92,10 @@ class SetCookies {
   }
 
   destroy() {
-    document.querySelector(".js--click-setCookie").removeEventListener("click", this.acceptCookies.bind(this));
-    document.querySelector(".js--click-closeCookie").removeEventListener("click", this.closeModal.bind(this));
+    const setCookieButton = document.querySelector(".js--click-setCookie");
+    if (setCookieButton) {
+      setCookieButton.removeEventListener("click", this.boundAcceptCookies);
+    }
   }
 }
 
