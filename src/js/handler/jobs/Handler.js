@@ -47,12 +47,8 @@ class Handler {
     }
 
     async initializeGetAllJobs(element, index) {
-        if (this.instances["GetAllJobs"][index]) {
-            return;
-        }
-
-        try {
-            const { default: GetAllJobs } = await import("@jsModules/GetAllJobs");
+        import("@jsModules/GetAllJobs")
+        .then(({ default: GetAllJobs }) => {
             this.instances["GetAllJobs"][index] = new GetAllJobs({
                 element: element,
                 resultsContainer: document.getElementById("js--load-all-job-results"),
@@ -60,9 +56,9 @@ class Handler {
                 filterPracticeAreas: document.getElementById("js--filter-pratice-areas"),
                 loader: document.querySelector(".js--loading"),
             });
-        } catch (error) {
+        }).catch((error) => {
             console.error("Error loading GetAllJobs module:", error);
-        }
+        });
     }
 
     events() {

@@ -47,13 +47,16 @@ class Handler {
     }
 
     async initializeZoomScroll(element, index) {
-        if (!window["lib"]["ZoomScroll"]) {
-            const { default: ZoomScroll } = await import("@jsModules/ZoomScroll");
+        import("@jsModules/ZoomScroll")
+        .then(({ default: ZoomScroll }) => {
             window["lib"]["ZoomScroll"] = ZoomScroll;
-        }
-        this.instances["ZoomScroll"][index] = new window["lib"]["ZoomScroll"]({
-            element: element,
-            hero: element.getAttribute("data-hero") || false,
+            this.instances["ZoomScroll"][index] = new window["lib"]["ZoomScroll"]({
+                element: element,
+                hero: element.getAttribute("data-hero") || false,
+            });
+        })
+        .catch((error) => {
+            console.error("Error loading ZoomScroll module:", error);
         });
     }
 

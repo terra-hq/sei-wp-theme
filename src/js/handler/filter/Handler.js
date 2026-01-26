@@ -31,13 +31,7 @@ class Handler {
     init() {
         if (this.DOM.selectElement && this.DOM.resultsSection) {
             if (isElementInViewport(this.DOM.resultsSection)) {
-                import("@jsModules/FilterPeople")
-                .then(({ default: FilterPeople }) => {
-                    this.instances["FilterPeople"] = new FilterPeople({
-                        selectId: "team-grid-location",
-                        cardSelector: "#team-grid-people",
-                    });
-                })
+                this.initializeFilterPeople();
             } else {
                 this.boostify.observer({
                     options: {
@@ -47,20 +41,21 @@ class Handler {
                     },
                     element: this.DOM.selectElement,
                     callback: () => {
-                        import("@jsModules/FilterPeople")
-                        .then(({ default: FilterPeople }) => {
-                            this.instances["FilterPeople"] = new FilterPeople({
-                                selectId: "team-grid-location",
-                                cardSelector: "#team-grid-people",
-                            });
-                        })
-                        .catch((error) => {
-                            console.error("Error loading FilterPeople module:", error);
-                        });
+                        this.initializeFilterPeople();
                     },
                 });
             }
         }
+    }
+
+    async initializeFilterPeople() {
+        import("@jsModules/FilterPeople")
+        .then(({ default: FilterPeople }) => {
+            this.instances["FilterPeople"] = new FilterPeople({
+                selectId: "team-grid-location",
+                cardSelector: "#team-grid-people",
+            });
+        })
     }
 
     events() {

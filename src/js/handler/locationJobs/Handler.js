@@ -1,3 +1,5 @@
+import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
+
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
@@ -25,28 +27,33 @@ class Handler {
         if (this.DOM.elements.length) {
             this.instances["LocationJobs"] = [];
             this.DOM.elements.forEach((element, index) => {
-                this.boostify.observer({
-                    options: {
-                        root: null,
-                        rootMargin: "0px",
-                        threshold: 0.5,
-                    },
-                    element: element,
-                    callback: () => {
-                        import("@jsModules/LocationJobs")
-                            .then(({ default: LocationJobs }) => {
-                                this.instances["LocationJobs"][index] = new LocationJobs({
-                                    element: element,
-                                    job_id: element.getAttribute("data-location-id"),
-                                });
-                            })
-                            .catch((error) => {
-                                console.error("Error loading LocationJobs module:", error);
-                            });
-                    },
-                });
+                if (isElementInViewport(element)) {
+                    this.initializeLocationJobs(element, index);
+                } else {
+                    this.boostify.observer({
+                        options: {
+                            root: null,
+                            rootMargin: "0px",
+                            threshold: 0.5,
+                        },
+                        element: element,
+                        callback: () => {
+                            this.initializeLocationJobs(element, index);
+                        },
+                    });
+                }
             });
         }
+    }
+
+    async initializeLocationJobs(element, index) {
+        import("@jsModules/LocationJobs")
+        .then(({ default: LocationJobs }) => {
+            this.instances["LocationJobs"][index] = new LocationJobs({
+                element: element,
+                job_id: element.getAttribute("data-location-id"),
+            });
+        })
     }
 
     events() {

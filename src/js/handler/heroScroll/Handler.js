@@ -1,3 +1,5 @@
+import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
+
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
@@ -24,20 +26,36 @@ class Handler {
     init() {
         if (this.DOM.elements.length) {
             this.instances["HeroScroll"] = [];
-            this.boostify.scroll({
-                distance: 1,
-                name: "HeroScroll",
-                callback: async () => {
-                    const { default: HeroScroll } = await import("@jsModules/HeroScroll");
-                    window["lib"]["HeroScroll"] = HeroScroll;
-                    this.DOM.elements.forEach((element, index) => {
-                        this.instances["HeroScroll"][index] = new window["lib"]["HeroScroll"]({
-                            element: element,
-                        });
+            this.DOM.elements.forEach((element, index) => {
+                if (isElementInViewport(element)) {
+                    this.initializeHeroScroll(element, index);
+                } else {
+                    this.boostify.observer({
+                        options: {
+                            root: null,
+                            rootMargin: "0px",
+                            threshold: 0.5,
+                        },
+                        element: element,
+                        callback: () => {
+                            this.initializeHeroScroll(element, index);
+                        },
                     });
-                },
+                }
             });
         }
+    }
+
+    async initializeHeroScroll(element, index) {
+        import("@jsModules/HeroScroll")
+        .then(({ default: HeroScroll }) => {
+            window["lib"]["HeroScroll"] = HeroScroll;
+            this.instances["HeroScroll"][index] = new window["lib"]["HeroScroll"]({
+                element: element,
+            });
+        }).catch((error) => {
+            console.error("Error loading HeroScroll module:", error);
+        });
     }
 
     events() {
