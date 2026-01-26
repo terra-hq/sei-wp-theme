@@ -8,6 +8,7 @@ import LocationJobsHandler from "./handler/locationJobs/Handler";
 import CookiesHandler from "./handler/cookies/Handler";
 import ZoomScrollHandler from "./handler/zoomScroll/Handler";
 import TimelineHandler from "./handler/timeline/Handler";
+import SliderHandler from "./handler/slider/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -50,6 +51,7 @@ class Main extends Core {
     new CookiesHandler(this.handler);
     new ZoomScrollHandler(this.handler);
     new TimelineHandler(this.handler);
+    new SliderHandler(this.handler);
   }
 
   events() {
@@ -60,156 +62,6 @@ class Main extends Core {
   async contentReplaced() {
     super.contentReplaced();
     this.emitter.emit("MitterContentReplaced");
-
-    /**
-     * Testimonial slider
-     */
-    let sliderAElements = document.querySelectorAll(".js--slider-a");
-    if (sliderAElements.length) {
-      this.instances["sliderA"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "sliderA",
-        callback: async () => {
-          const { sliderAConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: Slider } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["Slider"] = Slider;
-
-          sliderAElements.forEach((slider, index) => {
-            this.instances["sliderA"][index] = new window["lib"]["Slider"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderAConfig,
-              windowName: "SliderA",
-              index: index,
-            });
-          });
-        },
-      });
-    }
-
-    /**
-     * Images slider (gutenberg)
-     */
-    let sliderBElements = document.querySelectorAll(".js--slider-b");
-    if (sliderBElements.length) {
-      this.instances["sliderB"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "sliderB",
-        callback: async () => {
-          const { sliderBConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: SliderB } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["SliderB"] = SliderB;
-
-          sliderBElements.forEach((slider, index) => {
-            this.instances["sliderB"][index] = new window["lib"]["SliderB"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderBConfig,
-              windowName: "SliderB",
-              index: index,
-            });
-          });
-        },
-      });
-    }
-
-    let sliderCElements = document.querySelectorAll(".js--slider-c");
-    if (sliderCElements.length) {
-      this.instances["sliderC"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "sliderC",
-        callback: async () => {
-          const { sliderCConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: SliderC } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["SliderC"] = SliderC;
-
-          sliderCElements.forEach((slider, index) => {
-            this.instances["sliderC"][index] = new window["lib"]["SliderC"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderCConfig,
-              windowName: "SliderC",
-              index: index,
-            });
-          });
-        },
-      });
-    }
-
-    let sliderDElements = document.querySelectorAll(".js--slider-d");
-    if (sliderDElements.length) {
-      this.instances["sliderD"] = [];
-      this.boostify.scroll({
-        distance: 15,
-        name: "sliderD",
-        callback: async () => {
-          const { sliderDConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: SliderD } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["SliderD"] = SliderD;
-
-          sliderDElements.forEach((slider, index) => {
-            this.instances["sliderD"][index] = new window["lib"]["SliderD"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderDConfig,
-              windowName: "SliderD",
-              index: index,
-            });
-          });
-        },
-      });
-    }
-
-    let sliderEElements = document.querySelectorAll(".js--slider-e");
-    if (sliderEElements.length) {
-      this.instances["sliderE"] = [];
-      this.boostify.observer({
-        options: {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.01
-        },
-        element: document.querySelector(".js--slider-e"),
-        callback: async () => {
-          const { sliderEConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: SliderE } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["SliderE"] = SliderE;
-
-          sliderEElements.forEach((slider, index) => {
-            this.instances["sliderE"][index] = new window["lib"]["SliderE"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderEConfig,
-              windowName: "SliderE",
-              index: index,
-            });
-          });
-        },
-      });
-    }
 
     /**
      * Horizontal accordion
@@ -414,29 +266,6 @@ class Main extends Core {
   willReplaceContent() {
     super.willReplaceContent();
     this.emitter.emit("MitterWillReplaceContent");
-
-    //Destroy slider
-    if (
-      document.querySelectorAll(".js--slider-a").length &&
-      this.instances["sliderA"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 15, name: "sliderA" });
-      document.querySelectorAll(".js--slider-a").forEach((element, index) => {
-        this.instances["sliderA"][index].destroy();
-      });
-      this.instances["sliderA"] = [];
-    }
-
-    if (
-      document.querySelectorAll(".js--slider-b").length &&
-      this.instances["sliderB"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 15, name: "sliderB" });
-      document.querySelectorAll(".js--slider-b").forEach((element, index) => {
-        this.instances["sliderB"][index].destroy();
-      });
-      this.instances["sliderB"] = [];
-    }
 
     //Destroy counter
     if (
