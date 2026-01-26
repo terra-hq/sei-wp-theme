@@ -166,6 +166,10 @@ class Handler {
                     onStart: () => { },
                     onComplete: () => { },
                 },
+                destroy: (index) => {
+                    this.instances["LoadCaseStudies"][index]?.payload.destroy();
+                    this.instances["LoadCaseStudies"] = [];
+                }
             }
         };
     }
@@ -213,6 +217,10 @@ class Handler {
                     onStart: () => { },
                     onComplete: () => { },
                 },
+                destroy: (index) => {
+                    this.instances["LoadInsights"][index]?.payload.destroy();
+                    this.instances["LoadInsights"] = [];
+                }
             }
         }
     }

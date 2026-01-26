@@ -511,20 +511,6 @@ class Main extends Core {
       this.instances["Accordion02"] = [];
     }
 
-    //Destroy filter people
-    if (
-      document.querySelectorAll("#team-grid-location").length &&
-      this.instances["FilterPeople"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 1, name: "FilterPeople" });
-      document
-        .querySelectorAll("#team-grid-location")
-        .forEach((element, index) => {
-          this.instances["FilterPeople"][index].destroy();
-        });
-      this.instances["FilterPeople"] = [];
-    }
-
     //Destroy collapse
     if (
       document.querySelectorAll(".js--collapse").length &&

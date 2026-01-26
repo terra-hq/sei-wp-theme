@@ -74,7 +74,6 @@ class Handler {
             this.instances["HeroScroll"] &&
             this.instances["HeroScroll"].length
         ) {
-            this.boostify.destroyscroll({ distance: 1, name: "HeroScroll" });
             this.DOM.elements.forEach((element, index) => {
                 if (this.instances["HeroScroll"][index]) {
                     this.instances["HeroScroll"][index].destroy();
