@@ -18,7 +18,32 @@
             </div>
         <?php else: ?>
             <div class="c--card-g__wrapper__item-left">
-                <img src="<?= get_testimonial_placeholder_image() ?>" alt="placeholder image" width="800" height="600" class="c--card-g__wrapper__item-left__media" sizes="(max-width: 810px) 50vw, 100vw" decoding="async">                        
+                <?php
+                    $image_tag_args = array(
+                        'image' => array( 
+                            'url' => get_testimonial_placeholder_image(),
+                            'width'  => 800,
+                            'height' => 600,
+                            'sizes' => array(
+                                'thumbnail' => get_testimonial_placeholder_image(),
+                                'small' => get_testimonial_placeholder_image(),
+                                'medium' => get_testimonial_placeholder_image(),
+                                'large' => get_testimonial_placeholder_image(),
+                                'tablets' => get_testimonial_placeholder_image(),
+                                'mobile' => get_testimonial_placeholder_image(),
+                            )
+                        ),
+                        'sizes' => 'large',
+                        'class' => 'c--card-g__wrapper__item-left__media',
+                        'isLazy' => false,
+                        'showAspectRatio' => true,
+                        'decodingAsync' => true,
+                        'fetchPriority' => false,
+                        'addFigcaption' => false,
+                    );
+
+                    generate_image_tag($image_tag_args);
+                ?>
             </div>
         <?php endif; ?>
         <div class="c--card-g__wrapper__item-right">
