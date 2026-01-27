@@ -15,6 +15,7 @@ class Handler {
         return {
           accordionElementsA: document.querySelectorAll(`.c--accordion-a`),
           accordionElementsB: document.querySelectorAll(`.js--accordion-02`),
+          collapseElements: document.querySelectorAll(`.js--collapse`),
         };
     }
     createInstanceAccordionA({element, index}) {
@@ -31,6 +32,19 @@ class Handler {
             closeOthers: closeOther,
             animationSpeed: 400,
             cssEasing: "ease",
+        });
+    }
+    createInstanceCollapse({element, index}) {
+        const Collapse = window['lib']['Collapse'];
+        this.instances["Collapse"][index] = new Collapse({
+            nameSpace: `collapsify`,
+            closeOthers: false,
+            onSlideStart: (isOpen, contentID) => {
+                element.classList.add("u--display-none"),
+                element.parentNode
+                    .querySelector(".c--overlay-c")
+                    .classList.add("u--display-none");
+            },
         });
     }
     events() {
@@ -84,12 +98,36 @@ class Handler {
                     }
                 })
             }
+            if (this.DOM.collapseElements.length > 0) {
+                this.instances["Collapse"] = [];
+                if (!window['lib']['Collapse']) {
+                    const { default: Collapse } = await import("@terrahq/collapsify");
+                    window['lib']['Collapse'] = Collapse;
+                }
+                this.DOM.collapseElements.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
+                        this.createInstanceCollapse({ element, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 300,
+                            name: "Collapse",
+                            callback: async () => {
+                                try {
+                                    this.createInstanceCollapse({ element, index });
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading Collapse", error);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
         });
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
 
             //Destroy Accordion
-            if(this.DOM?.accordionElementsA?.lenght && this.instances["CollapsifyA"]?.lenght) {
+            if(this.DOM?.accordionElementsA?.length && this.instances["CollapsifyA"]?.length) {
                 this.boostify.destroyscroll({ distance: 10, name: "CollapsifyA"});
 
                 this.DOM.accordionElementsA.forEach((_, index) => {
@@ -99,7 +137,7 @@ class Handler {
                 });
                 this.instances["CollapsifyA"] = [];
             }
-            if(this.DOM?.accordionElementsB?.lenght && this.instances["Collapsify"]?.lenght) {
+            if(this.DOM?.accordionElementsB?.length && this.instances["Collapsify"]?.length) {
                 this.boostify.destroyscroll({ distance: 10, name: "Collapsify"});
 
                 this.DOM.accordionElementsB.forEach((_, index) => {
@@ -108,6 +146,16 @@ class Handler {
                     }
                 });
                 this.instances["Collapsify"] = [];
+            }
+            if(this.DOM?.collapseElements?.length && this.instances["Collapse"]?.length) {
+                this.boostify.destroyscroll({ distance: 300, name: "Collapse"});
+
+                this.DOM.collapseElements.forEach((_, index) => {
+                    if (this.instances["Collapse"][index]) {
+                        this.instances["Collapse"][index].destroy();
+                    }
+                });
+                this.instances["Collapse"] = [];
             }
         })
     }
