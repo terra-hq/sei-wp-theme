@@ -29,8 +29,10 @@ export const createTransitionOptions = (payload) => {
                 const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
                 window["lib"]["preloadLotties"] = preloadLotties;
             }
-            await window["lib"]["preloadLotties"]({
-                selector: lottieElements,
+            lottieElements.forEach(async (element) => {
+                await window["lib"]["preloadLotties"]({
+                    selector: element,
+                });
             });
         }
 

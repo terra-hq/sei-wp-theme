@@ -53,7 +53,7 @@ class Project {
     try {
       // Dynamically import the preloadImages function,
       // and store it in the window.lib object for later use
-      if (this.DOM.images) {
+      if (this.DOM.images && this.DOM.images.length > 0) {
         const { preloadImages } = await import(
           "@terrahq/helpers/preloadImages"
         );
@@ -63,32 +63,34 @@ class Project {
 
       // Dynamically import the preloadLotties function,
       // and store it in the window.lib object for later use
-      if (this.DOM.lotties) {
+      if (this.DOM.lotties && this.DOM.lotties.length > 0) {
         const { preloadLotties } = await import(
           "@terrahq/helpers/preloadLotties"
         );
         window["lib"]["preloadLotties"] = preloadLotties;
-        await preloadLotties({
-          debug: this.terraDebug,
-          selector: document.querySelectorAll(".js--lottie-element"),
-          callback: (payload) => {
-            if (this.terraDebug) {
-              console.log("All lotties loaded", payload);
-            }
-            payload.forEach(element => {
-              this.boostify.observer({
-                options: {
-                  root: null,
-                  rootMargin: "0px",
-                  threshold: 0.5,
-                },
-                element: element.wrapper,
-                callback: () => {
-                  element.play();
-                },
+        this.DOM.lotties.forEach(async (element) => {
+          await preloadLotties({
+            debug: this.terraDebug,
+            selector: element,
+            callback: (payload) => {
+              if (this.terraDebug) {
+                console.log("All lotties loaded", payload);
+              }
+              payload.forEach(element => {
+                this.boostify.observer({
+                  options: {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: 0.5,
+                  },
+                  element: element.wrapper,
+                  callback: () => {
+                    element.play();
+                  },
+                });
               });
-            });
-          },
+            },
+          });
         });
       }
 

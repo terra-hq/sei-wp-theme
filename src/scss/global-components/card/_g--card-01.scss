@@ -30,7 +30,7 @@
         ),
         $custom-options: (
             ".g--card-01__ft-items__media-wrapper" : (
-                "margin-bottom": $g-measure*2
+                "margin-bottom": $measure*2
             ),
             ".g--card-01__ft-items__item-primary" : (
                 "margin-top": auto,
@@ -58,8 +58,8 @@
         @include make-card-01-modifier(
             $custom-options: (
                 ".g--card-01__ft-items__media-wrapper" : (
-                    "width": $g-measure*6,
-                    "height": $g-measure*6
+                    "width": $measure*6,
+                    "height": $measure*6
                 ),
             ),
         );
