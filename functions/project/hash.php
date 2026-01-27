@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'lax');
+define('hash', 'iog');
 
 ?>
