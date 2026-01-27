@@ -32,7 +32,7 @@ if (!$should_be_a_slider) {
         <div class="f--row">
             <div class="f--col-12">
                 <?php if ($should_be_a_slider): ?>
-                    <div class="c--slider-a__wrapper js--slider-e">
+                    <div class="c--slider-a__wrapper js--slider-a">
                 <?php endif; ?>
                 <?php 
                 foreach ($items as $item): 

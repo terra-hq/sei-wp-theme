@@ -267,38 +267,6 @@ class Main extends Core {
         },
       });
     }
-
-    let sliderEElements = document.querySelectorAll(".js--slider-e");
-    if (sliderEElements.length) {
-      this.instances["sliderE"] = [];
-      this.boostify.observer({
-        options: {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.01
-        },
-        element: document.querySelector(".js--slider-e"),
-        callback: async () => {
-          const { sliderEConfig } = await import(
-            "@jsModules/slider/slidersConfig"
-          );
-          const { default: SliderE } = await import(
-            "@jsModules/slider/Slider.js"
-          );
-          window["lib"]["SliderE"] = SliderE;
-
-          sliderEElements.forEach((slider, index) => {
-            this.instances["sliderE"][index] = new window["lib"]["SliderE"]({
-              slider: slider,
-              nav: slider.nextElementSibling,
-              config: sliderEConfig,
-              windowName: "SliderE",
-              index: index,
-            });
-          });
-        },
-      });
-    }
     /**
      * GSAP animation for timeline-a
      */
