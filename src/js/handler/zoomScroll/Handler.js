@@ -30,13 +30,9 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeZoomScroll(element, index);
                 } else {
-                    this.boostify.observer({
-                        options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0.5,
-                        },
-                        element: element,
+                    this.boostify.scroll({
+                        distance: 5,
+                        name: "ZoomScroll",
                         callback: () => {
                             this.initializeZoomScroll(element, index);
                         },

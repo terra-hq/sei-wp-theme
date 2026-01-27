@@ -30,13 +30,9 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeQuiz(element, index);
                 } else {
-                    this.boostify.observer({
-                        options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0.5,
-                        },
-                        element: element,
+                    this.boostify.scroll({
+                        distance: 300,
+                        name: "Quiz",
                         callback: () => {
                             this.initializeQuiz(element, index);
                         },
@@ -77,7 +73,7 @@ class Handler {
             this.instances["Quiz"] &&
             this.instances["Quiz"].length
         ) {
-            this.boostify.destroyscroll({ distance: 1, name: "Quiz" });
+            this.boostify.destroyscroll({ distance: 300, name: "Quiz" });
             this.DOM.elements.forEach((element, index) => {
                 if (this.instances["Quiz"][index]) {
                     if (typeof this.instances["Quiz"][index].destroy === "function") {

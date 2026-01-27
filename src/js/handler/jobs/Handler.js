@@ -30,13 +30,9 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeGetAllJobs(element, index);
                 } else {
-                    this.boostify.observer({
-                        options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0.5,
-                        },
-                        element: element,
+                    this.boostify.scroll({
+                        distance: 300,
+                        name: "GetAllJobs",
                         callback: () => {
                             this.initializeGetAllJobs(element, index);
                         },
@@ -76,6 +72,7 @@ class Handler {
             Array.isArray(this.instances["GetAllJobs"]) &&
             this.instances["GetAllJobs"].length
         ) {
+            this.boostify.destroyscroll({ distance: 300, name: "GetAllJobs" });
             this.instances["GetAllJobs"].forEach((instance, index) => {
                 if (instance && typeof instance.destroy === "function") {
                     instance.destroy();

@@ -33,13 +33,9 @@ class Handler {
             if (isElementInViewport({ el: this.DOM.resultsSection, debug: this.terraDebug })) {
                 this.initializeFilterPeople();
             } else {
-                this.boostify.observer({
-                    options: {
-                        root: null,
-                        rootMargin: "0px",
-                        threshold: 0.5,
-                    },
-                    element: this.DOM.selectElement,
+                this.boostify.scroll({
+                    distance: 300,
+                    name: "FilterPeople",
                     callback: () => {
                         this.initializeFilterPeople();
                     },
@@ -70,6 +66,7 @@ class Handler {
 
     destroy() {
         if (this.instances["FilterPeople"] && this.instances["FilterPeople"].length > 0) {
+            this.boostify.destroyscroll({ distance: 300, name: "FilterPeople" });
             this.instances["FilterPeople"].destroy();
             this.instances["FilterPeople"] = [];
         }

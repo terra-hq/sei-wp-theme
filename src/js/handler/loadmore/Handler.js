@@ -41,13 +41,9 @@ class Handler {
                 if (isElementInViewport({ el: config.dom.triggerElement, debug: this.terraDebug })) {
                     this.loadLib(config, index);
                 } else {
-                    this.boostify.observer({
-                        options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0,
-                        },
-                        element: config.dom.section,
+                    this.boostify.scroll({
+                        distance: 0,
+                        name: "LoadMore",
                         callback: async () => {
                             this.loadLib(config, index);
                         },
@@ -69,6 +65,7 @@ class Handler {
 
     destroy() {
         if (this.DOM && this.DOM.loadMoreSections) {
+            this.boostify.destroyscroll({ distance: 0, name: "LoadMore" });
             this.DOM.loadMoreSections.forEach((sectionConfig, index) => {
                 let config = sectionConfig[Object.keys(sectionConfig)[0]];
                 config.destroy?.(index);

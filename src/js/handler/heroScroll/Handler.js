@@ -30,13 +30,9 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeHeroScroll(element, index);
                 } else {
-                    this.boostify.observer({
-                        options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0.5,
-                        },
-                        element: element,
+                    this.boostify.scroll({
+                        distance: 300,
+                        name: "HeroScroll",
                         callback: () => {
                             this.initializeHeroScroll(element, index);
                         },
@@ -74,6 +70,7 @@ class Handler {
             this.instances["HeroScroll"] &&
             this.instances["HeroScroll"].length
         ) {
+            this.boostify.destroyscroll({ distance: 300, name: "HeroScroll" });
             this.DOM.elements.forEach((element, index) => {
                 if (this.instances["HeroScroll"][index]) {
                     this.instances["HeroScroll"][index].destroy();

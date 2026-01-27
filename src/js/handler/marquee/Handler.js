@@ -38,13 +38,9 @@ class Handler {
             if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                 this.initMarqueeA(element, index);
             } else {
-                this.boostify.observer({
-                    options: {
-                        root: null,
-                        rootMargin: "0px",
-                        threshold: 0.5,
-                    },
-                    element: element,
+                this.boostify.scroll({
+                    distance: 300,
+                    name: "Marquee",
                     callback: () => {
                         this.initMarqueeA(element, index);
                     },
@@ -82,13 +78,9 @@ class Handler {
             if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                 this.createMarqueeInstance(element, actualIndex);
             } else {
-                this.boostify.observer({
-                    options: {
-                        root: null,
-                        rootMargin: "0px",
-                        threshold: 0.5,
-                    },
-                    element: element,
+                this.boostify.scroll({
+                    distance: 300,
+                    name: "Marquee",
                     callback: () => {
                         this.createMarqueeInstance(element, actualIndex);
                     },
@@ -131,6 +123,7 @@ class Handler {
             this.instances["Marquee"] &&
             this.instances["Marquee"].length
         ) {
+            this.boostify.destroyscroll({ distance: 300, name: "Marquee" });
             this.DOM.marqueeA.forEach((element, index) => {
                 if (this.instances["Marquee"][index]) {
                     if (typeof this.instances["Marquee"][index].destroy === "function") {
