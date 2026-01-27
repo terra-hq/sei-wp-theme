@@ -10,6 +10,8 @@ import ZoomScrollHandler from "./handler/zoomScroll/Handler";
 import TimelineHandler from "./handler/timeline/Handler";
 import SliderHandler from "./handler/slider/Handler";
 import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
+import QuizHandler from "./handler/quiz/Handler";
+import MarqueeHandler from "./handler/marquee/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -54,6 +56,8 @@ class Main extends Core {
     new TimelineHandler(this.handler);
     new SliderHandler(this.handler);
     new CollapsifyHandler(this.handler);
+    new QuizHandler(this.handler);
+    new MarqueeHandler(this.handler);
   }
 
   events() {
@@ -64,87 +68,6 @@ class Main extends Core {
   async contentReplaced() {
     super.contentReplaced();
     this.emitter.emit("MitterContentReplaced");
-
-
-    //marqueee
-    if (document.querySelectorAll(".js--marquee").length) {
-      this.instances["Marquee"] = [];
-
-      document.querySelectorAll(".js--marquee").forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marquee",
-
-          callback: async () => {
-            const items = element.querySelectorAll(".c--marquee-a__item");
-            const itemCount = element.querySelectorAll(
-              ".c--marquee-a__item"
-            ).length;
-            const isMobile = window.innerWidth <= 768;
-            const isTablets = window.innerWidth <= 810;
-            const isTabletm = window.innerWidth <= 1024;
-
-            const shouldInit =
-              (isMobile && itemCount >= 3) 
-              || (!isMobile && itemCount >= 7) 
-              || (isTablets && itemCount >= 5) 
-              || (isTabletm && itemCount >= 4)
-            ;
-            if (!shouldInit) {
-              element.classList.add("js--marquee--disabled");
-              return;
-            }
-
-            const { default: InfiniteMarquee } = await import(
-              "@jsModules/marquee/InfiniteMarquee.js"
-            );
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-
-            this.instances["Marquee"][index] = new window["lib"][
-              "InfiniteMarquee"
-            ]({
-              element: element,
-              speed: element.getAttribute("data-speed")
-                ? parseFloat(element.getAttribute("data-speed"))
-                : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
-              reversed: element.getAttribute("data-reversed"),
-            });
-          },
-        });
-      });
-    }
-
-    if (document.querySelectorAll(".js--marquee-b").length) {
-      this.instances["Marquee"] = [];
-
-      document.querySelectorAll(".js--marquee-b").forEach((element, index) => {
-        this.boostify.scroll({
-          distance: 1,
-          element: element,
-          name: "Marqueeb",
-
-          callback: async () => {
-            const { default: InfiniteMarquee } = await import(
-              "@jsModules/marquee/InfiniteMarquee.js"
-            );
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-
-            this.instances["Marquee"][index] = new window["lib"][
-              "InfiniteMarquee"
-            ]({
-              element: element,
-              speed: element.getAttribute("data-speed")
-                ? parseFloat(element.getAttribute("data-speed"))
-                : 1,
-              controlsOnHover: element.getAttribute("data-controls-on-hover"),
-              reversed: element.getAttribute("data-reversed"),
-            });
-          },
-        });
-      });
-    }
     /**
      * functions collapse
      */
@@ -193,21 +116,6 @@ class Main extends Core {
       });
     }
 
-    if (document.querySelectorAll(".js--quiz-a").length) {
-      this.instances["Quiz"] = [];
-      this.instances["Collapse"] = [];
-
-      const { default: Quiz } = await import("@jsModules/Quiz");
-      window["lib"]["Quiz"] = Quiz;
-
-      const { default: Collapse } = await import("@terrahq/collapsify");
-      window["lib"]["Collapse"] = Collapse;
-
-      document.querySelectorAll(".js--quiz-a").forEach((element, index) => {
-        this.instances["Quiz"][index] = new window["lib"]["Quiz"]();
-      });
-    }
-
   }
 
   willReplaceContent() {
@@ -226,30 +134,6 @@ class Main extends Core {
       this.instances["Counter"] = [];
     }
 
-
-
-    //Destroy marquee
-    if (
-      document.querySelectorAll(".js--marquee").length &&
-      this.instances["Marquee"].length
-    ) {
-      this.boostify.destroyscroll({ distance: 50, name: "Marquee" });
-      document.querySelectorAll(".js--marquee").forEach((element, index) => {
-        if (this.instances["Marquee"][index]) {
-          this.instances["Marquee"][index].destroy?.(); // Por si tiene método destroy
-        }
-      });
-      this.instances["Marquee"] = [];
-    }
-
-    if (document.querySelectorAll(".js--quiz-a").length) {
-      this.instances["Quiz"].forEach((instance, index) => {
-        if (instance && typeof instance.destroy === "function") {
-          instance.destroy();
-        }
-      });
-      this.instances["Quiz"] = [];
-    }
   }
 }
 
