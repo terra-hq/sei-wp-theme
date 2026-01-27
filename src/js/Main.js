@@ -12,6 +12,7 @@ import SliderHandler from "./handler/slider/Handler";
 import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
 import QuizHandler from "./handler/quiz/Handler";
 import MarqueeHandler from "./handler/marquee/Handler";
+import AnchorToHandler from "./handler/anchorTo/Handler";
 
 class Main extends Core {
   constructor(payload) {
@@ -58,6 +59,7 @@ class Main extends Core {
     new CollapsifyHandler(this.handler);
     new QuizHandler(this.handler);
     new MarqueeHandler(this.handler);
+    new AnchorToHandler(this.handler);
   }
 
   events() {
