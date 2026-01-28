@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'lpk');
+define('hash', '3y6');
 
 ?>
