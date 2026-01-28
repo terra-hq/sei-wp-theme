@@ -73,5 +73,12 @@
          wp_redirect($principalUrl, 301);
          exit;
      }
+     if (is_single() && 'functions' ==  $queried_post_type) {
+        if(!get_field('heros')){
+            $principalUrl  = esc_url(home_url('/functions/'));
+            wp_redirect($principalUrl, 301);
+            exit;
+        }
+     }
  }
  add_action('template_redirect', 'redirect_config'); ?>
