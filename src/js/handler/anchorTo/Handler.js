@@ -35,7 +35,7 @@ class Handler {
         .then(({ default: AnchorTo }) => {
             window["lib"]["AnchorTo"] = AnchorTo;
             this.instances["AnchorTo"][index] = new window["lib"]["AnchorTo"]({
-                element: el,
+                element: element,
                 checkUrl: false, // o true si quieres soportar hashes en la URL
                 anchorTo: "tf-data-target", // dónde buscar el ID destino
                 offsetTopAttribute: "tf-data-distance",
