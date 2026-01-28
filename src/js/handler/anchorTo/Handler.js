@@ -8,10 +8,6 @@ class Handler {
         this.terraDebug = terraDebug;
         this.libManager = libManager;
 
-        this.DOM = {
-            elements: document.querySelectorAll(".js--scroll-to"),
-        }
-
         this.init();
         this.events();
     }

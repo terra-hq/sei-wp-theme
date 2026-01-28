@@ -2,74 +2,81 @@ import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 
 class Handler {
     constructor(payload) {
-        var { emitter, instances, boostify, terraDebug, libManager, DOM } = payload;
+        var { emitter, instances, boostify, terraDebug, libManager } = payload;
         this.boostify = boostify;
         this.emitter = emitter;
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
 
-        this.currentTrigger = null;
-        this.triggerClickHandler = null;
-
-        this.DOM = {
-            selectElement: document.querySelector("#team-grid-location"),
-            resultsSection: document.querySelector("#team-grid-people"),
-        }
-
         this.init();
         this.events();
     }
 
+    init() {}
+
     get updateTheDOM() {
         return {
-            selectElement: document.querySelector("#team-grid-location"),
-            resultsSection: document.querySelector("#team-grid-people"),
+            filterContainers: document.querySelectorAll("#team-grid-location"),
         };
     }
 
-    init() {
-        if (this.DOM.selectElement && this.DOM.resultsSection) {
-            if (isElementInViewport({ el: this.DOM.resultsSection, debug: this.terraDebug })) {
-                this.initializeFilterPeople();
-            } else {
-                this.boostify.scroll({
-                    distance: 300,
-                    name: "FilterPeople",
-                    callback: () => {
-                        this.initializeFilterPeople();
-                    },
-                });
-            }
-        }
-    }
+  
 
-    async initializeFilterPeople() {
-        import("@js/handler/filter/FilterPeople")
-        .then(({ default: FilterPeople }) => {
-            this.instances["FilterPeople"] = new FilterPeople({
-                selectId: "team-grid-location",
-                cardSelector: "#team-grid-people",
-            });
-        })
+    initializeFilterPeople({ filterSelect, index }) {
+        const FilterPeople = window['lib']['FilterPeople'];
+        
+        this.instances["FilterPeople"][index] = new FilterPeople({
+            selectId: "team-grid-location",
+            cardSelector: "#team-grid-people"
+        });
     }
 
     events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            this.init();
+            
+            if (this.DOM.filterContainers.length > 0) {
+                this.instances["FilterPeople"] = [];
+                
+                if (!window['lib']['FilterPeople']) {
+                    const { default: FilterPeople } = await import("./FilterPeople");
+                    window['lib']['FilterPeople'] = FilterPeople;
+                }
+                
+                this.DOM.filterContainers.forEach((filterSelect, index) => {
+                    if (isElementInViewport({ el: filterSelect, debug: this.terraDebug })) {
+                        this.initializeFilterPeople({ filterSelect, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "FilterPeople",
+                            callback: async () => {
+                                try {
+                                    this.initializeFilterPeople({ filterSelect, index });
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading FilterPeople", error);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
         });
-    }
 
-    destroy() {
-        if (this.instances["FilterPeople"] && this.instances["FilterPeople"].length > 0) {
-            this.boostify.destroyscroll({ distance: 300, name: "FilterPeople" });
-            this.instances["FilterPeople"].destroy();
-            this.instances["FilterPeople"] = [];
-        }
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "FilterPeople" });
+            
+            if (this.DOM?.filterContainers?.length && this.instances["FilterPeople"]?.length) {
+                this.DOM.filterContainers.forEach((_, index) => {
+                    if (this.instances["FilterPeople"][index]?.destroy) {
+                        this.instances["FilterPeople"][index].destroy();
+                    }
+                });
+                this.instances["FilterPeople"] = [];
+            }
+        });
     }
 }
 
