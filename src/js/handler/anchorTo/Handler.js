@@ -31,6 +31,7 @@ class Handler {
     }
 
     async initializeAnchorTo(element, index) {
+        this.instances["AnchorTo"] = [];
         import("@teamthunderfoot/anchor-to")
         .then(({ default: AnchorTo }) => {
             window["lib"]["AnchorTo"] = AnchorTo;
