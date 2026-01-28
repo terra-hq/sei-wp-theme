@@ -14,10 +14,6 @@ class AccordionA {
         this.btnHeight = 53;
         this.accordionItems = this.item.length;
 
-        // If the accordion has the variant 'second', we need to subtract 1 so that it doesn't calculate the width of the active section button, as this variant hides it.
-        // This is to properly calculate the width of the active section, as the button is hidden.
-        this.accordionItemsToShow = this.accordion.classList.contains('c--accordion-a--second') ? this.accordionItems - 1 : this.accordionItems;
-
         this.updateStyles();
 
         if (this.accordion) {
@@ -42,7 +38,7 @@ class AccordionA {
 
     updateStyles() {
         this.containerWidth = this.accordion.clientWidth;
-        this.activeWidth = `calc(${this.containerWidth}px - (${this.btnWidth}px * (${this.accordionItemsToShow})))`;
+        this.activeWidth = `calc(${this.containerWidth}px - (${this.btnWidth}px * (${this.accordionItems})))`;
 
         if (window.innerWidth > 810) {
             this.content.forEach((content) => {

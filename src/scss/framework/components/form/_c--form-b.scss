@@ -66,7 +66,7 @@
             }
             .input {
                 margin: 0;
-                input, select, textarea {
+                input {
                     @extend .u--display-block;
                     width: 100% !important;
                     padding: $measure $measure $measure 0;
@@ -236,19 +236,11 @@
         }
     }
     .hbspt-form {
-        @extend .u--display-flex;
-        @extend .u--flex-direction-column;
-        @extend .u--justify-content-center;
-        @extend .u--align-items-center;
-        min-height: 250px;
-
         .submitted-message {
             @extend .u--position-relative;
-            @extend .f--font-h;
-            @extend .f--color-a;
+            @extend .f--font-g;
+            @extend .f--color-h;
             @extend .u--font-light;
-            @extend .u--height-100;
-            text-align: center;
         }
     }
 }

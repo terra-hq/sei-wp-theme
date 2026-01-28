@@ -2,7 +2,7 @@
     <div class="f--container">
         <div class="c--footer-a__hd">
             <div class="f--row">
-                <div class="f--col-7 f--col-tabletl-8 f--col-tabletm-12">
+                <div class="f--col-12">
                     <?php $title = '';
                     $footer_titles = get_field('footer_title', 'option');
                     if ($footer_titles) {
@@ -19,11 +19,6 @@
                     if ($title && get_field('footer_link', 'option')) : ?>
                         <a href="<?php echo esc_url(get_field('footer_link', 'option')); ?>" class="c--footer-a__hd__link"><?php echo $title; ?></a>
                     <?php endif; ?>
-                </div>
-                <div class="f--col-5 f--col-tabletl-4 f--col-tabletm-12">
-                    <?php $socialbTitle = get_field('ask_ai_about_sei','option') ?>
-                    <?php $socialbLinks = get_field('ai_links','option') ?>
-                    <?php include(locate_template('components/social/social-b.php', false, false)); ?>
                 </div>
             </div>
         </div>

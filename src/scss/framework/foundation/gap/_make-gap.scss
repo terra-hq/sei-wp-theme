@@ -28,7 +28,3 @@
 @mixin make-gap-e {
     row-gap: $measure * 8;
 }
-
-@mixin make-gap-f {
-    row-gap: $measure * 3;
-}

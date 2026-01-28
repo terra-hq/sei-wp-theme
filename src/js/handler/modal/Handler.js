@@ -1,16 +1,16 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 
 class Handler {
-  constructor(payload) {
-    var { emitter, instances, boostify, terraDebug, libManager } = payload;
-    this.boostify = boostify;
-    this.emitter = emitter;
-    this.instances = instances;
-    this.terraDebug = terraDebug;
-    this.libManager = libManager;
+    constructor(payload) {
+        var { emitter, instances, boostify, terraDebug, libManager } = payload;
+        this.boostify = boostify;
+        this.emitter = emitter;
+        this.instances = instances;
+        this.terraDebug = terraDebug;
+        this.libManager = libManager;
 
-    this.currentTrigger = null;
-    this.triggerClickHandler = null;
+        this.currentTrigger = null;
+        this.triggerClickHandler = null;
 
         this.modalClassSelector= "#my-modal";
 
@@ -24,9 +24,9 @@ class Handler {
             awaitCloseAnimation: true
         };
 
-    this.init();
-    this.events();
-  }
+        this.init();
+        this.events();
+    }
 
     get updateTheDOM() {
         return {
@@ -34,7 +34,7 @@ class Handler {
         };
     }
 
-  init() {}
+    init() { }
 
     createModalInstance({ element, index }) {
         const Modal = window['lib']['Modal'];

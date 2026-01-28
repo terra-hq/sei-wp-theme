@@ -66,3 +66,4 @@ $poster_image = $module['poster_image'];
         </div>
     </div>
 </section>
+ <?php include(locate_template('components/modal/modal-a.php', false, false)); ?>

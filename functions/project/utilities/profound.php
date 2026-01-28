@@ -11,7 +11,7 @@ add_action('wp_footer', function () {
     );
 
     wp_remote_post(
-        'https://artemis.api.tryprofound.com/v1/logs/wordpress',
+        'https://artemis.api.tryprofound.com/v1/logs/custom',
         array(
             'headers' => array(
                 'Content-Type' => 'application/json',

@@ -38,12 +38,9 @@
             );
             break;
         default:
-            $selected_ids = [];
-            if($cards){
-                 $selected_ids = array_map(function($post) {
+            $selected_ids = array_map(function($post) {
                 return $post->ID;
             }, $cards);
-            }
 
             $args = array(
                 'post_type' => 'insight',

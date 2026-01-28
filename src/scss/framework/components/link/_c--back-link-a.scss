@@ -40,24 +40,4 @@
             }
         }
     }
-
-    &--second {
-        color: rgba(map.get($color-options, b), 0.5);
-        text-decoration-color: rgba(map.get($color-options, b), 0.5);
-
-        &::before {
-            opacity: 0.5;
-        }
-
-        @media (hover: hover) {
-            &:hover {
-                color: map.get($color-options, c);
-                text-decoration-color: transparent;
-
-                &::before {
-                    opacity: 1;
-                }
-            }
-        }
-    }
 }

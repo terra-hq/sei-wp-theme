@@ -139,17 +139,3 @@
       }
     }
   }
-
-  // Fix for slider-d when disabled on mobile because TinySlider still applies margin-left styles even when disabled
-  @media all and ($viewport-type: 810px) {
-    .js--slider-d {
-      margin-left: 0 !important;
-      
-      .tns-outer,
-      .tns-inner,
-      .tns-slider,
-      .tns-item {
-        margin-left: 0 !important;
-      }
-    }
-  }

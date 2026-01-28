@@ -11,9 +11,6 @@
     @media all and ($viewport-type: $mobile) {
       gap: 0;
     }
-    &__item {
-      display: flex!important;
-    }
   }
   &--second {
     .tns-nav {

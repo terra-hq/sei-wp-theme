@@ -19,9 +19,4 @@
       @include make-container-fluid();
     }
   }
-  &--mobile-fluid {
-    @media all and ($viewport-type: $mobile) {
-      @include make-container-fluid();
-    }
-  }
 }
