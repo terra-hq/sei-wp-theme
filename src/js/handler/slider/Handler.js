@@ -4,7 +4,6 @@ import {
     sliderBConfig, 
     sliderCConfig, 
     sliderDConfig, 
-    sliderEConfig 
 } from "@jsHandler/slider/slidersConfig";
 
 class SliderHandler {
