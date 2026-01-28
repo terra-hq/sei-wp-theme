@@ -25,7 +25,6 @@ class Handler {
     createInstanceAccordionB({element, index}) {
         const Accordion = window['lib']['Collapsify'];
         const closeOther = element.getAttribute("closeOthers") ? u_stringToBoolean(element.getAttribute("closeOthers")) : true;
-        console.log(closeOther);
         this.instances["Collapsify"][index] = new Accordion({
             nameSpace: "accordion02",
             index: index,
