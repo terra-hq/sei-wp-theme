@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'dv3');
+define('hash', 'lpk');
 
 ?>
