@@ -46,27 +46,21 @@ class Handler {
     }
 
     events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
             this.init();
         });
-    }
-
-    destroy() {
-        if (
-            Array.isArray(this.instances["Cookies"]) &&
-            this.instances["Cookies"].length
-        ) {
-            this.instances["Cookies"].forEach((instance, index) => {
-                if (instance && typeof instance.destroy === "function") {
-                    instance.destroy();
-                }
-            });
-            this.instances["Cookies"] = [];
-        }
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            if (this.DOM?.elements?.length && this.instances["Cookies"]?.length) {
+                this.DOM.elements.forEach((_, index) => {
+                    if (this.instances["Cookies"][index]?.destroy) {
+                        this.instances["Cookies"][index].destroy();
+                    }
+                });
+                this.instances["Cookies"] = [];
+            }
+        });
     }
 }
 
