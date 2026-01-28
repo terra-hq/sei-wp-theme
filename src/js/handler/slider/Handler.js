@@ -27,6 +27,7 @@ class SliderHandler {
             sliderb: document.querySelectorAll('.js--slider-b'),
             sliderc: document.querySelectorAll('.js--slider-c'),
             sliderd: document.querySelectorAll('.js--slider-d'),
+            slidere: document.querySelectorAll('.js--slider-e'),
         };
     }
 
@@ -77,6 +78,19 @@ class SliderHandler {
             controls: slider.nextElementSibling,
             config: sliderDConfig,
             windowName: "SliderD",
+            index: index
+        });
+    }
+
+    createSliderEInstance({ slider, index }) {
+        const Slider = window['lib']['Slider'];
+        if (!this.instances["SliderE"]) this.instances["SliderE"] = [];
+
+        this.instances["SliderE"][index] = new Slider({
+            slider: slider,
+            navcontainer: slider.nextElementSibling,
+            config: sliderEConfig,
+            windowName: "SliderE",
             index: index
         });
     }
@@ -200,6 +214,35 @@ class SliderHandler {
                     }
                 });
             }
+
+            // --- SLIDER E ---
+            if (this.DOM.slidere.length > 0) {
+                if (!window['lib'] || !window['lib']['Slider']) {
+                    if (!window['lib']) window['lib'] = {};
+                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
+                    window['lib']['Slider'] = Slider;
+                }
+
+                this.DOM.slidere.forEach((slider, index) => {
+                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
+                        this.createSliderEInstance({ slider, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 15,
+                            name: "SliderE",
+                            callback: async () => {
+                                try {
+                                    if (!this.instances["SliderE"]?.[index]) {
+                                        this.createSliderEInstance({ slider, index });
+                                    }
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading SliderE", error);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
@@ -241,6 +284,14 @@ class SliderHandler {
                 this.instances["SliderD"] = [];
             }
 
+            // --- DESTROY SLIDER E ---
+            if (this.DOM.slidere?.length && this.instances["SliderE"]?.length) {
+                this.boostify.destroyscroll({ distance: 15, name: "SliderE" });
+                this.DOM.slidere.forEach((_, index) => {
+                    this.instances["SliderE"][index]?.destroy?.();
+                });
+                this.instances["SliderE"] = [];
+            }
         });
     }
 }
