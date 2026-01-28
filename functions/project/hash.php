@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'eeu');
+define('hash', 'dv3');
 
 ?>
