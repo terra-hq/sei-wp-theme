@@ -110,4 +110,4 @@ const sliderDConfig = {
   }
 };
 
-export { sliderAConfig, sliderBConfig, sliderCConfig, sliderDConfig, sliderEConfig };
+export { sliderAConfig, sliderBConfig, sliderCConfig, sliderDConfig };
