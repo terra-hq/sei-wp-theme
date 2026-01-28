@@ -1,16 +1,16 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 
 class Handler {
-  constructor(payload) {
-    var { emitter, instances, boostify, terraDebug, libManager } = payload;
-    this.boostify = boostify;
-    this.emitter = emitter;
-    this.instances = instances;
-    this.terraDebug = terraDebug;
-    this.libManager = libManager;
+    constructor(payload) {
+        var { emitter, instances, boostify, terraDebug, libManager } = payload;
+        this.boostify = boostify;
+        this.emitter = emitter;
+        this.instances = instances;
+        this.terraDebug = terraDebug;
+        this.libManager = libManager;
 
-    this.currentTrigger = null;
-    this.triggerClickHandler = null;
+        this.currentTrigger = null;
+        this.triggerClickHandler = null;
 
         this.modalClassSelector= "#my-modal";
 
@@ -24,9 +24,9 @@ class Handler {
             awaitCloseAnimation: true
         };
 
-    this.init();
-    this.events();
-  }
+        this.init();
+        this.events();
+    }
 
     get updateTheDOM() {
         return {
@@ -34,7 +34,7 @@ class Handler {
         };
     }
 
-  init() {}
+    init() {}
 
     createModalInstance({ element, index }) {
         const Modal = window['lib']['Modal'];
@@ -93,19 +93,11 @@ class Handler {
             this.DOM = this.updateTheDOM;
 
             if (this.DOM.modalAElements.length > 0) {
-                if (!this.instances["Modal"]) {
-                    this.instances["Modal"] = [];
-                }
+                this.instances["Modal"] = [];
 
-                if (!window['lib'] || !window['lib']['Modal']) {
-                    if (!window['lib']) window['lib'] = {};
-                    
-                    try {
-                        const { default: Modal } = await import("@terrahq/modal");
-                        window['lib']['Modal'] = Modal;
-                    } catch (e) {
-                        this.terraDebug && console.error("Error loading @terrahq/modal", e);
-                    }
+                if (!window['lib']['Modal']) {
+                    const { default: Modal } = await import("@terrahq/modal");
+                    window['lib']['Modal'] = Modal;
                 }
 
                 this.DOM.modalAElements.forEach((modal, index) => {
@@ -117,14 +109,7 @@ class Handler {
                             name: "Modal",
                             callback: async () => {
                                 try {
-                                    if (!window['lib']['Modal']) {
-                                         const { default: Modal } = await import("@terrahq/modal");
-                                         window['lib']['Modal'] = Modal;
-                                    }
-
-                                    if (!this.instances["Modal"][index]) {
-                                        this.createModalInstance({ element: modal, index });
-                                    }
+                                    this.createModalInstance({ element: modal, index });
                                 } catch (error) {
                                     this.terraDebug && console.error("Error creating Modal instance", error);
                                 }
@@ -137,15 +122,12 @@ class Handler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "Modal" });
 
             if (this.DOM?.modalAElements?.length && this.instances["Modal"]?.length) {
-                    this.boostify.destroyscroll({ distance: 10, name: "Modal" });
-
                 this.DOM.modalAElements.forEach((_, index) => {
-                    if (this.instances["Modal"] && this.instances["Modal"][index]) {
-                        if(typeof this.instances["Modal"][index].destroy === 'function') {
-                            this.instances["Modal"][index].destroy();
-                        }
+                    if (this.instances["Modal"][index]?.destroy) {
+                        this.instances["Modal"][index].destroy();
                     }
                 });
                 this.instances["Modal"] = [];
