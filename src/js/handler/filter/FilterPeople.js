@@ -6,6 +6,8 @@ class FilterPeople {
             cards: document.querySelectorAll(payload.cardSelector)
         };
 
+        this.boundFilterCards = this.filterCards.bind(this);
+
         if (this.DOM.select && this.DOM.cards.length > 0) {
             this.init();
         }
@@ -35,7 +37,9 @@ class FilterPeople {
     }
 
     destroy() {
-        this.DOM.select.removeEventListener('change', () => this.filterCards());
+        if (this.DOM.select) {
+            this.DOM.select.removeEventListener('change', this.boundFilterCards);
+        }
     }
 }
 

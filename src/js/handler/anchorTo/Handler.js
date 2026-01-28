@@ -1,3 +1,4 @@
+import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
@@ -6,10 +7,6 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
-
-        this.DOM = {
-            elements: document.querySelectorAll(".js--scroll-to"),
-        }
 
         this.init();
         this.events();
@@ -21,54 +18,65 @@ class Handler {
         };
     }
 
-    init() {
-        if (this.DOM.elements.length) {
-            this.instances["ZoomScroll"] = [];
-            this.DOM.elements.forEach((element, index) => {
-                this.initializeAnchorTo(element, index);
-            });
-        }
-    }
+    init() {}
 
-    async initializeAnchorTo(element, index) {
-        import("@teamthunderfoot/anchor-to")
-        .then(({ default: AnchorTo }) => {
-            window["lib"]["AnchorTo"] = AnchorTo;
-            this.instances["AnchorTo"][index] = new window["lib"]["AnchorTo"]({
-                element: el,
-                checkUrl: false, // o true si quieres soportar hashes en la URL
-                anchorTo: "tf-data-target", // dónde buscar el ID destino
-                offsetTopAttribute: "tf-data-distance",
-                speed: 500,
-                emitEvents: true,
-                onComplete: () => console.log("Scroll completo"),
-            });
-        })
+    initializeAnchorTo({element, index}) {
+        const AnchorTo = window['lib']['AnchorTo'];
+        this.instances["AnchorTo"][index] = new AnchorTo({
+            element: element,
+            checkUrl: false,
+            anchorTo: "tf-data-target",
+            offsetTopAttribute: "tf-data-distance",
+            speed: 500,
+            emitEvents: true,
+            onComplete: () => {
+                console.log("Scroll completo", index, element);
+            },
+        });
     }
 
     events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            this.init();
-        });
-    }
-
-    destroy() {
-        if (
-            this.DOM.elements.length &&
-            Array.isArray(this.instances["AnchorTo"]) &&
-            this.instances["AnchorTo"].length
-        ) {
-            this.DOM.elements.forEach((element, index) => {
-                if (this.instances["AnchorTo"][index]) {
-                    this.instances["AnchorTo"][index].destroy();
+            if (this.DOM.elements.length > 0) {
+                this.instances["AnchorTo"] = [];
+                if (!window['lib']['AnchorTo']) {
+                    const { default: AnchorTo } = await import ("@teamthunderfoot/anchor-to");
+                    window['lib']['AnchorTo'] = AnchorTo;
                 }
-            });
-            this.instances["AnchorTo"] = [];
-        }
+                this.DOM.elements.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
+                        this.initializeAnchorTo({ element, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "AnchorTo",
+                            callback: async () => {
+                                try {
+                                    this.initializeAnchorTo({ element, index });
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading AnchorTo", error);
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+        });
+
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "AnchorTo" });
+            if (this.DOM?.elements?.length && this.instances["AnchorTo"]?.length) {
+                this.DOM.elements.forEach((_, index) => {
+                    if (this.instances["AnchorTo"][index]?.destroy) {
+                        this.instances["AnchorTo"][index].destroy();
+                    }
+                });
+                this.instances["AnchorTo"] = [];
+            }
+        });
+ 
     }
 }
 

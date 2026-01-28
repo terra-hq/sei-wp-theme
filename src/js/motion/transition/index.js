@@ -32,6 +32,19 @@ export const createTransitionOptions = (payload) => {
             lottieElements.forEach(async (element) => {
                 await window["lib"]["preloadLotties"]({
                     selector: element,
+                    callback: (payload) => {
+                      boostify.observer({
+                        options: {
+                          root: null,
+                          rootMargin: "0px",
+                          threshold: 0.5,
+                        },
+                        element: payload.wrapper,
+                        callback: () => {
+                          payload.play();
+                        },
+                      });
+                    }
                 });
             });
         }

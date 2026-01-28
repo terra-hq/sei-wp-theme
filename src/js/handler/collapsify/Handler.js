@@ -10,7 +10,9 @@ class Handler {
         this.init();
         this.events();
     }
+
     init() {}
+
     get updateTheDOM() {
         return {
           accordionElementsA: document.querySelectorAll(`.c--accordion-a`),
@@ -18,14 +20,15 @@ class Handler {
           collapseElements: document.querySelectorAll(`.js--collapse`),
         };
     }
+
     createInstanceAccordionA({element, index}) {
         const Accordion = window['lib']['CollapsifyA'];
         this.instances["CollapsifyA"][index] = new Accordion({});
     }
+
     createInstanceAccordionB({element, index}) {
         const Accordion = window['lib']['Collapsify'];
         const closeOther = element.getAttribute("closeOthers") ? u_stringToBoolean(element.getAttribute("closeOthers")) : true;
-        console.log(closeOther);
         this.instances["Collapsify"][index] = new Accordion({
             nameSpace: "accordion02",
             index: index,
@@ -34,6 +37,7 @@ class Handler {
             cssEasing: "ease",
         });
     }
+
     createInstanceCollapse({element, index}) {
         const Collapse = window['lib']['Collapse'];
         this.instances["Collapse"][index] = new Collapse({
@@ -47,9 +51,11 @@ class Handler {
             },
         });
     }
+
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
+
             if (this.DOM.accordionElementsA.length > 0) {
                 this.instances["CollapsifyA"] = [];
                 if (!window['lib']['CollapsifyA']) {
@@ -74,6 +80,7 @@ class Handler {
                     }
                 })
             }
+
             if (this.DOM.accordionElementsB.length > 0) {
                 this.instances["Collapsify"] = [];
                 if (!window['lib']['Collapsify']) {
@@ -98,6 +105,7 @@ class Handler {
                     }
                 })
             }
+
             if (this.DOM.collapseElements.length > 0) {
                 this.instances["Collapse"] = [];
                 if (!window['lib']['Collapse']) {
@@ -123,6 +131,7 @@ class Handler {
                 });
             }
         });
+
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
 
@@ -137,6 +146,7 @@ class Handler {
                 });
                 this.instances["CollapsifyA"] = [];
             }
+
             if(this.DOM?.accordionElementsB?.length && this.instances["Collapsify"]?.length) {
                 this.boostify.destroyscroll({ distance: 10, name: "Collapsify"});
 
@@ -147,6 +157,7 @@ class Handler {
                 });
                 this.instances["Collapsify"] = [];
             }
+            
             if(this.DOM?.collapseElements?.length && this.instances["Collapse"]?.length) {
                 this.boostify.destroyscroll({ distance: 300, name: "Collapse"});
 
@@ -157,7 +168,7 @@ class Handler {
                 });
                 this.instances["Collapse"] = [];
             }
-        })
+        });
     }
 }
 export default Handler;
