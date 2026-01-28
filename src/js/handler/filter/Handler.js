@@ -21,8 +21,6 @@ class Handler {
         };
     }
 
-  
-
     initializeFilterPeople({ filterSelect, index }) {
         const FilterPeople = window['lib']['FilterPeople'];
         
