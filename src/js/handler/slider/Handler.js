@@ -30,9 +30,7 @@ class SliderHandler {
     }
 
     createSliderAInstance({ slider, index }) {
-        const Slider = window['lib']['Slider'];
-        if (!this.instances["SliderA"]) this.instances["SliderA"] = [];
-
+        const Slider = window['lib']['SliderA'];
         this.instances["SliderA"][index] = new Slider({
             slider: slider,
             controls: slider.nextElementSibling,
@@ -43,9 +41,7 @@ class SliderHandler {
     }
 
     createSliderBInstance({ slider, index }) {
-        const Slider = window['lib']['Slider'];
-        if (!this.instances["SliderB"]) this.instances["SliderB"] = [];
-
+        const Slider = window['lib']['SliderB'];
         this.instances["SliderB"][index] = new Slider({
             slider: slider,
             navcontainer: slider.nextElementSibling,
@@ -56,9 +52,7 @@ class SliderHandler {
     }
 
     createSliderCInstance({ slider, index }) {
-        const Slider = window['lib']['Slider'];
-        if (!this.instances["SliderC"]) this.instances["SliderC"] = [];
-
+        const Slider = window['lib']['SliderC'];
         this.instances["SliderC"][index] = new Slider({
             slider: slider,
             config: sliderCConfig,
@@ -68,9 +62,7 @@ class SliderHandler {
     }
 
     createSliderDInstance({ slider, index }) {
-        const Slider = window['lib']['Slider'];
-        if (!this.instances["SliderD"]) this.instances["SliderD"] = [];
-
+        const Slider = window['lib']['SliderD'];
         this.instances["SliderD"][index] = new Slider({
             slider: slider,
             controls: slider.nextElementSibling,
@@ -86,11 +78,11 @@ class SliderHandler {
 
             // --- SLIDER A ---
             if (this.DOM.slidera.length > 0) {
-                if (!window['lib'] || !window['lib']['Slider']) {
-                    if (!window['lib']) window['lib'] = {};
+                this.instances["SliderA"] = [];
+                if (!window['lib']['SliderA']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['Slider'] = Slider;
-                }
+                    window['lib']['SliderA'] = Slider;
+                };
 
                 this.DOM.slidera.forEach((slider, index) => {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
@@ -115,11 +107,12 @@ class SliderHandler {
 
             // --- SLIDER B ---
             if (this.DOM.sliderb.length > 0) {
-                if (!window['lib'] || !window['lib']['Slider']) {
-                    if (!window['lib']) window['lib'] = {};
+                this.instances["SliderB"] = [];
+                if (!window['lib']['SliderB']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['Slider'] = Slider;
-                }
+                    window['lib']['SliderB'] = Slider;
+                };
+
 
                 this.DOM.sliderb.forEach((slider, index) => {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
@@ -144,11 +137,11 @@ class SliderHandler {
 
             // --- SLIDER C ---
             if (this.DOM.sliderc.length > 0) {
-                if (!window['lib'] || !window['lib']['Slider']) {
-                    if (!window['lib']) window['lib'] = {};
+                this.instances["SliderC"] = [];
+                if (!window['lib']['SliderC']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['Slider'] = Slider;
-                }
+                    window['lib']['SliderC'] = Slider;
+                };
 
                 this.DOM.sliderc.forEach((slider, index) => {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
@@ -173,11 +166,11 @@ class SliderHandler {
 
             // --- SLIDER D ---
             if (this.DOM.sliderd.length > 0) {
-                if (!window['lib'] || !window['lib']['Slider']) {
-                    if (!window['lib']) window['lib'] = {};
+                this.instances["SliderD"] = [];
+                if (!window['lib']['SliderD']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['Slider'] = Slider;
-                }
+                    window['lib']['SliderD'] = Slider;
+                };
 
                 this.DOM.sliderd.forEach((slider, index) => {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {

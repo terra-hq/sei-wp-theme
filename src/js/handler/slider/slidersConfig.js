@@ -76,7 +76,9 @@ const sliderCConfig = {
     810: {
       items: 2,
     },
-    1300: { items: 3 },
+    1300: { 
+      items: 3 
+    },
   },
 };
 
