@@ -61,37 +61,6 @@ class Project {
         await preloadImages("img");
       }
 
-      // Dynamically import the preloadLotties function,
-      // and store it in the window.lib object for later use
-      if (this.DOM.lotties && this.DOM.lotties.length > 0) {
-        const { preloadLotties } = await import(
-          "@terrahq/helpers/preloadLotties"
-        );
-        window["lib"]["preloadLotties"] = preloadLotties;
-        this.DOM.lotties.forEach(async (element) => {
-          await preloadLotties({
-            debug: this.terraDebug,
-            selector: element,
-            callback: (payload) => {
-              if (this.terraDebug) {
-                console.log("All lotties loaded", payload);
-              }
-              this.boostify.observer({
-                options: {
-                  root: null,
-                  rootMargin: "0px",
-                  threshold: 0.5,
-                },
-                element: payload.wrapper,
-                callback: () => {
-                  payload.play();
-                },
-              });
-            },
-          });
-        });
-      }
-
       if (this.DOM.heroA) {
         window["animations"]["heroA"] = await import("@jsMotion/intros/heroA");
       }
