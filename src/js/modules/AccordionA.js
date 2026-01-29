@@ -18,6 +18,8 @@ class AccordionA {
         // This is to properly calculate the width of the active section, as the button is hidden.
         this.accordionItemsToShow = this.accordion.classList.contains('c--accordion-a--second') ? this.accordionItems - 1 : this.accordionItems;
 
+        this.breakpoint = parseInt(this.accordion.getAttribute('data-breakpoint')) || 810;
+
         this.updateStyles();
 
         if (this.accordion) {
@@ -44,7 +46,7 @@ class AccordionA {
         this.containerWidth = this.accordion.clientWidth;
         this.activeWidth = `calc(${this.containerWidth}px - (${this.btnWidth}px * (${this.accordionItemsToShow})))`;
 
-        if (window.innerWidth > 810) {
+        if (window.innerWidth > this.breakpoint) {
             this.content.forEach((content) => {
                 u_style(content, [{ width: this.activeWidth }, {height: 'auto'}]);  //* we set the activeWidth to all content to know the accordion height
                 u_take_your_time(10).then(() => { //* we have to add the height when the width has already been applied to align all the buttons at bottom
