@@ -155,13 +155,84 @@
         }
     }
 
+    &--second {
+        @media all and ($viewport-type: $tabletm) {
+            flex-direction: column;
+        }
+    }
     &--second & {
         &__item {
+            @media all and ($viewport-type: $tabletm) {
+            width: 100%;
+            flex-direction: column;
+            border-left: none;
+            border-top: 2px solid map.get($color-options, a);
+            }
             &__btn:checked {
                 & ~ .c--accordion-a__item {
                     &__hd {
                         @extend .u--display-none;
                         width: 0;
+                        @media all and ($viewport-type: $tabletm) {
+                            border-right: none;
+                            border-bottom: 2px solid rgba(map.get($color-options, a), .2);
+                        }
+                    }
+                    &__wrapper {
+                          @media all and ($viewport-type: $tabletm) {
+                            max-width: 100%;
+                            max-height: none;
+                        }
+                    }
+                }
+            }
+            &__hd {
+                @media all and ($viewport-type: $tabletm) {
+                max-width: none;
+                width: 100%;
+                max-height: 53px;
+                }
+                &__content {
+                    $icon-width: 12px;
+                    $icon-line-width: 2px;
+                    @media all and ($viewport-type: $tabletm) {
+                        writing-mode: initial;
+                        transform: rotate(0deg);
+                        height: auto;
+                        width: 100%;
+                        padding: $measure*2 calc(#{$icon-width} + #{$measure*2} + #{$measure*3}) $measure*2 $measure*3;
+                    }
+                    &::before,
+                    &::after {
+                        @media all and ($viewport-type: $tabletm) {
+                            left: auto;
+                            bottom: auto;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    &::before {
+                    @media all and ($viewport-type: $tabletm) {
+                        right: $measure*3;
+                    }
+                    }
+                    &::after {
+                        @media all and ($viewport-type: $tabletm) {
+                            right: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*3});
+                        }
+                    }
+                }
+            }
+            &__wrapper {
+                @media all and ($viewport-type: $tabletm) {
+                    max-height: 0;
+                    max-width: 100%;
+                    width: 100%;
+                    transition: max-height $time-b linear;
+                }
+                &__content {
+                    @media all and ($viewport-type: $tabletm) {
+                        height: auto;
                     }
                 }
             }
