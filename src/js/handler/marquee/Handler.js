@@ -1,4 +1,5 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
+import { breakpoints } from "@terrahq/helpers/breakpoints";
 
 class Handler {
     constructor(payload) {
@@ -9,10 +10,7 @@ class Handler {
         this.terraDebug = terraDebug;
         this.libManager = libManager;
 
-        this.DOM = {
-            marqueeA: document.querySelectorAll(".js--marquee"),
-            marqueeB: document.querySelectorAll(".js--marquee-b"),
-        }
+        this.bk = breakpoints.reduce((target, inner) => Object.assign(target, inner), {});
 
         this.init();
         this.events();
@@ -25,123 +23,126 @@ class Handler {
         };
     }
 
-    init() {
-        if (this.DOM.marqueeA.length || this.DOM.marqueeB.length) {
-            this.instances["Marquee"] = [];
-            this.initializeMarqueeA();
-            this.initializeMarqueeB();
-        }
-    }
+    init() {}
 
-    initializeMarqueeA() {
-        this.DOM.marqueeA.forEach((element, index) => {
-            if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                this.initMarqueeA(element, index);
-            } else {
-                this.boostify.scroll({
-                    distance: 300,
-                    name: "Marquee",
-                    callback: () => {
-                        this.initMarqueeA(element, index);
-                    },
-                });
-            }
-        });
-    }
+    createInstanceMarqueeA({element, index}) {
+        const InfiniteMarquee = window['lib']['InfiniteMarquee'];
 
-    initMarqueeA(element, index) {
-        const items = element.querySelectorAll(".c--marquee-a__item");
         const itemCount = element.querySelectorAll(
             ".c--marquee-a__item"
         ).length;
-        const isMobile = window.innerWidth <= 768;
-        const isTablets = window.innerWidth <= 810;
-        const isTabletm = window.innerWidth <= 1024;
+
+        this.isMobile = window.innerWidth <= this.bk.mobile;
+        this.isTablets = window.innerWidth <= this.bk.tablets;
+        this.isTabletm = window.innerWidth <= this.bk.tabletm;
 
         const shouldInit =
-            (isMobile && itemCount >= 3) 
-            || (!isMobile && itemCount >= 7) 
-            || (isTablets && itemCount >= 5) 
-            || (isTabletm && itemCount >= 4)
-        ;
+            (this.isMobile && itemCount >= 3) ||
+            (!this.isMobile && itemCount >= 7) ||
+            (this.isTablets && itemCount >= 5) ||
+            (this.isTabletm && itemCount >= 4);
+
         if (!shouldInit) {
             element.classList.add("js--marquee--disabled");
             return;
         }
 
-        this.createMarqueeInstance(element, index);
+        this.instances["InfiniteMarquee"][index] = new InfiniteMarquee({
+            element: element,
+            speed: element.getAttribute("data-speed")
+                ? parseFloat(element.getAttribute("data-speed"))
+                : 1,
+            controlsOnHover: element.getAttribute("data-controls-on-hover"),
+            reversed: element.getAttribute("data-reversed"),
+        });
     }
 
-    initializeMarqueeB() {
-        this.DOM.marqueeB.forEach((element, index) => {
-            const actualIndex = this.DOM.marqueeA.length + index;
-            if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                this.createMarqueeInstance(element, actualIndex);
-            } else {
-                this.boostify.scroll({
-                    distance: 300,
-                    name: "Marquee",
-                    callback: () => {
-                        this.createMarqueeInstance(element, actualIndex);
-                    },
+    createInstanceMarqueeB({element, index}) {
+        const InfiniteMarquee = window['lib']['InfiniteMarquee'];
+        this.instances["InfiniteMarquee"][index] = new InfiniteMarquee({
+            element: element,
+            speed: element.getAttribute("data-speed")
+                ? parseFloat(element.getAttribute("data-speed"))
+                : 1,
+            controlsOnHover: element.getAttribute("data-controls-on-hover"),
+            reversed: element.getAttribute("data-reversed"),
+        })
+    }
+
+    events() {
+        this.emitter.on("MitterContentReplaced", async () => {
+            this.DOM = this.updateTheDOM;
+            if (this.DOM.marqueeA.length > 0) {
+                this.instances["InfiniteMarquee"] = [];
+                if (!window['lib']['InfiniteMarquee']) {
+                    const { default: InfiniteMarquee } = await import ("@jsHandler/marquee/InfiniteMarquee.js");
+                    window['lib']['InfiniteMarquee'] = InfiniteMarquee;
+                }
+                this.DOM.marqueeA.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
+                        this.createInstanceMarqueeA({ element, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "InfiniteMarquee",
+                            callback: async () => {
+                                try {
+                                    this.createInstanceMarqueeA({ element, index });
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading InfiniteMarquee", error);
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+            if (this.DOM.marqueeB.length > 0) {
+                this.instances["InfiniteMarquee"] = [];
+                if (!window['lib']['InfiniteMarquee']) {
+                    const { default: InfiniteMarquee } = await import ("@jsHandler/marquee/InfiniteMarquee.js");
+                    window['lib']['InfiniteMarquee'] = InfiniteMarquee;
+                }
+                this.DOM.marqueeB.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
+                        this.createInstanceMarqueeB({ element, index });
+                    } else {
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "InfiniteMarquee",
+                            callback: async () => {
+                                try {
+                                    this.createInstanceMarqueeB({ element, index });
+                                } catch (error) {
+                                    this.terraDebug && console.log("Error loading InfiniteMarquee", error);
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+        });
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "InfiniteMarquee" });
+            if (this.DOM?.marqueeA?.length && this.instances["InfiniteMarquee"]?.length) {
+                this.DOM.marqueeA.forEach((_, index) => {
+                    if (this.instances["InfiniteMarquee"][index]?.destroy) {
+                        this.instances["InfiniteMarquee"][index].destroy();
+                    }
                 });
+                this.instances["InfiniteMarquee"] = [];
+            }
+              if (this.DOM?.marqueeB?.length && this.instances["InfiniteMarquee"]?.length) {
+                this.DOM.marqueeB.forEach((_, index) => {
+                    if (this.instances["InfiniteMarquee"][index]?.destroy) {
+                        this.instances["InfiniteMarquee"][index].destroy();
+                    }
+                });
+                this.instances["InfiniteMarquee"] = [];
             }
         });
     }
 
-    async createMarqueeInstance(element, index) {
-        import("@jsHandler/marquee/InfiniteMarquee.js")
-        .then(({ default: InfiniteMarquee }) => {
-            window["lib"]["InfiniteMarquee"] = InfiniteMarquee;
-            this.instances["Marquee"][index] = new InfiniteMarquee({
-                element: element,
-                speed: element.getAttribute("data-speed")
-                    ? parseFloat(element.getAttribute("data-speed"))
-                    : 1,
-                controlsOnHover: element.getAttribute("data-controls-on-hover"),
-                reversed: element.getAttribute("data-reversed"),
-            });
-        })
-        .catch((e) => {
-            this.terraDebug && console.error("Error loading @jsHandler/marquee/InfiniteMarquee.js", e);
-        });
-    }
-
-    events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
-        this.emitter.on("MitterContentReplaced", async () => {
-            this.DOM = this.updateTheDOM;
-            this.init();
-        });
-    }
-
-    destroy() {
-        if (
-            (this.DOM.marqueeA.length || this.DOM.marqueeB.length) &&
-            this.instances["Marquee"] &&
-            this.instances["Marquee"].length
-        ) {
-            this.boostify.destroyscroll({ distance: 300, name: "Marquee" });
-            this.DOM.marqueeA.forEach((element, index) => {
-                if (this.instances["Marquee"][index]) {
-                    if (typeof this.instances["Marquee"][index].destroy === "function") {
-                        this.instances["Marquee"][index].destroy();
-                    }
-                }
-            });
-            this.DOM.marqueeB.forEach((element, index) => {
-                const actualIndex = this.DOM.marqueeA.length + index;
-                if (this.instances["Marquee"][actualIndex]) {
-                    if (typeof this.instances["Marquee"][actualIndex].destroy === "function") {
-                        this.instances["Marquee"][actualIndex].destroy();
-                    }
-                }
-            });
-            this.instances["Marquee"] = [];
-        }
-    }
 }
 
 export default Handler;

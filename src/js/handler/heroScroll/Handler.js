@@ -1,5 +1,5 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-
+// ZoomScroll and HeroScroll use the same library so maybe they can use the same handler
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
