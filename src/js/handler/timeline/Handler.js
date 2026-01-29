@@ -37,26 +37,19 @@ class TimelineHandler {
             this.DOM = this.updateTheDOM;
 
             if (this.DOM.timelines.length > 0) {
-                // 1. prepare the array of instances
-                if (!this.instances["Timeline"]) {
-                    this.instances["Timeline"] = [];
-                }
-
-                // 2. Dynamic Loading: Import the class if it does not exist
-                if (!window['lib'] || !window['lib']['Timeline']) {
-                    if (!window['lib']) window['lib'] = {};
-                    
-                    const { default: Timeline } = await import("@jsHandler/timeline/Timeline.js");
+              
+                this.instances["Timeline"] = [];
+                if (!window['lib']['Timeline']) {
+                    const { default: Timeline } = await import ("@jsHandler/timeline/Timeline.js");
                     window['lib']['Timeline'] = Timeline;
                 }
 
-                // 3. Lazy Load + Scroll Fallback
                 this.DOM.timelines.forEach((element, index) => {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstance({ element, index });
                     } else {
                         this.boostify.scroll({
-                            distance: 15,
+                            distance: 10,
                             name: "Timeline",
                             callback: async () => {
                                 try {
@@ -75,8 +68,6 @@ class TimelineHandler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-
-            // Destroy Logic
             if (this.DOM?.timelines?.length && this.instances["Timeline"]?.length) {
                 this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
                 
