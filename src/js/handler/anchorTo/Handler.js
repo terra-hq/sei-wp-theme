@@ -76,7 +76,6 @@ class Handler {
                 this.instances["AnchorTo"] = [];
             }
         });
- 
     }
 }
 
