@@ -9,10 +9,6 @@ class Handler {
         this.terraDebug = terraDebug;
         this.libManager = libManager;
 
-        this.DOM = {
-            elements: document.querySelectorAll(".js--zoom"),
-        }
-
         this.init();
         this.events();
     }
@@ -23,61 +19,52 @@ class Handler {
         };
     }
 
-    init() {
-        if (this.DOM.elements.length) {
+    init() {}
+
+    initializeHeroScroll({element, index}) {
+        const HeroScroll = window['lib']['HeroScroll'];
+        this.instances["HeroScroll"][index] = new HeroScroll({
+            element: element,
+        });
+    }
+
+    events() {
+        this.emitter.on("MitterContentReplaced", async () => {
+            this.DOM = this.updateTheDOM;
+            if (this.DOM.elements.length) {
             this.instances["HeroScroll"] = [];
+            if (!window['lib']['HeroScroll']) {
+                    const { default: HeroScroll } = await import ("@jsHandler/heroScroll/HeroScroll");
+                    window['lib']['HeroScroll'] = HeroScroll;
+            }
             this.DOM.elements.forEach((element, index) => {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                    this.initializeHeroScroll(element, index);
+                    this.initializeHeroScroll({element, index});
                 } else {
                     this.boostify.scroll({
                         distance: 300,
                         name: "HeroScroll",
                         callback: () => {
-                            this.initializeHeroScroll(element, index);
+                            this.initializeHeroScroll({element, index});
                         },
                     });
                 }
             });
         }
-    }
-
-    async initializeHeroScroll(element, index) {
-        import("@js/handler/heroScroll/HeroScroll")
-        .then(({ default: HeroScroll }) => {
-            window["lib"]["HeroScroll"] = HeroScroll;
-            this.instances["HeroScroll"][index] = new window["lib"]["HeroScroll"]({
-                element: element,
-            });
-        }).catch((error) => {
-            console.error("Error loading HeroScroll module:", error);
+           
         });
-    }
-
-    events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
-        this.emitter.on("MitterContentReplaced", async () => {
+           this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.init();
+            this.boostify.destroyscroll({ distance: 10, name: "HeroScroll" });
+            if (this.DOM?.elements?.length && this.instances["HeroScroll"]?.length) {
+                this.DOM.elements.forEach((_, index) => {
+                    if (this.instances["HeroScroll"][index]?.destroy) {
+                        this.instances["HeroScroll"][index].destroy();
+                    }
+                });
+                this.instances["HeroScroll"] = [];
+            }
         });
-    }
-
-    destroy() {
-        if (
-            this.DOM.elements.length &&
-            this.instances["HeroScroll"] &&
-            this.instances["HeroScroll"].length
-        ) {
-            this.boostify.destroyscroll({ distance: 300, name: "HeroScroll" });
-            this.DOM.elements.forEach((element, index) => {
-                if (this.instances["HeroScroll"][index]) {
-                    this.instances["HeroScroll"][index].destroy();
-                }
-            });
-            this.instances["HeroScroll"] = [];
-        }
     }
 }
 
