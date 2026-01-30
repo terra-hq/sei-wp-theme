@@ -1,5 +1,4 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
@@ -8,10 +7,6 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
-
-        this.DOM = {
-            elements: document.querySelectorAll(".js--quiz-a"),
-        }
 
         this.init();
         this.events();
@@ -23,68 +18,58 @@ class Handler {
         };
     }
 
-    init() {
-        if (this.DOM.elements.length) {
-            this.instances["Quiz"] = [];
-            this.DOM.elements.forEach((element, index) => {
-                if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                    this.initializeQuiz(element, index);
-                } else {
-                    this.boostify.scroll({
-                        distance: 300,
-                        name: "Quiz",
-                        callback: () => {
-                            this.initializeQuiz(element, index);
-                        },
-                    });
-                }
-            });
-        }
-    }
+    init() {}
 
-    async initializeQuiz(element, index) {
-        if (!window["lib"]) {
-            window["lib"] = {};
-        }
-
-        import("@jsHandler/quiz/Quiz")
-        .then(({ default: Quiz }) => {
-            window["lib"]["Quiz"] = Quiz;
-            this.instances["Quiz"][index] = new Quiz();
-        })
-        .catch((e) => {
-            this.terraDebug && console.error("Error loading @jsHandler/quiz/Quiz", e);
-        });
+    createInstanceQuiz({element, index}) {
+        const Quiz = window['lib']['Quiz'];
+        this.instances["Quiz"][index] = new Quiz();
     }
 
     events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            this.init();
-        });
-    }
+            if (this.DOM.elements.length) {
+            this.instances["Quiz"] = [];
 
-    destroy() {
-        if (
-            this.DOM.elements.length &&
-            this.instances["Quiz"] &&
-            this.instances["Quiz"].length
-        ) {
-            this.boostify.destroyscroll({ distance: 300, name: "Quiz" });
-            this.DOM.elements.forEach((element, index) => {
-                if (this.instances["Quiz"][index]) {
-                    if (typeof this.instances["Quiz"][index].destroy === "function") {
+                if (!window['lib']['Collapsify']) {
+                    const { default: Collapsify } = await import("@terrahq/collapsify");
+                    window['lib']['Collapsify'] = Collapsify;
+                    window['Collapsify'] = Collapsify;
+                }
+                if (!window['lib']['Quiz']) {
+                    const { default: Quiz } = await import ("@jsHandler/Quiz/Quiz");
+                    window['lib']['Quiz'] = Quiz;
+                }
+          
+                this.DOM.elements.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+                        this.createInstanceQuiz({element, index});
+                    } else {
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "Quiz",
+                            callback: () => {
+                                this.createInstanceQuiz({element, index});
+                            },
+                        });
+                    }
+                });
+            }
+        });
+
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "Quiz" });
+            if (this.DOM?.elements?.length && this.instances["Quiz"]?.length) {
+                this.DOM.elements.forEach((_, index) => {
+                    if (this.instances["Quiz"][index]?.destroy) {
                         this.instances["Quiz"][index].destroy();
                     }
-                }
-            });
-            this.instances["Quiz"] = [];
-        }
+                });
+                this.instances["Quiz"] = [];
+            }
+        });
     }
 }
 
 export default Handler;
-

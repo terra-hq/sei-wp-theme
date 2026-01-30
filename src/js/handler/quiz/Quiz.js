@@ -1,4 +1,3 @@
-import Collapsify from "@terrahq/collapsify";
 import { breakpoints } from "@terrahq/helpers/breakpoints";
 import Gradient from "../../modules/HeroBg";
 import confetti from "https://esm.sh/canvas-confetti@1";
