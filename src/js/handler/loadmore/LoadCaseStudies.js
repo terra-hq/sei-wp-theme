@@ -17,7 +17,7 @@ class LoadCaseStudies {
         this.payload.dom.loader.style.display = 'none';
         this.payload.dom.spinner.style.display = 'none';
         this.payload.dom.resultsNumber.style.display = 'none';
-        this.payload.dom.resultsContainer.style.display = 'block';
+        this.payload.dom.resultsContainer.style.display = 'flex';
         this.checkVisibilityLoadMore();
         if (this.payload.dom.searchBar) {
             this.searchBarFunctionality();
