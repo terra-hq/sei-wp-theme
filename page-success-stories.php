@@ -39,7 +39,7 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="u--pb-10 u--pb-tablets-7 js--section-container">
+<section class="u--pb-10 u--pb-tablets-7 js--section-case-studies">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
 

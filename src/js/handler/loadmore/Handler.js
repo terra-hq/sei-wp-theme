@@ -15,8 +15,8 @@ class Handler {
     get updateTheDOM() {
         return {
             elementsLoadNews: document.querySelectorAll(".js--section-news"),
-            elementsLoadInsights: document.querySelectorAll(".js--section-container"),
-            elementsLoadCaseStudies: document.querySelectorAll(".js--section-container"),
+            elementsLoadInsights: document.querySelectorAll(".js--section-insights"),
+            elementsLoadCaseStudies: document.querySelectorAll(".js--section-case-studies"),
         };
     }
 
