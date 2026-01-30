@@ -149,16 +149,16 @@ class Form {
 
         this.fields?.forEach(element => {
             const dataName = element?.element?.getAttribute('data-name');
-            console.log(element?.element);
+            // console.log(element?.element);
             
-            console.log(dataName);
+            // console.log(dataName);
             
             if (!dataName) return;
 
             fieldsValue[dataName] = element?.element?.value;
         });
 
-        console.log(fieldsValue);
+        // console.log(fieldsValue);
         return fieldsValue;
     }
 

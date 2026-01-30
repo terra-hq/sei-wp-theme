@@ -279,7 +279,7 @@ class Quiz {
             
             try {
                 const submissionResult = await submitToHubspot(payload);
-                console.log(submissionResult.message);
+                // console.log(submissionResult.message);
             } catch (error) {
                 console.error("Submission error:", error.message);
             }
