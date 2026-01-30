@@ -45,7 +45,7 @@ class Handler {
                         this.createInstanceGetAllJobs({element, index});
                     } else {
                         this.boostify.scroll({
-                            distance: 300,
+                            distance: 10,
                             name: "GetAllJobs",
                             callback: () => {
                                 this.createInstanceGetAllJobs({element, index});

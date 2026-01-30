@@ -7,59 +7,42 @@ class Handler {
         this.terraDebug = terraDebug;
         this.libManager = libManager;
 
-        this.DOM = {
-            elements: document.querySelectorAll(".js--inyect-cookie"),
-        }
-
         this.init();
         this.events();
     }
 
     get updateTheDOM() {
         return {
-            elements: document.querySelectorAll(".js--inyect-cookie"),
+            cookieContainer: document.querySelector(".js--inyect-cookie"),
         };
     }
 
-    init() {
-        if (this.DOM.elements.length) {
-            this.instances["Cookies"] = [];
-            this.DOM.elements.forEach((element, index) => {
-                this.initializeCookies(element, index);
-            });
-        }
-    }
+    init() {}
 
-    async initializeCookies(element, index) {
-        if (this.instances["Cookies"][index]) {
-            return;
-        }
-
-        try {
-            const { default: Cookies } = await import("@js/handler/cookies/SetCookies");
-            this.instances["Cookies"][index] = new Cookies({
-                cookieContainer: element,
-            });
-        } catch (error) {
-            console.error("Error loading SetCookies module:", error);
-        }
+    initializeSetCookies() {
+        const SetCookies = window['lib']['SetCookies'];
+        this.instances["SetCookies"] = new SetCookies({
+            cookieContainer: this.DOM.cookieContainer,
+        });
     }
 
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            this.init();
-        });
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.DOM = this.updateTheDOM;
-            if (this.DOM?.elements?.length && this.instances["Cookies"]?.length) {
-                this.DOM.elements.forEach((_, index) => {
-                    if (this.instances["Cookies"][index]?.destroy) {
-                        this.instances["Cookies"][index].destroy();
-                    }
-                });
-                this.instances["Cookies"] = [];
+            if (this.DOM.cookieContainer) {
+                if (!window['lib']['SetCookies']) {
+                    const { default: SetCookies } = await import("@jsHandler/cookies/SetCookies");
+                    window['lib']['SetCookies'] = SetCookies;
+                }
+                this.initializeSetCookies();
             }
+        });
+
+        this.emitter.on("MitterWillReplaceContent", () => {
+            if (this.instances["SetCookies"]?.destroy) {
+                this.instances["SetCookies"].destroy();
+            }
+            this.instances["SetCookies"] = null;
         });
     }
 }
