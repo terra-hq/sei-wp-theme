@@ -42,7 +42,7 @@ class Handler {
                     this.initializeHeroScroll({element, index});
                 } else {
                     this.boostify.scroll({
-                        distance: 300,
+                        distance: 10,
                         name: "HeroScroll",
                         callback: () => {
                             this.initializeHeroScroll({element, index});

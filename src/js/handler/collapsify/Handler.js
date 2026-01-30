@@ -117,7 +117,7 @@ class Handler {
                         this.createInstanceCollapse({ element, index });
                     } else {
                         this.boostify.scroll({
-                            distance: 300,
+                            distance: 10,
                             name: "Collapse",
                             callback: async () => {
                                 try {
@@ -159,7 +159,7 @@ class Handler {
             }
             
             if(this.DOM?.collapseElements?.length && this.instances["Collapse"]?.length) {
-                this.boostify.destroyscroll({ distance: 300, name: "Collapse"});
+                this.boostify.destroyscroll({ distance: 10, name: "Collapse"});
 
                 this.DOM.collapseElements.forEach((_, index) => {
                     if (this.instances["Collapse"][index]) {
