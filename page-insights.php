@@ -45,7 +45,7 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="u--pb-10 u--pb-tablets-7 js--section-container">
+<section class="u--pb-10 u--pb-tablets-7 js--section-insights">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
             <!-- <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
