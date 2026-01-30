@@ -41,7 +41,7 @@ class Handler {
                 this.instances["Lottie"] = [];
                 
                 if (!window['lib']['Lottie']) {
-                    const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
+                    const { preloadLotties } = await import("@jsHandler/lottie/Lotties");
                     window['lib']['Lottie'] = preloadLotties;
                 }
                 
