@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'wov');
+define('hash', 'ctq');
 
 ?>

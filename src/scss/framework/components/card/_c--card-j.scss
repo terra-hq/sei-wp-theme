@@ -8,7 +8,7 @@
 .c--card-j {
     @extend .f--background-c;
     @extend .u--position-sticky;
-    top: 96px;
+    top: 130px;
     margin-left: $measure * 4;
     @media all and ($viewport-type: $tabletl) {
         margin-left: 0;
