@@ -53,7 +53,8 @@ class Handler {
         }
            
         });
-           this.emitter.on("MitterWillReplaceContent", () => {
+        
+        this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             this.boostify.destroyscroll({ distance: 10, name: "HeroScroll" });
             if (this.DOM?.elements?.length && this.instances["HeroScroll"]?.length) {

@@ -198,6 +198,7 @@ class Handler {
             this.boostify.destroyscroll({ distance: 10, name: "LoadNews" });
             this.boostify.destroyscroll({ distance: 10, name: "LoadInsights" });
             this.boostify.destroyscroll({ distance: 10, name: "LoadCaseStudies" });
+
             if (this.DOM?.elementsLoadNews?.length && this.instances["LoadNews"]?.length) {
                 this.DOM.elementsLoadNews.forEach((_, index) => {
                     if (this.instances["LoadNews"][index]?.destroy) {
@@ -206,21 +207,21 @@ class Handler {
                 });
                 this.instances["LoadNews"] = [];
             }
+
             if (this.DOM?.elementsLoadInsights?.length && this.instances["LoadInsights"]?.length) {
                 this.DOM.elementsLoadInsights.forEach((_, index) => {
                     if (this.instances["LoadInsights"][index]?.destroy) {
                         this.instances["LoadInsights"][index].destroy();
                     }
-                    element.dataset.insightsLoaded = "false";
                 });
                 this.instances["LoadInsights"] = [];
             }
+
             if (this.DOM?.elementsLoadCaseStudies?.length && this.instances["LoadCaseStudies"]?.length) {
                 this.DOM.elementsLoadCaseStudies.forEach((_, index) => {
                     if (this.instances["LoadCaseStudies"][index]?.destroy) {
                         this.instances["LoadCaseStudies"][index].destroy();
                     }
-                    element.dataset.caseStudiesLoaded = "false";
                 });
                 this.instances["LoadCaseStudies"] = [];
             }

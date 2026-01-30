@@ -21,7 +21,7 @@ class Handler {
         };
     }
 
-    initializeFilterPeople({ filterSelect, index }) {
+    initializeFilterPeople({ element, index }) {
         const FilterPeople = window['lib']['FilterPeople'];
         
         this.instances["FilterPeople"][index] = new FilterPeople({
