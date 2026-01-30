@@ -1,5 +1,4 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-
 class Handler {
     constructor(payload) {
         var { emitter, instances, boostify, terraDebug, libManager } = payload;
@@ -8,10 +7,6 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
-
-        this.DOM = {
-            elements: document.querySelectorAll(".js--load-all-jobs"),
-        }
 
         this.init();
         this.events();
@@ -23,63 +18,56 @@ class Handler {
         };
     }
 
-    init() {
-        if (this.DOM.elements.length) {
-            this.instances["GetAllJobs"] = [];
-            this.DOM.elements.forEach((element, index) => {
-                if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                    this.initializeGetAllJobs(element, index);
-                } else {
-                    this.boostify.scroll({
-                        distance: 300,
-                        name: "GetAllJobs",
-                        callback: () => {
-                            this.initializeGetAllJobs(element, index);
-                        },
-                    });
-                }
-            });
-        }
-    }
+    init() {}
 
-    async initializeGetAllJobs(element, index) {
-        import("@js/handler/jobs/GetAllJobs")
-        .then(({ default: GetAllJobs }) => {
-            this.instances["GetAllJobs"][index] = new GetAllJobs({
-                element: element,
-                resultsContainer: document.getElementById("js--load-all-job-results"),
-                filterLocation: document.getElementById("js--filter-locations"),
-                filterPracticeAreas: document.getElementById("js--filter-pratice-areas"),
-                loader: document.querySelector(".js--loading"),
-            });
-        }).catch((error) => {
-            console.error("Error loading GetAllJobs module:", error);
+    createInstanceGetAllJobs({element, index}) {
+        const GetAllJobs = window['lib']['GetAllJobs'];
+        this.instances["GetAllJobs"][index] = new GetAllJobs({
+            element: element,
+            resultsContainer: document.getElementById("js--load-all-job-results"),
+            filterLocation: document.getElementById("js--filter-locations"),
+            filterPracticeAreas: document.getElementById("js--filter-pratice-areas"),
+            loader: document.querySelector(".js--loading"),
         });
     }
 
     events() {
-        this.emitter.on("MitterWillReplaceContent", () => {
-            this.destroy();
-        });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            this.init();
-        });
-    }
-
-    destroy() {
-        if (
-            Array.isArray(this.instances["GetAllJobs"]) &&
-            this.instances["GetAllJobs"].length
-        ) {
-            this.boostify.destroyscroll({ distance: 300, name: "GetAllJobs" });
-            this.instances["GetAllJobs"].forEach((instance, index) => {
-                if (instance && typeof instance.destroy === "function") {
-                    instance.destroy();
-                }
-            });
+            if (this.DOM.elements.length) {
             this.instances["GetAllJobs"] = [];
-        }
+                if (!window['lib']['GetAllJobs']) {
+                        const { default: GetAllJobs } = await import ("@jsHandler/jobs/GetAllJobs");
+                        window['lib']['GetAllJobs'] = GetAllJobs;
+                }
+                this.DOM.elements.forEach((element, index) => {
+                    if (isElementInViewport({ el: element, debug: this.terraDebug })) {
+                        this.createInstanceGetAllJobs({element, index});
+                    } else {
+                        this.boostify.scroll({
+                            distance: 300,
+                            name: "GetAllJobs",
+                            callback: () => {
+                                this.createInstanceGetAllJobs({element, index});
+                            },
+                        });
+                    }
+                });
+            }
+        });
+
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            this.boostify.destroyscroll({ distance: 10, name: "GetAllJobs" });
+            if (this.DOM?.elements?.length && this.instances["GetAllJobs"]?.length) {
+                this.DOM.elements.forEach((_, index) => {
+                    if (this.instances["GetAllJobs"][index]?.destroy) {
+                        this.instances["GetAllJobs"][index].destroy();
+                    }
+                });
+                this.instances["GetAllJobs"] = [];
+            }
+        });
     }
 }
 
