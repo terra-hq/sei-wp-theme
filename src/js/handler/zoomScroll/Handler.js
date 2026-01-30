@@ -43,7 +43,7 @@ class Handler {
                     this.initializeZoomScroll({element, index});
                 } else {
                     this.boostify.scroll({
-                        distance: 300,
+                        distance: 10,
                         name: "ZoomScroll",
                         callback: () => {
                             this.initializeZoomScroll({element, index});
@@ -54,7 +54,7 @@ class Handler {
         }
            
         });
-           this.emitter.on("MitterWillReplaceContent", () => {
+        this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             this.boostify.destroyscroll({ distance: 10, name: "ZoomScroll" });
             if (this.DOM?.elements?.length && this.instances["ZoomScroll"]?.length) {
