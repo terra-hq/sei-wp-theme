@@ -59,8 +59,8 @@ class Handler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyscroll({ distance: 10, name: "Quiz" });
             if (this.DOM?.elements?.length && this.instances["Quiz"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "Quiz" });
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["Quiz"][index]?.destroy) {
                         this.instances["Quiz"][index].destroy();

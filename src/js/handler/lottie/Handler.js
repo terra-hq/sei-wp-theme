@@ -90,9 +90,9 @@ class Handler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyobserver({ distance: 10, name: "Lottie" });
-
+            
             if (this.DOM?.elements?.length && this.instances["Lottie"]?.length) {
+                this.boostify.destroyobserver({ distance: 10, name: "Lottie" });
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["Lottie"][index]?.destroy) {
                         this.instances["Lottie"][index].destroy();

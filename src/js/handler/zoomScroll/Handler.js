@@ -56,8 +56,8 @@ class Handler {
         });
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyscroll({ distance: 10, name: "ZoomScroll" });
             if (this.DOM?.elements?.length && this.instances["ZoomScroll"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "ZoomScroll" });
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["ZoomScroll"][index]?.destroy) {
                         this.instances["ZoomScroll"][index].destroy();

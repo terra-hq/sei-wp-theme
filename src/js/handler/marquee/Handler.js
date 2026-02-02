@@ -123,8 +123,8 @@ class Handler {
         });
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyscroll({ distance: 10, name: "InfiniteMarquee" });
             if (this.DOM?.marqueeA?.length && this.instances["InfiniteMarquee"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "InfiniteMarquee" });
                 this.DOM.marqueeA.forEach((_, index) => {
                     if (this.instances["InfiniteMarquee"][index]?.destroy) {
                         this.instances["InfiniteMarquee"][index].destroy();
@@ -132,7 +132,8 @@ class Handler {
                 });
                 this.instances["InfiniteMarquee"] = [];
             }
-              if (this.DOM?.marqueeB?.length && this.instances["InfiniteMarquee"]?.length) {
+            if (this.DOM?.marqueeB?.length && this.instances["InfiniteMarquee"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "InfiniteMarquee" });
                 this.DOM.marqueeB.forEach((_, index) => {
                     if (this.instances["InfiniteMarquee"][index]?.destroy) {
                         this.instances["InfiniteMarquee"][index].destroy();

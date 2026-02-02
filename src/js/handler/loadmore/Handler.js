@@ -195,11 +195,9 @@ class Handler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyscroll({ distance: 10, name: "LoadNews" });
-            this.boostify.destroyscroll({ distance: 10, name: "LoadInsights" });
-            this.boostify.destroyscroll({ distance: 10, name: "LoadCaseStudies" });
 
             if (this.DOM?.elementsLoadNews?.length && this.instances["LoadNews"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "LoadNews" });
                 this.DOM.elementsLoadNews.forEach((_, index) => {
                     if (this.instances["LoadNews"][index]?.destroy) {
                         this.instances["LoadNews"][index].destroy();
@@ -209,6 +207,7 @@ class Handler {
             }
 
             if (this.DOM?.elementsLoadInsights?.length && this.instances["LoadInsights"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "LoadInsights" });
                 this.DOM.elementsLoadInsights.forEach((_, index) => {
                     if (this.instances["LoadInsights"][index]?.destroy) {
                         this.instances["LoadInsights"][index].destroy();
@@ -218,6 +217,7 @@ class Handler {
             }
 
             if (this.DOM?.elementsLoadCaseStudies?.length && this.instances["LoadCaseStudies"]?.length) {
+                this.boostify.destroyscroll({ distance: 10, name: "LoadCaseStudies" });
                 this.DOM.elementsLoadCaseStudies.forEach((_, index) => {
                     if (this.instances["LoadCaseStudies"][index]?.destroy) {
                         this.instances["LoadCaseStudies"][index].destroy();
