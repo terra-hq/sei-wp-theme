@@ -179,6 +179,7 @@ class Project {
 
       if (document.querySelector("script[type='text/boostify']")) {
           this.boostify.onload({
+              worker: true,
               maxTime: 1200,
               callback: async () => {
                   if (!window.dataLayer) window.dataLayer = [];
