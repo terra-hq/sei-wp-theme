@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'eun');
+define('hash', 'na2');
 
 ?>

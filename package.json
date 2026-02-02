@@ -37,7 +37,7 @@
     "@terrahq/wysiwyg": "file:terrahq-wysiwyg-0.0.19.tgz",
     "@vitejs/plugin-vue": "^5.0.5",
     "blazy": "^1.8.2",
-    "boostify": "0.0.20",
+    "boostify": "^0.0.13",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "mitt": "^3.0.1",
