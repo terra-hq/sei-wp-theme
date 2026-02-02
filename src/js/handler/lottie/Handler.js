@@ -71,7 +71,6 @@ class Handler {
         });
 
         this.emitter.on("Lottie:load", async () => {
-            console.log("event");
             this.DOM = this.updateTheDOM;
             if (this.initialized === false) {
                 if (this.DOM.elements.length > 0) {
