@@ -34,7 +34,7 @@ class Project {
 
     this.boostify = new Boostify({
       debug: this.terraDebug,
-      license: import.meta.env.VITE_LICENSE_KEY,
+      // license: import.meta.env.VITE_LICENSE_KEY,
     });
 
     if (this.terraDebug) {
@@ -148,6 +148,7 @@ class Project {
 
       if (document.querySelector("script[type='text/boostify']")) {
           this.boostify.onload({
+              worker: true,
               maxTime: 1200,
               callback: async () => {
                   if (!window.dataLayer) window.dataLayer = [];
