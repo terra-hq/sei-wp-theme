@@ -7,6 +7,8 @@ class Handler {
         this.emitter = emitter;
         this.instances = instances;
         this.terraDebug = terraDebug;
+        this.usedBoostify = false;
+
         this.init();
         this.events();
     }
@@ -64,6 +66,7 @@ class Handler {
 
             if (this.DOM.accordionElementsA.length > 0) {
                 this.instances["CollapsifyA"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['CollapsifyA']) {
                     const { default: Collapsify } = await import ("@jsHandler/collapsify/AccordionA");
                     window['lib']['CollapsifyA'] = Collapsify;
@@ -72,6 +75,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug})) {
                         this.createInstanceAccordionA({ element, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "CollapsifyA",
@@ -89,6 +93,7 @@ class Handler {
 
             if (this.DOM.accordionElementsB.length > 0) {
                 this.instances["Collapsify"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['Collapsify']) {
                     const { default: Collapsify } = await import ("@terrahq/collapsify");
                     window['lib']['Collapsify'] = Collapsify;
@@ -97,6 +102,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug})) {
                         this.createInstanceAccordionB({ element, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "Collapsify",
@@ -114,6 +120,7 @@ class Handler {
 
             if (this.DOM.collapseElements.length > 0) {
                 this.instances["Collapse"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['Collapse']) {
                     const { default: Collapse } = await import("@terrahq/collapsify");
                     window['lib']['Collapse'] = Collapse;
@@ -122,6 +129,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug})) {
                         this.createInstanceCollapse({ element, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "Collapse",
@@ -143,7 +151,9 @@ class Handler {
 
             //Destroy Accordion
             if(this.DOM?.accordionElementsA?.length && this.instances["CollapsifyA"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "CollapsifyA"});
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "CollapsifyA"});
+                }
 
                 this.DOM.accordionElementsA.forEach((_, index) => {
                     if (this.instances["CollapsifyA"][index]) {
@@ -154,8 +164,9 @@ class Handler {
             }
 
             if(this.DOM?.accordionElementsB?.length && this.instances["Collapsify"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "Collapsify"});
-
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "Collapsify"});
+                }
                 this.DOM.accordionElementsB.forEach((_, index) => {
                     if (this.instances["Collapsify"][index]) {
                         this.instances["Collapsify"][index].destroy();
@@ -165,8 +176,9 @@ class Handler {
             }
             
             if(this.DOM?.collapseElements?.length && this.instances["Collapse"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "Collapse"});
-
+                if (this.usedBoostify){
+                    this.boostify.destroyscroll({ distance: 10, name: "Collapse"});
+                } 
                 this.DOM.collapseElements.forEach((_, index) => {
                     if (this.instances["Collapse"][index]) {
                         this.instances["Collapse"][index].destroy();

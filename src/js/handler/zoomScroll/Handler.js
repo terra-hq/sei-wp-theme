@@ -8,6 +8,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -34,6 +35,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length) {
             this.instances["ZoomScroll"] = [];
+            this.usedBoostify = false;
             if (!window['lib']['ZoomScroll']) {
                     const { default: ZoomScroll } = await import ("@jsHandler/zoomScroll/zoomScroll");
                     window['lib']['ZoomScroll'] = ZoomScroll;
@@ -42,6 +44,7 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeZoomScroll({element, index});
                 } else {
+                    this.usedBoostify = true;
                     this.boostify.scroll({
                         distance: 10,
                         name: "ZoomScroll",
@@ -57,7 +60,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["ZoomScroll"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "ZoomScroll" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "ZoomScroll" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["ZoomScroll"][index]?.destroy) {
                         this.instances["ZoomScroll"][index].destroy();

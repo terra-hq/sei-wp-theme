@@ -7,6 +7,7 @@ class TimelineHandler {
         this.emitter = emitter;
         this.instances = instances;
         this.terraDebug = terraDebug;
+        this.usedBoostify = false
 
         this.selectors = {
             element: ".js--timeline-a"
@@ -37,8 +38,9 @@ class TimelineHandler {
             this.DOM = this.updateTheDOM;
 
             if (this.DOM.timelines.length > 0) {
-              
                 this.instances["Timeline"] = [];
+                this.usedBoostify = false;
+
                 if (!window['lib']['Timeline']) {
                     const { default: Timeline } = await import ("@jsHandler/timeline/Timeline.js");
                     window['lib']['Timeline'] = Timeline;
@@ -48,6 +50,7 @@ class TimelineHandler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstance({ element, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "Timeline",
@@ -71,7 +74,9 @@ class TimelineHandler {
             if (this.DOM?.timelines?.length && this.instances["Timeline"]?.length) {
                 
                 this.DOM.timelines.forEach((_, index) => {
-                    this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
+                    if (this.usedBoostify) {
+                        this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
+                    }
                     if (this.instances["Timeline"] && this.instances["Timeline"][index]) {
                         if (typeof this.instances["Timeline"][index].destroy === 'function') {
                             this.instances["Timeline"][index].destroy();

@@ -7,6 +7,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -50,7 +51,6 @@ class Handler {
         
         this.instances["LoadNews"][index] = new LoadNews(newsLoadMore);
     }
-
     createInstanceLoadInsights({element, index}) {
         const LoadInsights = window['lib']['LoadInsights'];
         const loadMoreButton = document.querySelector(".js--load-more-posts");
@@ -133,6 +133,8 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elementsLoadNews.length) {
                 this.instances["LoadNews"] = [];
+                this.usedBoostify = false;
+
                 if (!window['lib']['LoadNews']) {
                         const { default: LoadNews } = await import ("@jsHandler/loadmore/LoadNews");
                         window['lib']['LoadNews'] = LoadNews;
@@ -141,6 +143,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceLoadNews({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "LoadNews",
@@ -153,6 +156,8 @@ class Handler {
             }
             if (this.DOM.elementsLoadInsights.length) {
                 this.instances["LoadInsights"] = [];
+                this.usedBoostify = false;
+
                 if (!window['lib']['LoadInsights']) {
                         const { default: LoadInsights } = await import ("@jsHandler/loadmore/LoadInsights");
                         window['lib']['LoadInsights'] = LoadInsights;
@@ -161,6 +166,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceLoadInsights({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "LoadInsights",
@@ -173,6 +179,7 @@ class Handler {
             }
             if (this.DOM.elementsLoadCaseStudies.length) {
                 this.instances["LoadCaseStudies"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['LoadCaseStudies']) {
                         const { default: LoadCaseStudies } = await import ("@jsHandler/loadmore/LoadCaseStudies");
                         window['lib']['LoadCaseStudies'] = LoadCaseStudies;
@@ -181,6 +188,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceLoadCaseStudies({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "LoadCaseStudies",
@@ -197,7 +205,9 @@ class Handler {
             this.DOM = this.updateTheDOM;
 
             if (this.DOM?.elementsLoadNews?.length && this.instances["LoadNews"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "LoadNews" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "LoadNews" });
+                }
                 this.DOM.elementsLoadNews.forEach((_, index) => {
                     if (this.instances["LoadNews"][index]?.destroy) {
                         this.instances["LoadNews"][index].destroy();
@@ -207,7 +217,9 @@ class Handler {
             }
 
             if (this.DOM?.elementsLoadInsights?.length && this.instances["LoadInsights"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "LoadInsights" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "LoadInsights" });
+                }
                 this.DOM.elementsLoadInsights.forEach((_, index) => {
                     if (this.instances["LoadInsights"][index]?.destroy) {
                         this.instances["LoadInsights"][index].destroy();
@@ -217,7 +229,9 @@ class Handler {
             }
 
             if (this.DOM?.elementsLoadCaseStudies?.length && this.instances["LoadCaseStudies"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "LoadCaseStudies" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "LoadCaseStudies" });
+                }
                 this.DOM.elementsLoadCaseStudies.forEach((_, index) => {
                     if (this.instances["LoadCaseStudies"][index]?.destroy) {
                         this.instances["LoadCaseStudies"][index].destroy();

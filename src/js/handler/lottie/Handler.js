@@ -9,6 +9,7 @@ class Handler {
         this.terraDebug = terraDebug;
         this.libManager = libManager;
         this.initialized = false;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -30,8 +31,10 @@ class Handler {
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
+
             if (this.DOM.elements.length > 0) {
                 this.instances["Lottie"] = [];
+                this.usedBoostify = false;
 
                 if (!window["lib"]["Lottie"]) {
                     const { default: Lottie } = await import("@jsHandler/lottie/Lotties");
@@ -45,6 +48,7 @@ class Handler {
                             this.initializeLottie({ element, index });
                         }
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.observer({
                             options: {
                                 root: null,
@@ -92,7 +96,9 @@ class Handler {
             this.DOM = this.updateTheDOM;
             
             if (this.DOM?.elements?.length && this.instances["Lottie"]?.length) {
-                this.boostify.destroyobserver({ distance: 10, name: "Lottie" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyobserver({ distance: 10, name: "Lottie" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["Lottie"][index]?.destroy) {
                         this.instances["Lottie"][index].destroy();

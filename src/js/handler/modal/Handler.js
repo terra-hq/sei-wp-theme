@@ -8,6 +8,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.currentTrigger = null;
         this.triggerClickHandler = null;
@@ -94,6 +95,7 @@ class Handler {
 
             if (this.DOM.modalAElements.length > 0) {
                 this.instances["Modal"] = [];
+                this.usedBoostify = false;
 
                 if (!window['lib']['Modal']) {
                     const { default: Modal } = await import("@terrahq/modal");
@@ -104,6 +106,7 @@ class Handler {
                     if (isElementInViewport({ el: modal, debug: this.terraDebug })) {
                         this.createModalInstance({ element: modal, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "Modal",
@@ -124,7 +127,9 @@ class Handler {
             this.DOM = this.updateTheDOM;
             
             if (this.DOM?.modalAElements?.length && this.instances["Modal"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "Modal" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "Modal" });
+                }
                 this.DOM.modalAElements.forEach((_, index) => {
                     if (this.instances["Modal"][index]?.destroy) {
                         this.instances["Modal"][index].destroy();

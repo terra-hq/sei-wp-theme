@@ -8,6 +8,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -33,6 +34,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length) {
             this.instances["HeroScroll"] = [];
+            this.usedBoostify = false;
             if (!window['lib']['HeroScroll']) {
                     const { default: HeroScroll } = await import ("@jsHandler/heroScroll/HeroScroll");
                     window['lib']['HeroScroll'] = HeroScroll;
@@ -41,6 +43,7 @@ class Handler {
                 if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                     this.initializeHeroScroll({element, index});
                 } else {
+                    this.usedBoostify = true;
                     this.boostify.scroll({
                         distance: 10,
                         name: "HeroScroll",
@@ -57,7 +60,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["HeroScroll"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "HeroScroll" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "HeroScroll" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["HeroScroll"][index]?.destroy) {
                         this.instances["HeroScroll"][index].destroy();
