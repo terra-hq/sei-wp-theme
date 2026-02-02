@@ -22,58 +22,73 @@ class Handler {
     init() {}
 
     async initializeLottie({ element, index }) {
-        const preloadLotties = window['lib']['Lottie'];
-        this.instances["Lottie"][index] = await preloadLotties({
-        selector: element,
-        debug: this.terraDebug,
-        callback: (payload) => {
-            this.terraDebug && console.log("Lottie loaded", index, element, payload);
-            payload.play();
-        },
-        });
+        const Lottie = window["lib"]["Lottie"];
+        this.instances["Lottie"][index] = new Lottie({ element });
     }
-
 
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length > 0) {
                 this.instances["Lottie"] = [];
-                
-                if (!window['lib']['Lottie']) {
-                    const { preloadLotties } = await import("@jsHandler/lottie/Lotties");
-                    window['lib']['Lottie'] = preloadLotties;
+
+                if (!window["lib"]["Lottie"]) {
+                    const { default: Lottie } = await import("@jsHandler/lottie/Lotties");
+                    window["lib"]["Lottie"] = Lottie;
                 }
-                
+
                 this.DOM.elements.forEach((element, index) => {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.initializeLottie({ element, index });
+                        this.initialized = true;
                     } else {
                         this.boostify.observer({
                             options: {
-                            root: null,
-                            rootMargin: "0px",
-                            threshold: 0.5,
+                                root: null,
+                                rootMargin: "0px",
+                                threshold: 0.5,
                             },
                             name: "Lottie",
                             element: element,
                             callback: async () => {
-                                try {
-                                    this.initializeLottie({ element, index });
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading Lottie", error);
+                                if (this.initialized == false) {
+                                    try {
+                                        this.initialized = true;
+                                        this.initializeLottie({ element, index });
+                                    } catch (error) {
+                                        this.terraDebug && console.log("Error loading Lottie", error);
+                                    }
                                 }
-                            }
+                            },
                         });
                     }
                 });
+            }
+            this.initialized = false;
+        });
+
+        this.emitter.on("Lottie:load", async () => {
+            this.DOM = this.updateTheDOM;
+            if (this.initialized === false) {
+                if (this.DOM.elements.length > 0) {
+                    this.instances["Lottie"] = [];
+
+                    if (!window["lib"]["Lottie"]) {
+                        const { default: Lottie } = await import("@jsHandler/lottie/Lotties");
+                        window["lib"]["Lottie"] = Lottie;
+                    }
+                    this.DOM.elements.forEach((element, index) => {
+                        this.initializeLottie({ element, index });
+                        this.initialized = true;
+                    });
+                }
             }
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             this.boostify.destroyscroll({ distance: 10, name: "Lottie" });
-            
+
             if (this.DOM?.elements?.length && this.instances["Lottie"]?.length) {
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["Lottie"][index]?.destroy) {

@@ -8,7 +8,7 @@ $lottie = $module['lottie'];
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="js--lottie-element" data-path="<?php echo $lottie['url'] ?>" data-animType="svg" data-loop="false" data-autoplay="false" data-name="graphic"></div>
+                <div class="js--lottie-element" data-path="<?php echo $lottie['url'] ?>" data-animType="svg" data-loop="false" data-autoplay="true" data-name="graphic"></div>
             </div>
         </div>
     </div>
