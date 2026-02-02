@@ -69,9 +69,9 @@ class TimelineHandler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.timelines?.length && this.instances["Timeline"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
                 
                 this.DOM.timelines.forEach((_, index) => {
+                    this.boostify.destroyscroll({ distance: 15, name: "Timeline" });
                     if (this.instances["Timeline"] && this.instances["Timeline"][index]) {
                         if (typeof this.instances["Timeline"][index].destroy === 'function') {
                             this.instances["Timeline"][index].destroy();
