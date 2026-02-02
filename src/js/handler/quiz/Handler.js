@@ -7,6 +7,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -30,6 +31,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length) {
             this.instances["Quiz"] = [];
+            this.usedBoostify = false;
 
                 if (!window['lib']['Collapsify']) {
                     const { default: Collapsify } = await import("@terrahq/collapsify");
@@ -45,6 +47,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceQuiz({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "Quiz",
@@ -60,7 +63,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["Quiz"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "Quiz" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "Quiz" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["Quiz"][index]?.destroy) {
                         this.instances["Quiz"][index].destroy();

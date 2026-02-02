@@ -7,6 +7,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -36,6 +37,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length) {
             this.instances["GetAllJobs"] = [];
+            this.usedBoostify = false;
                 if (!window['lib']['GetAllJobs']) {
                         const { default: GetAllJobs } = await import ("@jsHandler/jobs/GetAllJobs");
                         window['lib']['GetAllJobs'] = GetAllJobs;
@@ -44,6 +46,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceGetAllJobs({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "GetAllJobs",
@@ -59,7 +62,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["GetAllJobs"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "GetAllJobs" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "GetAllJobs" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["GetAllJobs"][index]?.destroy) {
                         this.instances["GetAllJobs"][index].destroy();

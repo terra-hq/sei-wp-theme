@@ -30,7 +30,9 @@ class HeroScroll {
     }
 
     destroy() {
-        this.tl.scrollTrigger.kill();
+        if (this.tl && this.tl.scrollTrigger) {
+            this.tl.scrollTrigger.kill();
+        }
     }
 }
 

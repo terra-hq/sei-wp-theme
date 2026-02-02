@@ -13,6 +13,7 @@ class SliderHandler {
         this.emitter = emitter;
         this.instances = instances;
         this.terraDebug = terraDebug;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -79,6 +80,7 @@ class SliderHandler {
             // --- SLIDER A ---
             if (this.DOM.slidera.length > 0) {
                 this.instances["SliderA"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['SliderA']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
                     window['lib']['SliderA'] = Slider;
@@ -88,6 +90,7 @@ class SliderHandler {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
                         this.createSliderAInstance({ slider, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 15,
                             name: "SliderA",
@@ -108,16 +111,17 @@ class SliderHandler {
             // --- SLIDER B ---
             if (this.DOM.sliderb.length > 0) {
                 this.instances["SliderB"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['SliderB']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
                     window['lib']['SliderB'] = Slider;
                 };
 
-
                 this.DOM.sliderb.forEach((slider, index) => {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
                         this.createSliderBInstance({ slider, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 15,
                             name: "SliderB",
@@ -138,6 +142,7 @@ class SliderHandler {
             // --- SLIDER C ---
             if (this.DOM.sliderc.length > 0) {
                 this.instances["SliderC"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['SliderC']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
                     window['lib']['SliderC'] = Slider;
@@ -147,6 +152,7 @@ class SliderHandler {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
                         this.createSliderCInstance({ slider, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 15,
                             name: "SliderC",
@@ -167,6 +173,7 @@ class SliderHandler {
             // --- SLIDER D ---
             if (this.DOM.sliderd.length > 0) {
                 this.instances["SliderD"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['SliderD']) {
                     const { default: Slider } = await import("@jsHandler/slider/Slider.js");
                     window['lib']['SliderD'] = Slider;
@@ -176,6 +183,7 @@ class SliderHandler {
                     if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
                         this.createSliderDInstance({ slider, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 15,
                             name: "SliderD",
@@ -199,7 +207,9 @@ class SliderHandler {
 
             // --- DESTROY SLIDER A ---
             if (this.DOM.slidera?.length && this.instances["SliderA"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "SliderA" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 15, name: "SliderA" });
+                }
                 this.DOM.slidera.forEach((_, index) => {
                     this.instances["SliderA"][index]?.destroy?.();
                 });
@@ -208,7 +218,9 @@ class SliderHandler {
 
             // --- DESTROY SLIDER B ---
             if (this.DOM.sliderb?.length && this.instances["SliderB"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "SliderB" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 15, name: "SliderB" });
+                }
                 this.DOM.sliderb.forEach((_, index) => {
                     this.instances["SliderB"][index]?.destroy?.();
                 });
@@ -217,7 +229,9 @@ class SliderHandler {
 
             // --- DESTROY SLIDER C ---
             if (this.DOM.sliderc?.length && this.instances["SliderC"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "SliderC" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 15, name: "SliderC" });
+                }
                 this.DOM.sliderc.forEach((_, index) => {
                     this.instances["SliderC"][index]?.destroy?.();
                 });
@@ -226,7 +240,9 @@ class SliderHandler {
 
             // --- DESTROY SLIDER D ---
             if (this.DOM.sliderd?.length && this.instances["SliderD"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "SliderD" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 15, name: "SliderD" });
+                }
                 this.DOM.sliderd.forEach((_, index) => {
                     this.instances["SliderD"][index]?.destroy?.();
                 });

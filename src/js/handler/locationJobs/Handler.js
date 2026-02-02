@@ -7,6 +7,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -31,6 +32,7 @@ class Handler {
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
+            this.usedBoostify = false;
             if (this.DOM.elements.length) {
             this.instances["LocationJobs"] = [];
                 if (!window['lib']['LocationJobs']) {
@@ -41,6 +43,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
                         this.createInstanceLocationJobs({element, index});
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "LocationJobs",
@@ -56,7 +59,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["LocationJobs"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "LocationJobs" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "LocationJobs" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["LocationJobs"][index]?.destroy) {
                         this.instances["LocationJobs"][index].destroy();

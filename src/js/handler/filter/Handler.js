@@ -8,6 +8,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -36,6 +37,7 @@ class Handler {
             
             if (this.DOM.filterContainers.length > 0) {
                 this.instances["FilterPeople"] = [];
+                this.usedBoostify = false;
                 
                 if (!window['lib']['FilterPeople']) {
                     const { default: FilterPeople } = await import("./FilterPeople");
@@ -46,6 +48,7 @@ class Handler {
                     if (isElementInViewport({ el: filterSelect, debug: this.terraDebug })) {
                         this.initializeFilterPeople({ filterSelect, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "FilterPeople",
@@ -66,7 +69,9 @@ class Handler {
             this.DOM = this.updateTheDOM;
             
             if (this.DOM?.filterContainers?.length && this.instances["FilterPeople"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "FilterPeople" });
+                if(this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "FilterPeople" });
+                }
                 this.DOM.filterContainers.forEach((_, index) => {
                     if (this.instances["FilterPeople"][index]?.destroy) {
                         this.instances["FilterPeople"][index].destroy();

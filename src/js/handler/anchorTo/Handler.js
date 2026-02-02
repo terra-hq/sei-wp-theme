@@ -7,6 +7,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.usedBoostify = false;
 
         this.init();
         this.events();
@@ -40,6 +41,7 @@ class Handler {
             this.DOM = this.updateTheDOM;
             if (this.DOM.elements.length > 0) {
                 this.instances["AnchorTo"] = [];
+                this.usedBoostify = false;
                 if (!window['lib']['AnchorTo']) {
                     const { default: AnchorTo } = await import ("@teamthunderfoot/anchor-to");
                     window['lib']['AnchorTo'] = AnchorTo;
@@ -48,6 +50,7 @@ class Handler {
                     if (isElementInViewport({ el: element, debug: this.terraDebug})) {
                         this.initializeAnchorTo({ element, index });
                     } else {
+                        this.usedBoostify = true;
                         this.boostify.scroll({
                             distance: 10,
                             name: "AnchorTo",
@@ -67,7 +70,9 @@ class Handler {
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
             if (this.DOM?.elements?.length && this.instances["AnchorTo"]?.length) {
-                this.boostify.destroyscroll({ distance: 10, name: "AnchorTo" });
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "AnchorTo" });
+                }
                 this.DOM.elements.forEach((_, index) => {
                     if (this.instances["AnchorTo"][index]?.destroy) {
                         this.instances["AnchorTo"][index].destroy();
