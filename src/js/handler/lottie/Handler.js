@@ -8,6 +8,7 @@ class Handler {
         this.instances = instances;
         this.terraDebug = terraDebug;
         this.libManager = libManager;
+        this.initialized = false;
 
         this.init();
         this.events();
@@ -39,8 +40,10 @@ class Handler {
 
                 this.DOM.elements.forEach((element, index) => {
                     if (isElementInViewport({ el: element, debug: this.terraDebug })) {
-                        this.initializeLottie({ element, index });
-                        this.initialized = true;
+                        if (this.initialized == false) {
+                            this.initialized = true;
+                            this.initializeLottie({ element, index });
+                        }
                     } else {
                         this.boostify.observer({
                             options: {
@@ -68,6 +71,7 @@ class Handler {
         });
 
         this.emitter.on("Lottie:load", async () => {
+            console.log("event");
             this.DOM = this.updateTheDOM;
             if (this.initialized === false) {
                 if (this.DOM.elements.length > 0) {
@@ -87,7 +91,7 @@ class Handler {
 
         this.emitter.on("MitterWillReplaceContent", () => {
             this.DOM = this.updateTheDOM;
-            this.boostify.destroyscroll({ distance: 10, name: "Lottie" });
+            this.boostify.destroyobserver({ distance: 10, name: "Lottie" });
 
             if (this.DOM?.elements?.length && this.instances["Lottie"]?.length) {
                 this.DOM.elements.forEach((_, index) => {

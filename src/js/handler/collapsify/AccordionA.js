@@ -26,7 +26,7 @@ class AccordionA {
         if (this.accordion) {
             this.init();
             if (this.onComplete && typeof this.onComplete == "function") {
-                this.onComplete();
+                this.onComplete({element: this.accordion});
             }
         }
         this.resizeHandler = this.updateStyles.bind(this);

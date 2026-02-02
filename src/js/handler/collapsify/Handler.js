@@ -24,8 +24,10 @@ class Handler {
     createInstanceAccordionA({element, index}) {
         const Accordion = window['lib']['CollapsifyA'];
         this.instances["CollapsifyA"][index] = new Accordion({
-            onComplete: () => {
-                this.emitter.emit("Lottie:load")
+            onComplete: ({element}) => {
+                if(element.querySelector('.js--lottie-element')){
+                    this.emitter.emit("Lottie:load")
+                }
             }
         });
     }
