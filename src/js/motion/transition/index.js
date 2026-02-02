@@ -22,33 +22,6 @@ export const createTransitionOptions = (payload) => {
             await window["lib"]["preloadImages"]("img");
         }
 
-        // Preload Lotties
-        const lottieElements = document.querySelectorAll(".js--lottie-element");
-        if(lottieElements.length){
-            if (!window["lib"]["preloadLotties"]) {
-                const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
-                window["lib"]["preloadLotties"] = preloadLotties;
-            }
-            lottieElements.forEach(async (element) => {
-                await window["lib"]["preloadLotties"]({
-                    selector: element,
-                    callback: (payload) => {
-                      boostify.observer({
-                        options: {
-                          root: null,
-                          rootMargin: "0px",
-                          threshold: 0.5,
-                        },
-                        element: payload.wrapper,
-                        callback: () => {
-                          payload.play();
-                        },
-                      });
-                    }
-                });
-            });
-        }
-
         // Load Hero Animations
         if (document.querySelector(".c--hero-a")) {
           if (!window["animations"]["heroA"]) {
