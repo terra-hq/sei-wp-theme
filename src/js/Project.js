@@ -34,7 +34,6 @@ class Project {
 
     this.boostify = new Boostify({
       debug: this.terraDebug,
-      // license: import.meta.env.VITE_LICENSE_KEY,
     });
 
     if (this.terraDebug) {
@@ -189,7 +188,6 @@ class Project {
                       virtualPageTitle: document.title, // Page title
                       virtualPagePath: window.location.pathname, // Path w/o hostname
                   });
-                  console.log("windowdatalayer", window.dataLayer);
               },
           });
       }
