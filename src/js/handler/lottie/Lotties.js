@@ -14,7 +14,6 @@ class Lotties {
       debug: false,
       selector: this.DOM.element,
       callback: (animations) => {
-        // console.log("All lotties loaded", animations);
       },
     });
 
@@ -25,7 +24,6 @@ class Lotties {
   destroy() {
     if (this.instance && typeof this.instance.destroy === "function") {
       this.instance.destroy();
-      console.log(`Lottie "${this.animationName}" destroyed`);
     }
 
     // Limpieza global

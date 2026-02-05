@@ -16,7 +16,6 @@ class HeroScroll {
     init() {
 
         this.tl = gsap.to(this.DOM.element, {
-            markers: false,
             duration: 3,
             clipPath: 'circle(100% at 50% 50%)',
             scrollTrigger: {

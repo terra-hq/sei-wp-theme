@@ -41,7 +41,7 @@ class Timeline {
     loadingBar() {
         gsap.registerPlugin(ScrollTrigger);
 
-        this.loadingBar = gsap.timeline({
+        this.loadingBarItem = gsap.timeline({
             scrollTrigger: {
                 trigger: this.DOM.timeline,
                 start: "+=30 center",
@@ -56,7 +56,7 @@ class Timeline {
         });
 
         //Loading bar updates width scroll down
-        this.loadingBar.to(this.DOM.timeline, {
+        this.loadingBarItem.to(this.DOM.timeline, {
             ease: "none",
             "--loading-value": `calc(100% - ${this.bottomValue}px)`,
         });
@@ -82,8 +82,15 @@ class Timeline {
     }
 
     destroy() {
-        this.loadingBar.scrollTrigger.kill();
+        this.loadingBarItem.scrollTrigger.kill();
         this.loadingItem.scrollTrigger.kill();
+        gsap.killTweensOf(this.loadingBarItem);
+        gsap.killTweensOf(this.loadingItem);
+        ScrollTrigger.getAll().forEach(st => {
+            if (st.vars.trigger === this.timeline) {
+                st.kill();
+            }
+        });
     }
 }
 
