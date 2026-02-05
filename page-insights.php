@@ -147,7 +147,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         </div>
 
         <!-- RESULTS -->
-        <div class="js--results-container f--row f--gap-e">
+        <div class="js--results-container f--row f--gap-a">
             <!-- FEATURED INSIGHT -->
 
             <?php

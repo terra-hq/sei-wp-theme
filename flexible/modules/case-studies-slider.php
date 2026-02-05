@@ -30,7 +30,7 @@ $case_studies = $module['case_studies'];
 
                             <div class="c--slider-a__wrapper__item">
                                 <div class="c--card-m">
-                                    <div class="f--row u--display-flex u--align-items-center">
+                                    <div class="f--row">
 
                                         <!-- IMAGEN -->
                                         <div class="f--col-4 f--col-tabletm-12">
