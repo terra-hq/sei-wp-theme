@@ -108,6 +108,7 @@ export default defineConfig({
         "@scssComponents": path.resolve(__dirname, "./src/scss/framework/components"),
         "@js": path.resolve(__dirname, "./src/js"),
         "@jsModules": path.resolve(__dirname, "./src/js/modules"),
+        "@jsHandler": path.resolve(__dirname, "./src/js/handler"),
         "@jsMotion": path.resolve(__dirname, "./src/js/motion"),
         '@vuejs': path.resolve(__dirname, './src/js/vue'),
     }

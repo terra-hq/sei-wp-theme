@@ -46,13 +46,6 @@ $modifier = 'g--accordion-02--third';
                                     <span><?= esc_html($accItem['accordion_title']) ?></span>
                                 </div>
                                 <span class="g--accordion-02__hd__icon" role="presentation">
-                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.51953 7.5H14.4795" stroke="#F01840" stroke-width="2"
-                                              stroke-linecap="square"/>
-                                        <path d="M8 1.02002V13.98" stroke="#F01840" stroke-width="2"
-                                              stroke-linecap="square"/>
-                                    </svg>
                                 </span>
                             </button>
                             <div class="g--accordion-02__bd"

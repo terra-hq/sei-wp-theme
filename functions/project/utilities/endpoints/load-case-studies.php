@@ -75,8 +75,8 @@ function load_case_studies() {
 
         ?>
         <div class="f--col-12">
-            <div class="c--card-m u--mb-5">
-                <div class="f--row u--display-flex u--align-items-center">
+            <div class="c--card-m">
+                <div class="f--row">
                     <div class="f--col-4 f--col-tabletm-12">
                         <a href="<?= esc_url($featured_case_study_link) ?>" <?= $featured_case_study_target ? 'target="'.esc_attr($featured_case_study_target).'"' : '' ?> <?= $featured_case_study_rel ? 'rel="'.esc_attr($featured_case_study_rel).'"' : '' ?> class="u--overflow-hidden">
                             <div class="c--card-m__wrapper">
@@ -178,8 +178,8 @@ function load_case_studies() {
         ?>
 
         <div class="f--col-12">
-            <div class="c--card-m u--mb-5">
-                <div class="f--row u--display-flex u--align-items-center">
+            <div class="c--card-m">
+                <div class="f--row">
                     <div class="f--col-4 f--col-tabletm-12">
                         <a href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?> class="u--overflow-hidden">
                             <div class="c--card-m__wrapper">

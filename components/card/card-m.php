@@ -24,7 +24,7 @@ $image_to_use = $image ? $image : get_field('placeholder_image', 'options');
 ?>
 
 <div class="c--card-m">
-    <div class="f--row u--display-flex u--align-items-center">
+    <div class="f--row ">
 
         <!-- IMAGE -->
         <div class="f--col-4 f--col-tabletm-12">

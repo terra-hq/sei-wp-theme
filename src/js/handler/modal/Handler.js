@@ -1,177 +1,144 @@
 import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-import { u_matches, u_addClass, u_removeClass } from "@andresclua/jsutil";
-import gsap from "gsap";
-import Modal from "./Modal.js"; // 👈 asegúrate de tener este import
 
 class Handler {
-  constructor(payload) {
-    var { emitter, instances, boostify, terraDebug, libManager } = payload;
-    this.boostify = boostify;
-    this.emitter = emitter;
-    this.instances = instances;
-    this.terraDebug = terraDebug;
-    this.libManager = libManager;
+    constructor(payload) {
+        var { emitter, instances, boostify, terraDebug, libManager } = payload;
+        this.boostify = boostify;
+        this.emitter = emitter;
+        this.instances = instances;
+        this.terraDebug = terraDebug;
+        this.libManager = libManager;
+        this.usedBoostify = false;
 
-    this.currentTrigger = null;
-    this.triggerClickHandler = null;
+        this.currentTrigger = null;
+        this.triggerClickHandler = null;
 
-    // Config centralizada para los modales
-    this.modalConfig = {
-      openTrigger: "data-modal-open",
-      closeTrigger: "data-modal-close",
-      openClass: "g--modal-01--is-open",
-    };
+        this.modalClassSelector= "#my-modal";
 
-    this.init();
-    this.events();
-  }
+        this.modalConfig = {
+            selector: this.modalClassSelector,
+            openTrigger: "data-modal-open",
+            closeTrigger: "data-modal-close",
+            openClass: "g--modal-01--is-open",
+            disableScroll: true,
+            awaitOpenAnimation: true,
+            awaitCloseAnimation: true
+        };
 
-  get updateTheDOM() {
-    return {
-      modalAElements: document.querySelectorAll(`.js--modal`),
-    };
-  }
+        this.init();
+        this.events();
+    }
 
-  init() {}
+    get updateTheDOM() {
+        return {
+            modalAElements: document.querySelectorAll(this.modalClassSelector),
+        };
+    }
 
-  events() {
-    // Captura el último trigger que disparó un modal
-    this.triggerClickHandler = (e) => {
-      const trigger = e.target.closest(`[${this.modalConfig.openTrigger}]`);
-      if (trigger) {
-        this.currentTrigger = trigger;
-      }
-    };
-    document.addEventListener("click", this.triggerClickHandler, true);
+    init() {}
 
-    this.emitter.on("MitterContentReplaced", async () => {
-      this.DOM = this.updateTheDOM; // Re-query elements
+    createModalInstance({ element, index }) {
+        const Modal = window['lib']['Modal'];
 
-      if (this.DOM.modalAElements.length > 0) {
-        this.instances["Modal"] = [];
-
-        this.DOM.modalAElements.forEach(async (modal, index) => {
-          if (isElementInViewport({ el: modal, debug: this.terraDebug })) {
-            this.instances["Modal"][index] = new Modal({
-              selector: `#${modal.id}`,
-              debug: true,
-              ...this.modalConfig, // triggers centralizados
-              onShow: async (modal) => {
+        this.instances["Modal"][index] = new Modal({
+            selector: `#${element.id}`,
+            debug: this.terraDebug,
+            ...this.modalConfig,
+            onShow: (modal) => {
                 if (!this.currentTrigger) return;
 
-                const videoType = this.currentTrigger.getAttribute(
-                  "data-modal-video-type"
-                );
-                const formType = this.currentTrigger.getAttribute(
-                  "data-modal-form-type"
-                );
-
-                // Video tipo archivo
-                if (videoType === "file") {
-                  this.boostify.videoPlayer({
-                    url: {
-                      mp4: this.currentTrigger.getAttribute(
-                        "data-modal-video-url"
-                      ),
-                    },
-                    style: {
-                      aspectRatio: "16/9",
-                      width: "100%",
-                      height: "100%",
-                    },
-                    attributes: {
-                      class: "video-file",
-                      id: "MyVideo",
-                      loop: false,
-                      muted: false,
-                      controls: true,
-                      autoplay: true,
-                      playsinline: true,
-                    },
-                    appendTo: modal.querySelector(
-                      ".g--modal-01__wrapper__content"
-                    ),
-                  });
-
-                  // Video tipo embed
-                } else if (videoType === "embed") {
-                  this.boostify.videoEmbed({
-                    url: this.currentTrigger.getAttribute(
-                      "data-modal-video-url"
-                    ),
-                    autoplay: true,
-                    appendTo: modal.querySelector(
-                      ".g--modal-01__wrapper__content"
-                    ),
-                    style: {
-                      aspectRatio: "16/9",
-                      width: "100%",
-                      height: "100%",
-                    },
-                  });
-
-                  // Form tipo form-b
-                } else if (formType === "form-b") {
-                  if (!this.cachedPortalId) {
-                    try {
-                      const resp = await fetch(`${base_wp_api.root_url}/wp-json/acf/v2/options`);
-                      const data = await resp.json();
-                      this.cachedPortalId = data?.acf?.form_portal_id || null;
-                    } catch (e) {
-                      console.error("Error fetching portalId:", e);
-                    }
-                  }
-
-                  await this.boostify.loadScript({
-                    url: "https://js.hsforms.net/forms/v2.js",
-                  });
-                  await this.boostify.loadScript({
-                    inlineScript: `
-                                        hbspt.forms.create({
-                                            region: "na1",
-                                            portalId: "${this.cachedPortalId}",
-                                            formId: "${this.currentTrigger.getAttribute(
-                                              "data-modal-form-id"
-                                            )}",
-                                        });
-                                    `,
-                    appendTo: modal.querySelector(
-                      ".g--modal-01__wrapper__content"
-                    ),
-                  });
-
-                  modal.classList.add("g--modal-01--second");
-                  modal
-                    .querySelector(".g--modal-01__wrapper__content")
-                    .classList.add("c--form-b");
+                if (this.currentTrigger.getAttribute("data-modal-video-type") === "file") {
+                    this.boostify.videoPlayer({
+                        url: {
+                            mp4: this.currentTrigger.getAttribute("data-modal-video-url"),
+                        },
+                        style: { aspectRatio: "16/9", width: "100%", height: "100%" },
+                        attributes: {
+                            class: "video-file",
+                            id: "MyVideo",
+                            loop: false,
+                            muted: false,
+                            controls: true,
+                            autoplay: true,
+                            playsinline: true,
+                        },
+                        appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
+                    });
+                } else if (this.currentTrigger.getAttribute("data-modal-video-type") === "embed") {
+                    this.boostify.videoEmbed({
+                        url: this.currentTrigger.getAttribute("data-modal-video-url"),
+                        autoplay: true,
+                        appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
+                        style: { aspectRatio: "16/9", width: "100%", height: "100%" },
+                    });
                 }
-              },
-              onClose: (modal) => {
+            },
+            onClose: (modal) => {
                 this.currentTrigger = null;
-                modal.querySelector(
-                  ".g--modal-01__wrapper__content"
-                ).innerHTML = "";
-              },
-            });
-          }
+                const content = modal.querySelector(".g--modal-01__wrapper__content");
+                if(content) content.innerHTML = "";
+            },
         });
-      }
-    });
+    }
 
-    // Destroy Elements
-    this.emitter.on("MitterWillReplaceContent", () => {
-      if (
-        this.DOM.modalAElements.length &&
-        this.instances["Modal"] &&
-        this.instances["Modal"].length
-      ) {
-        this.DOM.modalAElements.forEach((_, index) => {
-          this.instances["Modal"][index].destroy();
+    events() {
+        this.triggerClickHandler = (e) => {
+            const trigger = e.target.closest(`[${this.modalConfig.openTrigger}]`);
+            if (trigger) {
+                this.currentTrigger = trigger;
+            }
+        };
+        document.addEventListener("click", this.triggerClickHandler, true);
+
+        this.emitter.on("MitterContentReplaced", async () => {
+            this.DOM = this.updateTheDOM;
+
+            if (this.DOM.modalAElements.length > 0) {
+                this.instances["Modal"] = [];
+                this.usedBoostify = false;
+
+                if (!window['lib']['Modal']) {
+                    const { default: Modal } = await import("@terrahq/modal");
+                    window['lib']['Modal'] = Modal;
+                }
+
+                this.DOM.modalAElements.forEach((modal, index) => {
+                    if (isElementInViewport({ el: modal, debug: this.terraDebug })) {
+                        this.createModalInstance({ element: modal, index });
+                    } else {
+                        this.usedBoostify = true;
+                        this.boostify.scroll({
+                            distance: 10,
+                            name: "Modal",
+                            callback: async () => {
+                                try {
+                                    this.createModalInstance({ element: modal, index });
+                                } catch (error) {
+                                    this.terraDebug && console.error("Error creating Modal instance", error);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
         });
-        this.instances["Modal"] = [];
-      }
-    });
-  }
+
+        this.emitter.on("MitterWillReplaceContent", () => {
+            this.DOM = this.updateTheDOM;
+            
+            if (this.DOM?.modalAElements?.length && this.instances["Modal"]?.length) {
+                if (this.usedBoostify) {
+                    this.boostify.destroyscroll({ distance: 10, name: "Modal" });
+                }
+                this.DOM.modalAElements.forEach((_, index) => {
+                    if (this.instances["Modal"][index]?.destroy) {
+                        this.instances["Modal"][index].destroy();
+                    }
+                });
+                this.instances["Modal"] = [];
+            }
+        });
+    }
 }
 
 export default Handler;

@@ -12,7 +12,6 @@
 
 //* accordion
 @use "@scss/framework/components/accordion/_c--accordion-a";
-@use "@scss/framework/components/accordion/_c--accordion-b";
 @use "@scss/global-components/accordion/_g--accordion-02";
 
 @use "@scss/framework/components/marquee/_c--marque-a.scss";
@@ -58,6 +57,7 @@
 @use "@scss/framework/components/card/_c--card-k";
 @use "@scss/framework/components/card/_c--card-l";
 @use "@scss/framework/components/card/_c--card-m";
+@use "@scss/framework/components/card/_c--card-n";
 @use "@scss/global-components/card/_g--card-01";
 @use "@scss/global-components/card/_g--card-03";
 @use "@scss/global-components/card/_g--card-04";
@@ -67,7 +67,6 @@
 @use "@scss/global-components/card/_g--card-09";
 @use "@scss/global-components/card/_g--card-24";
 @use "@scss/global-components/card/_g--card-33";
-@use "@scss/global-components/card/_g--card-34";
 
 @use "@scss/framework/components/quiz/_c--quiz-a";
 

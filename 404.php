@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="g--404-01__media-wrapper">
-        <div class="js--lottie-element g--404-01__media-wrappert__media" data-path="<?php echo get_field('page_lottie', 'option')['url'] ?>" data-animType="svg" data-loop="true" data-autoplay="true" data-name="graphic"></div>
+        <div class="js--lottie-element g--404-01__media-wrapper__media" data-path="<?php echo get_field('page_lottie', 'option')['url'] ?>" data-animType="svg" data-loop="true" data-autoplay="true" data-name="graphic404"></div>
     </div>
 </section>
 <?php get_footer() ?>

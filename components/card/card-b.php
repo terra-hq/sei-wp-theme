@@ -14,7 +14,7 @@
         $capability_lottie = get_field('capability_lottie', $post->ID);
         if ($show_lottie) : ?>
         <div class="c--card-b__media-wrapper">
-            <div class="js--lottie-element c--card-b__media-wrapper__media" data-path="<?php echo $capability_lottie['url'] ?>" data-animType="svg" data-loop="true" data-autoplay="true" data-name="graphic"></div>
+            <div class="js--lottie-element c--card-b__media-wrapper__media" data-path="<?php echo $capability_lottie['url'] ?>" data-animType="svg" data-loop="true" data-autoplay="true" data-name="graphic-<?= esc_attr($card_key) ?>"></div>
         </div>
     <?php endif; ?>
 </div>

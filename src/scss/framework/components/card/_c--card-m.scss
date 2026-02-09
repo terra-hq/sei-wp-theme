@@ -4,6 +4,7 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 
 .c--card-m {
+  @extend .u--width-100;
   @extend .u--pt-5;
   @extend .u--pb-5;
   background-color: transparent;
@@ -13,27 +14,19 @@
     border-bottom: 1px solid map.get($color-options, h);
   }
 
-   @media (hover: hover) and (pointer: fine) {
-        &:hover &  {
-          &__wrapper{
-            &__media {
-            transform: scale(1.08);
-            }
-          } 
-         
-        }
-      }
 
   &__wrapper {
     @extend .u--mb-tabletm-3;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    max-height: 15rem;
-    min-height: 12.1875rem;
+    height: 250px;
 
     @media all and ($viewport-type: $tabletm) {
-      max-height: 350px;
+      height: 350px;
+    }
+    @media all and ($viewport-type: $tablets) {
+      height: 250px;
     }
 
     &__media {
@@ -41,13 +34,7 @@
       @extend .u--height-100;
       display: block;
       object-fit: cover;
-      overflow: hidden;
       transition: transform 0.6s cubic-bezier(0.2, 0, 0.38, 0.9);
-
-      @media all and ($viewport-type: $tabletm) {
-        max-height: 350px;
-      }
-      
     }
   }
 
@@ -55,18 +42,12 @@
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
     @extend .u--height-100;
-    min-height: 12.1875rem;
-    @extend .u--mb-tabletm-3;
-
-    @media all and ($viewport-type: $tabletm) {
-      min-height: auto;
-    }
+    gap: $measure*3;
+    @extend .u--pb-tabletm-3;
 
     &__title {
       @extend .f--font-i;
       @extend .f--color-i;
-      @extend .u--pb-4;
-      @extend .u--pb-tabletm-3;
       letter-spacing: 4.16px;
     }
 
@@ -74,9 +55,7 @@
       @extend .f--font-g;
       @extend .u--font-light;
       @extend .f--color-b;
-      @extend .u--pb-4;
-      @extend .u--pb-tabletm-3;
-      text-decoration: none
+      text-decoration: none;
     }
   }
 
@@ -84,11 +63,6 @@
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
     @extend .u--height-100;
-    min-height: 12.1875rem;
-
-    @media all and ($viewport-type: $tabletm) {
-      min-height: auto;
-    }
 
     &__title {
       @extend .f--font-i;
@@ -99,9 +73,19 @@
     }
 
     &__items {
-      display: flex;
+      @extend .u--display-flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: $measure;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover & {
+      &__wrapper {
+        &__media {
+          transform: scale(1.08);
+        }
+      }
     }
   }
 }

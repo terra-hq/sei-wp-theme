@@ -74,7 +74,7 @@
                         </button>
                     </li>
                     <li class="c--nav-a__list-group__item">
-                        <button class="c--burger-a js--burger js--scroll-init" aria-label="Menu" aria-label="Sidenav Menu">
+                        <button class="c--burger-a js--burger" aria-label="Menu" aria-label="Sidenav Menu">
                             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="14" viewBox="0 0 46 14" fill="none">
                                 <path d="M46 1.74512H0M46 12.2486H23.5" stroke="#141018" stroke-width="2" />
                             </svg>

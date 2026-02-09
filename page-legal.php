@@ -9,7 +9,7 @@ Template Name: Legal
     $title = get_the_title();
 ?>
 
-<section class="u--pt-20 u--pt-tablets-10">
+<section class="u--pt-20">
 
     <div class="f--container">
         <div class="f--row">

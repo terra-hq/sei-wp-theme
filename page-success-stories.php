@@ -39,7 +39,7 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="u--pb-10 u--pb-tablets-7 js--section-container">
+<section class="u--pb-10 u--pb-tablets-7 js--section-case-studies">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
 
@@ -122,7 +122,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         </div>
 
         <!-- RESULTS -->
-        <div class="js--results-container f--row f--gap-e">
+        <div class="js--results-container f--row">
             <!-- FEATURED INSIGHT -->
 
             <?php
@@ -183,8 +183,8 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
 
             <?php if ($the_query->have_posts() && $featured_case_study) : ?>
                <div class="f--col-12">
-                <div class="c--card-m u--mb-5">
-                    <div class="f--row u--display-flex u--align-items-start">
+                <div class="c--card-m">
+                    <div class="f--row ">
                         <div class="f--col-4 f--col-tabletm-12">
                             <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="u--overflow-hidden">
                                 <div class="c--card-m__wrapper">
@@ -283,11 +283,11 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     $the_query->the_post();
                     ?>
                      <div class="f--col-12">
-                        <div class="c--card-m u--mb-5">
-                            <div class="f--row u--display-flex u--align-items-start">
-                                <div class="f--col-4 f--col-tabletm-12 u--overflow-hidden">
+                        <div class="c--card-m">
+                            <div class="f--row ">
+                                <div class="f--col-4 f--col-tabletm-12">
                                     <a href="<?= get_permalink($post->ID); ?>" class="u--overflow-hidden">
-                                        <div  class="c--card-m__wrapper">
+                                        <div class="c--card-m__wrapper">
                                             <?php 
                                             $post_image = get_post_thumbnail_id($post->ID);
                                             $image_to_use = $post_image ? $post_image : get_field('placeholder_image', 'options');

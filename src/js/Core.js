@@ -103,6 +103,11 @@ class Core {
         this.instances["Blazy"] = false
       }
     }
+
+    /** Clear window.WL to allow for new lotties with the same data-name to load on navigation */
+    if (document.querySelectorAll(".js--lottie-element").length) {
+      window.WL = [];
+    }
   }
 }
 

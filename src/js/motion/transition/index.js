@@ -22,18 +22,6 @@ export const createTransitionOptions = (payload) => {
             await window["lib"]["preloadImages"]("img");
         }
 
-        // Preload Lotties
-        const lottieElements = document.querySelectorAll(".js--lottie-element");
-        if(lottieElements.length){
-            if (!window["lib"]["preloadLotties"]) {
-                const { preloadLotties } = await import("@terrahq/helpers/preloadLotties");
-                window["lib"]["preloadLotties"] = preloadLotties;
-            }
-            await window["lib"]["preloadLotties"]({
-                selector: lottieElements,
-            });
-        }
-
         // Load Hero Animations
         if (document.querySelector(".c--hero-a")) {
           if (!window["animations"]["heroA"]) {

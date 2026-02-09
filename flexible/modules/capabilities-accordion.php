@@ -36,7 +36,9 @@
                                 <div class="c--accordion-a__item__wrapper__content">
                                     <?php 
                                         $show_lottie = true;
+                                        $card_key = 'capability-' . get_the_ID();
                                         include(locate_template('components/card/card-b.php', false, false)); 
+                                        unset($card_key);
                                     ?>
                                 </div>
                             </div>
