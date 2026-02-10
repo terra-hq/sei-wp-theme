@@ -370,7 +370,7 @@ class Grammar {
             return 0;
         }
 
-        return (int) ($detail['rule_count'] ?? 0);
+        return (int) ($detail['typo_count'] ?? 0);
     }
 
     /**
