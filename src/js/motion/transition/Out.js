@@ -21,17 +21,17 @@ class Out {
             attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
         })
         tl.to(this.DOM.transitionPath, { 
-            duration: 0.8,
+            duration: 0.05,
             ease: 'power4.in',
             attr: { d: this.isDesktop() ? 'M 0 100 V 50 Q 50 0 100 50 V 100 z' : 'M 0 100 V 20 Q 50 0 100 20 V 100 z' }
         }, 0)
         tl.to(this.DOM.transitionPath, { 
-            duration: 0.3,
+            duration: 0.05,
             ease: 'power2',
             attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
         })
         tl.to(this.DOM.transitionMedia, {
-            duration: 0.3,
+            duration: 0.05,
             opacity: 1,
         })
 
