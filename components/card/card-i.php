@@ -1,18 +1,34 @@
 <div class="c--card-i <?= $modifierClass ? "c--card-i--$modifierClass" : "" ?>">
     <?php if (!$modifierClass) : ?>
         <!-- no b-lazy for this background, it creates a bad loading effect -->
-        <img
-            src="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg_2x.webp"
-            srcset="<?php bloginfo('template_url'); ?>/img/bg/card-i-bg_1x.webp 738w,
-                    <?php bloginfo('template_url'); ?>/img/bg/card-i-bg_2x.webp 1712w" 
-            sizes="100vw"
-            class="c--card-i__bg-items" 
-            width="1712"
-            height="1884"
-            style="aspect-ratio: 1712 / 1884"
-            decoding="async"
-            loading="lazy"
-        >
+        <figure>
+            <?php
+                $image_tag_args = array(
+                    'image' => array( 
+                        'url' => get_theme_file_uri('/img/bg/card-i-bg_2x.webp'),
+                        'width'  => 1712,
+                        'height' => 1884,
+                        'sizes' => array(
+                            'thumbnail' => get_theme_file_uri('/img/bg/card-i-bg_1x.webp'),
+                            'small' => get_theme_file_uri('/img/bg/card-i-bg_1x.webp'),
+                            'medium' => get_theme_file_uri('/img/bg/card-i-bg_2x.webp'),
+                            'large' => get_theme_file_uri('/img/bg/card-i-bg_2x.webp'),
+                            'tablets' => get_theme_file_uri('/img/bg/card-i-bg_2x.webp'),
+                            'mobile' => get_theme_file_uri('/img/bg/card-i-bg_1x.webp'),
+                        )
+                    ),
+                    'sizes' => 'large',
+                    'class' => 'c--card-i__bg-items',
+                    'isLazy' => true,
+                    'showAspectRatio' => true,
+                    'decodingAsync' => true,
+                    'fetchPriority' => false,
+                    'addFigcaption' => false,
+                );
+
+                generate_image_tag($image_tag_args);
+            ?>
+        </figure>
     <?php endif; ?>
     <div class="c--card-i__wrapper">
         <div class="c--card-i__wrapper__hd">

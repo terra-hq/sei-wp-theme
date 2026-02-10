@@ -26,7 +26,7 @@ $cards = $module['cards'];
                                 if (!empty($card['image'])) {
                                     $image_tag_args = array(
                                         'image' => $card['image'],
-                                        'sizes' => '580px',
+                                        'sizes' => '58px',
                                         'class' => 'g--card-04__media-wrapper__media',
                                         'isLazy' => true,
                                         'lazyClass' => 'g--lazy-01',

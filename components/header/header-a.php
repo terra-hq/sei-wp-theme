@@ -2,7 +2,34 @@
     <div class="c--header-a__wrapper">
         <div class="c--header-a__wrapper__hd">
             <a href="<?php echo home_url(); ?>" class="c--brand-a" aria-label="SEI homepage">
-                <img width=83 height=32 src=<?= get_template_directory_uri() . "/img/logos/sei-logo.svg" ?> alt="SEI logo" class="c--brand-a__media" decoding="async">
+                <figure>
+                    <?php
+                        $image_tag_args = array(
+                            'image' => array( 
+                                'url' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                'width'  => 83,
+                                'height' => 32,
+                                'sizes' => array(
+                                    'thumbnail' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                    'small' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                    'medium' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                    'large' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                    'tablets' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                    'mobile' => get_theme_file_uri('/img/logos/sei-logo.svg'),
+                                )
+                            ),
+                            'sizes' => 'large',
+                            'class' => 'c--brand-a__media',
+                            'isLazy' => true,
+                            'showAspectRatio' => true,
+                            'decodingAsync' => true,
+                            'fetchPriority' => false,
+                            'addFigcaption' => false,
+                        );
+
+                        generate_image_tag($image_tag_args);
+                    ?>
+                </figure>
             </a>
         </div>
         <div class="c--header-a__wrapper__bd">

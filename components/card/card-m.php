@@ -38,7 +38,7 @@ $image_to_use = $image ? $image : get_field('placeholder_image', 'options');
                     if ($image_to_use) {
                         generate_image_tag(array(
                             'image' => $image_to_use,
-                            'sizes' => '(max-width: 810px) 50vw, 100vw',
+                            'sizes' => 'large',
                             'class' => 'c--card-m__wrapper__media',
                             'isLazy' => false,
                             'showAspectRatio' => true,

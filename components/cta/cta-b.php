@@ -1,20 +1,34 @@
 <div class="c--cta-b">
     <div class="c--zoom-section-b">
         <div class="c--zoom-section-b__media-wrapper js--zoom-b" data-hero="false">
-            <img
-                data-srcset="<?php bloginfo('template_url'); ?>/img/bg/cta-b-810.webp 810w,
-                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-1300.webp 1300w,
-                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-810-2x.webp 1620w,
-                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-1300-2x.webp 2600w,
-                    <?php bloginfo('template_url'); ?>/img/bg/cta-b-bg2.webp 4096w"
-                data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-b-bg2.webp"
-                sizes="100vw"
-                class="c--zoom-section-b__media-wrapper__media g--lazy-01" 
-                width="4096"
-                height="2304"
-                style="aspect-ratio: 4096 / 2304"
-                decoding="async"
-            >
+            <figure>
+                <?php
+                    $image_tag_args = array(
+                        'image' => array( 
+                            'url' => get_theme_file_uri('/img/bg/cta-b-bg2.webp'),
+                            'width'  => 4096,
+                            'height' => 2304,
+                            'sizes' => array(
+                                'thumbnail' => get_theme_file_uri('/img/bg/cta-b-810.webp'),
+                                'small' => get_theme_file_uri('/img/bg/cta-b-1300.webp'),
+                                'medium' => get_theme_file_uri('/img/bg/cta-b-810-2x.webp'),
+                                'large' => get_theme_file_uri('/img/bg/cta-b-1300-2x.webp'),
+                                'tablets' => get_theme_file_uri('/img/bg/cta-b-bg2.webp'),
+                                'mobile' => get_theme_file_uri('/img/bg/cta-b-810.webp'),
+                            )
+                        ),
+                        'sizes' => '100vw',
+                        'class' => 'c--zoom-section-b__media-wrapper__media',
+                        'isLazy' => true,
+                        'showAspectRatio' => true,
+                        'decodingAsync' => true,
+                        'fetchPriority' => false,
+                        'addFigcaption' => false,
+                    );
+
+                    generate_image_tag($image_tag_args);
+                ?>
+            </figure>
         </div>
     </div>
     <div class="c--cta-b__wrapper">

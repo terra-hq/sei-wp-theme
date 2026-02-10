@@ -14,7 +14,34 @@ $marquee_text = $module['marquee_text'];
                     data-reversed="0">
                 <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="c--marquee-b__list-group__list-item">
-                        <img src="<?= get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__list-group__list-item__artwork" width="116" height="116" />
+                        <figure>
+                            <?php
+                                $image_tag_args = array(
+                                    'image' => array( 
+                                        'url' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                        'width'  => 116,
+                                        'height' => 116,
+                                        'sizes' => array(
+                                            'thumbnail' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'small' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'medium' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'large' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'tablets' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'mobile' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                        )
+                                    ),
+                                    'sizes' => 'small',
+                                    'class' => 'c--marquee-b__list-group__list-item__artwork',
+                                    'isLazy' => true,
+                                    'showAspectRatio' => true,
+                                    'decodingAsync' => true,
+                                    'fetchPriority' => false,
+                                    'addFigcaption' => false,
+                                );
+
+                                generate_image_tag($image_tag_args);
+                            ?>
+                        </figure>
                         <?php foreach ($marquee_text as $item): ?>
                                 <?php if ($item['italic']): ?>
                                     <p class="c--marquee-b__list-group__list-item__content"><?= $item['text']; ?></p>
@@ -34,7 +61,34 @@ $marquee_text = $module['marquee_text'];
                data-reversed="0">
                 <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="c--marquee-b__list-group__list-item">
-                        <img src="<?= get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__media" width="116" height="116" />
+                        <figure>
+                            <?php
+                                $image_tag_args = array(
+                                    'image' => array( 
+                                        'url' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                        'width'  => 116,
+                                        'height' => 116,
+                                        'sizes' => array(
+                                            'thumbnail' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'small' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'medium' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'large' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'tablets' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                            'mobile' => get_theme_file_uri('/public/assets/img/vector.webp'),
+                                        )
+                                    ),
+                                    'sizes' => 'small',
+                                    'class' => 'c--marquee-b__media',
+                                    'isLazy' => true,
+                                    'showAspectRatio' => true,
+                                    'decodingAsync' => true,
+                                    'fetchPriority' => false,
+                                    'addFigcaption' => false,
+                                );
+
+                                generate_image_tag($image_tag_args);
+                            ?>
+                        </figure>
                         <?php foreach ($marquee_text as $item): ?>
                             <p>
                                 <?php if ($item['italic']): ?>
