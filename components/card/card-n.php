@@ -15,7 +15,7 @@
         if ($first_image) {
             $first_image_tag_args = [
                 'image' => $first_image,
-                'sizes' => '(max-width: 810px) 50vw, 10vw',
+                'sizes' => 'large',
                 'class' => 'c--card-n__media-wrapper__media',
                 'isLazy' => false,
                 'lazyClass' => 'g--lazy-01',

@@ -86,9 +86,63 @@ $hero = [
                             <div class="c--media-c__wrapper__item-left__item" style="--rate: <?php echo get_field('rating') ?>">
                                 <p class="c--media-c__wrapper__item-left__item__title"><?php echo get_field('rating') ?></p>
                                 <div class="c--media-c__wrapper__item-left__item__media-wrapper">
-                                    <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__media g--lazy-01" />
+                                    <figure>
+                                        <?php
+                                            $image_tag_args = array(
+                                                'image' => array( 
+                                                    'url' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                    'width'  => 312,
+                                                    'height' => 301,
+                                                    'sizes' => array(
+                                                        'thumbnail' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'small' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'medium' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'large' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'tablets' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'mobile' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                    )
+                                                ),
+                                                'sizes' => '149px',
+                                                'class' => 'c--media-c__wrapper__item-left__item__media-wrapper__media g--lazy-01',
+                                                'isLazy' => false,
+                                                'showAspectRatio' => true,
+                                                'decodingAsync' => true,
+                                                'fetchPriority' => false,
+                                                'addFigcaption' => false,
+                                            );
+
+                                            generate_image_tag($image_tag_args);
+                                        ?>
+                                    </figure>
                                     <div class="c--media-c__wrapper__item-left__item__media-wrapper__artwork">
-                                        <img width=149 height=22 style="aspect-ratio: 149 / 22" src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" data-src="<?php bloginfo('template_url'); ?>/img/five-stars-white.svg" alt="alt text" class="c--media-c__wrapper__item-left__item__media-wrapper__artwork__media g--lazy-01" />
+                                        <figure>
+                                            <?php
+                                                $image_tag_args = array(
+                                                    'image' => array( 
+                                                        'url' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        'width'  => 312,
+                                                        'height' => 301,
+                                                        'sizes' => array(
+                                                            'thumbnail' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                            'small' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                            'medium' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                            'large' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                            'tablets' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                            'mobile' => get_theme_file_uri('/img/five-stars-white.svg'),
+                                                        )
+                                                    ),
+                                                    'sizes' => '149px',
+                                                    'class' => 'c--media-c__wrapper__item-left__item__media-wrapper__artwork__media g--lazy-01',
+                                                    'isLazy' => false,
+                                                    'showAspectRatio' => true,
+                                                    'decodingAsync' => true,
+                                                    'fetchPriority' => false,
+                                                    'addFigcaption' => false,
+                                                );
+
+                                                generate_image_tag($image_tag_args);
+                                            ?>
+                                        </figure>
                                     </div>
                                 </div>
                             </div>

@@ -32,7 +32,34 @@ $anchor_id = $module['anchor_id'];
         </div>
     </div>
     <div class="c--layout-a__media-wrapper">
-        <img src="<?php bloginfo('template_url'); ?>/img/swirl.webp" alt="" class="c--layout-a__media-wrapper__media">
+        <figure>
+            <?php
+                $image_tag_args = array(
+                    'image' => array( 
+                        'url' => get_theme_file_uri('/img/swirl.webp'),
+                        'width'  => 768,
+                        'height' => 787,
+                        'sizes' => array(
+                            'thumbnail' => get_theme_file_uri('/img/swirl.webp'),
+                            'small' => get_theme_file_uri('/img/swirl.webp'),
+                            'medium' => get_theme_file_uri('/img/swirl.webp'),
+                            'large' => get_theme_file_uri('/img/swirl.webp'),
+                            'tablets' => get_theme_file_uri('/img/swirl.webp'),
+                            'mobile' => get_theme_file_uri('/img/swirl.webp'),
+                        )
+                    ),
+                    'sizes' => 'large',
+                    'class' => 'c--layout-a__media-wrapper__media',
+                    'isLazy' => true,
+                    'showAspectRatio' => true,
+                    'decodingAsync' => true,
+                    'fetchPriority' => false,
+                    'addFigcaption' => false,
+                );
+
+                generate_image_tag($image_tag_args);
+            ?>
+        </figure>
     </div>
 </section>
 
