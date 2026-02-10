@@ -72,36 +72,38 @@
             </div>
         </div>
         <!-- swirl -->
-        <div class="c--bg-b__media-wrapper">
-            <!-- static image, don't use generate image tag function -->
-             <?php
-                $image_tag_args = array(
-                    'image' => array( 
-                        'url' => get_theme_file_uri('/img/red-swirl.svg'),
-                        'width'  => 616,
-                        'height' => 542,
-                        'sizes' => array(
-                            'thumbnail' => get_theme_file_uri('/img/red-swirl.svg'),
-                            'small' => get_theme_file_uri('/img/red-swirl.svg'),
-                            'medium' => get_theme_file_uri('/img/red-swirl.svg'),
-                            'large' => get_theme_file_uri('/img/red-swirl.svg'),
-                            'tablets' => get_theme_file_uri('/img/red-swirl.svg'),
-                            'mobile' => get_theme_file_uri('/img/red-swirl.svg'),
-                        )
-                    ),
-                    'sizes' => 'large',
-                    'class' => 'c--bg-b__media-wrapper__media',
-                    'isLazy' => true,
-                    'lazyClass' => 'g--lazy-01',
-                    'showAspectRatio' => true,
-                    'decodingAsync' => true,
-                    'fetchPriority' => false,
-                    'addFigcaption' => false,
-                );
+        <?php if (count($team) >= 3) { ?>
+            <div class="c--bg-b__media-wrapper">
+                <!-- static image, don't use generate image tag function -->
+                <?php
+                    $image_tag_args = array(
+                        'image' => array( 
+                            'url' => get_theme_file_uri('/img/red-swirl.svg'),
+                            'width'  => 616,
+                            'height' => 542,
+                            'sizes' => array(
+                                'thumbnail' => get_theme_file_uri('/img/red-swirl.svg'),
+                                'small' => get_theme_file_uri('/img/red-swirl.svg'),
+                                'medium' => get_theme_file_uri('/img/red-swirl.svg'),
+                                'large' => get_theme_file_uri('/img/red-swirl.svg'),
+                                'tablets' => get_theme_file_uri('/img/red-swirl.svg'),
+                                'mobile' => get_theme_file_uri('/img/red-swirl.svg'),
+                            )
+                        ),
+                        'sizes' => 'large',
+                        'class' => 'c--bg-b__media-wrapper__media',
+                        'isLazy' => true,
+                        'lazyClass' => 'g--lazy-01',
+                        'showAspectRatio' => true,
+                        'decodingAsync' => true,
+                        'fetchPriority' => false,
+                        'addFigcaption' => false,
+                    );
 
-                generate_image_tag($image_tag_args);
-            ?>
-        </div>
+                    generate_image_tag($image_tag_args);
+                ?>
+            </div>
+        <?php } ?>
     </section>
 <?php } elseif($type == 2) { ?>
     <!-- option 2, Team 02, only leader -->
