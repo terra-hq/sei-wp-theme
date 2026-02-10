@@ -265,10 +265,20 @@ function variables_in_header()
     function get_alt_image($imageUrl)
     {
         $attach_id = attachment_url_to_postid($imageUrl);
+
+        if ($attach_id === 0) {
+            $filename = pathinfo(basename($imageUrl), PATHINFO_FILENAME);
+            return $filename ?: '';
+        }
+
         $altImg = get_post_meta($attach_id, '_wp_attachment_image_alt', true);
-        $filename = basename(get_attached_file($attach_id));
-        $filename = explode('.', $filename);
-        return ($altImg) ? $altImg : $filename[0];
+
+        if ($altImg) {
+            return $altImg;
+        }
+
+        $filename = pathinfo(basename(get_attached_file($attach_id)), PATHINFO_FILENAME);
+        return $filename ?: '';
     }
 
     /**
