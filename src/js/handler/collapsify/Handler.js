@@ -1,192 +1,104 @@
-import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-import { u_stringToBoolean } from '@andresclua/jsutil';
-class Handler {
+import CoreHandler from "../CoreHandler";
+
+class Handler extends CoreHandler {
     constructor(payload) {
-        var {boostify, emitter, instances, terraDebug} = payload;
-        this.boostify = boostify;
-        this.emitter = emitter;
-        this.instances = instances;
-        this.terraDebug = terraDebug;
-        this.usedBoostify = false;
+        super(payload);
+
+        this.callbacks = {
+            onComplete: () => {
+                // Update scroll triggers after collapsify is initialized
+                updateScrollTriggers({ Manager: this.Manager });
+            },
+            onSlideEnd: (isOpen, contentID) => {
+                // Update scroll triggers after collapsify slide ends
+                updateScrollTriggers({ Manager: this.Manager });
+            },
+        };
+
+
+        this.configAccordionB = ({element}) => {
+            const closeOther = element.getAttribute("closeOthers") ? u_stringToBoolean(element.getAttribute("closeOthers")) : true;
+            return {
+                element,
+                nameSpace: "accordion02",
+                closeOthers: closeOther,
+                animationSpeed: 400,
+                cssEasing: "ease",
+            };
+        };
+        this.configCollapse = ({element}) => {
+            return {
+                element,
+                nameSpace: `collapsify`,
+                closeOthers: false,
+                onSlideStart: (isOpen, contentID) => {
+                element.classList.add("u--display-none"),
+                element.parentNode
+                    .querySelector(".c--overlay-c")
+                    .classList.add("u--display-none");
+                },
+            };
+        };
 
         this.init();
         this.events();
     }
 
-    init() {}
-
     get updateTheDOM() {
         return {
-          accordionElementsA: document.querySelectorAll(`.c--accordion-a`),
-          accordionElementsB: document.querySelectorAll(`.js--accordion-02`),
-          collapseElements: document.querySelectorAll(`.js--collapse`),
+            accordionElementsB: document.querySelectorAll(`.js--accordion-02`),
+            collapseElements: document.querySelectorAll(`.js--collapse`),
         };
     }
 
-    createInstanceAccordionA({element, index}) {
-        const Accordion = window['lib']['CollapsifyA'];
-        this.instances["CollapsifyA"][index] = new Accordion({
-            onComplete: ({element}) => {
-                if(element.querySelector('.js--lottie-element')){
-                    this.emitter.emit("Lottie:load")
-                }
-            }
-        });
+    init() {
+        super.getLibraryName("Collapsify");
     }
 
-    createInstanceAccordionB({element, index}) {
-        const Accordion = window['lib']['Collapsify'];
-        const closeOther = element.getAttribute("closeOthers") ? u_stringToBoolean(element.getAttribute("closeOthers")) : true;
-        this.instances["Collapsify"][index] = new Accordion({
-            nameSpace: "accordion02",
-            index: index,
-            closeOthers: closeOther,
-            animationSpeed: 400,
-            cssEasing: "ease",
+     events() {
+        this.emitter.on("Collapsify:load", async () => {
+            await super.assignInstances({
+                elementGroups: [
+                    {
+                        elements: this.DOM.accordionElementsB,
+                        config: this.configAccordionB,
+                        boostify: { distance: 30 },
+                    },
+                    {
+                        elements: this.DOM.collapseElements,
+                        config: this.configCollapse,
+                        boostify: { distance: 30 },
+                    },
+                ],
+                forceLoad: true,
+            });
         });
-    }
 
-    createInstanceCollapse({element, index}) {
-        const Collapse = window['lib']['Collapse'];
-        this.instances["Collapse"][index] = new Collapse({
-            nameSpace: `collapsify`,
-            closeOthers: false,
-            onSlideStart: (isOpen, contentID) => {
-                element.classList.add("u--display-none"),
-                element.parentNode
-                    .querySelector(".c--overlay-c")
-                    .classList.add("u--display-none");
-            },
-        });
-    }
-
-    events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
+            await super.assignInstances({
+                elementGroups: [
+                    {
+                        elements: this.DOM.accordionElementsB,
+                        config: this.configAccordionB,
 
-            if (this.DOM.accordionElementsA.length > 0) {
-                this.instances["CollapsifyA"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['CollapsifyA']) {
-                    const { default: Collapsify } = await import ("@jsHandler/collapsify/AccordionA");
-                    window['lib']['CollapsifyA'] = Collapsify;
-                }
-                this.DOM.accordionElementsA.forEach((element, index) => {
-                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
-                        this.createInstanceAccordionA({ element, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 10,
-                            name: "CollapsifyA",
-                            callback: async () => {
-                                try {
-                                    this.createInstanceAccordionA({ element, index });
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading Collapsify", error);
-                                }
-                            }
-                        });
-                    }
-                })
-            }
-
-            if (this.DOM.accordionElementsB.length > 0) {
-                this.instances["Collapsify"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['Collapsify']) {
-                    const { default: Collapsify } = await import ("@terrahq/collapsify");
-                    window['lib']['Collapsify'] = Collapsify;
-                }
-                this.DOM.accordionElementsB.forEach((element, index) => {
-                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
-                        this.createInstanceAccordionB({ element, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 10,
-                            name: "Collapsify",
-                            callback: async () => {
-                                try {
-                                    this.createInstanceAccordionB({ element, index });
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading Collapsify", error);
-                                }
-                            }
-                        });
-                    }
-                })
-            }
-
-            if (this.DOM.collapseElements.length > 0) {
-                this.instances["Collapse"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['Collapse']) {
-                    const { default: Collapse } = await import("@terrahq/collapsify");
-                    window['lib']['Collapse'] = Collapse;
-                }
-                this.DOM.collapseElements.forEach((element, index) => {
-                    if (isElementInViewport({ el: element, debug: this.terraDebug})) {
-                        this.createInstanceCollapse({ element, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 10,
-                            name: "Collapse",
-                            callback: async () => {
-                                try {
-                                    this.createInstanceCollapse({ element, index });
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading Collapse", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
+                        boostify: { distance: 30 },
+                    },
+                    {
+                        elements: this.DOM.collapseElements,
+                        config: this.configCollapse,
+                        boostify: { distance: 30 },
+                    },
+                ],
+            });
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
-            this.DOM = this.updateTheDOM;
-
-            //Destroy Accordion
-            if(this.DOM?.accordionElementsA?.length && this.instances["CollapsifyA"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 10, name: "CollapsifyA"});
-                }
-
-                this.DOM.accordionElementsA.forEach((_, index) => {
-                    if (this.instances["CollapsifyA"][index]) {
-                        this.instances["CollapsifyA"][index].destroy();
-                    }
-                });
-                this.instances["CollapsifyA"] = [];
-            }
-
-            if(this.DOM?.accordionElementsB?.length && this.instances["Collapsify"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 10, name: "Collapsify"});
-                }
-                this.DOM.accordionElementsB.forEach((_, index) => {
-                    if (this.instances["Collapsify"][index]) {
-                        this.instances["Collapsify"][index].destroy();
-                    }
-                });
-                this.instances["Collapsify"] = [];
-            }
-            
-            if(this.DOM?.collapseElements?.length && this.instances["Collapse"]?.length) {
-                if (this.usedBoostify){
-                    this.boostify.destroyscroll({ distance: 10, name: "Collapse"});
-                } 
-                this.DOM.collapseElements.forEach((_, index) => {
-                    if (this.instances["Collapse"][index]) {
-                        this.instances["Collapse"][index].destroy();
-                    }
-                });
-                this.instances["Collapse"] = [];
+            if (this.DOM.accordionElementsB.length || this.DOM.collapseElements.length ) {
+                super.destroyInstances();
             }
         });
     }
 }
+
 export default Handler;

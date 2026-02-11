@@ -11,7 +11,7 @@ $marquee_text = $module['marquee_text'];
                     class="c--marquee-b__list-group js--marquee-b js--scroll-to"
                     data-speed="1"
                     data-controls-on-hover="false"
-                    data-reversed="0">
+                    data-reversed="false">
                 <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="c--marquee-b__list-group__list-item">
                         <img src="<?= get_template_directory_uri(); ?>/public/assets/img/vector.webp" alt="Leadership team" class="c--marquee-b__list-group__list-item__artwork" width="116" height="116" />
