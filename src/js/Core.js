@@ -23,7 +23,13 @@ class Core {
       new SwupHeadPlugin({ persistAssets: true }), 
       ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []), 
       new SwupJsPlugin(createTransitionOptions({ boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop })),
-      new SwupScrollPlugin({ animateScroll: false })
+      new SwupScrollPlugin({ 
+        animateScroll: {
+          betweenPages: false,
+          samePageWithHash: true,
+          samePage: true
+        }
+      })
     ];
     const virtualPlugins = [...commonPlugins, new SwupScriptsPlugin({ head: true, body: true })];
 
