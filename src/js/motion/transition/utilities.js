@@ -41,7 +41,8 @@ export const hideDropdown = (payload) => {
 
 // hide sidenav utility to hide it when user exits current page
 export const hideSidenav = (payload) => {
-  let tl = this.gsap.timeline();
+  const gsap = payload.Manager.getLibrary("GSAP").gsap; // ✅
+  const tl = gsap.timeline();
   tl.to(".c--sidenav-a", {
     right: "-200%",
     duration: 1.2,
@@ -55,7 +56,7 @@ export const hideSidenav = (payload) => {
       ease: "power2.in",
       onComplete: () => {
         const activeBurger = document.querySelector('.c--sidenav-a--is-active');
-        this.gsap.set(".c--overlay-a", { display: "none" }); // Set display to none after fading out
+        gsap.set(".c--overlay-a", { display: "none" }); // Set display to none after fading out
         if (activeBurger) {
           activeBurger.classList.remove('c--sidenav-a--is-active');
           //console.log('Active class removed from sidenav');
