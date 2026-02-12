@@ -48,7 +48,7 @@ export const createTransitionOptions = (payload) => {
 
         const activeBurger = document.querySelector(".c--sidenav-a--is-active");
         if (activeBurger) {
-          tl.add(hideSidenav(), "-=0.5");
+          tl.add(hideSidenav(payload), "-=0.5");
         }
 
         tl.add(new Out(payload));
