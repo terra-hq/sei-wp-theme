@@ -28,7 +28,7 @@ $poster_image = $module['poster_image'];
              <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12  u--pb-tabletl-4">
                  <button
                     type="button"
-                    class="c--layout-d__wrapper"
+                    class="c--layout-d__wrapper js--modal-btn"
                     data-modal-open="my-modal"
                     data-modal-video-type="<?= $video_type == 'file' ? 'file' : 'embed' ?>"
                     data-modal-video-url=<?= $video_type == 'file' ? $video_file :  $video_url ?>

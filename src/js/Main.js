@@ -1,83 +1,110 @@
 import Core from "./Core";
-import ModalHandler from "./handler/modal/Handler";
-import LoadMoreHandler from "./handler/loadmore/Handler";
-import FilterPeopleHandler from "./handler/filter/Handler";
-import GetAllJobsHandler from "./handler/jobs/Handler";
-import HeroScrollHandler from "./handler/heroScroll/Handler";
-import LocationJobsHandler from "./handler/locationJobs/Handler";
-import CookiesHandler from "./handler/cookies/Handler";
-import ZoomScrollHandler from "./handler/zoomScroll/Handler";
-import TimelineHandler from "./handler/timeline/Handler";
-import SliderHandler from "./handler/slider/Handler";
-import CollapsifyHandler from "@jsHandler/collapsify/handler.js";
-import QuizHandler from "./handler/quiz/Handler";
-import MarqueeHandler from "./handler/marquee/Handler";
-import AnchorToHandler from "./handler/anchorTo/Handler";
-import LottieHandler from "./handler/lottie/Handler";
+import EventSystem from "@js/utilities/EventSystem";
+import AccordionHandler from "@jsHandler/accordion/Handler";
+import AnchorToHandler from "@jsHandler/anchorTo/Handler";
+import CollapsifyHandler from "@jsHandler/collapsify/Handler.js";
+import CookiesHandler from "@jsHandler/cookies/Handler";
+import FilterPeopleHandler from "@jsHandler/filter/Handler";
+import HeroScrollHandler from "@jsHandler/heroScroll/Handler";
+import GetAllJobsHandler from "@jsHandler/jobs/Handler";
+import LoadInsightsHandler from "@jsHandler/loadInsights/Handler";
+import LoadNewsHandler from "@jsHandler/loadNews/Handler";
+import LoadCaseStudies from "@jsHandler/loadCaseStudies/Handler";
+import LocationJobsHandler from "@jsHandler/locationJobs/Handler";
+import LottieHandler from "@jsHandler/lottie/Handler";
+import MarqueeHandler from "@jsHandler/marquee/Handler";
+import ModalHandler from "@jsHandler/modal/Handler";
+import QuizHandler from "@jsHandler/quiz/Handler";
+import SliderHandler from "@jsHandler/slider/Handler";
+import TimelineHandler from "@jsHandler/timeline/Handler";
+import ZoomScrollHandler from "@jsHandler/zoomScroll/Handler";
+import HubspotHandler from "@jsHandler/hubspot/Handler";
 
 class Main extends Core {
-  constructor(payload) {
-    super({
-      blazy: {
-        enable: true,
-        selector: "g--lazy-01",
-      },
-      form7: {
-        enable: false,
-      },
-      swup: {
-        transition: {
-          forceScrollTop: false,
-        },
-      },
-      boostify: payload.boostify,
-      terraDebug: payload.terraDebug,
-    });
-    this.handler = {
-      emitter: this.emitter,
-      boostify: this.boostify,
-      instances: this.instances,
-      terraDebug: this.terraDebug,
-      libManager: this.libManager,
-    };
-    this.init();
-    this.events();
+   constructor(payload) {
+        const { terraDebug, Manager, emitter, assetManager, debug, boostify, eventSystem } = payload;
+
+        // Call the parent class (Core) constructor with specific configurations
+        super({
+            blazy: {
+                enable: true, // Enable lazy loading for images or elements
+                selector: "g--lazy-01", // Selector for lazy loading elements
+            },
+            form7: {
+                enable: false,
+            },
+            swup: {
+                enable: true
+            },
+            terraDebug: terraDebug, // Pass terraDebug object from payload
+            Manager: Manager, // Pass libManager object from payload
+            assetManager,
+            debug,
+            eventSystem
+        });
+        this.emitter = emitter
+        this.boostify = boostify
+
+        this.handler = {
+            emitter: this.emitter,
+            boostify: this.boostify,
+            terraDebug: this.terraDebug,
+            Manager: this.Manager,
+            debug,
+            eventSystem: this.eventSystem,
+        };
+
+        this.init();
+        this.events();
   }
 
-  init() {
+  async init() {
     // Loads Core init function
     super.init();
-    new ModalHandler(this.handler);
-    new LoadMoreHandler(this.handler);
-    new FilterPeopleHandler(this.handler);
-    new GetAllJobsHandler(this.handler);
-    new HeroScrollHandler(this.handler);
-    new LocationJobsHandler(this.handler);
-    new CookiesHandler(this.handler);
-    new ZoomScrollHandler(this.handler);
-    new TimelineHandler(this.handler);
-    new SliderHandler(this.handler);
-    new CollapsifyHandler(this.handler);
-    new QuizHandler(this.handler);
-    new MarqueeHandler(this.handler);
+    new AccordionHandler(this.handler);
     new AnchorToHandler(this.handler);
+    new CollapsifyHandler(this.handler);
+    new CookiesHandler(this.handler);
+    new FilterPeopleHandler(this.handler);
+    new HeroScrollHandler(this.handler);
+    new GetAllJobsHandler(this.handler);
+    new LoadInsightsHandler(this.handler);
+    new LoadNewsHandler(this.handler);
+    new LoadCaseStudies(this.handler);
+    new LocationJobsHandler(this.handler);
     new LottieHandler(this.handler);
-  }
+    new MarqueeHandler(this.handler);
+    new ModalHandler(this.handler);
+    new QuizHandler(this.handler);
+    new SliderHandler(this.handler);
+    new TimelineHandler(this.handler);
+    new ZoomScrollHandler(this.handler);
+    new HubspotHandler(this.handler);
 
-  events() {
-    // Loads Core events function
-    super.events();
-  }
+    const { default: Navbar } = await import("@jsModules/navbar/Navbar.js");
+    new Navbar({
+      burguer: document.querySelector(".js--burger"),
+      navbar: document.querySelector(".js--navbar"),
+      boostify: this.boostify,
+      Manager: this.Manager,
+    });
+    }
+    
 
-  async contentReplaced() {
-    super.contentReplaced();
-    this.emitter.emit("MitterContentReplaced");
-  }
+	events() {
+		// Loads Core events function
+		super.events();
+	}
 
-  willReplaceContent() {
-    super.willReplaceContent();
-    this.emitter.emit("MitterWillReplaceContent");
-  }
+	async contentReplaced() {
+		super.contentReplaced();
+		this.emitter.emit("MitterContentReplaced");
+	}
+
+	willReplaceContent() {
+		super.willReplaceContent();
+		this.emitter.emit("MitterWillReplaceContent");
+	}
 }
 
 export default Main;

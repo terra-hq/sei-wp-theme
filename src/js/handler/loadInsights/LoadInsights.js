@@ -4,11 +4,11 @@ import { u_addClass, u_removeClass, u_style } from "@andresclua/jsutil";
 import { createHistoryRecord } from 'swup';
 const postURL = base_wp_api.ajax_url;
 
-class LoadCaseStudies {
+class LoadInsights {
     constructor(payload) {
         this.payload = payload;
         const { postType, postPerPage, offset, total, taxonomies, action } = this.payload.query;
-        const { resultsContainer, searchBar, industryFilter, capabilityFilter, triggerElement, noResultsElement, resultsNumber, loader, spinner } = this.payload.dom;
+        const { resultsContainer, searchBar, typesFilter, capabilityFilter, topicsFilter, triggerElement, noResultsElement, resultsNumber, loader, spinner } = this.payload.dom;
         this.init();
         this.events();
     }
@@ -17,18 +17,23 @@ class LoadCaseStudies {
         this.payload.dom.loader.style.display = 'none';
         this.payload.dom.spinner.style.display = 'none';
         this.payload.dom.resultsNumber.style.display = 'none';
-        this.payload.dom.resultsContainer.style.display = 'flex';
+        var postTotal = this.payload.dom.triggerElement.dataset.postsTotal
+        this.payload.dom.resultsContainer.style.display = postTotal == 0 ? 'block' : 'flex';
         this.checkVisibilityLoadMore();
         if (this.payload.dom.searchBar) {
             this.searchBarFunctionality();
         }
 
-        if (this.payload.dom.industryFilter) {
-            this.taxonomyFiltersFunctionality(this.payload.dom.industryFilter);
+        if (this.payload.dom.typesFilter) {
+            this.taxonomyFiltersFunctionality(this.payload.dom.typesFilter);
         }
 
         if (this.payload.dom.capabilityFilter) {
             this.taxonomyFiltersFunctionality(this.payload.dom.capabilityFilter);
+        }
+
+        if (this.payload.dom.topicsFilter) {
+            this.taxonomyFiltersFunctionality(this.payload.dom.topicsFilter);
         }
 
         this.checkUrlParams();
@@ -40,7 +45,7 @@ class LoadCaseStudies {
 
     checkUrlParams() {
         const urlParams = new URLSearchParams(window.location.search);
-        if (!urlParams.has('ind') && !urlParams.has('cap') && !urlParams.has('query')) {
+        if (!urlParams.has('cap') && !urlParams.has('topic') && !urlParams.has('query')) {
             this.payload.dom.resultsNumber.style.display = 'none';
         } else {
             this.payload.dom.resultsNumber.style.display = 'block';
@@ -78,15 +83,15 @@ class LoadCaseStudies {
             }
 
             this.payload.dom.spinner.style.display = 'none';
-                
+
+
             this.checkForEmptyParams();
             this.checkVisibilityLoadMore();
 
             u_style(this.payload.dom.noResultsElement, [{ display: results.data.postsTotal === 0 ? "block" : "none" }]);
 
-            if (this.payload.callback.onComplete) {
-                this.payload.callback.onComplete();
-            }
+            this.payload.callback?.onComplete?.();
+      
         } catch (error) {
             console.log(error);
         }
@@ -138,7 +143,7 @@ class LoadCaseStudies {
 
     checkForEmptyParams() {
         const urlParams = new URLSearchParams(window.location.search);
-        if (!urlParams.has('ind') && !urlParams.has('cap') && !urlParams.has('query')) {
+        if (!urlParams.has('cap') && !urlParams.has('topic') && !urlParams.has('query')) {
             this.payload.dom.resultsNumber.style.display = 'none';
         } else {
             this.payload.dom.resultsNumber.style.display = 'block';
@@ -164,11 +169,11 @@ class LoadCaseStudies {
     handleQueryParams(query, value, slug) {
         const urlParams = new URLSearchParams(window.location.search);
         if (query !== "query" && query !== "pagination") {
-            value !== "all" ? urlParams.set(slug, value) : urlParams.delete(slug);
+        value !== "all" ? urlParams.set(slug, value) : urlParams.delete(slug);
         } else if (query == "pagination") {
-            urlParams.set(query, value);
+        urlParams.set(query, value);
         } else {
-            value ? urlParams.set(query, value) : urlParams.delete(query);
+        value ? urlParams.set(query, value) : urlParams.delete(query);
         }
 
         const newSearch = urlParams.toString();
@@ -188,4 +193,4 @@ class LoadCaseStudies {
     }
 }
 
-export default LoadCaseStudies;
+export default LoadInsights;

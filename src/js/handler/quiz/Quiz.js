@@ -4,6 +4,7 @@ import confetti from "https://esm.sh/canvas-confetti@1";
 import { getCookie } from "@jsModules/utilities/utilities.js";
 import Form from "./Form.js";
 import FormConfigs from "./FormConfigs.js";
+import Collapsify from "@terrahq/collapsify";
 
 class Quiz {
 
