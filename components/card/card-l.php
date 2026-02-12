@@ -1,8 +1,33 @@
 <a class="c--card-l <?= $modifierClass ? "c--card-l--$modifierClass" : "" ?>" href="<?= $card['permalink'] ?>" <?php echo $card['target'] ?> >
     <?php if (isset($modifierClass) && $modifierClass === "third") : ?>
-        <img src="<?php bloginfo('template_url'); ?>/img/bg/card-l-bg.webp" 
-            class="c--card-l__bg-items" 
-        >
+        <figure>
+            <?php
+                $image_tag_args = array(
+                    'image' => array( 
+                        'url' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                        'width'  => 1181,
+                        'height' => 574,
+                        'sizes' => array(
+                            'thumbnail' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                            'small' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                            'medium' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                            'large' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                            'tablets' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                            'mobile' => get_theme_file_uri('/img/bg/card-l-bg.webp'),
+                        )
+                    ),
+                    'sizes' => 'large',
+                    'class' => 'c--card-l__bg-items',
+                    'isLazy' => true,
+                    'showAspectRatio' => true,
+                    'decodingAsync' => true,
+                    'fetchPriority' => false,
+                    'addFigcaption' => false,
+                );
+
+                generate_image_tag($image_tag_args);
+            ?>
+        </figure>
     <?php endif; ?>
     <div class="c--card-l__wrapper">
         <span class="c--card-l__wrapper__subtitle">

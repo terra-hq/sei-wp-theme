@@ -15,7 +15,33 @@ $scroll_to_form_title = $module['scroll_to_form_title'];
             <div class="f--col-12">
                 <div class="g--cta-02 <?= !$full_width ? 'g--cta-02--second' : '' ?>">
                     <?php if (!$bg_image) { ?>
-                        <img src="<?php bloginfo('template_url'); ?>/img/bg/cta-d-bg-v2.webp" data-src="<?php bloginfo('template_url'); ?>/img/bg/cta-d-bg-v2.webp" alt="background shape texture" class="g--cta-02__bg-items g--lazy-01" decoding="async" width="1000" height="500" style="aspect-ratio: 1000 / 500" />
+                    <?php
+                        $image_tag_args = array(
+                            'image' => array( 
+                                'url' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                'width'  => 1000,
+                                'height' => 500,
+                                'sizes' => array(
+                                    'thumbnail' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                    'small' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                    'medium' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                    'large' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                    'tablets' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                    'mobile' => get_theme_file_uri('/img/bg/cta-d-bg-v2.webp'),
+                                )
+                            ),
+                            'sizes' => 'large',
+                            'class' => 'g--cta-02__bg-items',
+                            'isLazy' => true,
+                            'lazyClass' => 'g--lazy-01',
+                            'showAspectRatio' => true,
+                            'decodingAsync' => true,
+                            'fetchPriority' => false,
+                            'addFigcaption' => false,
+                        );
+
+                        generate_image_tag($image_tag_args);
+                    ?>
                     <?php } elseif(isset($bg_image) && $bg_image) { ?>
                         <?php $image_tag_args = array(
                                 'image' => $bg_image,

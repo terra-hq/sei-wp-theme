@@ -52,12 +52,66 @@
         <div class="c--card-c__wrapper__ft">
             <?php if(get_field('linkedin_link', $person->ID)): ?>
             <a href="<?php echo get_field('linkedin_link', $person->ID) ?>" target="_blank" rel="noopener nofollow" class="c--card-c__wrapper__ft__link">
-                <img src="<?php bloginfo('template_url'); ?>/img/linkedin.svg" class="c--card-c__wrapper__ft__link__icon">
+                <figure>
+                    <?php
+                        $image_tag_args = array(
+                            'image' => array( 
+                                'url' => get_theme_file_uri('/img/linkedin.svg'),
+                                'width'  => 312,
+                                'height' => 301,
+                                'sizes' => array(
+                                    'thumbnail' => get_theme_file_uri('/img/linkedin.svg'),
+                                    'small' => get_theme_file_uri('/img/linkedin.svg'),
+                                    'medium' => get_theme_file_uri('/img/linkedin.svg'),
+                                    'large' => get_theme_file_uri('/img/linkedin.svg'),
+                                    'tablets' => get_theme_file_uri('/img/linkedin.svg'),
+                                    'mobile' => get_theme_file_uri('/img/linkedin.svg'),
+                                )
+                            ),
+                            'sizes' => 'small',
+                            'class' => 'c--card-c__wrapper__ft__link__icon',
+                            'isLazy' => true,
+                            'showAspectRatio' => true,
+                            'decodingAsync' => true,
+                            'fetchPriority' => false,
+                            'addFigcaption' => false,
+                        );
+
+                        generate_image_tag($image_tag_args);
+                    ?>
+                </figure>
             </a>
             <?php endif; ?>
             <?php if(get_field('email', $person->ID)): ?>
             <a href="mailto:<?php echo get_field('email', $person->ID) ?>" class="c--card-c__wrapper__ft__link">
-                <img src="<?php bloginfo('template_url'); ?>/img/envelope.svg" class="c--card-c__wrapper__ft__link__icon">
+                <figure>
+                    <?php
+                        $image_tag_args = array(
+                            'image' => array( 
+                                'url' => get_theme_file_uri('/img/envelope.svg'),
+                                'width'  => 312,
+                                'height' => 301,
+                                'sizes' => array(
+                                    'thumbnail' => get_theme_file_uri('/img/envelope.svg'),
+                                    'small' => get_theme_file_uri('/img/envelope.svg'),
+                                    'medium' => get_theme_file_uri('/img/envelope.svg'),
+                                    'large' => get_theme_file_uri('/img/envelope.svg'),
+                                    'tablets' => get_theme_file_uri('/img/envelope.svg'),
+                                    'mobile' => get_theme_file_uri('/img/envelope.svg'),
+                                )
+                            ),
+                            'sizes' => 'small',
+                            'class' => 'c--card-c__wrapper__ft__link__icon',
+                            'isLazy' => true,
+                            'showAspectRatio' => true,
+                            'decodingAsync' => true,
+                            'fetchPriority' => false,
+                            'addFigcaption' => false,
+                        );
+
+                        generate_image_tag($image_tag_args);
+                    ?>
+                </figure>
             </a>
             <?php endif; ?>
 

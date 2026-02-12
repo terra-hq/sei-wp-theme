@@ -4,6 +4,7 @@ import SwupDebugPlugin from "@swup/debug-plugin";
 import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 import SwupFormsPlugin from "@swup/forms-plugin";
+import SwupScrollPlugin from '@swup/scroll-plugin';
 import mitt from "mitt"
 
 import { createTransitionOptions } from "@jsMotion/transition/index";
@@ -18,7 +19,18 @@ class Core {
     this.form7 = payload.form7.enable;
     this.emitter = mitt();
     this.instances = [];
-    const commonPlugins = [new SwupHeadPlugin({ persistAssets: true }), ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []), new SwupJsPlugin(createTransitionOptions({ boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop }))];
+    const commonPlugins = [
+      new SwupHeadPlugin({ persistAssets: true }), 
+      ...(this.terraDebug ? [new SwupDebugPlugin({ globalInstance: true })] : []), 
+      new SwupJsPlugin(createTransitionOptions({ boostify: this.boostify, forceScroll: payload.swup.transition.forceScrollTop })),
+      new SwupScrollPlugin({ 
+        animateScroll: {
+          betweenPages: false,
+          samePageWithHash: true,
+          samePage: true
+        }
+      })
+    ];
     const virtualPlugins = [...commonPlugins, new SwupScriptsPlugin({ head: true, body: true })];
 
     this.swup = new Swup({
