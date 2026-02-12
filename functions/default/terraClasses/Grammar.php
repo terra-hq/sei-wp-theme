@@ -1,5 +1,4 @@
 <?php
-define('SPLING_API_KEY', '2f30596290a6962ccaa91e9d015cfdd7cd217d36ecc5452fb51d6efd2254b7e4');
 /**
  * Grammar Class
  *
@@ -79,40 +78,8 @@ class Grammar {
         // Hook for posts/pages/CPTs
         add_action('transition_post_status', [$this, 'on_post_publish'], 10, 3);
 
-        // Hooks for taxonomies
-        add_action('created_term', [$this, 'on_term_save'], 10, 3);
-        add_action('edited_term', [$this, 'on_term_save'], 10, 3);
     }
 
-    /**
-     * Triggered when a term is created or edited.
-     *
-     * @param int $term_id Term ID.
-     * @param int $tt_id Term taxonomy ID.
-     * @param string $taxonomy Taxonomy slug.
-     */
-    public function on_term_save(int $term_id, int $tt_id, string $taxonomy): void {
-        // Check if taxonomy should be validated
-        if (!in_array($taxonomy, $this->taxonomies, true)) {
-            return;
-        }
-
-        $term = get_term($term_id, $taxonomy);
-
-        if (is_wp_error($term) || !$term) {
-            return;
-        }
-
-        $term_url = get_term_link($term);
-
-        if (is_wp_error($term_url)) {
-            error_log("Grammar: Could not get term link for term ID {$term_id}");
-            return;
-        }
-
-        // Create grammar report for taxonomy archive
-        $this->create_term_report($term, $taxonomy, $term_url);
-    }
 
     /**
      * Create a grammar report for a taxonomy term.
@@ -137,8 +104,9 @@ class Grammar {
         }
 
         if (!empty($response['uuid'])) {
-            $typo_count = $this->get_report_typo_count($response['uuid']);
-            $this->send_term_notification($term, $taxonomy, $url, $response['uuid'], $typo_count);
+            $this->send_term_notification($term, $taxonomy, $url, $response['uuid']);
+        } else {
+            error_log('Grammar: API response did not contain a UUID for term. Response: ' . wp_json_encode($response));
         }
     }
 
@@ -149,20 +117,13 @@ class Grammar {
      * @param string $taxonomy Taxonomy slug.
      * @param string $url Term URL.
      * @param string $uuid Report UUID.
-     * @param int $typo_count Number of issues found.
      */
-    protected function send_term_notification(\WP_Term $term, string $taxonomy, string $url, string $uuid, int $typo_count = 0): void {
+    protected function send_term_notification(\WP_Term $term, string $taxonomy, string $url, string $uuid): void {
         $report_url = $this->build_report_url($uuid);
 
-        $subject = sprintf(
-            '[Grammar Check] %d issue%s found in %s: %s',
-            $typo_count,
-            $typo_count !== 1 ? 's' : '',
-            $taxonomy,
-            $term->name
-        );
+        $subject = sprintf('[Grammar Check] %s: %s', $taxonomy, $term->name);
 
-        $message = $this->build_term_email_message($term, $taxonomy, $url, $report_url, $typo_count);
+        $message = $this->build_term_email_message($term, $taxonomy, $url, $report_url);
 
         foreach ($this->notify_emails as $email) {
             new MailTo((object) [
@@ -182,22 +143,14 @@ class Grammar {
      * @param string $taxonomy Taxonomy slug.
      * @param string $url Term URL.
      * @param string $report_url Spling report URL.
-     * @param int $typo_count Number of issues found.
      * @return string HTML message.
      */
-    protected function build_term_email_message(\WP_Term $term, string $taxonomy, string $url, string $report_url, int $typo_count = 0): string {
-        $issues_label = $typo_count !== 1 ? 'issues' : 'issue';
-        $issues_color = $typo_count > 0 ? '#e74c3c' : '#27ae60';
-
+    protected function build_term_email_message(\WP_Term $term, string $taxonomy, string $url, string $report_url): string {
         return "
         <html>
         <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
             <h2>Grammar Check Report - Taxonomy</h2>
             <p>A grammar and spelling check has been completed for the following taxonomy term:</p>
-
-            <p style='font-size: 24px; font-weight: bold; color: {$issues_color}; margin: 16px 0;'>
-                {$typo_count} {$issues_label} found
-            </p>
 
             <table style='border-collapse: collapse; margin: 20px 0;'>
                 <tr>
@@ -249,6 +202,8 @@ class Grammar {
             return;
         }
 
+        error_log("Grammar: Post publish detected - '{$post->post_title}' (type: {$post->post_type}, status: {$new_status})");
+
         // Get the post URL
         $post_url = get_permalink($post->ID);
 
@@ -283,8 +238,9 @@ class Grammar {
         }
 
         if (!empty($response['uuid'])) {
-            $typo_count = $this->get_report_typo_count($response['uuid']);
-            $this->send_notification($post, $url, $response['uuid'], $typo_count);
+            $this->send_notification($post, $url, $response['uuid']);
+        } else {
+            error_log('Grammar: API response did not contain a UUID. Response: ' . wp_json_encode($response));
         }
     }
 
@@ -302,29 +258,6 @@ class Grammar {
                 'Content-Type' => 'application/json',
             ],
             'body' => wp_json_encode($body),
-            'timeout' => 30,
-        ]);
-
-        return $this->parse_api_response($response);
-    }
-
-    /**
-     * Make a GET request to the Spling API.
-     *
-     * @param string $endpoint API endpoint (without base URL).
-     * @param array $query Query parameters.
-     * @return array|WP_Error Response data or error.
-     */
-    protected function api_get(string $endpoint, array $query = []): array|\WP_Error {
-        $url = self::API_BASE_URL . '/' . $endpoint;
-        if (!empty($query)) {
-            $url .= '?' . http_build_query($query);
-        }
-
-        $response = wp_remote_get($url, [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
             'timeout' => 30,
         ]);
 
@@ -357,41 +290,18 @@ class Grammar {
     }
 
     /**
-     * Get the report detail including typo count.
-     *
-     * @param string $uuid Report UUID.
-     * @return int Number of issues found, 0 if unavailable.
-     */
-    protected function get_report_typo_count(string $uuid): int {
-        $detail = $this->api_get('get_report_card_detail', ['uuid' => $uuid]);
-
-        if (is_wp_error($detail)) {
-            error_log('Grammar: Could not fetch report detail - ' . $detail->get_error_message());
-            return 0;
-        }
-
-        return (int) ($detail['typo_count'] ?? 0);
-    }
-
-    /**
      * Send email notification with the report link.
      *
      * @param WP_Post $post Post object.
      * @param string $url Checked URL.
      * @param string $uuid Report UUID.
-     * @param int $typo_count Number of issues found.
      */
-    protected function send_notification(\WP_Post $post, string $url, string $uuid, int $typo_count = 0): void {
+    protected function send_notification(\WP_Post $post, string $url, string $uuid): void {
         $report_url = $this->build_report_url($uuid);
 
-        $subject = sprintf(
-            '[Grammar Check] %d issue%s found in: %s',
-            $typo_count,
-            $typo_count !== 1 ? 's' : '',
-            $post->post_title
-        );
+        $subject = sprintf('[Grammar Check] %s', $post->post_title);
 
-        $message = $this->build_email_message($post, $url, $report_url, $typo_count);
+        $message = $this->build_email_message($post, $url, $report_url);
 
         foreach ($this->notify_emails as $email) {
             new MailTo((object) [
@@ -410,22 +320,14 @@ class Grammar {
      * @param WP_Post $post Post object.
      * @param string $url Checked URL.
      * @param string $report_url Spling report URL.
-     * @param int $typo_count Number of issues found.
      * @return string HTML message.
      */
-    protected function build_email_message(\WP_Post $post, string $url, string $report_url, int $typo_count = 0): string {
-        $issues_label = $typo_count !== 1 ? 'issues' : 'issue';
-        $issues_color = $typo_count > 0 ? '#e74c3c' : '#27ae60';
-
+    protected function build_email_message(\WP_Post $post, string $url, string $report_url): string {
         return "
         <html>
         <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
             <h2>Grammar Check Report</h2>
             <p>A grammar and spelling check has been completed for the following content:</p>
-
-            <p style='font-size: 24px; font-weight: bold; color: {$issues_color}; margin: 16px 0;'>
-                {$typo_count} {$issues_label} found
-            </p>
 
             <table style='border-collapse: collapse; margin: 20px 0;'>
                 <tr>
@@ -462,60 +364,4 @@ class Grammar {
         ";
     }
 
-    /**
-     * Manually check a URL (for testing or manual triggers).
-     *
-     * @param string $url URL to check.
-     * @param array|null $emails Override notification emails.
-     * @return array|WP_Error API response or error.
-     */
-    public function check_url(string $url, ?array $emails = null): array|\WP_Error {
-        $response = $this->api_request('create_report', [
-            'website' => home_url(),
-            'pages' => [$url],
-            'num_unselected_pages' => 0,
-            'config' => [
-                'preferredLanguage' => $this->language
-            ]
-        ]);
-
-        if (!is_wp_error($response) && !empty($response['uuid'])) {
-            $send_to = $emails ?? $this->notify_emails;
-            $typo_count = $this->get_report_typo_count($response['uuid']);
-            $issues_label = $typo_count !== 1 ? 'issues' : 'issue';
-            $issues_color = $typo_count > 0 ? '#e74c3c' : '#27ae60';
-
-            $report_url = $this->build_report_url($response['uuid']);
-            $subject = sprintf('[Grammar Check] %d %s found in: %s', $typo_count, $issues_label, $url);
-            $message = "
-            <html>
-            <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
-                <h2>Grammar Check Report - Manual</h2>
-                <p>A manual grammar check has been requested for:</p>
-                <p><a href='{$url}'>{$url}</a></p>
-                <p style='font-size: 24px; font-weight: bold; color: {$issues_color}; margin: 16px 0;'>
-                    {$typo_count} {$issues_label} found
-                </p>
-                <p style='margin: 20px 0;'>
-                    <a href='{$report_url}'
-                       style='background-color: #0073aa; color: white; padding: 12px 24px;
-                              text-decoration: none; border-radius: 4px; display: inline-block;'>
-                        View Full Report
-                    </a>
-                </p>
-            </body>
-            </html>
-            ";
-
-            foreach ($send_to as $email) {
-                new MailTo((object) [
-                    'email' => $email,
-                    'subject' => $subject,
-                    'message' => $message,
-                ]);
-            }
-        }
-
-        return $response;
-    }
 }
