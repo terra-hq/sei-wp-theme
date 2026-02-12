@@ -1,6 +1,5 @@
 import { tns } from "/node_modules/tiny-slider/src/tiny-slider.js";
 import { digElement } from "@terrahq/helpers/digElement";
-import gsap from "gsap";
 
 class Slider {
     constructor(payload) {
@@ -8,6 +7,8 @@ class Slider {
             slider: payload.slider,
             navcontainer: payload.navcontainer,
         };
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
         this.config = payload.config;
         this.windowName = payload.windowName;
         this.index = payload.index;
@@ -20,7 +21,7 @@ class Slider {
         this.config.container = this.DOM.slider;
         this.config.navContainer = this.DOM.navcontainer;
         this.slider = tns(this.config);
-        gsap.to(this.DOM.slider, { opacity: 1, duration: 0.5, ease: "power4.in"});
+        this.gsap.to(this.DOM.slider, { opacity: 1, duration: 0.5, ease: "power4.in"});
     }
 
     isReady = async () => {

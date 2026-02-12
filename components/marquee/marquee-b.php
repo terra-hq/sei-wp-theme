@@ -11,7 +11,7 @@ $marquee_text = $module['marquee_text'];
                     class="c--marquee-b__list-group js--marquee-b js--scroll-to"
                     data-speed="1"
                     data-controls-on-hover="false"
-                    data-reversed="0">
+                    data-reversed="false">
                 <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="c--marquee-b__list-group__list-item">
                         <figure>

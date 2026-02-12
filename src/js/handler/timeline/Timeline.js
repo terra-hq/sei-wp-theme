@@ -1,11 +1,11 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
 class Timeline {
     constructor(payload) {
         this.DOM = {
             timeline: payload.element,
         };
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
+        this.ScrollTrigger = this.Manager.getLibrary("ScrollTrigger");
 
 
         this.endElement = this.DOM.timeline.lastElementChild;
@@ -39,9 +39,9 @@ class Timeline {
 
     //Animation loading timeline bar
     loadingBar() {
-        gsap.registerPlugin(ScrollTrigger);
+        this.gsap.registerPlugin(this.ScrollTrigger);
 
-        this.loadingBarItem = gsap.timeline({
+        this.loadingBarItem = this.gsap.timeline({
             scrollTrigger: {
                 trigger: this.DOM.timeline,
                 start: "+=30 center",
@@ -65,7 +65,7 @@ class Timeline {
     //Animation loading timeline items
     loadingItems() {
         for (const child of this.DOM.timeline.children) {
-            this.loadingItem = gsap.timeline({
+            this.loadingItem = this.gsap.timeline({
                 scrollTrigger: {
                     trigger: child,
                     start: "10% center",
@@ -84,9 +84,9 @@ class Timeline {
     destroy() {
         this.loadingBarItem.scrollTrigger.kill();
         this.loadingItem.scrollTrigger.kill();
-        gsap.killTweensOf(this.loadingBarItem);
-        gsap.killTweensOf(this.loadingItem);
-        ScrollTrigger.getAll().forEach(st => {
+        this.gsap.killTweensOf(this.loadingBarItem);
+        this.gsap.killTweensOf(this.loadingItem);
+        this.ScrollTrigger.getAll().forEach(st => {
             if (st.vars.trigger === this.timeline) {
                 st.kill();
             }

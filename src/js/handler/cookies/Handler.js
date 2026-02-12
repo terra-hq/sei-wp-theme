@@ -1,11 +1,12 @@
-class Handler {
+import CoreHandler from "../CoreHandler";
+
+class Handler extends CoreHandler {
     constructor(payload) {
-        var { emitter, instances, boostify, terraDebug, libManager } = payload;
-        this.boostify = boostify;
-        this.emitter = emitter;
-        this.instances = instances;
-        this.terraDebug = terraDebug;
-        this.libManager = libManager;
+        super(payload);
+
+        this.config = ({element}) => ({
+            cookieContainer: element,
+        });
 
         this.init();
         this.events();
@@ -13,36 +14,32 @@ class Handler {
 
     get updateTheDOM() {
         return {
-            cookieContainer: document.querySelector(".js--inyect-cookie"),
+            cookieContainer: document.querySelectorAll(`.js--inyect-cookie`),
         };
     }
 
-    init() {}
-
-    initializeSetCookies() {
-        const SetCookies = window['lib']['SetCookies'];
-        this.instances["SetCookies"] = new SetCookies({
-            cookieContainer: this.DOM.cookieContainer,
-        });
+    init() {
+        super.getLibraryName("SetCookies");
     }
 
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
-            if (this.DOM.cookieContainer) {
-                if (!window['lib']['SetCookies']) {
-                    const { default: SetCookies } = await import("@jsHandler/cookies/SetCookies");
-                    window['lib']['SetCookies'] = SetCookies;
-                }
-                this.initializeSetCookies();
-            }
+
+            super.assignInstances({
+                elementGroups: [
+                    {
+                        elements: this.DOM.cookieContainer,
+                        config: this.config,
+                    },
+                ],
+            });
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
-            if (this.instances["SetCookies"]?.destroy) {
-                this.instances["SetCookies"].destroy();
+            if (this.DOM?.cookieContainer?.length) {
+                super.destroyInstances();
             }
-            this.instances["SetCookies"] = null;
         });
     }
 }

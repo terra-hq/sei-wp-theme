@@ -1,8 +1,7 @@
-import gsap from "gsap";
-
 // hide dropdown utility to hide it when user exits current page
-export const hideDropdown = () => {
-  let tl = gsap.timeline();
+export const hideDropdown = (payload) => {
+  const gsap = payload.Manager.getLibrary("GSAP").gsap; // ✅
+  const tl = gsap.timeline();
 
   tl.to(".js--dropdown", {
     maxHeight: 0,
@@ -41,8 +40,8 @@ export const hideDropdown = () => {
 };
 
 // hide sidenav utility to hide it when user exits current page
-export const hideSidenav = () => {
-  let tl = gsap.timeline();
+export const hideSidenav = (payload) => {
+  let tl = this.gsap.timeline();
   tl.to(".c--sidenav-a", {
     right: "-200%",
     duration: 1.2,
@@ -56,7 +55,7 @@ export const hideSidenav = () => {
       ease: "power2.in",
       onComplete: () => {
         const activeBurger = document.querySelector('.c--sidenav-a--is-active');
-        gsap.set(".c--overlay-a", { display: "none" }); // Set display to none after fading out
+        this.gsap.set(".c--overlay-a", { display: "none" }); // Set display to none after fading out
         if (activeBurger) {
           activeBurger.classList.remove('c--sidenav-a--is-active');
           //console.log('Active class removed from sidenav');
@@ -90,7 +89,7 @@ export const checkItems = async (payload) => {
 };
 
 
-export function smoothScrollToTop() {
+export function smoothScrollToTop(payload) {
   return new Promise((resolve) => {
     const scrollStep = () => {
       if (window.scrollY === 0) {

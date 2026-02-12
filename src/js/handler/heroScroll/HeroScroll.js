@@ -1,12 +1,11 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-
 class HeroScroll {
     constructor(payload) {
         this.DOM = {
             element: payload.element,
+            
         };
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
 
         if (this.DOM.element) {
             this.init();
@@ -15,7 +14,7 @@ class HeroScroll {
 
     init() {
 
-        this.tl = gsap.to(this.DOM.element, {
+        this.tl = this.gsap.to(this.DOM.element, {
             duration: 3,
             clipPath: 'circle(100% at 50% 50%)',
             scrollTrigger: {
