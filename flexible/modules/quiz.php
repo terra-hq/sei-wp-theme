@@ -9,14 +9,14 @@ $letsTalk = $module['lets_talk_about_your_needs'];
 $submit = $module['submit'];
 $thankYou = $module['thank_you'];
 $thankYouText = $module['thank_you_text'];
-$sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0' //u--pt-30 u--pb-22 u--pt-mobile-2 u--pb-mobile-0
+$sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 u--pt-tablets-2 u--pb-tablets-0' //u--pt-30 u--pb-22 u--pt-tablets-2 u--pb-tablets-0
 
 ?>
 <section class="js--quiz-a u <?= $sectionSpacing ?>">
     <?php load_template(locate_template('flexible/modules/webgl-gradient-canvas.php', false, false)); ?>
-    <div class="f--container f--container--mobile-fluid">
+    <div class="f--container f--container--tablets-fluid">
         <div class="f--row u--justify-content-center">
-            <div class="f--col-4 f--col-desktop-5 f--col-tabletl-7 f--col-tabletm-10 f--col-tablets-12 u--pl-mobile-0 u--pr-mobile-0">
+            <div class="f--col-4 f--col-wide-5 f--col-laptop-7 f--col-tabletl-10 f--col-tabletm-12 u--pl-tablets-0 u--pr-tablets-0">
 
                 <form class="c--quiz-a hs-form" action="#" method="post" novalidate>
 

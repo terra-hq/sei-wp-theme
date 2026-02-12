@@ -12,12 +12,12 @@ $hero = [
 ]; ?>
 <?php include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false)); ?>
 
-<section class="u--pb-22 u--pb-tablets-15 js--load-all-jobs">
+<section class="u--pb-22 u--pb-tabletm-15 js--load-all-jobs">
     <div class="f--container">
-        <div class="f--row u--justify-content-space-between u--justify-content-tablets-center f--gap-b">
-            <div class="f--col-6 f--col-tabletm-7 f--col-tablets-12">
+        <div class="f--row u--justify-content-space-between u--justify-content-tabletm-center f--gap-b">
+            <div class="f--col-6 f--col-tabletl-7 f--col-tabletm-12">
                 <div class="f--row f--sp-b f--gap-d">
-                    <div class="f--col-6 f--col-mobile-12">
+                    <div class="f--col-6 f--col-tablets-12">
                         <div class="c--filter-a c--filter-a--second">
                             <div class="c--filter-a__item">
                                 <select name="js--filter-pratice-areas" id="js--filter-pratice-areas" onchange="this.dataset.chosen = this.value;" data-chosen="all">
@@ -27,7 +27,7 @@ $hero = [
                             </div>
                         </div>
                     </div>
-                    <div class="f--col-6 f--col-mobile-12">
+                    <div class="f--col-6 f--col-tablets-12">
                         <div class="c--filter-a c--filter-a--second">
                             <div class="c--filter-a__item">
                                 <select name="js--filter-locations" id="js--filter-locations" onchange="this.dataset.chosen = this.value;" data-chosen="all">
@@ -47,7 +47,7 @@ $hero = [
                     <p class="g--message-01__item-primary">Loading...</p>
                 </div>
             </div>
-            <div class="f--col-5 f--col-tablets-10 f--col-mobile-12">
+            <div class="f--col-5 f--col-tabletm-10 f--col-tablets-12">
                 <div class="c--media-c">
                     <?php
                     if (get_field('background_image')) :

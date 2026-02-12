@@ -4,100 +4,100 @@
 const spacingOptions = {
   "bottom-small": {
     value: "j",
-    css: "u--pb-7 u--pb-tablets-4",
+    css: "u--pb-7 u--pb-tabletm-4",
   },
   "bottom-medium": {
     value: "i",
-    css: "u--pb-10 u--pb-tablets-7",
+    css: "u--pb-10 u--pb-tabletm-7",
   },
   "bottom-large": {
     value: "h",
-    css: "u--pb-15 u--pb-tablets-10",
+    css: "u--pb-15 u--pb-tabletm-10",
   },
   "bottom-extra-large": {
     value: "b-xl",
-    css: "u--pb-22 u--pb-tablets-15",
+    css: "u--pb-22 u--pb-tabletm-15",
   },
   "top-small": {
     value: "g",
-    css: "u--pt-7 u--pt-tablets-4",
+    css: "u--pt-7 u--pt-tabletm-4",
   },
   "top-medium": {
     value: "f",
-    css: "u--pt-10 u--pt-tablets-7",
+    css: "u--pt-10 u--pt-tabletm-7",
   },
   "top-large": {
     value: "e",
-    css: "u--pt-15 u--pt-tablets-10",
+    css: "u--pt-15 u--pt-tabletm-10",
   },
   "top-extra-large": {
     value: "t-xl",
-    css: "u--pt-22 u--pt-tablets-15",
+    css: "u--pt-22 u--pt-tabletm-15",
   },
   // MIXED OPTIONS
   "top-small-bottom-small": {
     value: "g j",
-    css: "u--pt-7 u--pt-tablets-4 u--pb-7 u--pb-tablets-4",
+    css: "u--pt-7 u--pt-tabletm-4 u--pb-7 u--pb-tabletm-4",
   },
   "top-small-bottom-medium": {
     value: "g i",
-    css: "u--pt-7 u--pt-tablets-4 u--pb-10 u--pb-tablets-7",
+    css: "u--pt-7 u--pt-tabletm-4 u--pb-10 u--pb-tabletm-7",
   },
   "top-small-bottom-large": {
     value: "g h",
-    css: "u--pt-7 u--pt-tablets-4 u--pb-15 u--pb-tablets-10",
+    css: "u--pt-7 u--pt-tabletm-4 u--pb-15 u--pb-tabletm-10",
   },
   "top-small-bottom-extra-large": {
     value: "g t-xl",
-    css: "u--pt-7 u--pt-tablets-4 u--pb-22 u--pb-tablets-15",
+    css: "u--pt-7 u--pt-tabletm-4 u--pb-22 u--pb-tabletm-15",
   },
   "top-medium-bottom-small": {
     value: "f j",
-    css: "u--pt-10 u--pt-tablets-7 u--pb-7 u--pb-tablets-4",
+    css: "u--pt-10 u--pt-tabletm-7 u--pb-7 u--pb-tabletm-4",
   },
   "top-medium-bottom-medium": {
     value: "f i",
-    css: "u--pt-10 u--pt-tablets-7 u--pb-10 u--pb-tablets-7",
+    css: "u--pt-10 u--pt-tabletm-7 u--pb-10 u--pb-tabletm-7",
   },
   "top-medium-bottom-large": {
     value: "f h",
-    css: "u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10",
+    css: "u--pt-10 u--pt-tabletm-7 u--pb-15 u--pb-tabletm-10",
   },
   "top-medium-bottom-extra-large": {
     value: "f t-xl",
-    css: "u--pt-10 u--pt-tablets-7 u--pb-22 u--pb-tablets-15",
+    css: "u--pt-10 u--pt-tabletm-7 u--pb-22 u--pb-tabletm-15",
   },
   "top-large-bottom-small": {
     value: "e j",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-7 u--pb-tablets-4",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-7 u--pb-tabletm-4",
   },
   "top-large-bottom-medium": {
     value: "e i",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-10 u--pb-tablets-7",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-10 u--pb-tabletm-7",
   },
   "top-large-bottom-large": {
     value: "e h",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-15 u--pb-tabletm-10",
   },
   "top-large-bottom-extra-large": {
     value: "e t-xl",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-22 u--pb-tablets-15",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-22 u--pb-tabletm-15",
   },
   "top-extra-large-bottom-small": {
     value: "t-xl j",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-7 u--pb-tablets-4",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-7 u--pb-tabletm-4",
   },
   "top-extra-large-bottom-medium": {
     value: "t-xl i",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-10 u--pb-tablets-7",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-10 u--pb-tabletm-7",
   },
   "top-extra-large-bottom-large": {
     value: "t-xl h",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-15 u--pb-tabletm-10",
   },
   "top-extra-large-bottom-extra-large": {
     value: "t-xl b-xl",
-    css: "u--pt-15 u--pt-tablets-10 u--pb-22 u--pb-tablets-15",
+    css: "u--pt-15 u--pt-tabletm-10 u--pb-22 u--pb-tabletm-15",
   },
 };
 

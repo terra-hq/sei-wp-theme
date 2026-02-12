@@ -10,7 +10,7 @@
     @extend .u--align-items-center;
     gap: $measure*4;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
 
         gap: $measure*3;
         flex-direction: column;
@@ -18,7 +18,7 @@
     }
 
     &__item {
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             position: relative;
         }
 
@@ -27,7 +27,7 @@
             @extend .u--font-semibold;
             @extend .g--link-01;
 
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 @include make-font-h();
             }
         }

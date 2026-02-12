@@ -8,11 +8,11 @@
     margin-left: auto;
     margin-bottom: $measure * 8;
 
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
         max-width: 80%;
     }
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         max-width: 95%;
     }
 
@@ -64,11 +64,11 @@
             opacity: var(--opacity-value, 0.3);
             max-width: 640px;
 
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 margin-left: $measure * 10;
             }
 
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 margin-left: $measure * 5;
                 margin-top: $measure * 5;
             }

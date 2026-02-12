@@ -3,7 +3,7 @@
 <section class="<?= get_spacing($module['section_spacing']) ?> <?= $module['bg_color'] ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-center">
-            <div class="f--col-8 f--col-tabletm-10 f--col-tablets-12">
+            <div class="f--col-8 f--col-tabletl-10 f--col-tabletm-12">
                 <?php foreach($module['accordion_items'] as $key => $accItem): ?>
                 <div class="g--accordion-02 <?= $modifier ?> js--accordion-02">
                     <button class="g--accordion-02__hd" type="button" data-accordion02-control="acc-0<?= $key?>-<?= $keyIndexModule ?>" aria-expanded="false">

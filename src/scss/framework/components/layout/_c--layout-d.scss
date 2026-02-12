@@ -5,7 +5,7 @@
 
 .c--layout-d {
     &__hd {
-         @extend .u--pb-tabletm-4;
+         @extend .u--pb-tabletl-4;
         &__title {
             @extend .f--font-i;
             @extend .f--color-c;
@@ -18,7 +18,7 @@
     }
 
     &__ft {
-        @extend .u--pb-tabletm-4;
+        @extend .u--pb-tabletl-4;
         &__content {
             @extend .f--font-g;
             @extend .u--font-light;
@@ -31,14 +31,14 @@
         height: 100%;
         position: relative;
         min-height: 521px;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
            min-height: unset;
         }
 
         &__media {
              height: 100%;
             object-fit: cover;
-                @media all and ($viewport-type: $mobile) {
+                @media all and ($viewport-type: $tablets) {
                  height: unset;
                 }
         }

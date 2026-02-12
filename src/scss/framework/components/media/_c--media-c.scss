@@ -27,16 +27,16 @@
         backdrop-filter: blur(6px);
         padding: $measure*7 $measure*4 $measure*2;
         font-size: 1rem;
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $laptop) {
             padding: $measure*5 $measure*2 $measure*5;
         }
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             font-size: .75rem;
         }
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             font-size: 1rem;
         }
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             font-size: .86rem;
         }
         &__item-left {
@@ -92,13 +92,13 @@
         &__item-right {
             width: 60%;
             padding-left: $measure*2;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 padding-left: 0;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding-left: $measure*2;
             }
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 padding-left: 0;
             }
             &__item {

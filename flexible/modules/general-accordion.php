@@ -23,12 +23,12 @@
                             </div>
                             <div class="c--accordion-a__item__wrapper">
                                 <div class="c--accordion-a__item__wrapper__content">
-                                    <div class="f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6 u--p-mobile-4">
+                                    <div class="f--background-g u--pt-7 u--pb-7 u--pl-6 u--pr-6 u--p-tablets-4">
                                         <div class="f--row f--gap-b">
                                             <div class="f--col-12">
                                                 <h4 class="f--font-e f--color-a"><?= $card_title ?></h4>
                                             </div>
-                                            <div class="f--col-6 f--col-tabletm-12">
+                                            <div class="f--col-6 f--col-tabletl-12">
                                                 <?php if ($left_label_accordion): ?>
                                                     <div class="f--font-i f--color-a u--font-bold u--mb-2">
                                                         <?= $left_label_accordion ?>
@@ -40,7 +40,7 @@
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
-                                            <div class="f--col-6 f--col-tabletm-12">
+                                            <div class="f--col-6 f--col-tabletl-12">
                                                 <?php if ($right_label_accordion): ?>
                                                     <div class="f--font-i f--color-a u--font-bold u--mb-2">
                                                         <?= $right_label_accordion ?>

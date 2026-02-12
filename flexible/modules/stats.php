@@ -5,11 +5,11 @@ if ($stats) : ?>
             <div class="f--row f--gap-b u--justify-content-space-between">
                 <?php foreach ($stats as $key => $eachStat) : ?>
                     <?php if (($key % 2) == 0) {
-                                $customClass = 'f--offset-4 f--offset-tabletm-0';
+                                $customClass = 'f--offset-4 f--offset-tabletl-0';
                             } else {
                                 $customClass = '';
                             } ?>
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 <?php echo $customClass ?> u--display-flex">
+                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 <?php echo $customClass ?> u--display-flex">
                         <?php include(locate_template('components/card/card-d.php', false, false)); ?>
                     </div>
                 <?php endforeach; ?>

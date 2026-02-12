@@ -133,34 +133,34 @@ function save_lighthouse_information(){
     global $terraLighthouse;
     $url = $terraLighthouse->url;
 
-    $mobileReportP = get_lighthouse_report($url, 'MOBILE','PERFORMANCE');
-    $desktopReportP = get_lighthouse_report($url, 'DESKTOP', 'PERFORMANCE');
+    $tabletsReportP = get_lighthouse_report($url, 'MOBILE','PERFORMANCE');
+    $wideReportP = get_lighthouse_report($url, 'DESKTOP', 'PERFORMANCE');
 
-    $mobileReportA = get_lighthouse_report($url, 'MOBILE','ACCESSIBILITY');
-    $desktopReportA = get_lighthouse_report($url, 'DESKTOP', 'ACCESSIBILITY');
+    $tabletsReportA = get_lighthouse_report($url, 'MOBILE','ACCESSIBILITY');
+    $wideReportA = get_lighthouse_report($url, 'DESKTOP', 'ACCESSIBILITY');
 
-    $mobileReportB = get_lighthouse_report($url, 'MOBILE','BEST_PRACTICES');
-    $desktopReportB = get_lighthouse_report($url, 'DESKTOP', 'BEST_PRACTICES');
+    $tabletsReportB = get_lighthouse_report($url, 'MOBILE','BEST_PRACTICES');
+    $wideReportB = get_lighthouse_report($url, 'DESKTOP', 'BEST_PRACTICES');
 
-    $mobileReportS = get_lighthouse_report($url, 'MOBILE','SEO');
-    $desktopReportS = get_lighthouse_report($url, 'DESKTOP', 'SEO');
+    $tabletsReportS = get_lighthouse_report($url, 'MOBILE','SEO');
+    $wideReportS = get_lighthouse_report($url, 'DESKTOP', 'SEO');
 
     $tableName = $wpdb->prefix . 'lighthouse';
 
     $wpdb->insert(
         $tableName, //Table name
         array(
-            'mobile_performance' => $mobileReportP['performance']['score'] * 100,
-            'desktop_performance'  => $desktopReportP['performance']['score'] * 100,
+            'mobile_performance' => $tabletsReportP['performance']['score'] * 100,
+            'desktop_performance'  => $wideReportP['performance']['score'] * 100,
 
-            'mobile_accessibility' => $mobileReportA['accessibility']['score'] * 100,
-            'desktop_accessibility'  => $desktopReportA['accessibility']['score'] * 100,
+            'mobile_accessibility' => $tabletsReportA['accessibility']['score'] * 100,
+            'desktop_accessibility'  => $wideReportA['accessibility']['score'] * 100,
 
-            'mobile_best_practice' => $mobileReportB['best-practices']['score'] * 100,
-            'desktop_best_practice'  => $desktopReportB['best-practices']['score'] * 100,
+            'mobile_best_practice' => $tabletsReportB['best-practices']['score'] * 100,
+            'desktop_best_practice'  => $wideReportB['best-practices']['score'] * 100,
 
-            'mobile_seo' => $mobileReportS['seo']['score'] * 100,
-            'desktop_seo'  => $desktopReportS['seo']['score'] * 100,
+            'mobile_seo' => $tabletsReportS['seo']['score'] * 100,
+            'desktop_seo'  => $wideReportS['seo']['score'] * 100,
             
             'date'  => current_time('mysql'), // Actual timestamo in  MySQL format
         ),
@@ -353,7 +353,7 @@ function send_notification_email($message){
  * a message for the failing metrics.
  * 
  * @param int $lighthouseValue The Lighthouse score for desktop.
- * @param int $mobileValue The Lighthouse score for mobile.
+ * @param int $tabletsValue The Lighthouse score for mobile.
  * @param string $type The type of score being evaluated (e.g., Performance, Accessibility).
  * @param int $metricValue The standard or threshold value that the scores are compared against.
  * 

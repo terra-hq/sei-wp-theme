@@ -17,13 +17,13 @@
     &__subtitle {
         @extend .f--font-e;
         margin-bottom: $measure * 5;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             margin-bottom: $measure * 3;
         }
     }
     &__content {
         margin-bottom: $measure * 5;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             margin-bottom: $measure * 4;
         }
     }
@@ -31,14 +31,14 @@
         @extend .g--btn-01;
     }
     &__media-wrapper {
-        @extend .u--display-tablets-none;
+        @extend .u--display-tabletm-none;
         @extend .u--overflow-hidden;
         top: 0;
         right: 0;
         width: 40vw;
         @extend .u--height-100;;
         position: absolute !important;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             width: calc(40vw + 80px);
         }
         &__media {

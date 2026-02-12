@@ -5,12 +5,12 @@ $letter-spacing-values: (
 
 $letter-spacing-breakpoints: (
   all: $all,
-  // desktop: $desktop,
-  // laptop: $laptop,
-  // tabletl: $tabletl,
-  // tabletm: $tabletm,
   // tablets: $tablets,
-  // mobile: $mobile,
+  // tabletm: $tabletm,
+  // tabletl: $tabletl,
+  // laptop: $laptop,
+  // desktop: $desktop,
+  // wide: $wide,
 );
   
   @mixin letter-spacing-utility($letter-spacing-prop, $breakpoints) {

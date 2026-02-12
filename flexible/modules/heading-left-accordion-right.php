@@ -11,7 +11,7 @@ $modifier = 'g--accordion-02--third';
 <section class="<?= $spacing ?>">
     <div class="f--container">
         <div class="f--row f--gap-c">
-            <div class="f--col-5 f--col-tabletl-6 f--col-tabletm-12">
+            <div class="f--col-5 f--col-laptop-6 f--col-tabletl-12">
                 <div class="c--sticky-a">
                     <?php if (!empty($eyebrow)) : ?>
                         <span class="f--font-i u--font-medium u--text-uppercase f--color-c">
@@ -33,7 +33,7 @@ $modifier = 'g--accordion-02--third';
                 </div>
             </div>
 
-            <div class="f--col-6 f--col-tabletm-12 f--offset-1 f--offset-tabletl-0">
+            <div class="f--col-6 f--col-tabletl-12 f--offset-1 f--offset-laptop-0">
                 <?php if (!empty($accordion_items)) : ?>
                     <?php foreach ($accordion_items as $key => $accItem) : ?>
                         <div class="g--accordion-02 <?= $modifier ?> js--accordion-02">

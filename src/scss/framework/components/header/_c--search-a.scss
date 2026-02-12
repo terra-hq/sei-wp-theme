@@ -18,7 +18,7 @@
     padding: calc(#{$measure*8} + #{$measure*4} + 64px) calc(2.5vw + #{$measure*2}) $measure*8;
     display: none;
     z-index: -1;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         padding: calc(#{$measure*4} + 64px) calc(2.5vw + #{$measure*2}) $measure*4;
         top: 0;
     }
@@ -40,7 +40,7 @@
             height: 100%;
             right: -$measure*4;
             bottom: -$measure*16;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 content: none;
             }
         }
@@ -50,7 +50,7 @@
         z-index: 1;
         @extend .f--sp-b;
         width: 66.666%;
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             width: 100%;
         }
     }
@@ -62,7 +62,7 @@
         margin-bottom: $measure*3;
         @extend .u--position-relative;
         z-index: 1;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             width: 100%;
         }
     }
@@ -74,7 +74,7 @@
         overflow: auto;
         @extend .u--position-relative;
         z-index: 1;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             width: 100%;
             max-height: calc(100vh - #{$measure*4} - 64px - #{$measure*4} - 61px - #{$measure*5} - 22px - #{$measure*3});
         }

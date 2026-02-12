@@ -41,7 +41,7 @@
             </div>
         <?php endif; ?>
         <div class="f--row u--align-items-flex-end u--justify-content-space-between">
-            <div class="<?php echo ($customClass == 'c--hero-c--second') ? 'f--col-7 f--col-tabletl-10 f--col-mobile-12' : 'f--col-5 f--col-tabletl-10 f--col-mobile-12' ?>">
+            <div class="<?php echo ($customClass == 'c--hero-c--second') ? 'f--col-7 f--col-laptop-10 f--col-tablets-12' : 'f--col-5 f--col-laptop-10 f--col-tablets-12' ?>">
                 <?php if ($hero['subtitle_h1']){ ?>
                     <h2 class="c--hero-c__title">
                         <?php
@@ -78,7 +78,7 @@
             </div>
 
             <?php if ($description || $add_button && $button) : ?>
-            <div class="f--col-6 f--col-tabletl-10 f--col-mobile-12">
+            <div class="f--col-6 f--col-laptop-10 f--col-tablets-12">
                 <div class="f--row f--gap-c">
 
                     <?php if($description): ?>

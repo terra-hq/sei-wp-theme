@@ -43,10 +43,10 @@ $page_id = get_the_ID();
 
     if ($custom_query->have_posts()): ?>
 
-        <section class="u--pb-22 u--pb-tablets-15">
+        <section class="u--pb-22 u--pb-tabletm-15">
             <div class="f--container">
                 <div class="f--row f--gap-a">
-                    <div class="f--col-8 f--col-tabletm-12">
+                    <div class="f--col-8 f--col-tabletl-12">
                         <div class="js--news-container c--wrapper-b c--wrapper-b--third">
 
                             <?php while ($custom_query->have_posts()):
@@ -78,7 +78,7 @@ $page_id = get_the_ID();
                             </button>
                         </div>
                     </div>
-                    <div class="f--col-4 f--col-tabletm-12">
+                    <div class="f--col-4 f--col-tabletl-12">
                         <?php include(locate_template('components/card/card-j.php', false, false)); ?>
                     </div>
                 </div>

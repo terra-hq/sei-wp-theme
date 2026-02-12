@@ -8,12 +8,12 @@ $flex-direction-values:(
 
 $flex-direction-breakpoints: (
   all: $all,
-  // desktop: $desktop,
-  // laptop: $laptop,
+  // tablets: $tablets,
+  tabletm: $tabletm,
   // tabletl: $tabletl,
-  // tabletm: $tabletm,
-  tablets: $tablets,
-  // mobile: $mobile,
+  // laptop: $laptop,
+  // desktop: $desktop,
+  // wide: $wide,
 );
 
 @mixin flex-direction-utility($align-prop,$breakpoints){

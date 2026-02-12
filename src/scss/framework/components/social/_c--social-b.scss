@@ -12,7 +12,7 @@
     @extend .f--gap-f;
     height: 100%;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         margin-top: $measure * 7;
         height: unset;
     }

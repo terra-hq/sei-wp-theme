@@ -17,7 +17,7 @@
         transform: translateX(-50%);
         z-index: 0;
         clip-path: circle(650vw at 50% 650vw);
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             top: -32px;
             height: calc(32px * 2);
         }

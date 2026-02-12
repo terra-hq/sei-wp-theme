@@ -13,7 +13,7 @@ $anchor_id = $module['anchor_id'];
 <section class="c--layout-a <?= $bg_color === 'f--background-b' ? 'c--layout-a--second' : '' ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
-            <div class="f--col-6 f--col-tabletl-7 f--col-tablets-12">
+            <div class="f--col-6 f--col-laptop-7 f--col-tabletm-12">
                 <h2 class="c--layout-a__title"><?= $legend ?></h2>
                 <h3 class="c--layout-a__subtitle"><?= $title ?></h3>
                 <div class="c--layout-a__content c--content-a c--content-a--third-text">

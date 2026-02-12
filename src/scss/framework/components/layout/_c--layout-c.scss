@@ -10,15 +10,15 @@
     justify-content: start;
     justify-items: start;
 
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         grid-template-columns: repeat(2, 1fr);
     }
 }

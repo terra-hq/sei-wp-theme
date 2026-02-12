@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/global-components/btn/_g--btn-03" as *;
 
@@ -31,7 +31,7 @@
         ),
     );
 
-    @media all and ($viewport-type: $laptop) {
+    @media all and ($viewport-type: $desktop) {
         @include make-card-09-modifier(
             $card-options: (
                 "min-height": 420px,
@@ -39,7 +39,7 @@
         );
     }
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         @include make-card-09-modifier(
             $card-options: (
                 "min-height": unset,

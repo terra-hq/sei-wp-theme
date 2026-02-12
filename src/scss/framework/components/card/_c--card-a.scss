@@ -10,7 +10,7 @@
     padding: $measure*3 0;
     text-decoration: none;
     border-bottom: 1px solid map.get($color-options, k);
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure*5 0;
     }
     &__wrapper {
@@ -26,13 +26,13 @@
             margin: 0 auto;
             max-height: 0;
 
-            @media all and ($viewport-type: $tabletl) and (pointer: coarse) {
+            @media all and ($viewport-type: $laptop) and (pointer: coarse) {
                 max-height: none;
             }
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 max-width: 80%;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 max-width: 100%;
             }
             &__content {
@@ -49,13 +49,13 @@
         margin-top: $measure*3;
         display: none;
         
-        @media all and ($viewport-type: $tabletl) and (pointer: coarse) {
+        @media all and ($viewport-type: $laptop) and (pointer: coarse) {
             display: block;
             width: max-content;
             margin-left: auto;
             margin-right: auto;
         }
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             width: 100%;
         }
     }
@@ -67,7 +67,7 @@
                 color: map.get($color-options, c);
                 font-family: $type-b;
                 font-style: italic;
-                @media all and ($viewport-type: $tabletl) and (pointer: coarse) {
+                @media all and ($viewport-type: $laptop) and (pointer: coarse) {
                     color: map.get($color-options, i);
                     font-family: $type-a;
                     font-style: normal;
@@ -76,7 +76,7 @@
             &__subtitle {
                 max-height: 65rem;
                 transition: max-height $time-c cubic-bezier(1,0,1,0);
-                @media all and ($viewport-type: $tabletl) and (pointer: coarse) {
+                @media all and ($viewport-type: $laptop) and (pointer: coarse) {
                     max-height: none;
                 }
             }

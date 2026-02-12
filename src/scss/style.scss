@@ -2,6 +2,7 @@
 @use "@scssFoundation/reset/_reset.scss";
 @use "@scssFoundation/_foundation.scss";
 @use "@scssUtilities/_utilities.scss";
+@use "@scss/framework/_var/_vars.scss" as *;
 
 //* Preloader
 @use "@scss/framework/components/preloader/_c--preloader-a";

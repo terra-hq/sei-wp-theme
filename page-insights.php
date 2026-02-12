@@ -45,10 +45,10 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="u--pb-10 u--pb-tablets-7 js--section-insights">
+<section class="u--pb-10 u--pb-tabletm-7 js--section-insights">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
-            <!-- <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <!-- <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
                         <select name="type" data-taxonomy="insight-types" data-taxonomy-slug="type" data-type="insight-types"  onchange="this.dataset.chosen = this.value;" data-chosen="all" class="js--insight-types-dropdown">
@@ -68,7 +68,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     </div>
                 </form>
             </div> -->
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
@@ -90,7 +90,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     </div>
                 </form>
             </div>
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- TOPIC FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
@@ -112,7 +112,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     </div>
                 </form>
             </div>
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- SEARCH FILTER -->
                 <form class="c--filter-a c--filter-a--third">
                     <div class="c--filter-a__item">
@@ -207,7 +207,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
             $index = 0; ?>
 
             <?php if ($the_query->have_posts()) : ?>
-                <div class="f--col-8 f--col-tabletm-12 u--display-flex js--featured-insight" data-page-id="<?= get_the_ID(); ?>">
+                <div class="f--col-8 f--col-tabletl-12 u--display-flex js--featured-insight" data-page-id="<?= get_the_ID(); ?>">
                     <?php
                         $types = get_the_terms($featured_insight[0]->ID, 'insight-types');
                         $title = get_the_title($featured_insight[0]->ID);
@@ -247,7 +247,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                 while ($the_query->have_posts()) :
                     $the_query->the_post();
                     ?>
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
+                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
                         <!-- INSIGHT CARD -->
                         <?php
                                 $insight_types = get_the_terms($post->ID, 'insight-types');
@@ -306,7 +306,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         </div>
         <div class="f--row">
             <div class="f--col-12 u--display-flex u--justify-content-center">
-                <div class="c--spinner-wrapper-a u--mt-8 u--mt-tablets-5">
+                <div class="c--spinner-wrapper-a u--mt-8 u--mt-tabletm-5">
                     <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-category="<?= $categoryName ?>" data-post-type="<?= $postType ?>" data-featured-insight-id="<?= $featured_insight_id ?>"></data-feature>
                         <span class="g--btn-03__content">Load More</span>
                         <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>

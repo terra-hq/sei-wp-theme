@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/framework/components/content/_c--content-a" as *;
 .g--banner-01 {
@@ -27,7 +27,7 @@
             )
         )
     );
-    @media all and ($viewport-type:$tabletl) {
+    @media all and ($viewport-type:$laptop) {
         @include make-banner-01-modifier(
             $custom-options: (
                 "parent": (
@@ -36,7 +36,7 @@
             )
         );
     }
-    @media all and ($viewport-type:$tablets) {
+    @media all and ($viewport-type:$tabletm) {
         @include make-banner-01-modifier(
             $custom-options: (
                 "parent": (

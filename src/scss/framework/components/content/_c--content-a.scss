@@ -104,7 +104,7 @@
       "margin-bottom": $measure * 4,
     ),
     $columns-options: (
-      "breakpoint": $tablets,
+      "breakpoint": $tabletm,
       "margin-bottom": $measure * 4,
     ),
     $separator-options: (
@@ -156,7 +156,7 @@
     margin-bottom: $measure * 4;
   }
 
-  @media all and ($viewport-type: $tablets) {
+  @media all and ($viewport-type: $tabletm) {
     @include make-content-modifier(
       $headings-options: (
         "h2": (
@@ -167,7 +167,7 @@
     );
   }
 
-  @media all and ($viewport-type: $mobile) {
+  @media all and ($viewport-type: $tablets) {
     @include make-content-modifier(
       $custom-options: (
         ".wp-block-table": (

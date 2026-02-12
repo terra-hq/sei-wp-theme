@@ -3,15 +3,15 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 .g--hero-03 {
     @include make-hero-03();
     @include make-hero-03-modifier(
         $hero-options: (
             "top-extra-space": $measure*12,
-            "breakpoint-bigger-columns": $tablets,
-            "breakpoint-full-width": $mobile,
+            "breakpoint-bigger-columns": $tabletm,
+            "breakpoint-full-width": $tablets,
             "back-items": no,
         ),
         $background-options: (
@@ -37,7 +37,7 @@
             ),
         )
     );
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         @include make-hero-03-modifier(
             $hero-options: (
                 "top-extra-space": 0,
@@ -57,7 +57,7 @@
             )
         );
     }
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         @include make-hero-03-modifier(
             $custom-options: (
                 ".g--hero-03__bg-items": (
@@ -76,7 +76,7 @@
                 "background-color": map.get($color-options, a),
             ),
         );
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             @include make-hero-03-modifier(
                 $custom-options: (
                     ".g--hero-03__ft-items__wrapper": (

@@ -22,16 +22,16 @@
         padding-left: 1em;
         width: 100%;
         max-width: calc(#{$g-container-width} - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
-        height: calc(100% - #{$zoomPadingDesktop}*2);
-        min-height: calc(100% - #{$zoomPadingDesktop}*2);
+        height: calc(100% - #{$zoomPadingWide}*2);
+        min-height: calc(100% - #{$zoomPadingWide}*2);
         // clip-path: inset(0% 0% 0% 0% round 24px);
         clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); //* we need clip-path to don't add position-relative but not show all the image
         @media all and ($viewport-type: 2000px){
           max-width: calc(95vw - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
         }
-        @media all and ($viewport-type: $tablets) {
-            height: calc(100% - #{$zoomPadingTablets}*2);
-            min-height: calc(100% - #{$zoomPadingTablets}*2);
+        @media all and ($viewport-type: $tabletm) {
+            height: calc(100% - #{$zoomPadingTabletm}*2);
+            min-height: calc(100% - #{$zoomPadingTabletm}*2);
         }
         &__media {
             position: absolute;
@@ -42,7 +42,7 @@
             object-fit: cover;
         }
         // no animation option
-        @media all and ($viewport-type:$tablets) {
+        @media all and ($viewport-type:$tabletm) {
             height: 100%;
             width: 100%;
             max-width: 100%;

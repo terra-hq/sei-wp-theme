@@ -34,7 +34,7 @@
     <div class="c--cta-b__wrapper">
         <div class="f--container">
             <div class="f--row f--gap-c u--justify-content-center">
-                <div class="f--col-8 f--col-tabletm-12">
+                <div class="f--col-8 f--col-tabletl-12">
                     <h3 class="c--cta-b__wrapper__title">
                         <?php
                             if ($title) {

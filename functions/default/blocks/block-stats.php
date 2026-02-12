@@ -34,7 +34,7 @@ function acf_block_stats_block($block, $content = '', $is_preview = false, $post
     <?php if($stats) : ?>
     <div class="f--row">
         <?php foreach($stats as $stat) : ?>
-            <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
+            <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12">
                 <div class="c--card-d c--card-d--second ">
                     <div class="c--card-d__wrapper">
                         <div class="c--card-d__wrapper__title">

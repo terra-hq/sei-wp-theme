@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "sass:color";
 
@@ -38,7 +38,7 @@
         ),
     );
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         @include make-modal-01-modifier(
             $custom-options: (
                 ".g--modal-01__wrapper__btn": (
@@ -48,7 +48,7 @@
             ),
         );
     }
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         @include make-modal-01-modifier(
             $custom-options: (
                 ".g--modal-01__wrapper": (

@@ -5,8 +5,8 @@
 .c--hero-d {
     @extend .u--position-relative;
     overflow: hidden;
-    padding: $zoomPadingDesktop*2 0;
-    @media all and ($viewport-type: $tablets) {
+    padding: $zoomPadingWide*2 0;
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure*20 0 $measure*11;
     }
     &__wrapper {

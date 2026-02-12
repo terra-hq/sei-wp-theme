@@ -19,7 +19,7 @@
         padding: $measure * 1.5;
         gap: $measure * 3;
 
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             flex-direction: column;
             gap: $measure * 1.5;
         }
@@ -28,7 +28,7 @@
             @extend .f--font-h;
             @extend .f--color-a;
             @extend .u--font-light;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 text-align: center;
             }
         }

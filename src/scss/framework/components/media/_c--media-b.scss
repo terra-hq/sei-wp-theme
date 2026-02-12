@@ -11,27 +11,27 @@
     row-gap: $measure*8;
     column-gap: $measure*12;
 
-    @media all and ($viewport-type:$tabletl) {
+    @media all and ($viewport-type:$laptop) {
         row-gap: $measure*6;
         column-gap: $measure*8;
     }
-    @media all and ($viewport-type:$tablets) {
+    @media all and ($viewport-type:$tabletm) {
         row-gap: $measure*6;
         column-gap: $measure*4;
     }
 
     &__item {
         width: calc((100% / 5) - ((#{$measure*12}*4) / 5));
-        @media all and ($viewport-type:$tabletl) {
+        @media all and ($viewport-type:$laptop) {
             width: calc((100% / 5) - ((#{$measure*8}*4) / 5));
         }
-        @media all and ($viewport-type:$tabletm) {
+        @media all and ($viewport-type:$tabletl) {
             width: calc((100% / 4) - ((#{$measure*8}*3) / 4));
         }
-        @media all and ($viewport-type:$tablets) {
+        @media all and ($viewport-type:$tabletm) {
             width: calc((100% / 4) - ((#{$measure*4}*3) / 4));
         }
-        @media all and ($viewport-type:$mobile) {
+        @media all and ($viewport-type:$tablets) {
             width: calc((100% / 2) - ((#{$measure*4}*1) / 2));
         }
         &__link {
@@ -61,16 +61,16 @@
     &--second & {
         &__item {
             width: calc((100% / 5) - ((#{$measure*11}*4) / 5));
-            @media all and ($viewport-type:$tabletl) {
+            @media all and ($viewport-type:$laptop) {
                 width: calc((100% / 5) - ((#{$measure*7}*4) / 5));
             }
-            @media all and ($viewport-type:$tabletm) {
+            @media all and ($viewport-type:$tabletl) {
                 width: calc((100% / 4) - ((#{$measure*7}*3) / 4));
             }
-            @media all and ($viewport-type:$tablets) {
+            @media all and ($viewport-type:$tabletm) {
                 width: calc((100% / 4) - ((#{$measure*3}*3) / 4));
             }
-            @media all and ($viewport-type:$mobile) {
+            @media all and ($viewport-type:$tablets) {
                 width: calc((100% / 2) - ((#{$measure*4}*1) / 2));
             }
         }

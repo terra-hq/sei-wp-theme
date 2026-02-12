@@ -128,11 +128,11 @@
             padding: $measure * 7 $measure * 5;
             z-index: 3;
 
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 min-height: auto;   
                 padding: $measure * 7 $measure * 7;             
             }
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 min-height: auto;   
                 padding: $measure * 4;             
             }

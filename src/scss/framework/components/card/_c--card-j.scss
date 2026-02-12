@@ -10,20 +10,20 @@
     @extend .u--position-sticky;
     top: 130px;
     margin-left: $measure * 4;
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
         margin-left: 0;
     }
 
     &__wrapper {
         padding: $measure * 4;
 
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             display: flex;
             gap: $measure * 5;
             justify-content: space-between;
         }
 
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             flex-direction: column;
             gap: $measure * 5;
         }
@@ -42,7 +42,7 @@
                 margin-top: $measure * 2;
             }
 
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 flex: 1;
                 max-width: 350px;
             }
@@ -53,18 +53,18 @@
             gap: $measure * 3;
             margin-top: $measure * 5;
 
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 flex-direction: column;
             }
 
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 flex-direction: row;
                 flex: 1;
                 max-width: 350px;
                 margin-top: 0;
             }
 
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 gap: $measure * 2;
             }
 
@@ -80,16 +80,16 @@
                     object-fit: cover;
                     object-position: top center;
 
-                    @media all and ($viewport-type: $tabletl) {
+                    @media all and ($viewport-type: $laptop) {
                         width: 50%;
                     }
 
-                    @media all and ($viewport-type: $tabletm) {
+                    @media all and ($viewport-type: $tabletl) {
                         width: 100%;
                         min-width: 88px;
                     }
 
-                    @media all and ($viewport-type: $mobile) {
+                    @media all and ($viewport-type: $tablets) {
                         width: 100%;
                     }
 

@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<section class="u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10">
+<section class="u--pt-15 u--pt-tabletm-10 u--pb-15 u--pb-tabletm-10">
   <div class="f--container">
     <div class="f--row">
       <div class="f--col-12">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="f--row u--justify-content-space-between f--gap-a">
-      <div class="f--col-7 f--col-tablets-12">
+      <div class="f--col-7 f--col-tabletm-12">
         <h1 class="f--font-c f--sp-c"><?php the_title() ?></h1>
         <p class="f--font-h"><span class="u--opacity-6"><?php echo get_the_date('M j, Y', get_the_ID()) ?></span> <span class="u--opacity-6">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <span class="u--opacity-6">By</span>
@@ -44,7 +44,7 @@
         </p>
         <?php $topics = get_the_terms(get_the_ID(), 'topics');
         if ($topics && !is_wp_error($topics)) {
-          ?><div class="c--list-a u--pt-4 u--pt-tablets-3"><?php
+          ?><div class="c--list-a u--pt-4 u--pt-tabletm-3"><?php
           foreach ($topics as $topic) {
             $topic_name = $topic->name;
             $topic_slug = $topic->slug;
@@ -53,7 +53,7 @@
           }
           ?></div><?php
         } ?>
-        <article class="u--pt-8 u--pt-tablets-5 u--pb-4">
+        <article class="u--pt-8 u--pt-tabletm-5 u--pb-4">
           <div class="c--content-a">
             <?php the_content() ?>
           </div>
@@ -63,7 +63,7 @@
           <?php include(locate_template('components/social/social-a--second.php', false, false)); ?>
         </div>
       </div>
-      <div class="f--col-4 f--col-tabletl-5 f--col-tablets-12">
+      <div class="f--col-4 f--col-laptop-5 f--col-tabletm-12">
         <?php if(get_field('subscribe_form_id', 'option') && get_field('subscribe_form_portal', 'option')): ?>
           <div class="c--form-b">
           <h2 class="c--form-b__title"><?php echo get_field('subscribe_form_title', 'option') ?></h2>
@@ -77,7 +77,7 @@
 
 <?php
 $btn = get_field('related_section_button', 'option');
-$spacing = 'u--pb-8 u--pb-tablets-5';
+$spacing = 'u--pb-8 u--pb-tabletm-5';
 $title = get_field('related_section_title', 'option');
 include(locate_template('components/heading/heading-a.php', false, false));
 ?>
@@ -97,12 +97,12 @@ $custom_query = new WP_Query($args);
 if ($custom_query->have_posts()) :
   ?>
 
-  <section class="u--pb-15 u--pb-tablets-10">
+  <section class="u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
       <div class="f--row f--gap-a">
         <?php
           while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
-          <div class="f--col-4 f--col-tablets-6 f--col-mobile-12 <?php echo ($custom_query->current_post == $custom_query->post_count - 1) ? 'u--display-tablets-none u--display-mobile-block' : '' ?>">
+          <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12 <?php echo ($custom_query->current_post == $custom_query->post_count - 1) ? 'u--display-tabletm-none u--display-tablets-block' : '' ?>">
             <?php
             $insight_types = get_the_terms(get_the_ID(), 'insight-types');
             if ($insight_types && !is_wp_error($insight_types)) {

@@ -6,8 +6,8 @@
     @extend .u--position-relative;
     // display: flex;
     overflow: hidden;
-    padding: $zoomPadingDesktop 0;
-    @media all and ($viewport-type: $tablets) {
+    padding: $zoomPadingWide 0;
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure * 13 0 $measure * 5;
     }
     &__wrapper {
@@ -22,15 +22,15 @@
         &__item-left {
             @extend .u--width-50;
             padding: $measure*11 $measure*4.5 $measure*11 $measure*10;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 padding: $measure*11 $measure*4 $measure*11 $measure*10;
                 width: 60%;
             }
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 padding: $measure*5 $measure*3;
                 width: 100%;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding: 0;
             }
             &__title {
@@ -39,7 +39,7 @@
             }
             &__subtitle {
                 margin-bottom: $measure * 7;
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     margin-bottom: $measure * 4;
                 }
             }
@@ -56,10 +56,10 @@
             margin-right: $measure*5;
             margin-top: $measure*5;
             margin-bottom: $measure*5;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 width: calc(40% - #{$measure*5});
             }
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 margin-top: 0;
                 margin-right: auto;
                 margin-left: auto;
@@ -68,7 +68,7 @@
                 aspect-ratio: auto;
                 width: calc(100% - #{$measure*3}*2);
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 margin: 0;
                 width: 100%;
             }

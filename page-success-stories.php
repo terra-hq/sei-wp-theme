@@ -39,11 +39,11 @@ $hero = array(
 include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, false));
 ?>
 
-<section class="u--pb-10 u--pb-tablets-7 js--section-case-studies">
+<section class="u--pb-10 u--pb-tabletm-7 js--section-case-studies">
     <div class="f--container">
         <div class="f--row f--sp-a f--gap-c">
 
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- INDUSTRY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
@@ -65,7 +65,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     </div>
                 </form>
             </div>
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- CAPABILITY FILTER -->
                 <form class="c--filter-a c--filter-a--second">
                     <div class="c--filter-a__item">
@@ -87,7 +87,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                     </div>
                 </form>
             </div>
-            <div class="f--col-3 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12">
                 <!-- SEARCH FILTER -->
                 <form class="c--filter-a c--filter-a--third">
                     <div class="c--filter-a__item">
@@ -185,7 +185,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                <div class="f--col-12">
                 <div class="c--card-m">
                     <div class="f--row ">
-                        <div class="f--col-4 f--col-tabletm-12">
+                        <div class="f--col-4 f--col-tabletl-12">
                             <a href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>" class="u--overflow-hidden">
                                 <div class="c--card-m__wrapper">
                                     <?php 
@@ -222,14 +222,14 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                 $rel = '';
                             }
                         ?>
-                        <div class="f--col-4 f--col-tabletm-12">
+                        <div class="f--col-4 f--col-tabletl-12">
                             <div class="c--card-m__hd">
                                 <p class="c--card-m__hd__title">WHAT WE DID</p>
                                 <a class="c--card-m__hd__paragraph" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>"><?= get_the_title($featured_case_study[0]->ID); ?></a>
                                 <a class="g--link-01 g--link-01--fourth" href="<?= $featured_case_study_link ?>" target="<?= $target ?>"  rel="<?= $self ?>">Learn More</a>
                             </div>
                         </div>
-                        <div class="f--col-4 f--col-tabletm-12">
+                        <div class="f--col-4 f--col-tabletl-12">
                             <div class="c--card-m__ft">
                                 <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                 <div class="c--card-m__ft__items">
@@ -285,7 +285,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                      <div class="f--col-12">
                         <div class="c--card-m">
                             <div class="f--row ">
-                                <div class="f--col-4 f--col-tabletm-12">
+                                <div class="f--col-4 f--col-tabletl-12">
                                     <a href="<?= get_permalink($post->ID); ?>" class="u--overflow-hidden">
                                         <div class="c--card-m__wrapper">
                                             <?php 
@@ -311,14 +311,14 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
                                     </a>
                                 </div>
                                 
-                                <div class="f--col-4 f--col-tabletm-12">
+                                <div class="f--col-4 f--col-tabletl-12">
                                     <div class="c--card-m__hd">
                                         <p  class="c--card-m__hd__title">WHAT WE DID</p>
                                         <a href="<?= get_permalink($post->ID); ?>" class="c--card-m__hd__paragraph"><?= get_the_title($post->ID); ?></a>
                                         <a class="g--link-01 g--link-01--fourth" href="<?= get_permalink($post->ID); ?>">Learn More</a>
                                     </div>
                                 </div>
-                                <div class="f--col-4 f--col-tabletm-12">
+                                <div class="f--col-4 f--col-tabletl-12">
                                     <div class="c--card-m__ft">
                                         <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                         <div class="c--card-m__ft__items">
@@ -392,7 +392,7 @@ include(locate_template('flexible/hero/big-heading-tagline-hero.php', false, fal
         </div>
         <div class="f--row">
             <div class="f--col-12 u--display-flex u--justify-content-center">
-                <div class="c--spinner-wrapper-a u--mt-8 u--mt-tablets-5">
+                <div class="c--spinner-wrapper-a u--mt-8 u--mt-tabletm-5">
                     <button class="g--btn-03 g--btn-03--fourth js--load-more-posts" aria-label="load more items" data-posts-total="<?= $published_posts ?>" data-posts-per-page="<?= $posts_per_page ?>" data-offset="<?= $offset ?>" data-post-type="<?= $postType ?>" data-featured-case-study-id="<?= $featured_case_study ? $featured_case_study[0]->ID : '' ?>">
                         <span class="g--btn-03__content">Load More</span>
                         <?php include(locate_template('img/btn-03-plus.svg', false, false)); ?>

@@ -15,41 +15,41 @@
 			// ARRAYS ARE ALWAYS SET AS: TOP / BOTTOM / TOP BOTTOM
 
 			// TOP
-			"u--pt-22 u--pt-tablets-15",
-			"u--pt-15 u--pt-tablets-10",
-			"u--pt-10 u--pt-tablets-7",
-			"u--pt-7 u--pt-tablets-4",
+			"u--pt-22 u--pt-tabletm-15",
+			"u--pt-15 u--pt-tabletm-10",
+			"u--pt-10 u--pt-tabletm-7",
+			"u--pt-7 u--pt-tabletm-4",
 
 			// BOTTOM
-			"u--pb-22 u--pb-tablets-15",
-			"u--pb-15 u--pb-tablets-10",
-			"u--pb-10 u--pb-tablets-7",
-			"u--pb-7 u--pb-tablets-4",
+			"u--pb-22 u--pb-tabletm-15",
+			"u--pb-15 u--pb-tabletm-10",
+			"u--pb-10 u--pb-tabletm-7",
+			"u--pb-7 u--pb-tabletm-4",
 
 			// MIXED
 			// VALUES FOR LARGE
-			"u--pt-15 u--pt-tablets-10 u--pb-22 u--pb-tablets-15",
-			"u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10",
-			"u--pt-15 u--pt-tablets-10 u--pb-10 u--pb-tablets-7",
-			"u--pt-15 u--pt-tablets-10 u--pb-7 u--pb-tablets-4",
+			"u--pt-15 u--pt-tabletm-10 u--pb-22 u--pb-tabletm-15",
+			"u--pt-15 u--pt-tabletm-10 u--pb-15 u--pb-tabletm-10",
+			"u--pt-15 u--pt-tabletm-10 u--pb-10 u--pb-tabletm-7",
+			"u--pt-15 u--pt-tabletm-10 u--pb-7 u--pb-tabletm-4",
 
 			// VALUES FOR MEDIUM
-			"u--pt-10 u--pt-tablets-7 u--pb-22 u--pb-tablets-15",
-			"u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10",
-			"u--pt-10 u--pt-tablets-7 u--pb-10 u--pb-tablets-7",
-			"u--pt-10 u--pt-tablets-7 u--pb-7 u--pb-tablets-4",
+			"u--pt-10 u--pt-tabletm-7 u--pb-22 u--pb-tabletm-15",
+			"u--pt-10 u--pt-tabletm-7 u--pb-15 u--pb-tabletm-10",
+			"u--pt-10 u--pt-tabletm-7 u--pb-10 u--pb-tabletm-7",
+			"u--pt-10 u--pt-tabletm-7 u--pb-7 u--pb-tabletm-4",
 
 			// VALUES FOR SMALL
-			"u--pt-7 u--pt-tablets-4 u--pb-22 u--pb-tablets-15",
-			"u--pt-7 u--pt-tablets-4 u--pb-15 u--pb-tablets-10",
-			"u--pt-7 u--pt-tablets-4 u--pb-10 u--pb-tablets-7",
-			"u--pt-7 u--pt-tablets-4 u--pb-7 u--pb-tablets-4",
+			"u--pt-7 u--pt-tabletm-4 u--pb-22 u--pb-tabletm-15",
+			"u--pt-7 u--pt-tabletm-4 u--pb-15 u--pb-tabletm-10",
+			"u--pt-7 u--pt-tabletm-4 u--pb-10 u--pb-tabletm-7",
+			"u--pt-7 u--pt-tabletm-4 u--pb-7 u--pb-tabletm-4",
 
 			// VALUES FOR EXTRA LARGE
-			"u--pt-22 u--pt-tablets-15 u--pb-22 u--pb-tablets-15",
-			"u--pt-22 u--pt-tablets-15 u--pb-15 u--pb-tablets-10",
-			"u--pt-22 u--pt-tablets-15 u--pb-10 u--pb-tablets-7",
-			"u--pt-22 u--pt-tablets-15 u--pb-7 u--pb-tablets-4",
+			"u--pt-22 u--pt-tabletm-15 u--pb-22 u--pb-tabletm-15",
+			"u--pt-22 u--pt-tabletm-15 u--pb-15 u--pb-tabletm-10",
+			"u--pt-22 u--pt-tabletm-15 u--pb-10 u--pb-tabletm-7",
+			"u--pt-22 u--pt-tabletm-15 u--pb-7 u--pb-tabletm-4",
 		];
 		var arrayNames = [
 			// TOP
@@ -139,13 +139,13 @@
 								$(this).addClass('no-active')
 							}
 							if(fieldValue == 'bottom-extra-large'){
-								bottom = "u--pb-22 u--pb-tablets-15"
+								bottom = "u--pb-22 u--pb-tabletm-15"
 							}else if(fieldValue == 'bottom-large'){
-								bottom = "u--pb-15 u--pb-tablets-10"
+								bottom = "u--pb-15 u--pb-tabletm-10"
 							}else if(fieldValue == 'bottom-small'){ // ERROR?
-								bottom = "u--pb-10 u--pb-tablets-7"
+								bottom = "u--pb-10 u--pb-tabletm-7"
 							}else if(fieldValue == 'bottom-small'){
-								bottom = "u--pb-7 u--pb-tablets-4"
+								bottom = "u--pb-7 u--pb-tabletm-4"
 							}
 							break;
 						case "top-extra-large":
@@ -158,13 +158,13 @@
 								$(this).addClass('no-active')
 							}
 							if(fieldValue == 'top-extra-large'){
-								top = "u--pt-22 u--pt-tablets-15"
+								top = "u--pt-22 u--pt-tabletm-15"
 							}else if(fieldValue == 'top-large'){
-								top = "u--pt-15 u--pt-tablets-10"
+								top = "u--pt-15 u--pt-tabletm-10"
 							}else if(fieldValue == 'top-small'){ // ERROR?
-								top = "u--pt-10 u--pt-tablets-7"
+								top = "u--pt-10 u--pt-tabletm-7"
 							}else if(fieldValue == 'top-small'){
-								top = "u--pt-7 u--pt-tablets-4"
+								top = "u--pt-7 u--pt-tabletm-4"
 							}
 							break;
 						case "top-extra-large-bottom-extra-large":
@@ -189,53 +189,53 @@
 								$(this).addClass('no-active')
 							}
 							if(fieldValue == 'top-extra-large-bottom-extra-large'){
-								top = "u--pt-22 u--pt-tablets-15";
-								bottom = "u--pb-22 u--pb-tablets-15";
+								top = "u--pt-22 u--pt-tabletm-15";
+								bottom = "u--pb-22 u--pb-tabletm-15";
 							}else if(fieldValue == 'top-extra-large-bottom-large'){
-								top = "u--pt-22 u--pt-tablets-15";
-								bottom = "u--pb-15 u--pb-tablets-10";
+								top = "u--pt-22 u--pt-tabletm-15";
+								bottom = "u--pb-15 u--pb-tabletm-10";
 							}else if(fieldValue == 'top-extra-large-bottom-medium'){
-								top = "u--pt-22 u--pt-tablets-15";
-								bottom = "u--pb-10 u--pb-tablets-8";
+								top = "u--pt-22 u--pt-tabletm-15";
+								bottom = "u--pb-10 u--pb-tabletm-8";
 							}else if(fieldValue == 'top-extra-large-bottom-small'){
-								top = "u--pt-22 u--pt-tablets-15";
-								bottom = "u--pb-8 u--pb-tablets-5";
+								top = "u--pt-22 u--pt-tabletm-15";
+								bottom = "u--pb-8 u--pb-tabletm-5";
 							}else if(fieldValue == 'top-large-bottom-extra-large'){
-								top = "u--pt-15 u--pt-tablets-10";
-								bottom = "u--pb-22 u--pb-tablets-15";
+								top = "u--pt-15 u--pt-tabletm-10";
+								bottom = "u--pb-22 u--pb-tabletm-15";
 							}else if(fieldValue == 'top-large-bottom-large'){
-								top = "u--pt-15 u--pt-tablets-10";
-								bottom = "u--pb-10 u--pb-tablets-7"; // Error?
+								top = "u--pt-15 u--pt-tabletm-10";
+								bottom = "u--pb-10 u--pb-tabletm-7"; // Error?
 							}else if(fieldValue == 'top-large-bottom-medium'){
-								top = "u--pt-15 u--pt-tablets-10";
-								bottom = "u--pb-15 u--pb-tablets-10"; // Error?
+								top = "u--pt-15 u--pt-tabletm-10";
+								bottom = "u--pb-15 u--pb-tabletm-10"; // Error?
 							}else if(fieldValue == 'top-large-bottom-small'){
-								top = "u--pt-15 u--pt-tablets-10";
-								bottom = "u--pb-7 u--pb-tablets-4";
+								top = "u--pt-15 u--pt-tabletm-10";
+								bottom = "u--pb-7 u--pb-tabletm-4";
 							}else if(fieldValue == 'top-medium-bottom-extra-large'){
-								top = "u--pt-10 u--pt-tablets-7";
-								bottom = "u--pb-22 u--pb-tablets-15";
+								top = "u--pt-10 u--pt-tabletm-7";
+								bottom = "u--pb-22 u--pb-tabletm-15";
 							}else if(fieldValue == 'top-medium-bottom-large'){
-								top = "u--pt-10 u--pt-tablets-7";
-								bottom = "u--pb-15 u--pb-tablets-10";
+								top = "u--pt-10 u--pt-tabletm-7";
+								bottom = "u--pb-15 u--pb-tabletm-10";
 							}else if(fieldValue == 'top-medium-bottom-medium'){
-								top = "u--pt-10 u--pt-tablets-7";
-								bottom = "u--pb-10 u--pb-tablets-7";
+								top = "u--pt-10 u--pt-tabletm-7";
+								bottom = "u--pb-10 u--pb-tabletm-7";
 							}else if(fieldValue == 'top-medium-bottom-small'){
-								top = "u--pt-10 u--pt-tablets-7";
-								bottom = "u--pb-7 u--pb-tablets-4";
+								top = "u--pt-10 u--pt-tabletm-7";
+								bottom = "u--pb-7 u--pb-tabletm-4";
 							}else if(fieldValue == 'top-small-bottom-extra-large'){
-								top = "u--pt-7 u--pt-tablets-4";
-								bottom = "u--pb-22 u--pb-tablets-15";
+								top = "u--pt-7 u--pt-tabletm-4";
+								bottom = "u--pb-22 u--pb-tabletm-15";
 							}else if(fieldValue == 'top-small-bottom-large'){
-								top = "u--pt-7 u--pt-tablets-4";
-								bottom = "u--pb-15 u--pb-tablets-10";
+								top = "u--pt-7 u--pt-tabletm-4";
+								bottom = "u--pb-15 u--pb-tabletm-10";
 							}else if(fieldValue == 'top-small-bottom-medium'){
-								top = "u--pt-7 u--pt-tablets-4 ";
-								bottom = "u--pb-10 u--pb-tablets-7";
+								top = "u--pt-7 u--pt-tabletm-4 ";
+								bottom = "u--pb-10 u--pb-tabletm-7";
 							}else if(fieldValue == 'top-small-bottom-small'){
-								top = "u--pt-7 u--pt-tablets-4";
-								bottom = "u--pb-7 u--pb-tablets-4";
+								top = "u--pt-7 u--pt-tabletm-4";
+								bottom = "u--pb-7 u--pb-tabletm-4";
 							}
 							break;
 						default:
@@ -271,8 +271,8 @@
 					bottomTitle.css("display", "block");
 
 					// SET BY DEFAULT EXTRA LARGE
-					top = "u--pt-22 u--pt-tablets-15";
-					bottom = "u--pb-22 u--pb-tablets-15";
+					top = "u--pt-22 u--pt-tabletm-15";
+					bottom = "u--pb-22 u--pb-tabletm-15";
 
 					// TOP EXTRA LARGE
 					$.each($($field.find(".js--top-space").find("#t-xl")),function(){
@@ -322,7 +322,7 @@
 					bottomTitle.css("display", "none");
 
 					// SET BY DEFAULT EXTRA LARGE
-					top = "u--pt-22 u--pt-tablets-15";
+					top = "u--pt-22 u--pt-tabletm-15";
 					bottom = "";
 
 					// TOP EXTRA LARGE
@@ -354,7 +354,7 @@
 
 					// SET BY DEFAULT EXTRA LARGE
 					top = "";
-					bottom =  "u--pb-22 u--pb-tablets-15";
+					bottom =  "u--pb-22 u--pb-tabletm-15";
 
 					// BOTTOM EXTRA LARGE
 					$.each($($field.find(".js--bottom-space").find("#b-xl")),function(){
@@ -434,13 +434,13 @@
 				console.log(buttonValue);
 				top = buttonValue;
 				if(buttonValue == "t-xl"){
-					top = "u--pt-22 u--pt-tablets-15";
+					top = "u--pt-22 u--pt-tabletm-15";
 				}else if(buttonValue == "e"){
-					top = "u--pt-15 u--pt-tablets-10";
+					top = "u--pt-15 u--pt-tabletm-10";
 				}else if(buttonValue == "f"){
-					top = "u--pt-10 u--pt-tablets-7";
+					top = "u--pt-10 u--pt-tabletm-7";
 				}else if(buttonValue == 'g'){
-					top = "u--pt-7 u--pt-tablets-4";
+					top = "u--pt-7 u--pt-tabletm-4";
 				}
 				console.log(top);
 				console.log(bottom);
@@ -487,13 +487,13 @@
 				e.preventDefault();
 				var buttonValue = $(this).val();
 				if(buttonValue == "b-xl"){
-					bottom = "u--pb-22 u--pb-tablets-15";
+					bottom = "u--pb-22 u--pb-tabletm-15";
 				}else if(buttonValue == "h"){
-					bottom = "u--pb-15 u--pb-tablets-10";
+					bottom = "u--pb-15 u--pb-tabletm-10";
 				}else if(buttonValue == "i"){
-					bottom = "u--pb-10 u--pb-tablets-7";
+					bottom = "u--pb-10 u--pb-tabletm-7";
 				}else if(buttonValue == 'j'){
-					bottom = "u--pb-7 u--pb-tablets-4";
+					bottom = "u--pb-7 u--pb-tabletm-4";
 				}
 				if(top && bottom){
 					res = top + " " + bottom;

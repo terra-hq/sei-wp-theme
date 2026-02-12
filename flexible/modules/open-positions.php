@@ -12,7 +12,7 @@
 <section class="<?= $bgColor ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row u--justify-content-space-between">
-            <div class="f--col-5 f--col-tabletm-12 u--mb-tabletm-7">
+            <div class="f--col-5 f--col-tabletl-12 u--mb-tabletl-7">
                 <h2 class="f--font-c">
                     <?php
                         if ($title) {
@@ -40,7 +40,7 @@
                     </a>
                 <?php endif; ?>
             </div>
-            <div class="f--col-6 f--col-tabletm-12">
+            <div class="f--col-6 f--col-tabletl-12">
                 <div class="c--wrapper-a c--wrapper-a--second js--load-jobs" data-location-id="<?php echo $greenhouse_id ?>">
                     <div class="g--message-01">
                         <div class="g--spinner-01 g--message-01__artwork">

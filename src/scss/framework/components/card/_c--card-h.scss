@@ -11,13 +11,13 @@
     text-decoration: none;
     background-color: rgba(map.get($color-options, h), .1);
     padding: $measure*3;
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         background-color: transparent;
         padding: 0 0 0 $measure*2;
     }
     &__wrapper {
         width: calc(100% - 52px - #{$measure*4});
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             width: 100%;
         }
         &__title {
@@ -25,7 +25,7 @@
             @extend .f--color-k;
             margin-bottom: $measure*2;
             transition: color $time-b $ease-standard-a;
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 @include make-font-i();
                 margin-bottom: 0;
                 white-space: nowrap;
@@ -35,13 +35,13 @@
             @extend .f--font-i;
             @extend .f--color-b;
             transition: color $time-b $ease-standard-a;
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 display: none;
             }
         }
     }
     &__media-wrapper {
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             display: none;
         }
         &__media {

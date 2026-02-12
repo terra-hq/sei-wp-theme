@@ -13,7 +13,7 @@
         bottom: -275px;
         left: -150px;
         width: 600px;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             display: none;
         }
         &__media {

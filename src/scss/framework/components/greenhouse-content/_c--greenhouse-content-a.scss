@@ -22,7 +22,7 @@
         padding-top: 0;
         padding-bottom: 0;
         max-width: none;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             margin-bottom: $measure * 3;
         }
         hr {
@@ -30,8 +30,8 @@
         }
         #app_body {
             @extend .f--col-8;
-            @extend .f--col-tabletm-10;
-            @extend .f--col-tablets-12;
+            @extend .f--col-tabletl-10;
+            @extend .f--col-tabletm-12;
             padding: 0 !important;
             padding-right: $half-gutter-width !important;
             padding-left: $half-gutter-width !important;
@@ -46,7 +46,7 @@
             h1 {
                 @extend .f--font-c;
                 margin-bottom: $measure * 4;
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     margin-bottom: $measure * 3;
                 }
             }
@@ -62,7 +62,7 @@
                 letter-spacing: 4.16px;
                 font-weight: 500;
                 margin-bottom: $measure * 4;
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     margin-bottom: $measure * 3;
                 }
             }
@@ -71,7 +71,7 @@
             @extend .c--content-a;
             padding-top: $measure*10;
             padding-bottom: $measure*7;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding-top: $measure*7;
                 padding-bottom: $measure*4;
             }
@@ -84,10 +84,10 @@
             @extend .f--background-b;
             padding: $measure*10;
             max-width: none;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding: $measure*7;
             }
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 padding: $measure*4;
             }
             form {
@@ -95,7 +95,7 @@
                 .heading {
                     @extend .f--font-e;
                     margin-bottom: $measure * 7;
-                    @media all and ($viewport-type: $tablets) {
+                    @media all and ($viewport-type: $tabletm) {
                         margin-bottom: $measure * 5;
                     }
                 }
@@ -135,7 +135,7 @@
                     // @extend .u--width-100;
                     width: calc(50% - #{$measure*1.5}) !important;
                     margin-bottom: $measure * 3;
-                    @media all and ($viewport-type: $mobile) {
+                    @media all and ($viewport-type: $tablets) {
                         width: 100% !important;
                     }
                     label {
@@ -295,8 +295,8 @@
         }
         #submission_received {
             @extend .f--col-8;
-            @extend .f--col-tabletm-10;
-            @extend .f--col-tablets-12;
+            @extend .f--col-tabletl-10;
+            @extend .f--col-tabletm-12;
             padding: 0 !important;
             padding-right: $half-gutter-width !important;
             padding-left: $half-gutter-width !important;
@@ -307,7 +307,7 @@
                 h1 {
                     @extend .f--font-c;
                     margin-bottom: $measure * 4;
-                    @media all and ($viewport-type: $tablets) {
+                    @media all and ($viewport-type: $tabletm) {
                         margin-bottom: $measure * 3;
                     }
                 }

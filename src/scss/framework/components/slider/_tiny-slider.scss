@@ -124,7 +124,7 @@
     gap: $measure * 2;
     margin-top: $measure * 8;
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
       margin-top: $measure * 4;
     }
 

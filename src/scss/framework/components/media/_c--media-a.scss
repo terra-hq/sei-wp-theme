@@ -8,7 +8,7 @@
     &__media {
        @extend .u--ar;
        max-height: 700px;
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             min-height: 300px;
         }
     }

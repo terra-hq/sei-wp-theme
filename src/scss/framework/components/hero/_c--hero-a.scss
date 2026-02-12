@@ -11,9 +11,9 @@
     @extend .u--overflow-hidden;
     min-height: 100vh;
     display: flex;
-    padding: $zoomPadingDesktop 0;
-    @media all and ($viewport-type: $tablets) {
-        padding: $zoomPadingTablets 0;
+    padding: $zoomPadingWide 0;
+    @media all and ($viewport-type: $tabletm) {
+        padding: $zoomPadingTabletm 0;
     }
     &__ft-items {
         @extend .u--position-relative;
@@ -22,7 +22,7 @@
         @extend .u--width-100;
         @extend .u--z-index-1;
         padding: $measure*5 0;
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             padding: $measure*3 0 $measure*5;
         }
         &__wrapper {
@@ -30,7 +30,7 @@
             margin-right: auto;
             text-align: center;
             width: 90%;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 width: 100%;
             }
             &__media {

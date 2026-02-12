@@ -11,7 +11,7 @@
     background-color: transparent;
     transition: background-color $time-b $ease-standard-a;
     @extend .u--width-100;
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         background-color: rgba(map.get($color-options, h), 0.1);
     }
     @media all and (pointer: coarse) and (hover: none) {
@@ -27,7 +27,7 @@
         @extend .f--font-i;
         @extend .f--color-b;
         transition: color $time-b $ease-standard-a;
-        @media all and ($viewport-type:$mobile) {
+        @media all and ($viewport-type:$tablets) {
             margin-bottom: $measure*2;
         }
         @media all and (pointer: coarse) and (hover: none) {
@@ -47,7 +47,7 @@
                 color: map.get($color-options, c);
             }
         }
-        // @media all and ($viewport-type: $mobile) {
+        // @media all and ($viewport-type: $tablets) {
         //     display: block;
         // }
         @media all and (pointer: coarse) and (hover: none) {

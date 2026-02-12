@@ -10,7 +10,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure*19 0 $measure*11;
     }
     &__hd {
@@ -19,7 +19,7 @@
     &__title {
         @extend .f--font-c;
         @extend .f--color-a;
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $laptop) {
             margin-bottom: $measure * 5;
         }
         &__artwork {
@@ -35,13 +35,13 @@
         @extend .u--display-flex;
         @extend .u--align-items-flex-end;
         min-height: 550px;
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             min-height: initial;
         }
     }
     &--second & {
         &__title {
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 margin-bottom: 0;
             }
         }
@@ -49,7 +49,7 @@
 
     &--third {
         padding-top: $measure*27;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             padding-top: $measure*13;
         }
     }

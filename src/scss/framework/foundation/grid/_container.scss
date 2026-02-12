@@ -14,13 +14,13 @@
     @include make-container-fluid();
   }
 
-  &--tablets-fluid {
-    @media all and ($viewport-type: $tablets) {
+  &--tabletm-fluid {
+    @media all and ($viewport-type: $tabletm) {
       @include make-container-fluid();
     }
   }
-  &--mobile-fluid {
-    @media all and ($viewport-type: $mobile) {
+  &--tablets-fluid {
+    @media all and ($viewport-type: $tablets) {
       @include make-container-fluid();
     }
   }

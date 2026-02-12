@@ -8,9 +8,9 @@
 .c--cta-b {
     @extend .u--position-relative;
     overflow: hidden;
-    padding: $zoomPadingDesktop * 2 0;
-    @media all and ($viewport-type: $tablets) {
-        padding: $zoomPadingTablets * 1.5 0;
+    padding: $zoomPadingWide * 2 0;
+    @media all and ($viewport-type: $tabletm) {
+        padding: $zoomPadingTabletm * 1.5 0;
     }
 
     &__wrapper {
@@ -35,15 +35,15 @@
             @extend .u--font-light;
             @extend .u--text-center;
             margin-bottom: $measure * 10;
-            @media all and ($viewport-type:$tabletm) {
+            @media all and ($viewport-type:$tabletl) {
                 max-width: 83.33%;
                 margin-left: auto;
                 margin-right: auto;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 margin-bottom: $measure * 5;
             }
-            @media all and ($viewport-type:$mobile) {
+            @media all and ($viewport-type:$tablets) {
                 max-width: 100%;
             }
         }

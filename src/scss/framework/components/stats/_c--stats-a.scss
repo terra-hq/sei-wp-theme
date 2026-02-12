@@ -11,10 +11,10 @@
     @extend .u--justify-content-flex-start;
     row-gap: $measure*2;
     padding: 200px $measure*5 $measure*7;
-    @media all and ($viewport-type:$tabletm) {
+    @media all and ($viewport-type:$tabletl) {
         padding: $measure * 15 $measure*4 $measure*7;
     }
-    @media all and ($viewport-type:$tablets) {
+    @media all and ($viewport-type:$tabletm) {
         padding: $measure*7 $measure*5;
     }
     &__title,

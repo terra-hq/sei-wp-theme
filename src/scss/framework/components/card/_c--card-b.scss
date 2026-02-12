@@ -11,17 +11,17 @@
     padding: $measure*7 $measure*6;
     gap: $measure*5 $measure*9;
     flex-wrap: wrap;
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         padding: $measure*5 $measure*4;
     }
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure*4 $measure*3;
     }
     &__wrapper {
         @extend .u--display-flex;
         flex-direction: column;
         width: 50%;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             width: 100%;
         }
         &__title {
@@ -33,7 +33,7 @@
             @extend .u--overflow-auto;
             margin-bottom: $measure*5;
             // max-height: 100%;
-            // @media all and ($viewport-type: $tabletm) {
+            // @media all and ($viewport-type: $tabletl) {
             //     max-height: 150px;
             // }
         }
@@ -47,13 +47,13 @@
         @extend .u--justify-content-center;
         @extend .u--align-items-center;
         width: calc(50% - #{$measure*9});
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             width: 100%;
             order: -1;
             justify-content: flex-start;
             display: none;
         }
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             display: block;
         }
         &__media {
@@ -61,7 +61,7 @@
             max-width: 400px;
             height: auto;
             max-height: 400px;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 max-width: 200px;
                 max-height: 200px;
             }
@@ -72,7 +72,7 @@
         &__wrapper {
             width: 100%;
             &__content {
-                @media all and ($viewport-type: $tabletm) {
+                @media all and ($viewport-type: $tabletl) {
                     max-height: none;
                 }
             }

@@ -11,7 +11,7 @@
     @extend .u--display-flex;
     min-height: 500px;
     flex: 1;
-    @media all and ($viewport-type:$tabletm) {
+    @media all and ($viewport-type:$tabletl) {
         min-height: unset;
     }
 
@@ -34,7 +34,7 @@
         z-index: 2;
         padding: $measure * 5;
 
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             padding: $measure * 5 $measure * 3;
         }
 
@@ -45,7 +45,7 @@
             gap: $measure * 2;
             margin-bottom: $measure * 8;
 
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 margin-bottom: $measure * 5;
             }
 

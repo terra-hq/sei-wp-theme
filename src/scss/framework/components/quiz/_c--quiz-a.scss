@@ -18,7 +18,7 @@
     margin: 0 auto;
     z-index: 1;
 
-    @media screen and ($viewport-type: $mobile) {
+    @media screen and ($viewport-type: $tablets) {
         padding: $measure * 20 $measure * 3 $measure * 15;
     }
 
@@ -51,7 +51,7 @@
         @extend .u--width-100;
         margin: 0 auto;
 
-        @media screen and ($viewport-type: $mobile) {
+        @media screen and ($viewport-type: $tablets) {
             padding: 0 $measure * 4 $measure * 3;
         }
 
@@ -117,7 +117,7 @@
                 margin-top: 0;
                 margin-left: auto;
 
-                @media screen and ($viewport-type: $mobile) {
+                @media screen and ($viewport-type: $tablets) {
                     width: fit-content;
                 }
             }

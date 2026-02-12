@@ -17,7 +17,7 @@
 
             if ($custom_query->have_posts()) : ?>
                 <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
+                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
                         <?php
                             $url = get_the_permalink($post->ID);
                             $title = get_the_title($post->ID);
@@ -51,7 +51,7 @@
 
             if ($custom_query_2->have_posts()) : ?>
                 <?php while ($custom_query_2->have_posts()) : $custom_query_2->the_post(); ?>
-                    <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
+                    <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
                         <?php
                             $url = get_the_permalink($post->ID);
                             $title = get_the_title($post->ID);

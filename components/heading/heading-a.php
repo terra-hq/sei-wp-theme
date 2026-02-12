@@ -2,12 +2,12 @@
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
             <?php if ($btn && !$text_center): ?>
-                <div class="f--col-8 f--col-tablets-12">
+                <div class="f--col-8 f--col-tabletm-12">
                     <h2 class="c--heading-a__title <?= $color ?>">
                         <?= $title ?>
                     </h2>
                 </div>
-                <div class="f--col-4 f--col-tablets-12 u--display-flex">
+                <div class="f--col-4 f--col-tabletm-12 u--display-flex">
                     <a href="<?= $btn['url'] ?>" class="c--heading-a__btn" <?= get_target_link($btn['target'], $btn['title'] )?>>
                         <span class="g--btn-03__content">
                             <?= $btn['title'] ?>
@@ -36,7 +36,7 @@
                     </h2>
                 </div>
             <?php else: ?>
-                <div class="f--col-6 f--col-tabletm-8 f--col-tablets-12">
+                <div class="f--col-6 f--col-tabletl-8 f--col-tabletm-12">
                     <h2 class="c--heading-a__title <?= $color ?>">
                         <?= $title ?>
                     </h2>

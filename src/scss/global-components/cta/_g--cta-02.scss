@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/global-components/btn/_g--btn-03" as *;
 
@@ -45,7 +45,7 @@
     }
     &__ft-items {
         &__content {
-            @media all and ($viewport-type:$tablets) {
+            @media all and ($viewport-type:$tabletm) {
                 flex: 0 0 calc((100% / 12)* 12)!important;
                 max-width: calc((100% / 12)* 12)!important;
             }

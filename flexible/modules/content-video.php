@@ -15,7 +15,7 @@ $poster_image = $module['poster_image'];
 <section class="c--layout-d <?= $bg_color == 'cream'  || $bg_color == 'white '?  'c--layout-d--second'  : ''?>  <?= $bg_color ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row">
-            <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12">
+            <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12">
                 <div class="c--layout-d__hd">
                     <?php if ($legend):?>
                         <p class="c--layout-d__hd__title"><?= $legend ?></p>
@@ -25,7 +25,7 @@ $poster_image = $module['poster_image'];
                     <?php endif; ?>
                 </div>
             </div>
-             <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12  u--pb-tabletm-4">
+             <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12  u--pb-tabletl-4">
                  <button
                     type="button"
                     class="c--layout-d__wrapper"
@@ -53,7 +53,7 @@ $poster_image = $module['poster_image'];
                 </button>
              
             </div>
-            <div class="f--col-4 f--col-tabletm-12 u--display-flex u--align-items-flex-end">
+            <div class="f--col-4 f--col-tabletl-12 u--display-flex u--align-items-flex-end">
                  <div class="c--layout-d__ft">
                     <?php if ($content):?>
                         <div class="c--layout-d__ft__content"><?= $content ?></div>

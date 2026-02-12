@@ -61,7 +61,7 @@
 <section class="<?= $bgColor ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
-            <div class="f--col-5 f--col-tabletm-12">
+            <div class="f--col-5 f--col-tabletl-12">
                 <h2 class="f--font-c u--mb-5 u--mt-5 <?= ($bgColor != "f--background-a") ? "f--color-a" : "" ?>">
                     <?php
                         if ($title) {
@@ -86,7 +86,7 @@
                     </a>
                 <?php endif; ?>
             </div>
-            <div class="f--col-6 f--col-tabletm-12">
+            <div class="f--col-6 f--col-tabletl-12">
                 <div class="c--wrapper-a">
                     <?php
                         while ($custom_query->have_posts()): $custom_query->the_post();

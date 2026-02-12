@@ -33,7 +33,7 @@ $case_studies = $module['case_studies'];
                                     <div class="f--row">
 
                                         <!-- IMAGEN -->
-                                        <div class="f--col-4 f--col-tabletm-12">
+                                        <div class="f--col-4 f--col-tabletl-12">
                                             <a href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?> class="u--overflow-hidden">
                                                 <div class="c--card-m__wrapper">
                                                     <?php
@@ -56,7 +56,7 @@ $case_studies = $module['case_studies'];
                                         </div>
 
                                         <!-- WHAT WE DID -->
-                                        <div class="f--col-4 f--col-tabletm-12">
+                                        <div class="f--col-4 f--col-tabletl-12">
                                             <div class="c--card-m__hd">
                                                 <p class="c--card-m__hd__title">WHAT WE DID</p>
                                                 <a href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?> class="c--card-m__hd__paragraph">
@@ -67,7 +67,7 @@ $case_studies = $module['case_studies'];
                                         </div>
 
                                         <!-- HOW WE HELPED / PILLS -->
-                                        <div class="f--col-4 f--col-tabletm-12">
+                                        <div class="f--col-4 f--col-tabletl-12">
                                             <div class="c--card-m__ft">
                                                 <p class="c--card-m__ft__title">HOW WE HELPED</p>
                                                 <div class="c--card-m__ft__items">

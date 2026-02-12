@@ -52,10 +52,10 @@
 <section class="f--background-a <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row f--gap-a">
-            <div class="f--col-6 f--col-tabletm-8 f--col-tablets-12 u--display-flex">
+            <div class="f--col-6 f--col-tabletl-8 f--col-tabletm-12 u--display-flex">
                 <h2 class="f--font-e u--font-medium"><?= $title ?></h2>
             </div>
-            <div class="f--col-6 f--col-tabletm-4 f--col-tablets-12 u--display-flex u--align-items-flex-end">
+            <div class="f--col-6 f--col-tabletl-4 f--col-tabletm-12 u--display-flex u--align-items-flex-end">
                 <div class="c--filter-a">
                     <div class="c--filter-a__item">
                         <select name="team-grid-location" id="team-grid-location">

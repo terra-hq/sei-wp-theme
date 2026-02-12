@@ -13,7 +13,7 @@ $cards = $module['cards'];
         <div class="f--row f--gap-b">
             <?php if (!empty($cards)) : ?>
                 <?php foreach ($cards as $card) : ?>
-                    <div class="f--col-3 f--col-tabletm-6">
+                    <div class="f--col-3 f--col-tabletl-6">
                         <div class="g--card-04 <?= $modifier ?>">
                             <h3 class="g--card-04__item-primary"><?= $card['title'] ?></h3>
                             <div class="g--card-04__list-group">

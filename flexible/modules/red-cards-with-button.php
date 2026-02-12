@@ -19,7 +19,7 @@
                             # code...
                             break;
                     }?>
-                    <div class="f--col-3 f--col-laptop-5 f--col-tabletm-6 f--col-tablets-12">
+                    <div class="f--col-3 f--col-desktop-5 f--col-tabletl-6 f--col-tabletm-12">
                         <div class="g--card-09 <?php echo $customClass ?>">
                             <div class="g--card-09__ft-items">
                                 <h3 class="g--card-09__ft-items__item-primary"><?php echo $card['title'] ?></h3>

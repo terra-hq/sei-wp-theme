@@ -12,7 +12,7 @@
 <section class="<?= $bgColor ?> <?= $spacing ?>">
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
-            <div class="f--col-3 f--col-tabletl-8 f--col-tabletm-10 f--col-mobile-12">
+            <div class="f--col-3 f--col-laptop-8 f--col-tabletl-10 f--col-tablets-12">
                 <h2 class="f--font-c u--mb-4">
                     <?php
                         if ($title) {
@@ -32,8 +32,8 @@
                     <?= $content ?>
                 </div>
             </div>
-            <div class="f--col-8 f--col-tabletl-12 f--col-tablets-12">
-                <div class="u--display-flex u--display-tabletm-block">
+            <div class="f--col-8 f--col-laptop-12 f--col-tabletm-12">
+                <div class="u--display-flex u--display-tabletl-block">
                     <?php
                         $modifierClass = null;
                         $type = 'function';

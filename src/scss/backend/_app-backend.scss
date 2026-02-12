@@ -5,7 +5,7 @@
 @use "@scss/framework/foundation/font/font" as *;
 @use "@scss/framework/utilities/utilities.scss";
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/framework/foundation/font/make-font" as *;
 
@@ -40,13 +40,13 @@ body {
     height: auto !important;
     max-height: 100%;
     background-color: #ffffff !important;
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
       grid-template-columns: repeat(4, 1fr) !important;
     }
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
       grid-template-columns: repeat(3, 1fr) !important;
     }
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
       grid-template-columns: repeat(2, 1fr) !important;
     }
     & > li {

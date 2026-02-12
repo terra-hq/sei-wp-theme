@@ -7,11 +7,11 @@
 <section class="<?= $spacing?>">
     <div class="f--container">
         <div class="f--row f--gap-a">
-            <div class="f--col-4 f--col-tabletl-12">
+            <div class="f--col-4 f--col-laptop-12">
                 <h2 class="f--font-i f--color-c u--letter-spacing-a u--text-uppercase u--font-medium u--mb-4"><?= $tagline ?></h2>
                 <h3 class="f--font-e"><?= $title ?></h3>
             </div>
-            <div class="f--col-8 f--col-tabletl-12">
+            <div class="f--col-8 f--col-laptop-12">
                 <div class="c--accordion-a">
                 <?php 
                     wp_reset_postdata();

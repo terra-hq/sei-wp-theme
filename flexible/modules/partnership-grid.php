@@ -26,7 +26,7 @@
                     $link = get_permalink($partnership->ID);
                     if ($description && $image) {
                 ?>
-                <div class="f--col-4 f--col-tablets-6 f--col-mobile-12 u--display-flex">
+                <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12 u--display-flex">
                     <?php if (!empty($link)): ?>
                         <a href="<?= esc_url($link); ?>" rel="noopener noreferrer" class="<?= $background_class; ?>">
                             <div class="g--card-03__ft-items">

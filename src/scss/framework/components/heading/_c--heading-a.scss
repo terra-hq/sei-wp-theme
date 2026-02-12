@@ -20,7 +20,7 @@
         }
     }
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         &__btn {
             margin-left: unset;
         }

@@ -74,11 +74,11 @@ if ($services) {
 }
 ?>
 
-<section class="u--pb-15 u--pb-tablets-10">
+<section class="u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
         <div class="f--row f--gap-a">
             <?php foreach ($grouped_services as $group) { ?>
-                <div class="f--col-4 f--col-tablets-6 f--col-mobile-12">
+                <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12">
                     <h2 class="f--font-g u--mb-3">
                         <a href="<?= esc_url($group['link']) ?>" 
                            class="g--link-01 g--link-01--second">

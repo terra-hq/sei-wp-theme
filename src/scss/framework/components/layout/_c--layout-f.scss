@@ -11,7 +11,7 @@
   background-color: rgba(map.get($color-options, h), 0.1);
   padding: $measure*7 $measure*6;
 
-  @media all and ($viewport-type: $tabletl) {
+  @media all and ($viewport-type: $laptop) {
     padding: $measure*4 $measure*3;
   }
 
@@ -21,7 +21,7 @@
     @extend .f--color-b;
     margin-bottom: $measure * 5;
 
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
       margin-bottom: $measure * 4;
     }
   }
@@ -44,7 +44,7 @@
     @extend .u--flex-direction-column;
     margin-bottom: $measure * 5;
 
-    @media all and ($viewport-type: $tabletl) {
+    @media all and ($viewport-type: $laptop) {
       margin-bottom: $measure * 4;
     }
 
@@ -105,15 +105,15 @@
       grid-template-columns: repeat(3, 1fr);
       gap: $measure * 2;
 
-      @media all and ($viewport-type: $tabletm) {
+      @media all and ($viewport-type: $tabletl) {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      @media all and ($viewport-type: $tablets) {
+      @media all and ($viewport-type: $tabletm) {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      @media all and ($viewport-type: $mobile) {
+      @media all and ($viewport-type: $tablets) {
         grid-template-columns: repeat(1, 1fr);
       }
     }

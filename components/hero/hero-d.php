@@ -25,7 +25,7 @@
     </div>
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-center">
-            <div class="f--col-10 f--col-mobile-12">
+            <div class="f--col-10 f--col-tablets-12">
                 <div class="c--hero-d__wrapper">
                     <h1 class="c--hero-d__wrapper__title"> <?= $title ?> </h1>
                     <p class="c--hero-d__wrapper__subtitle"> <?= $subtitle ?> </p>

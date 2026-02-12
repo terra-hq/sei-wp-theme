@@ -14,11 +14,11 @@
     height: 100vh;
     z-index: 8;
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         top: 0;
     }
 
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         width: 100%;
         min-width: 0;
     }
@@ -28,7 +28,7 @@
         padding: $measure*4;
         right: 0;
         top:20px;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             top: 0;
             padding: $measure*2.5;
         }
@@ -54,7 +54,7 @@
         flex-direction: column;
         gap: $measure*3;
         padding: $measure*12 $measure*5 $measure*7 $measure*5;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             padding: $measure*7 $measure*2.5 $measure*4 !important;
         }
         

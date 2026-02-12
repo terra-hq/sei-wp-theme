@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<section class="u--pt-15 u--pt-tablets-10 u--pb-15 u--pb-tablets-10">
+<section class="u--pt-15 u--pt-tabletm-10 u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
@@ -11,12 +11,12 @@
             </div>
         </div>
         <div class="f--row u--justify-content-space-between f--gap-a">
-            <div class="f--col-7 f--col-tablets-12">
+            <div class="f--col-7 f--col-tabletm-12">
                 <h1 class="f--font-c f--sp-c"><?php the_title() ?></h1>
                 <p class="f--font-h"><span
                         class="u--opacity-6"><?php echo get_the_date('M j, Y', get_the_ID()) ?></span>
                 </p>
-                <article class="u--pt-8 u--pt-tablets-5 u--pb-4">
+                <article class="u--pt-8 u--pt-tabletm-5 u--pb-4">
                     <div class="c--content-a">
                         <?php the_content() ?>
                     </div>
@@ -26,7 +26,7 @@
                     <?php include(locate_template('components/social/social-a--second.php', false, false)); ?>
                 </div>
             </div>
-            <div class="f--col-4 f--col-tabletl-5 f--col-tablets-12">
+            <div class="f--col-4 f--col-laptop-5 f--col-tabletm-12">
                 <?php if (get_field('subscribe_form_id', 'option') && get_field('subscribe_form_portal', 'option')): ?>
                     <div class="c--form-b">
                         <h2 class="c--form-b__title"><?php echo get_field('subscribe_form_title', 'option') ?></h2>

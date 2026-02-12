@@ -58,7 +58,7 @@ Template Name: Index
         if ($custom_query->have_posts()) :
     ?>
 
-        <section class="u--pb-22 u--pb-tablets-15">
+        <section class="u--pb-22 u--pb-tabletm-15">
             <div class="f--container">
                 <div class="f--row f--gap-b">
                     <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
@@ -67,7 +67,7 @@ Template Name: Index
                             $title = get_the_title();
                             $subtitle = get_field('description');
                         ?>
-                        <div class="f--col-4 f--col-tablets-6 f--col-mobile-12 u--display-flex">
+                        <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12 u--display-flex">
                             <?php 
                                 if ($post_type === 'location') {
                                     include(locate_template('components/card/card-e-third.php', false, false));

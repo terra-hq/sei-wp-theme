@@ -8,8 +8,8 @@
     @extend .u--position-relative;
     // display: flex;
     overflow: hidden;
-    padding: $zoomPadingDesktop 0;
-    @media all and ($viewport-type: $tablets) {
+    padding: $zoomPadingWide 0;
+    @media all and ($viewport-type: $tabletm) {
         padding: $measure*15 0 $measure*11;
     }
     &__wrapper {
@@ -24,15 +24,15 @@
         &__item-left {
             @extend .u--width-50;
             padding: $measure*11 $measure*4.5 $measure*11 $measure*10;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 padding: $measure*11 $measure*4 $measure*11 $measure*10;
                 width: 60%;
             }
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 padding: $measure*11 $measure*10;
                 width: 100%;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding: $measure*4 $measure*3;
             }
             &__title {
@@ -41,7 +41,7 @@
             }
             &__subtitle {
                 margin-bottom: $measure * 7;
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     margin-bottom: $measure * 4;
                 }
             }
@@ -57,32 +57,32 @@
         &__item-right {
             @extend .u--width-40;
             padding: $measure*11 $measure*10 $measure*11 $measure*4.5;
-            @media all and ($viewport-type: $tabletl) {
+            @media all and ($viewport-type: $laptop) {
                 padding: $measure*11 $measure*10 $measure*11 $measure*4;
             }
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 padding: 0 $measure*10;
                 width: 60%;
                 margin: 0 auto;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 padding: 0 $measure*3;
             }
-            @media all and ($viewport-type: $mobile) {
+            @media all and ($viewport-type: $tablets) {
                 width: 100%;
             }
             &__media {
                 @extend .u--display-block;
                 height: 420px;
                 width: auto;
-                @media all and ($viewport-type: $tabletm) {
+                @media all and ($viewport-type: $tabletl) {
                     height: auto;
                 }
             }
         }
     }
     &--second {
-        @media all and ($viewport-type:$mobile) {
+        @media all and ($viewport-type:$tablets) {
             padding-top: $measure*11;
         }
     }

@@ -30,12 +30,12 @@ include (locate_template('components/hero/hero-h.php', false, false));
 <section class="c--layout-b u--pt-15">
     <div class="f--container">
         <div class="f--row f--gap-c u--justify-content-space-between">
-            <div class="f--col-6 f--col-tabletm-10 f--col-mobile-12">
+            <div class="f--col-6 f--col-tabletl-10 f--col-tablets-12">
                 <h2 class="c--layout-b__title">
                     <?= $title ?>
                 </h2>
             </div>
-            <div class="f--col-5 f--col-tabletm-10 f--col-mobile-12">
+            <div class="f--col-5 f--col-tabletl-10 f--col-tablets-12">
                 <div class="c--layout-b__content">
                     <?= $description ?>
                 </div>
@@ -47,7 +47,7 @@ include (locate_template('components/hero/hero-h.php', false, false));
     <div class="f--container">
         <div class="f--row">
 
-            <div class="f--col-12 u--mt-10 u--mt-tablets-8">
+            <div class="f--col-12 u--mt-10 u--mt-tabletm-8">
                 <div class="c--wrapper-b c--wrapper-b--second">
                     <?php while ($locations_query->have_posts()) : $locations_query->the_post(); ?>
                     <?php

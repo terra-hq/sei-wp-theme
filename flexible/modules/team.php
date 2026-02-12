@@ -32,7 +32,7 @@
         <div class="f--container">
             <!-- title and button -->
             <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
-                <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
+                <div class="f--col-5 f--col-laptop-6 f--col-tabletm-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -41,7 +41,7 @@
                         <?php endif; ?>
                     </h2>
                 </div>
-                <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12 u--display-flex u--justify-content-flex-end u--justify-content-tablets-flex-start">
+                <div class="f--col-3 f--col-laptop-6 f--col-tabletm-12 u--display-flex u--justify-content-flex-end u--justify-content-tabletm-flex-start">
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
@@ -51,19 +51,19 @@
                 </div>
             </div>
             <!-- team members, leader and 4 members -->
-            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tablets-flex-start">
-                <div class="f--col-4 f--col-desktop-5 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12">
+            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tabletm-flex-start">
+                <div class="f--col-4 f--col-wide-5 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12">
                     <!-- leader -->
                     <?php foreach($leader as $key => $person): ?>
                         <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                     <?php endforeach; ?>
                 </div>
                 <!-- Pay attention, we have a col-7 with a row and col-6 inside of it, to recreate a grid whithout a custom wrapper -->
-                <div class="f--col-6 f--col-desktop-7 f--col-tabletm-8 f--col-tablets-12 ">
+                <div class="f--col-6 f--col-wide-7 f--col-tabletl-8 f--col-tabletm-12 ">
                     <div class="f--row f--gap-c">
                         <!-- 4 team members -->
                        <?php foreach ($team as $key => $person) : ?>
-                        <div class="f--col-6 f--col-mobile-12">
+                        <div class="f--col-6 f--col-tablets-12">
                             <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                         </div> 
                         <?php endforeach; ?>
@@ -112,7 +112,7 @@
             <!-- title and button + team member -->
             <div class="f--row f--gap-c">
                 <!-- title and button -->
-                <div class="f--col-6 f--col-mobile-12">
+                <div class="f--col-6 f--col-tablets-12">
                     <h2 class="f--font-c f--color-b f--sp-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -127,7 +127,7 @@
                         </a>
                     <?php endif; ?>
                 </div>
-                <div class="f--col-4 f--col-tabletl-6 f--col-mobile-12">
+                <div class="f--col-4 f--col-laptop-6 f--col-tablets-12">
                     <!-- leader -->
                     <?php foreach($leader as $key => $person): ?>
                         <?php include(locate_template('components/card/card-c.php', false, false)); ?>
@@ -173,7 +173,7 @@
         <div class="f--container">
             <!-- title and button -->
             <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
-                <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12">
+                <div class="f--col-4 f--col-laptop-6 f--col-tabletm-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -182,7 +182,7 @@
                         <?php endif; ?>
                     </h2>
                 </div>
-                <div class="f--col-3 f--col-tabletl-6 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12 u--display-flex u--justify-content-flex-end u--justify-content-tablets-flex-start u--align-items-center">
+                <div class="f--col-3 f--col-laptop-6 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12 u--display-flex u--justify-content-flex-end u--justify-content-tabletm-flex-start u--align-items-center">
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
@@ -193,16 +193,16 @@
             </div>
             <!-- team members, leader and 1 member -->
             <div class="f--row f--gap-c u--justify-content-center">
-                <div class="f--col-4 f--col-desktop-5 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12">
+                <div class="f--col-4 f--col-wide-5 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12">
                     <!-- leader -->
                     <?php foreach($leader as $key => $person): ?>
                         <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                     <?php endforeach; ?>
                 </div>
                 <!-- Pay attention, we have a col-7 with a row and col-6 inside of it, to recreate a grid whithout a custom wrapper -->
-                <div class="f--col-6 f--col-desktop-7 f--col-tabletm-8 f--col-tablets-6 f--col-mobile-12">
+                <div class="f--col-6 f--col-wide-7 f--col-tabletl-8 f--col-tabletm-6 f--col-tablets-12">
                     <div class="f--row f--gap-c">
-                        <div class="f--col-6 f--col-tablets-12">
+                        <div class="f--col-6 f--col-tabletm-12">
                             <!-- 1 team member -->
                             <?php foreach ($team as $key => $person) : ?>
                                 <?php include(locate_template('components/card/card-c.php', false, false)); ?>
@@ -250,7 +250,7 @@
         <div class="f--container">
             <!-- title and button -->
             <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
-                <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
+                <div class="f--col-5 f--col-laptop-6 f--col-tabletm-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -259,7 +259,7 @@
                         <?php endif; ?>
                     </h2>
                 </div>
-                <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12 u--display-flex u--justify-content-flex-end u--justify-content-tablets-flex-start u--align-items-center">
+                <div class="f--col-3 f--col-laptop-6 f--col-tabletm-12 u--display-flex u--justify-content-flex-end u--justify-content-tabletm-flex-start u--align-items-center">
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
@@ -269,19 +269,19 @@
                 </div>
             </div>
             <!-- team members, leader and 3 members -->
-            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tablets-flex-start">
-                <div class="f--col-4 f--col-desktop-5 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12">
+            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tabletm-flex-start">
+                <div class="f--col-4 f--col-wide-5 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12">
                     <!-- leader -->
                     <?php foreach($leader as $key => $person): ?>
                         <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                     <?php endforeach; ?>
                 </div>
                 <!-- Pay attention, we have a col-7 with a row and col-6 inside of it, to recreate a grid whithout a custom wrapper -->
-                <div class="f--col-6 f--col-desktop-7 f--col-tabletm-8 f--col-tablets-12 f--col-mobile-12">
+                <div class="f--col-6 f--col-wide-7 f--col-tabletl-8 f--col-tabletm-12 f--col-tablets-12">
                     <div class="f--row f--gap-c">
                        <!-- 3 team members -->
                        <?php foreach ($team as $key => $person) : ?>
-                            <div class="f--col-6 f--col-mobile-12">
+                            <div class="f--col-6 f--col-tablets-12">
                                 <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                             </div>
                         <?php endforeach; ?>
@@ -327,7 +327,7 @@
         <div class="f--container">
             <!-- title and button -->
             <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
-                <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
+                <div class="f--col-5 f--col-laptop-6 f--col-tabletm-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -336,7 +336,7 @@
                         <?php endif; ?>
                     </h2>
                 </div>
-                <div class="f--col-3 f--col-tabletl-6 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12 u--display-flex u--justify-content-flex-end u--justify-content-tablets-flex-start u--align-items-center">
+                <div class="f--col-3 f--col-laptop-6 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12 u--display-flex u--justify-content-flex-end u--justify-content-tabletm-flex-start u--align-items-center">
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>
@@ -346,19 +346,19 @@
                 </div>
             </div>
             <!-- team members, leader and 2 members -->
-            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tablets-flex-start">
-                <div class="f--col-4 f--col-desktop-5 f--col-tabletm-4 f--col-tablets-6 f--col-mobile-12">
+            <div class="f--row f--gap-c u--justify-content-center u--justify-content-tabletm-flex-start">
+                <div class="f--col-4 f--col-wide-5 f--col-tabletl-4 f--col-tabletm-6 f--col-tablets-12">
                     <!-- leader -->
                     <?php foreach($leader as $key => $person): ?>
                         <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                     <?php endforeach; ?>
                 </div>
                 <!-- Pay attention, we have a col-7 with a row and col-6 inside of it, to recreate a grid whithout a custom wrapper -->
-                <div class="f--col-6 f--col-desktop-7 f--col-tabletm-8 f--col-tablets-12">
+                <div class="f--col-6 f--col-wide-7 f--col-tabletl-8 f--col-tabletm-12">
                     <div class="f--row f--gap-c">
                             <!-- 2 team members -->
                             <?php foreach ($team as $key => $person) : ?>
-                                <div class="f--col-6 f--col-mobile-12">
+                                <div class="f--col-6 f--col-tablets-12">
                                 <?php include(locate_template('components/card/card-c.php', false, false)); ?>
                                 </div>
                             <?php endforeach; ?>
@@ -404,7 +404,7 @@
         <div class="f--container">
             <!-- title and button -->
             <div class="f--row u--justify-content-space-between f--gap-c u--mb-8">
-                <div class="f--col-5 f--col-tabletl-6 f--col-tablets-12">
+                <div class="f--col-5 f--col-laptop-6 f--col-tabletm-12">
                     <h2 class="f--font-c f--color-b">
                         <?php if ($title) : ?>
                             <?php foreach ($title as $e) : ?>
@@ -413,7 +413,7 @@
                         <?php endif; ?>
                     </h2>
                 </div>
-                <div class="f--col-3 f--col-tabletl-6 f--col-tablets-12 u--display-flex u--justify-content-flex-end u--justify-content-tablets-flex-start u--align-items-center">
+                <div class="f--col-3 f--col-laptop-6 f--col-tabletm-12 u--display-flex u--justify-content-flex-end u--justify-content-tabletm-flex-start u--align-items-center">
                     <?php if ($btn) : ?>
                         <a href="<?= $btn['url'] ?>" <?= get_target_link($btn['target'], $btn['title']) ?> class="g--btn-03 g--btn-03--second">
                             <span class="g--btn-03__content"><?= $btn['title'] ?></span>

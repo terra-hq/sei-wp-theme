@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/global-components/btn/_g--btn-01" as *;
 .c--card-n {
@@ -19,13 +19,13 @@
         gap: $measure*3;
         padding: $measure*15 $measure*12;
         width: 50%;
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $laptop) {
             padding: $measure*8;
         }
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             padding: $measure*5;
         }
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             width: 100%;
         }
         &__item-primary {
@@ -52,7 +52,7 @@
         @extend .u--align-items-center;
         overflow: hidden;
         width: 50%;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             display: none;
         }
         &__media {

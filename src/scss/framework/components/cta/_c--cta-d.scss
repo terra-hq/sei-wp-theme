@@ -16,7 +16,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         display: none;
     }
     &::before {

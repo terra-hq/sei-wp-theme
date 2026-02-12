@@ -19,7 +19,7 @@ Template Name: Sitemap
           
 <?php 
 if ($sitemap_items) { ?>
-<section class="u--pb-15 u--pb-tablets-10">
+<section class="u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
         <div class="c--sitemap-a">
             <?php foreach ($sitemap_items as $sitemap_item) {  ?>

@@ -523,8 +523,8 @@ function variables_in_header()
         $small = $is_acf_array ? $payload['image']['sizes']['thumbnail'] : wp_get_attachment_image_src($payload['image'], 'thumbnail')[0];
         $medium = $is_acf_array ? $payload['image']['sizes']['medium'] : wp_get_attachment_image_src($payload['image'], 'medium')[0];
         $large = $is_acf_array ? $payload['image']['sizes']['large'] : wp_get_attachment_image_src($payload['image'], 'large')[0];
-        $tablets = $is_acf_array ? $payload['image']['sizes']['tablets'] : wp_get_attachment_image_src($payload['image'], 'tablets')[0];
-        $mobile = $is_acf_array ? $payload['image']['sizes']['mobile'] : wp_get_attachment_image_src($payload['image'], 'mobile')[0];
+        $tabletm = $is_acf_array ? $payload['image']['sizes']['tablets'] : wp_get_attachment_image_src($payload['image'], 'tablets')[0];
+        $tablets = $is_acf_array ? $payload['image']['sizes']['mobile'] : wp_get_attachment_image_src($payload['image'], 'mobile')[0];
 
         if ($is_svg) {
             $svg = simplexml_load_file($url);
@@ -570,11 +570,11 @@ function variables_in_header()
         }
 
         if (!$is_svg && $payload['isLazy'] == false) {
-            $html .= ' srcset="' . $url . ' ' . $width . 'w, ' . $large . ' 1024w, ' . $tablets . ' 810w, ' . $mobile . ' 580w, ' . $medium . ' 300w, ' . $small . ' 150w" sizes="' . $sizesResult . '"';
+            $html .= ' srcset="' . $url . ' ' . $width . 'w, ' . $large . ' 1024w, ' . $tabletm . ' 810w, ' . $tablets . ' 580w, ' . $medium . ' 300w, ' . $small . ' 150w" sizes="' . $sizesResult . '"';
         }
 
         if (!$is_svg && $payload['isLazy'] == true) {
-            $html .= ' data-srcset="' . $url . ' ' . $width . 'w, ' . $large . ' 1024w, ' . $tablets . ' 810w, ' . $mobile . ' 580w, ' . $medium . ' 300w, ' . $small . ' 150w" sizes="' . $sizesResult . '"';
+            $html .= ' data-srcset="' . $url . ' ' . $width . 'w, ' . $large . ' 1024w, ' . $tabletm . ' 810w, ' . $tablets . ' 580w, ' . $medium . ' 300w, ' . $small . ' 150w" sizes="' . $sizesResult . '"';
         }
 
         if ($payload['isLazy']) {

@@ -36,7 +36,7 @@
 
     <div class="c--header-wrapper-a">
         <!-- Banner -->
-        <div class="f--container f--container--tablets-fluid">
+        <div class="f--container f--container--tabletm-fluid">
             <?php include(locate_template('components/banner/banner-01.php', false, false)); ?>
         </div>
 

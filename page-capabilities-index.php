@@ -36,7 +36,7 @@ Template Name: Capabilities Index
     if ($capabilities_query->have_posts()) :
 ?>
 
-<section class="u--pb-15 u--pb-tablets-10">
+<section class="u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
         <?php foreach ($capabilities_query->posts as $capability) : ?>
             <?php
@@ -46,7 +46,7 @@ Template Name: Capabilities Index
                 $image = get_field('index_icon', $capability->ID);
             ?>
 
-            <div class="c--border-a u--pt-5 u--pt-tablets-4 u--pb-8 u--pb-tablets-5">
+            <div class="c--border-a u--pt-5 u--pt-tabletm-4 u--pb-8 u--pb-tabletm-5">
                 <a href="<?= get_the_permalink($capability->ID) ?>" class="c--heading-b">
                     <div class="c--heading-b__wrapper">
                         <h2 class="c--heading-b__wrapper__title"><?= $capability_title ?></h2>
@@ -90,7 +90,7 @@ Template Name: Capabilities Index
                                 $title = get_the_title($sub_capability->ID);
                                 $subtitle = get_field('subcapbilities_accordion_tagline', $sub_capability->ID);
                     ?>
-                        <div class="f--col-4 f--col-tablets-6 f--col-mobile-12 u--display-flex">
+                        <div class="f--col-4 f--col-tabletm-6 f--col-tablets-12 u--display-flex">
                             <?php include(locate_template('components/card/card-e.php', false, false)); ?>
                         </div>
                     <?php

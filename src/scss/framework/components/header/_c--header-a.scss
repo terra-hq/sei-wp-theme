@@ -5,10 +5,10 @@
 
 .c--header-a {
     @extend .f--container;
-    @extend .f--container--tablets-fluid;
+    @extend .f--container--tabletm-fluid;
     @extend .u--position-relative;
     z-index: 5;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         background-color: map.get($color-options, a);
     }
 
@@ -21,11 +21,11 @@
         transform: translateX(-50%);
         width: calc(100% + #{$measure*4}*2);
         padding: $measure*2 $measure*4;
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $laptop) {
             width: calc(100% + #{$measure*2}*2);
             padding: $measure*2;
         }
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             width: 100%;
             padding: $measure*2 2.5vw;
         }

@@ -19,7 +19,7 @@ Template Name: Awards
         </div>
     </div>
 </section>
-<section class=" u--pb-15 u--pb-tablets-10">
+<section class=" u--pb-15 u--pb-tabletm-10">
     <div class="f--container">
         <div class="f--row">
             <?php
@@ -63,7 +63,7 @@ Template Name: Awards
                                     <div class="g--accordion-02__bd__content">
                                         <div class="f--row f--row--remove-gutter">
                                             <?php foreach ($awards as $award) { ?>
-                                                <div class="f--col-3 f--col-tabletm-4 f--col-mobile-6 u--display-flex">
+                                                <div class="f--col-3 f--col-tabletl-4 f--col-tablets-6 u--display-flex">
                                                     <div class="u--mt-7 u--width-100 u--display-flex">
                                                     <div class="g--card-06">
                                                             <h3 class="g--card-06__item-primary"><?php echo get_field('text_1', $award->ID); ?></h3>
@@ -120,7 +120,7 @@ Template Name: Awards
                                         <div class="f--row f--row--remove-gutter">
                                         <?php foreach ($archive_awards as $year => $awards) {
                                                 foreach ($awards as $award) { ?>
-                                                    <div class="f--col-3 f--col-tabletm-4 f--col-mobile-6 u--display-flex">
+                                                    <div class="f--col-3 f--col-tabletl-4 f--col-tablets-6 u--display-flex">
                                                         <div class="u--mt-7 u--width-100 u--display-flex">
                                                             <div class="g--card-06">
                                                                 <h3 class="g--card-06__item-primary"><?php echo get_field('text_1', $award->ID); ?></h3>

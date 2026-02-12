@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 .g--404-01 {
     @include make-404-01();
@@ -44,7 +44,7 @@
     );
     &__wrapper__content {
         padding-bottom: $measure*2!important;
-        @media all and ($viewport-type:$tablets) {
+        @media all and ($viewport-type:$tabletm) {
             padding-bottom: $measure*4!important;
         }
     }

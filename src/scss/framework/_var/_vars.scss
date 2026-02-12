@@ -55,34 +55,34 @@ $type-b: "AT Lang", "AT Lang-fallback", serif;
 $g-container-width: 1900px;
 
 $all: 0;
-$desktop: 1700px;
-$laptop: 1570px;
-$tabletl: 1300px;
-$tabletm: 1024px;
-$tablets: 810px;
-$mobile: 580px;
-$viewport-type: max-width;
+$tablets: 580px;
+$tabletm: 810px;
+$tabletl: 1024px;
+$laptop: 1300px;
+$desktop: 1570px;
+$wide: 1700px;
+$viewport-type: min-width;
 $viewport-layouts: (
   "all": (
     $viewport-type: $all,
   ),
-  "desktop": (
-    $viewport-type: $desktop,
-  ),
-  "laptop": (
-    $viewport-type: $laptop,
-  ),
-  "tabletl": (
-    $viewport-type: $tabletl,
+  "tablets": (
+    $viewport-type: $tablets,
   ),
   "tabletm": (
     $viewport-type: $tabletm,
   ),
-  "tablets": (
-    $viewport-type: $tablets,
+  "tabletl": (
+    $viewport-type: $tabletl,
   ),
-  "mobile": (
-    $viewport-type: $mobile,
+  "laptop": (
+    $viewport-type: $laptop,
+  ),
+  "desktop": (
+    $viewport-type: $desktop,
+  ),
+  "wide": (
+    $viewport-type: $wide,
   ),
 );
 $columns: 12;
@@ -94,12 +94,12 @@ $gutter-compensation: -1 * $half-gutter-width;
 // Display, Aspect Ratio, Flex, Float, Justify, Spacing, Text-align
 $breakpoints-grid: (
   all: $all,
-  desktop: $desktop,
-  laptop: $laptop,
-  tabletl: $tabletl,
-  tabletm: $tabletm,
   tablets: $tablets,
-  mobile: $mobile,
+  tabletm: $tabletm,
+  tabletl: $tabletl,
+  laptop: $laptop,
+  desktop: $desktop,
+  wide: $wide,
 ) !default;
 
 /*
@@ -125,5 +125,5 @@ $ease-entrance-b: cubic-bezier(0.4, 0.14, 0.3, 1); //expresive
 $ease-exit-a: cubic-bezier(0.2, 0, 1, 0.9); //productive
 $ease-exit-b: cubic-bezier(0.4, 0.14, 1, 1); //expresive
 
-$zoomPadingDesktop: $measure * 15; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In desktop
-$zoomPadingTablets: $measure * 12; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In responsive
+$zoomPadingWide: $measure * 15; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In desktop
+$zoomPadingTabletm: $measure * 12; //* what the image will expand both upwards and downwards in the components that scale when scrolling. In responsive

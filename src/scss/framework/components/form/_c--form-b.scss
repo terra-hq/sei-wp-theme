@@ -27,13 +27,13 @@
         background-position: center top;
         background-size: cover;
         z-index: 0;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             min-height: 750px;
         }
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             min-height: 550px;
         }
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             min-height: 650px;
         }
     }
@@ -187,7 +187,7 @@
             }
             &.hs-fieldtype-booleancheckbox {
                 order: 1;
-                @media all and ($viewport-type:$tablets) {
+                @media all and ($viewport-type:$tabletm) {
                     max-width: 100%;
                 }
             }
@@ -203,13 +203,13 @@
             flex-wrap: wrap;
             .hs-form-field {
                 width: calc(50% - #{$measure*2});
-                @media all and ($viewport-type: $tabletm) {
+                @media all and ($viewport-type: $tabletl) {
                     width: 100%;
                 }
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     width: calc(50% - #{$measure*2});
                 }
-                @media all and ($viewport-type: $mobile) {
+                @media all and ($viewport-type: $tablets) {
                     width: 100%;
                 }
             }

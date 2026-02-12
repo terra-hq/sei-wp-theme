@@ -21,7 +21,7 @@
             max-width: calc(100% - 78px - #{$measure*2});
             width: calc(600px - 78px - 1rem);
             position: relative;
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 max-width: calc(100% - 61px - #{$measure*2});
             }
             label {
@@ -154,7 +154,7 @@
             }
             &.hs-fieldtype-booleancheckbox {
                 order: 1;
-                @media all and ($viewport-type:$tablets) {
+                @media all and ($viewport-type:$tabletm) {
                     max-width: 100%;
                 }
             }

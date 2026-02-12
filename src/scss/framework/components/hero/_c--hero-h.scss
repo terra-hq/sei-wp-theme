@@ -9,7 +9,7 @@
   @extend .u--position-relative;
   @extend .u--overflow-hidden;
   padding: $measure * 19.5 0 $measure * 15;
-  @media all and ($viewport-type: $tablets) {
+  @media all and ($viewport-type: $tabletm) {
     padding: $measure * 15 0 $measure * 11;
   }
 
@@ -26,7 +26,7 @@
     transform: translateY(12%);
     z-index: 1;
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
       display: none;
     }
   }
@@ -44,14 +44,14 @@
       @extend .u--font-light;
       @extend .u--mt-3;
       padding-bottom: calc(33.33vw - #{$measure * 15});
-      @media all and ($viewport-type: $tabletm) {
+      @media all and ($viewport-type: $tabletl) {
         padding-bottom: 0;
       }
     }
   }
   &--second {
     padding: $measure * 23.5 0 $measure * 15;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
       padding: $measure * 19 0 $measure * 11;
     }
   }
@@ -64,13 +64,13 @@
         @extend .u--mt-3;
         padding-bottom: 23rem;
 
-        @media all and ($viewport-type: $laptop) {
+        @media all and ($viewport-type: $desktop) {
           padding-bottom: $measure * 30;
         }
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $laptop) {
           padding-bottom: $measure * 20;
         }
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
           padding-bottom: 0;
         }
       }
@@ -88,12 +88,12 @@
       transform: rotate(28.196deg);
       z-index: 1;
 
-      @media all and ($viewport-type: $tabletl) {
+      @media all and ($viewport-type: $laptop) {
         left: -100px;
         bottom: -150px;
       }
 
-      @media all and ($viewport-type: $tabletm) {
+      @media all and ($viewport-type: $tabletl) {
         display: none;
       }
     }

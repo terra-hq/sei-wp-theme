@@ -2,7 +2,7 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use "@terrahq/gc/library" as *;
+
 @use "@scss/global-components/vars.scss" as *;
 @use "@scss/paths.scss" as paths;
 
@@ -10,7 +10,7 @@
 .g--card-33 {
     @include make-card-33();
     @include make-card-33-modifier($card-options: ("back-items": yes,
-            "breakpoint": $tablets,
+            "breakpoint": $tabletm,
             "min-height": 500px),
         $background-options: ("background-color": map.get($colorbg-options, c),
         ),
@@ -33,27 +33,27 @@
             ),
         ));
 
-    @media all and ($viewport-type: $desktop) {
+    @media all and ($viewport-type: $wide) {
         @include make-card-33-modifier($card-options: ("min-height": unset,
             ),
         );
     }
 
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         @include make-card-33-modifier($custom-options: (".g--card-33__media-wrapper": ("display": none),
                 ".g--card-33__wrapper": ("width": 100%,
                 ),
             ));
     }
 
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         @include make-card-33-modifier($custom-options: (".g--card-33__media-wrapper": ("width": 100%),
                 ".g--card-33__media-wrapper__media": ("position": relative,
                     "top": 0),
             ));
     }
 
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         @include make-card-33-modifier($custom-options: (".g--card-33__media-wrapper": ("display": flex,
                     "max-height": 400px,
                 ),
@@ -78,7 +78,7 @@
                     "top": auto),
             ));
 
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             @include make-card-33-modifier($custom-options: (".g--card-33__media-wrapper": ("padding": $measure*4 0,
                     ),
                 ));

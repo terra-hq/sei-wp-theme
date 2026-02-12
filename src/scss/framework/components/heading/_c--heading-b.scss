@@ -15,9 +15,9 @@
 
     &__wrapper {
         @extend .f--col-6 ;
-        @extend .f--col-tabletm-8 ;
-        @extend .f--col-mobile-12 ;
-        @extend .f--order-mobile-2;
+        @extend .f--col-tabletl-8 ;
+        @extend .f--col-tablets-12 ;
+        @extend .f--order-tablets-2;
 
         &__title {
             @extend .f--font-e ;
@@ -41,9 +41,9 @@
 
     &__media-wrapper {
         @extend .f--col-2;
-        @extend .f--col-tabletm-3 ;
-        @extend .f--col-mobile-8 ;
-        @extend .f--order-mobile-1;
+        @extend .f--col-tabletl-3 ;
+        @extend .f--col-tablets-8 ;
+        @extend .f--order-tablets-1;
 
         &__media {
             @extend .c--media-d;

@@ -16,7 +16,7 @@
     &__content {
         @extend .c--content-a;
         margin-top: $measure*2;
-        @media all and ($viewport-type:$tabletl) {
+        @media all and ($viewport-type:$laptop) {
             margin-top: 0;
         }
     }

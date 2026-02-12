@@ -3,7 +3,7 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 
 .c--wrapper-a {
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         display: flex;
         gap: $measure * 4;
         >a {
@@ -14,7 +14,7 @@
         }
     }
 
-    @media all and ($viewport-type: $mobile) {
+    @media all and ($viewport-type: $tablets) {
         display: block;
         >hr {
             display: block;
@@ -26,7 +26,7 @@
         gap: $measure * 4;
         grid-template-columns: 1fr;
 
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             grid-template-columns: repeat(2, 1fr);
             >a {
                 flex: unset;        
@@ -35,7 +35,7 @@
                 display: none;
             }
         }
-        @media all and ($viewport-type: $mobile) {
+        @media all and ($viewport-type: $tablets) {
             grid-template-columns: 1fr;
             >hr {
                 display: block;

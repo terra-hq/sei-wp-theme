@@ -12,7 +12,7 @@
         gap: $measure * 7;
         padding: $measure * 10 $measure * 7;
 
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
             flex-direction: column;
             gap: $measure * 5;
             padding: $measure * 5;
@@ -20,10 +20,10 @@
         }
         &__item-left {
             flex: 21%;
-            @media all and ($viewport-type: $desktop) {
+            @media all and ($viewport-type: $wide) {
                 flex: 24%;
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 flex: unset;
             }
 
@@ -36,11 +36,11 @@
                 object-fit: cover;
                 object-position: top center;
 
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     width: 40%;
                 }
 
-                @media all and ($viewport-type: $mobile) {
+                @media all and ($viewport-type: $tablets) {
                     width: 100%;
                 }
             }
@@ -50,10 +50,10 @@
             @extend .u--display-flex;
             @extend .u--flex-direction-column;
             flex: calc(79% - #{$measure * 7});
-            @media all and ($viewport-type: $desktop) {
+            @media all and ($viewport-type: $wide) {
                 flex: calc(76% - #{$measure * 7});
             }
-            @media all and ($viewport-type: $tablets) {
+            @media all and ($viewport-type: $tabletm) {
                 flex: unset;
             }
 

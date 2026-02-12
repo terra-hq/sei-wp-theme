@@ -13,7 +13,7 @@
     max-height: 0;
     overflow: auto;
     //opacity: 0;
-    @media all and ($viewport-type: $tabletm) {
+    @media all and ($viewport-type: $tabletl) {
         max-height: none;
         position: relative;
         top: auto;
@@ -25,7 +25,7 @@
         padding: $measure*8 $measure*4 $measure*6;
         row-gap: $measure*4;
         flex-wrap: wrap;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
             padding: 0;
             display: grid;
             grid-template-columns: repeat(1, auto);
@@ -41,7 +41,7 @@
             &:last-child {
                 padding-bottom: $measure*2;
             }
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 width: 100%;
                 min-height: auto;
             }
@@ -52,7 +52,7 @@
             grid-template-columns: repeat(4, auto);
             width: calc((100% / 5)*4 - #{$measure*4});
             gap: $measure*2 $measure*4;
-            @media all and ($viewport-type: $tabletm) {
+            @media all and ($viewport-type: $tabletl) {
                 padding: $measure*2 $measure*4 0 $measure*2;
                 width: 100%;
                 grid-template-columns: repeat(1, auto);        
@@ -61,7 +61,7 @@
             &__item {
                 @extend .u--display-block;
                 @extend .g--link-01;
-                @media all and ($viewport-type: $tablets) {
+                @media all and ($viewport-type: $tabletm) {
                     white-space: nowrap;
                 }
             }

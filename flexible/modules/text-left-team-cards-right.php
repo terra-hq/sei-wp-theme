@@ -8,7 +8,7 @@ $experts = $module['experts'] ?? [];
 <section class="c--layout-e <?= $spacing; ?>">
     <div class="f--container">
         <div class="f--row f--gap-b u--justify-content-space-between">
-            <div class="f--col-5 f--col-tabletl-10 f--col-mobile-12">
+            <div class="f--col-5 f--col-laptop-10 f--col-tablets-12">
                 <?php if ($title): ?>
                     <h2 class="c--layout-e__title">
                         <?= $title ?>
@@ -20,11 +20,11 @@ $experts = $module['experts'] ?? [];
                     </div>
                 <?php endif; ?>
             </div>
-            <div class="f--col-6 f--col-tabletl-12 f--col-mobile-12">
+            <div class="f--col-6 f--col-laptop-12 f--col-tablets-12">
                 <?php if (!empty($experts)): ?>
-                    <div class="f--row f--gap-c u--justify-content-flex-end u--justify-content-mobile-center">
+                    <div class="f--row f--gap-c u--justify-content-flex-end u--justify-content-tablets-center">
                         <?php foreach ($experts as $expert): ?>
-                            <div class="f--col-6 f--col-mobile-10">
+                            <div class="f--col-6 f--col-tablets-10">
                                 <div class="c--card-c">
                                     <div class="c--card-c__wrapper">
                                         <div class="c--card-c__wrapper__media-wrapper">

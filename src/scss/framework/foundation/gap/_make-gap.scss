@@ -2,21 +2,21 @@
 
 @mixin make-gap-a {
     row-gap: $measure * 8;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         row-gap: $measure * 5;
     }
 }
 
 @mixin make-gap-b {
     row-gap: $measure * 5;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         row-gap: $measure * 4;
     }
 }
 
 @mixin make-gap-c {
     row-gap: $measure * 4;
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
         row-gap: $measure * 3;
     }
 }

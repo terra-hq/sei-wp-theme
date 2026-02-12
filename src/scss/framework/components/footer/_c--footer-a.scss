@@ -21,13 +21,13 @@
   }
   &__bd {
     padding: 0 0 calc(#{$measure * 8} + #{$measure * 3});
-    @media all and ($viewport-type: $tablets) {
+    @media all and ($viewport-type: $tabletm) {
       padding: 0 0 calc(#{$measure * 4} + #{$measure});
     }
     &__item {
       contain: size;
       contain-intrinsic-size: 453px 196px;
-      @media all and ($viewport-type: $tablets) {
+      @media all and ($viewport-type: $tabletm) {
         contain-intrinsic-size: 300px 213px;
       }
     }
@@ -37,7 +37,7 @@
     &::before {
       background-color: map.get($color-options, i);
       top: -$measure * 3;
-      @media all and ($viewport-type: $tablets) {
+      @media all and ($viewport-type: $tabletm) {
         top: -$measure;
       }
     }
@@ -45,26 +45,26 @@
       background-color: inherit;
       @extend .c--curve-a;
       padding: $measure * 7 0;
-      @media all and ($viewport-type: $tablets) {
+      @media all and ($viewport-type: $tabletm) {
         padding: $measure * 4 0 $measure * 7;
       }
       &::before {
         width: calc(100% + 8px);
         background-color: map.get($color-options, k);
         top: calc(-#{$measure * 3} + 1px);
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
           top: calc(-#{$measure} + 1px);
         }
       }
       &__list-group {
         margin-bottom: $measure * 2;
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletm) {
           margin-bottom: $measure * 3;
         }
       }
       &__item-right {
         @extend .u--justify-content-flex-end;
-        @media all and ($viewport-type: $tabletm) {
+        @media all and ($viewport-type: $tabletl) {
           justify-content: flex-start;
         }
       }

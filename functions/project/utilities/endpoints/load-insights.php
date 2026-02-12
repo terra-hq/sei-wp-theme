@@ -76,7 +76,7 @@ function load_insights()
 
     <?php if ($is_load_more == 'false' && $published_posts != 0): ?>
     <!-- FEATURED INSIGHT -->
-    <div class="f--col-8 f--col-tabletm-12 u--display-flex js--featured-insight">
+    <div class="f--col-8 f--col-tabletl-12 u--display-flex js--featured-insight">
         <?php
             
             $types = get_the_terms($featured_insight[0]->ID, 'insight-types');
@@ -115,7 +115,7 @@ function load_insights()
 
     <?php while ($my_query->have_posts()):
         $my_query->the_post(); ?>
-        <div class="f--col-4 f--col-tabletm-6 f--col-mobile-12 u--display-flex">
+        <div class="f--col-4 f--col-tabletl-6 f--col-tablets-12 u--display-flex">
             <!-- INSIGHT CARD -->
             <?php
                 $insight_types = get_the_terms($post->ID, 'insight-types');
