@@ -1,27 +1,27 @@
 @use "@scss/framework/foundation/grid/make-container" as *;
 @use "@scss/framework/_var/_vars.scss" as *;
 
-
-// container
-// container fluid
-// container fluid responsive
 .f--container {
-  @include make-container();
-  @media all and ($viewport-type: 2000px){
+    @include make-container();
     max-width: 95%;
-  }
-  &--fluid {
-    @include make-container-fluid();
-  }
 
-  &--tabletm-fluid {
-    @media all and ($viewport-type: $tabletm) {
-      @include make-container-fluid();
+    &--fluid {
+        @include make-container-fluid();
     }
-  }
-  &--tablets-fluid {
-    @media all and ($viewport-type: $tablets) {
-      @include make-container-fluid();
+
+    &--tabletm-fluid {
+        @include make-container-fluid();
+        @media all and ($viewport-type: $tabletm) {
+          @include make-container();
+          max-width: 95%;
+        }
     }
-  }
+
+    &--tablets-fluid {
+        @include make-container-fluid();
+        @media all and ($viewport-type: $tablets) {
+          @include make-container();
+          max-width: 95%;
+        }
+    }
 }
