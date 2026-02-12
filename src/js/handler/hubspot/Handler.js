@@ -53,7 +53,6 @@ class Handler {
             region: "na1",
             portalId: "${element.getAttribute("data-portal-id")}",
             formId: "${element.getAttribute("data-form-id")}",
-            target: "#${element.id}"
             });
         `,
         appendTo: element,
