@@ -6,7 +6,6 @@ class Out {
         };
         this.Manager = payload.Manager;
         this.gsap = this.Manager.getLibrary("GSAP").gsap;
-        console.log(this.gsap);
 
         return this.init();
     }

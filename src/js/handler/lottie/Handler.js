@@ -52,9 +52,7 @@ class Handler extends CoreHandler {
                 })
             }
             if (this.DOM.elementA.length) {
-                console.log("YO")
                 this.DOM.elementA.forEach((element) => {
-                    console.log("TU")
                     this.boostify.observer({
                         options: {
                             root: null,
