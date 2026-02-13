@@ -66,8 +66,7 @@ class Grammar {
      * @param string $uuid Report UUID.
      * @return string Full report card URL.
      */
-    private function build_report_url(string $uuid): string {
-        $website = wp_parse_url(home_url(), PHP_URL_HOST);
+    private function build_report_url(string $uuid, string $url): string {
         return "https://www.spl.ing/report-card/?website={$website}&uuid={$uuid}";
     }
 
@@ -80,108 +79,6 @@ class Grammar {
 
     }
 
-
-    /**
-     * Create a grammar report for a taxonomy term.
-     *
-     * @param WP_Term $term Term object.
-     * @param string $taxonomy Taxonomy slug.
-     * @param string $url Term archive URL.
-     */
-    protected function create_term_report(\WP_Term $term, string $taxonomy, string $url): void {
-        $response = $this->api_request('create_report', [
-            'website' => home_url(),
-            'pages' => [$url],
-            'num_unselected_pages' => 0,
-            'config' => [
-                'preferredLanguage' => $this->language
-            ]
-        ]);
-
-        if (is_wp_error($response)) {
-            error_log('Grammar: API error - ' . $response->get_error_message());
-            return;
-        }
-
-        if (!empty($response['uuid'])) {
-            $this->send_term_notification($term, $taxonomy, $url, $response['uuid']);
-        } else {
-            error_log('Grammar: API response did not contain a UUID for term. Response: ' . wp_json_encode($response));
-        }
-    }
-
-    /**
-     * Send email notification for a term report.
-     *
-     * @param WP_Term $term Term object.
-     * @param string $taxonomy Taxonomy slug.
-     * @param string $url Term URL.
-     * @param string $uuid Report UUID.
-     */
-    protected function send_term_notification(\WP_Term $term, string $taxonomy, string $url, string $uuid): void {
-        $report_url = $this->build_report_url($uuid);
-
-        $subject = sprintf('[Grammar Check] %s: %s', $taxonomy, $term->name);
-
-        $message = $this->build_term_email_message($term, $taxonomy, $url, $report_url);
-
-        foreach ($this->notify_emails as $email) {
-            new MailTo((object) [
-                'email' => $email,
-                'subject' => $subject,
-                'message' => $message,
-            ]);
-        }
-
-        error_log("Grammar: Report created for term '{$term->name}' ({$taxonomy}) - {$report_url}");
-    }
-
-    /**
-     * Build the HTML email message for a term.
-     *
-     * @param WP_Term $term Term object.
-     * @param string $taxonomy Taxonomy slug.
-     * @param string $url Term URL.
-     * @param string $report_url Spling report URL.
-     * @return string HTML message.
-     */
-    protected function build_term_email_message(\WP_Term $term, string $taxonomy, string $url, string $report_url): string {
-        return "
-        <html>
-        <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
-            <h2>Grammar Check Report - Taxonomy</h2>
-            <p>A grammar and spelling check has been completed for the following taxonomy term:</p>
-
-            <table style='border-collapse: collapse; margin: 20px 0;'>
-                <tr>
-                    <td style='padding: 8px; font-weight: bold;'>Term Name:</td>
-                    <td style='padding: 8px;'>{$term->name}</td>
-                </tr>
-                <tr>
-                    <td style='padding: 8px; font-weight: bold;'>Taxonomy:</td>
-                    <td style='padding: 8px;'>{$taxonomy}</td>
-                </tr>
-                <tr>
-                    <td style='padding: 8px; font-weight: bold;'>URL:</td>
-                    <td style='padding: 8px;'><a href='{$url}'>{$url}</a></td>
-                </tr>
-            </table>
-
-            <p style='margin: 20px 0;'>
-                <a href='{$report_url}'
-                   style='background-color: #0073aa; color: white; padding: 12px 24px;
-                          text-decoration: none; border-radius: 4px; display: inline-block;'>
-                    View Full Report
-                </a>
-            </p>
-
-            <p style='color: #666; font-size: 12px;'>
-                This is an automated message from the Grammar Check system powered by Spling.
-            </p>
-        </body>
-        </html>
-        ";
-    }
 
     /**
      * Triggered when post status changes.
@@ -297,7 +194,7 @@ class Grammar {
      * @param string $uuid Report UUID.
      */
     protected function send_notification(\WP_Post $post, string $url, string $uuid): void {
-        $report_url = $this->build_report_url($uuid);
+        $report_url = $this->build_report_url($uuid, $url);
 
         $subject = sprintf('[Grammar Check] %s', $post->post_title);
 
