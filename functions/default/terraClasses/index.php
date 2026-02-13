@@ -11,6 +11,7 @@
 require get_template_directory() . '/functions/default/terraClasses/Cronjob.php'; 
 require get_template_directory() . '/functions/default/terraClasses/CustomPostType.php'; 
 require get_template_directory() . '/functions/default/terraClasses/CustomTaxonomy.php'; 
+require get_template_directory() . '/functions/default/terraClasses/Grammar.php'; 
 require get_template_directory() . '/functions/default/terraClasses/MailTo.php'; 
 require get_template_directory() . '/functions/default/terraClasses/TerraLighthouse.php'; 
 require get_template_directory() . '/functions/default/terraClasses/Custom_API_Endpoint.php'; 
