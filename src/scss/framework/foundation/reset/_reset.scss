@@ -43,6 +43,11 @@ section {
         display: block;
     }
 }
+#main-content {
+    & > section:not(:first-child) {
+        margin-top: -1px;
+    }
+}
 
 b,
 strong {
