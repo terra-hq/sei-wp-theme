@@ -1,19 +1,17 @@
-import gsap from "gsap";
-
 class HeroB {
-    constructor() {
+    constructor(payload) {
         this.DOM = {
             title: document.querySelector(".c--hero-b__wrapper__item-left__title"),
             content: document.querySelector(".c--hero-b__wrapper__item-left__subtitle"),
             pills: document.querySelectorAll(".c--hero-b__wrapper__item-left__list-group__item"),
             lottie: document.querySelector(".c--hero-b__wrapper__item-right"),
         };
-        
-        return this.init();
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
     }
     init() {
 
-        var tl = gsap.timeline({});
+        var tl = this.gsap.timeline({});
 
         if(this.DOM.title) {
             tl.from(this.DOM.title, { 
@@ -48,8 +46,18 @@ class HeroB {
                 ease: "power2.out",
             }, "-=.5")
         }
-
+        this.timeline = tl;
         return tl;
+    }
+
+    destroy() {
+        if (this.timeline) {
+            this.timeline.kill();
+            this.timeline = null;
+        }
+
+        this.DOM = null;
+        this.Manager = null;
     }
 
 }

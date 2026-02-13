@@ -1,75 +1,23 @@
-import gsap from "gsap";
 import In from "./In";
 import Out from "./Out";
 import { hideDropdown, hideSidenav, smoothScrollToTop } from "./utilities";
 import { u_take_your_time } from '@andresclua/jsutil';
 
 export const createTransitionOptions = (payload) => {
-  var {boostify, forceScroll } = payload;
+  var {boostify, forceScroll, assetManager, eventSystem, Manager } = payload;
+  var gsap = Manager.getLibrary("GSAP").gsap;
   return [
     {
       from: "(.*)",
       to: "(.*)",
 
       in: async (next, infos) => {
-        // Preload Images
-        var images = document.querySelector("img");
-        if(images){
-            if (!window["lib"]["preloadImages"]) {
-                const { preloadImages } = await import("@terrahq/helpers/preloadImages");
-                window["lib"]["preloadImages"] = preloadImages;
-            }
-            await window["lib"]["preloadImages"]("img");
-        }
-
-        // Load Hero Animations
-        if (document.querySelector(".c--hero-a")) {
-          if (!window["animations"]["heroA"]) {
-            window["animations"]["heroA"] = await import("@jsMotion/intros/heroA");
-          }
-        }
-        if (document.querySelector(".c--hero-b")) {
-          if (!window["animations"]["heroB"]) {
-            window["animations"]["heroB"] = await import("@jsMotion/intros/heroB");
-          }
-        }
-
-        // Load HubSpot Forms
-        const hubspotChecker = document.querySelectorAll(".js--hubspot-script");
-        if(hubspotChecker.length){
-          hubspotChecker.forEach(async (element) => {
-            try {
-              await boostify.loadScript({
-                url: "https://js.hsforms.net/forms/v2.js",
-              });
-              await boostify.loadScript({
-                inlineScript: `
-                  hbspt.forms.create({
-                      region: "na1",
-                      portalId: "${element.getAttribute("data-portal-id")}",
-                      formId: "${element.getAttribute("data-form-id")}"
-                  });`,
-                appendTo: element,
-                attributes: ["id=general-hubspot"],
-              });
-            } catch (error) {
-              console.error("Error loading HubSpot script:", error);
-            }
-          });
-        }
-
         // Timeline Animations
         var tl = gsap.timeline({
           onComplete: next,
         });
-        tl.add(new In());
-        if (document.querySelector(".c--hero-a")) {
-          tl.add(new window["animations"]["heroA"].default(), "-=.3");
-        }
-        if (document.querySelector(".c--hero-b")) {
-          tl.add(new window["animations"]["heroB"].default(), "-=.3");
-        }
-        
+        tl.add(new In(payload));
+        tl = await assetManager.importAutoAnimations({tl, eventSystem})
       },
 
       out: (next, infos) => {
@@ -95,15 +43,15 @@ export const createTransitionOptions = (payload) => {
         // Hide Dropdown and Sidenav if active
         const activeHeader = document.querySelector(".c--header-a--is-active");
         if (activeHeader) {
-          tl.add(hideDropdown(), "-=0.5");
+          tl.add(hideDropdown(payload), "-=0.5");
         }
 
         const activeBurger = document.querySelector(".c--sidenav-a--is-active");
         if (activeBurger) {
-          tl.add(hideSidenav(), "-=0.5");
+          tl.add(hideSidenav(payload), "-=0.5");
         }
 
-        tl.add(new Out());
+        tl.add(new Out(payload));
       },
     },
   ];

@@ -18,7 +18,7 @@
                     ),
                     'sizes' => 'large',
                     'class' => 'c--card-l__bg-items',
-                    'isLazy' => true,
+                    'isLazy' => false,
                     'showAspectRatio' => true,
                     'decodingAsync' => true,
                     'fetchPriority' => false,

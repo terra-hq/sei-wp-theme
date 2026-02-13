@@ -1,4 +1,4 @@
-<section class="c--hero-a">
+<section class="c--hero-a js--hero-a">
     <div class="c--zoom-section-a">
         <div class="c--zoom-section-a__media-wrapper js--zoom" data-hero="true">
             <?php

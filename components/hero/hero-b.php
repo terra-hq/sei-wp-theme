@@ -1,4 +1,4 @@
-<section class="c--hero-b">
+<section class="c--hero-b js--hero-b">
     <div class="c--zoom-section-b">
         <div class="c--zoom-section-b__media-wrapper f--background-b js--zoom-b" data-hero="true"></div>
     </div>
