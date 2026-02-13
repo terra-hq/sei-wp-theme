@@ -543,10 +543,10 @@ function variables_in_header()
                 $sizesResult = '100vw';
                 break;
             case 'medium':
-                $sizesResult = '(max-width: 810px) 95vw, 50vw';
+                $sizesResult = '(min-width: 810px) 50vw, 95vw';
                 break;
             case 'small':
-                $sizesResult = '(max-width: 810px) 95vw, 33vw';
+                $sizesResult = '(min-width: 810px) 33vw, 95vw';
                 break;
             case '':
                 $sizesResult = '95vw';
