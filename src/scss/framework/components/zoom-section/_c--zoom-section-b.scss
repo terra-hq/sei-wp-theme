@@ -21,7 +21,7 @@
         padding-right: 1em;
         padding-left: 1em;
         width: 100%;
-        max-width: calc(#{$g-container-width} - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
+        max-width: calc(#{$f-container-width} - #{$gutter-width}); //* max-width the same as container without paddings to be visually equal
         height: calc(100% - #{$zoomPadingWide}*2);
         min-height: calc(100% - #{$zoomPadingWide}*2);
         // clip-path: inset(0% 0% 0% 0% round 24px);

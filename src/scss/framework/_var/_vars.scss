@@ -50,9 +50,6 @@ $colorbg-options: (
 $type-a: "AT Lang Gothic", "AT Lang Gothic-fallback", sans-serif;
 $type-b: "AT Lang", "AT Lang-fallback", serif;
 
-/* Grid */
-//Container
-$g-container-width: 1900px;
 
 $all: 0;
 $tablets: 581px;
@@ -102,6 +99,16 @@ $breakpoints-grid: (
   wide: $wide,
 ) !default;
 
+/* Grid */
+//Container
+// $f-container-fluid-max-width: 2000px;
+// $f-container-max-width: 2000px;
+$f-container-width: 1900px;
+$f-container-width-mobile: 95%;
+$f-container-contained-breakpoints: (
+  tablets: $tablets,
+  tabletm: $tabletm,
+);
 /*
     End Foundations
 */

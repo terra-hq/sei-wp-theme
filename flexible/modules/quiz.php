@@ -14,7 +14,7 @@ $sectionSpacing = get_spacing($module['section_spacing']) ?? 'u--pt-30 u--pb-22 
 ?>
 <section class="js--quiz-a u <?= $sectionSpacing ?>">
     <?php load_template(locate_template('flexible/modules/webgl-gradient-canvas.php', false, false)); ?>
-    <div class="f--container f--container-fluid f--container--tablets-fluid">
+    <div class="f--container-fluid f--container-fluid--tablets-contained">
         <div class="f--row u--justify-content-center">
             <div class="f--col-12 f--col-tabletm-10 f--col-tabletl-7 f--col-laptop-5 f--col-wide-4">
 

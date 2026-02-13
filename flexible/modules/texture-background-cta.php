@@ -10,7 +10,7 @@ $scroll_to_form_title = $module['scroll_to_form_title'];
 ?>
 
 <section class="<?= $spacing ?>">
-    <div class="f--container <?= $full_width ? 'f--container--fluid' : '' ?>">
+    <div class="<?= $full_width ? 'f--container-fluid' : 'f--container' ?>">
         <div class="f--row">
             <div class="f--col-12">
                 <div class="g--cta-02 <?= !$full_width ? 'g--cta-02--second' : '' ?>">

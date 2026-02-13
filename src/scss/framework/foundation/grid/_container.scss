@@ -3,11 +3,6 @@
 
 .f--container {
     @include make-container();
-    max-width: 95%;
-
-    &--fluid {
-        @include make-container-fluid();
-    }
 
     &--tabletm-fluid {
         @include make-container-fluid();
@@ -16,12 +11,19 @@
           max-width: 95%;
         }
     }
+}
 
-    &--tablets-fluid {
-        @include make-container-fluid();
-        @media all and ($viewport-type: $tablets) {
-          @include make-container();
-          max-width: 95%;
-        }
+.f--container-fluid {
+  @include make-container-fluid();
+  @media all and ($viewport-type: $wide) {
+    @include make-container();
+  }
+  // * container fluid for only small screens
+  @each $name, $value in $f-container-contained-breakpoints {
+    &--#{$name}-contained {
+      @media all and ($viewport-type: $value) {
+        @include make-container();
+      }
     }
+  }
 }
