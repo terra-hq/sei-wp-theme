@@ -14,6 +14,7 @@ class Handler extends CoreHandler {
     get updateTheDOM() {
         return {
             elements: document.querySelectorAll(`.js--lottie-element`),
+            elementA: document.querySelectorAll(`.js--lottie-element-a`),
         };
     }
 
@@ -50,10 +51,40 @@ class Handler extends CoreHandler {
                     ],
                 })
             }
+            if (this.DOM.elementA.length) {
+                console.log("YO")
+                this.DOM.elementA.forEach((element) => {
+                    console.log("TU")
+                    this.boostify.observer({
+                        options: {
+                            root: null,
+                            rootMargin: "0px",
+                            threshold: 0.5,
+                        },
+                        name: "Lottie",
+                        element: element,
+                        callback: async () => {
+                             if (this.initialized == false) {
+                                 super.assignInstances({
+                                    elementGroups: [
+                                    {
+                                        elements: this.DOM.elementA,
+                                        config: this.config,
+                                    },
+                                    ],
+                                })
+                                this.initialized = true;
+                            }
+                        }
+                    })
+                })
+            }
         });
 
+
+
         this.emitter.on("MitterWillReplaceContent", () => {
-            if (this.DOM.elements.length) {
+            if (this.DOM.elements.length || this.DOM.elementA.length) {
                 super.destroyInstances();
             }
         });
