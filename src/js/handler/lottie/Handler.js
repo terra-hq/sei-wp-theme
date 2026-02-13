@@ -84,6 +84,7 @@ class Handler extends CoreHandler {
         this.emitter.on("MitterWillReplaceContent", () => {
             if (this.DOM.elements.length || this.DOM.elementA.length) {
                 super.destroyInstances();
+                this.initialized = false;
             }
         });
     }
