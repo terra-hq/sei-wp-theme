@@ -22,7 +22,7 @@ $experts = $module['experts'] ?? [];
             </div>
             <div class="f--col-12 f--col-laptop-6 f--col-tablets-12">
                 <?php if (!empty($experts)): ?>
-                    <div class="f--row f--gap-c u--justify-content-flex-end u--justify-content-tablets-center">
+                    <div class="f--row f--gap-c u--justify-content-center u--justify-content-tablets-flex-end">
                         <?php foreach ($experts as $expert): ?>
                             <div class="f--col-10 f--col-tablets-6">
                                 <div class="c--card-c">
