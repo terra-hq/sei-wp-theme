@@ -27,7 +27,7 @@ $image_to_use = $image ? $image : get_field('placeholder_image', 'options');
     <div class="f--row ">
 
         <!-- IMAGE -->
-        <div class="f--col-4 f--col-tabletl-12">
+        <div class="f--col-12 f--col-tabletl-4">
             <a href="<?= esc_url($case_link) ?>"
                <?= $target ? 'target="'.$target.'"' : '' ?>
                <?= $rel ? 'rel="'.$rel.'"' : '' ?>
@@ -53,7 +53,7 @@ $image_to_use = $image ? $image : get_field('placeholder_image', 'options');
         </div>
 
         <!-- WHAT WE DID -->
-        <div class="f--col-4 f--col-tabletl-12">
+        <div class="f--col-12 f--col-tabletl-4">
             <div class="c--card-m__hd">
                 <p class="c--card-m__hd__title"><?= esc_html($left_column_label); ?></p>
                 <a href="<?= esc_url($case_link) ?>"
@@ -72,7 +72,7 @@ $image_to_use = $image ? $image : get_field('placeholder_image', 'options');
         </div>
 
         <!-- HOW WE HELPED -->
-        <div class="f--col-4 f--col-tabletl-12">
+        <div class="f--col-12 f--col-tabletl-4">
             <div class="c--card-m__ft">
                 <p class="c--card-m__ft__title"><?= esc_html($right_column_label); ?></p>
                 <div class="c--card-m__ft__items">

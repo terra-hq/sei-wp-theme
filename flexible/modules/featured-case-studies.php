@@ -25,18 +25,18 @@ if ($how_to_display === 'latest' && $category) {
 <section class="<?= esc_attr($spacing) ?>">
     <div class="f--container">
         <div class="f--row">
-
-            <?php if ($case_studies) : ?>
-                <?php foreach ($case_studies as $case_study) : ?>
-                    <?php
-                    $case_study_id = $case_study->ID;
-                    $left_column_label  = 'OUR CLIENT';
-                    $right_column_label = 'HOW WE HELPED';
-                    include(locate_template('components/card/card-m.php', false, false));
-                    ?>
-                <?php endforeach; ?>
-            <?php endif; ?>
-
+            <div class="f--col-12">
+                <?php if ($case_studies) : ?>
+                    <?php foreach ($case_studies as $case_study) : ?>
+                        <?php
+                        $case_study_id = $case_study->ID;
+                        $left_column_label  = 'OUR CLIENT';
+                        $right_column_label = 'HOW WE HELPED';
+                        include(locate_template('components/card/card-m.php', false, false));
+                        ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </section>

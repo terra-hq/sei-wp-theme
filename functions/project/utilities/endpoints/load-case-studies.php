@@ -77,7 +77,7 @@ function load_case_studies() {
         <div class="f--col-12">
             <div class="c--card-m">
                 <div class="f--row">
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <a href="<?= esc_url($featured_case_study_link) ?>" <?= $featured_case_study_target ? 'target="'.esc_attr($featured_case_study_target).'"' : '' ?> <?= $featured_case_study_rel ? 'rel="'.esc_attr($featured_case_study_rel).'"' : '' ?> class="u--overflow-hidden">
                             <div class="c--card-m__wrapper">
                                 <?php
@@ -97,7 +97,7 @@ function load_case_studies() {
                         </a>
                     </div>
 
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <div class="c--card-m__hd">
                             <p class="c--card-m__hd__title">WHAT WE DID</p>
                             <a href="<?= esc_url($featured_case_study_link) ?>" <?= $featured_case_study_target ? 'target="'.esc_attr($featured_case_study_target).'"' : '' ?> <?= $featured_case_study_rel ? 'rel="'.esc_attr($featured_case_study_rel).'"' : '' ?> class="c--card-m__hd__paragraph">
@@ -107,7 +107,7 @@ function load_case_studies() {
                         </div>
                     </div>
 
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <div class="c--card-m__ft">
                             <p class="c--card-m__ft__title">HOW WE HELPED</p>
                             <div class="c--card-m__ft__items">
@@ -180,7 +180,7 @@ function load_case_studies() {
         <div class="f--col-12">
             <div class="c--card-m">
                 <div class="f--row">
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <a href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?> class="u--overflow-hidden">
                             <div class="c--card-m__wrapper">
                                 <?php
@@ -200,7 +200,7 @@ function load_case_studies() {
                         </a>
                     </div>
 
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <div class="c--card-m__hd">
                             <p class="c--card-m__hd__title">WHAT WE DID</p>
                             <a class="c--card-m__hd__paragraph" href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?>>
@@ -210,7 +210,7 @@ function load_case_studies() {
                         </div>
                     </div>
 
-                    <div class="f--col-4 f--col-tabletl-12">
+                    <div class="f--col-12 f--col-tabletl-4">
                         <div class="c--card-m__ft">
                             <p class="c--card-m__ft__title">HOW WE HELPED</p>
                             <div class="c--card-m__ft__items">

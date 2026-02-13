@@ -16,7 +16,8 @@
 
 
   &__wrapper {
-    @extend .u--mb-tabletl-3;
+    @extend .u--mb-3;
+    @extend .u--mb-tabletl-0;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -42,8 +43,9 @@
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
     @extend .u--height-100;
+    @extend .u--pb-3;
+    @extend .u--pb-tabletl-0;
     gap: $measure*3;
-    @extend .u--pb-tabletl-3;
 
     &__title {
       @extend .f--font-i;
