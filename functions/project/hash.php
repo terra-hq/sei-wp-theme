@@ -11,6 +11,6 @@
  */
 
 
-define('hash', '11q');
+define('hash', 'ys8');
 
 ?>

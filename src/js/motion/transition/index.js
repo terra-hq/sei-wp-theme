@@ -1,6 +1,6 @@
 import In from "./In";
 import Out from "./Out";
-import { hideDropdown, hideSidenav } from "./utilities";
+import { hideDropdown, hideSidenav, smoothScrollToTop } from "./utilities";
 
 export const createTransitionOptions = (payload) => {
     var { forceScroll, Manager, debug,assetManager, eventSystem } = payload;
@@ -32,6 +32,7 @@ export const createTransitionOptions = (payload) => {
                 var tl = gsap.timeline({
                     onComplete: async () => {
                         if (window.scrollY !== 0) {
+                            await smoothScrollToTop();
                         }
                         next();
                     },
