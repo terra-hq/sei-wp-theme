@@ -3,7 +3,7 @@
 
 .f--container {
     @include make-container();
-
+// Borrar en el futuro cuando se actualice el header
     &--tabletm-fluid {
         @include make-container-fluid();
         @media all and ($viewport-type: $tabletm) {
@@ -21,9 +21,9 @@
   // * container fluid for only small screens
   @each $name, $value in $f-container-contained-breakpoints {
     &--#{$name}-contained {
-      @media all and ($viewport-type: $value) {
-        @include make-container();
-      }
+		@media all and ($viewport-type: $value) {
+			@include make-container();
+		}
     }
   }
 }

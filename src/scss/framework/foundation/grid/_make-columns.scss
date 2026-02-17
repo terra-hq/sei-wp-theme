@@ -5,11 +5,10 @@
     $value: calc(100% / $columns)*$i;
     flex: 0 0 $value;
     max-width: $value;
-    // position: relative;
     min-height: 1px;
+    transition: $time-a;
     padding-right: $half-gutter-width;
     padding-left: $half-gutter-width;
-    transition: $time-a;
 }
 
 /* Start Responsive Offset */
