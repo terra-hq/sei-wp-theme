@@ -25,7 +25,7 @@
                                     <div class="c--card-b">
                                         <div class="c--card-b__wrapper">
                                             <h4 class="c--card-b__wrapper__title"><?= $card_title ?></h4>
-                                            <div class="c--card-b__wrapper__content c--content-a c--content-a--second-color c--content-a--second-text">
+                                            <div class="c--card-b__wrapper__content">
                                                 <?= $card_description ?>
                                             </div>
                                             <?php if ($scroll_to_form && $scroll_to_form_title): ?>

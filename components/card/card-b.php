@@ -1,7 +1,7 @@
 <div class="c--card-b <?php if ($modifierClass === 'second') echo 'c--card-b--second'; ?>">
     <div class="c--card-b__wrapper">
         <h4 class="c--card-b__wrapper__title"><?= $card_title ?></h4>
-        <div class="c--card-b__wrapper__content c--content-a c--content-a--second-color c--content-a--second-text">
+        <div class="c--card-b__wrapper__content">
             <p><?= $card_description ?></p>
         </div>
         <a href="<?= $link ?>" class="c--card-b__wrapper__btn">

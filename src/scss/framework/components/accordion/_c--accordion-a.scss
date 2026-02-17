@@ -5,20 +5,22 @@
 .c--accordion-a {
     @extend .u--width-100;
     @extend .u--display-flex;
-    @extend .u--justify-content-flex-end;
+    @extend .u--justify-content-center;
+    @extend .u--flex-direction-column;
     max-width: 100%;
     @media all and ($viewport-type: $tabletm) {
-        flex-direction: column;
+        flex-direction: row;
     }
     &__item {
         @extend .u--display-flex;
+        @extend .u--flex-direction-column;
         @extend .u--position-relative;
-        border-left: 2px solid map.get($color-options, a);
+        overflow: hidden;
+        border-top: 2px solid map.get($color-options, a);
         @media all and ($viewport-type: $tabletm) {
-            width: 100%;
-            flex-direction: column;
-            border-left: none;
-            border-top: 2px solid map.get($color-options, a);
+            flex-direction: row;
+            border-top: none;
+            border-left: 2px solid map.get($color-options, a);
         }
         &__btn {
             @extend .u--position-absolute;
@@ -32,10 +34,10 @@
                 & ~ .c--accordion-a__item {
                     &__hd {
                         background-color: map.get($color-options, d);
-                        border-right: 2px solid rgba(map.get($color-options, a), .2);
+                        border-right: none;
+                        border-bottom: 2px solid rgba(map.get($color-options, a), .2);
                         @media all and ($viewport-type: $tabletm) {
-                            border-right: none;
-                            border-bottom: 2px solid rgba(map.get($color-options, a), .2);
+                            border-right: 2px solid rgba(map.get($color-options, a), .2);
                         }
                         .c--accordion-a__item__hd__content {
                             color: map.get($color-options, m);
@@ -46,11 +48,12 @@
                         }
                     }
                     &__wrapper {
-                        max-width: 100vw;
-                        height: auto;
+                        max-width: 100%;
+                        width: 100%;
+                        max-height: none;
                         @media all and ($viewport-type: $tabletm) {
-                            max-width: 100%;
-                            max-height: none;
+                            width: 100%;
+                            height: auto;
                         }
                     }
                 }
@@ -70,14 +73,13 @@
             @extend .u--overflow-hidden;
             @extend .u--width-100;
             @extend .u--display-flex;
-            align-items: normal;
-            width: 74px;
+            width: 100%;
+            max-height: 53px;
             z-index: 0;
             transition: background-color $time-b $ease-standard-a;
             @media all and ($viewport-type: $tabletm) {
-                max-width: none;
-                width: 100%;
-                max-height: 53px;
+                width: 74px;
+                max-height: none;
             }
             &__content {
                 $icon-width: 12px;
@@ -85,47 +87,46 @@
 
                 @extend .f--font-h;
                 @extend .f--color-c;
-                @extend .u--text-left;
                 @extend .u--position-relative;
                 @extend .u--display-block;
-                writing-mode: vertical-rl;
-                transform: rotate(180deg);
-                padding: $measure*7 $measure*3 calc(#{$icon-width} + #{$measure*2} + #{$measure*7});
+                height: auto;
+                width: 100%;
+                padding: $measure*2 calc(#{$icon-width} + #{$measure*2} + #{$measure*3}) $measure*2 $measure*3;
                 @media all and ($viewport-type: $tabletm) {
-                    writing-mode: initial;
-                    transform: rotate(0deg);
-                    height: auto;
-                    width: 100%;
-                    padding: $measure*2 calc(#{$icon-width} + #{$measure*2} + #{$measure*3}) $measure*2 $measure*3;
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                    width: inherit;
+                    padding: $measure*7 $measure*3 calc(#{$icon-width} + #{$measure*2} + #{$measure*7});
                 }
                 &::before,
                 &::after {
                     content: '';
                     @extend .u--position-absolute;
                     background-color: map.get($color-options, c);
-                    left: 50%;
-                    transform: translateX(-50%);
+                    top: 50%;
+                    transform: translateY(-50%);
                     @media all and ($viewport-type: $tabletm) {
-                        left: auto;
-                        bottom: auto;
-                        top: 50%;
-                        transform: translateY(-50%);
+                        top: auto;
                     }
                 }
                 &::before {
                     width: $icon-width;
                     height: $icon-line-width;
-                    bottom: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*7});
+                    right: $measure*3;
                     @media all and ($viewport-type: $tabletm) {
-                        right: $measure*3;
+                        bottom: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*7});
+                        right: 50%;
+                        transform: translateX(50%);
                     }
                 }
                 &::after {
                     height: $icon-width;
                     width: $icon-line-width;
-                    bottom: $measure*7;
+                    right: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*3});
                     @media all and ($viewport-type: $tabletm) {
-                        right: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*3});
+                        bottom: $measure*7;
+                        right: 50%;
+                        transform: translateX(50%);
                     }
                 }
             }
@@ -136,50 +137,63 @@
             @extend .u--position-relative;
             left: 0;
             background-color: map.get($color-options, d);
-            max-width: 0px;
-            transition: max-width $time-b linear;
+            max-height: 0;
+            max-width: 100%;
+            // width: 100%;
             z-index: 1;
+            transition: max-height $time-b linear;
             @media all and ($viewport-type: $tabletm) {
-                max-height: 0;
-                max-width: 100%;
-                width: 100%;
-                transition: max-height $time-b linear;
+                max-width: 0px;
+                transition: max-width $time-b linear;
             }
             &__content {
-                height: 0;
                 @extend .u--display-flex;
+                height: auto;
                 @media all and ($viewport-type: $tabletm) {
-                    height: auto;
+                    height: 100%;
                 }
             }
         }
     }
 
     &--second {
-        @media all and ($viewport-type: $tabletl) {
+        @media all and ($viewport-type: $tabletm) {
             flex-direction: column;
+        }
+        @media all and ($viewport-type: $tabletl) {
+            flex-direction: row;
         }
     }
     &--second & {
         &__item {
-            @media all and ($viewport-type: $tabletl) {
-            width: 100%;
-            flex-direction: column;
-            border-left: none;
-            border-top: 2px solid map.get($color-options, a);
+            @media all and ($viewport-type: $tabletm) {
+                flex-direction: column;
+                border-left: none;
+                border-top: 2px solid map.get($color-options, a);
             }
+            @media all and ($viewport-type: $tabletl) {
+                flex-direction: row;
+                border-left: none;
+                border-left: 2px solid map.get($color-options, a);
+            }   
             &__btn:checked {
                 & ~ .c--accordion-a__item {
                     &__hd {
                         @extend .u--display-none;
                         width: 0;
-                        @media all and ($viewport-type: $tabletl) {
+                        @media all and ($viewport-type: $tabletm) {
                             border-right: none;
                             border-bottom: 2px solid rgba(map.get($color-options, a), .2);
                         }
+                        @media all and ($viewport-type: $tabletl) {
+                            border-right: 2px solid rgba(map.get($color-options, a), .2);
+                        }
                     }
                     &__wrapper {
-                          @media all and ($viewport-type: $tabletl) {
+                        @media all and ($viewport-type: $tabletm) {
+
+                        }
+                        @media all and ($viewport-type: $tabletl) {
                             max-width: 100%;
                             max-height: none;
                         }
@@ -187,53 +201,75 @@
                 }
             }
             &__hd {
+                @media all and ($viewport-type: $tabletm) {
+                    width: 100%;
+                    max-height: 53px;
+                }
                 @media all and ($viewport-type: $tabletl) {
-                max-width: none;
-                width: 100%;
-                max-height: 53px;
+                    width: 74px;
+                    max-height: none;
                 }
                 &__content {
                     $icon-width: 12px;
                     $icon-line-width: 2px;
-                    @media all and ($viewport-type: $tabletl) {
+
+                    @media all and ($viewport-type: $tabletm) {
                         writing-mode: initial;
                         transform: rotate(0deg);
-                        height: auto;
                         width: 100%;
                         padding: $measure*2 calc(#{$icon-width} + #{$measure*2} + #{$measure*3}) $measure*2 $measure*3;
                     }
+                    @media all and ($viewport-type: $tabletl) {
+                        writing-mode: vertical-rl;
+                        transform: rotate(180deg);
+                        width: inherit;
+                        padding: $measure*7 $measure*3 calc(#{$icon-width} + #{$measure*2} + #{$measure*7});
+                    }
                     &::before,
                     &::after {
-                        @media all and ($viewport-type: $tabletl) {
-                            left: auto;
-                            bottom: auto;
+                        @media all and ($viewport-type: $tabletm) {
                             top: 50%;
                             transform: translateY(-50%);
                         }
+                        @media all and ($viewport-type: $tabletl) {
+                            top: auto;
+                        }
                     }
                     &::before {
-                    @media all and ($viewport-type: $tabletl) {
-                        right: $measure*3;
-                    }
+                        @media all and ($viewport-type: $tabletm) {
+                            bottom: initial;
+                            right: $measure*3;
+                            transform: translateX(0%) translateY(-50%);
+                        }
+                        @media all and ($viewport-type: $tabletl) {
+                            bottom: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*7});
+                            right: 50%;
+                            transform: translateX(50%);
+                        }
                     }
                     &::after {
-                        @media all and ($viewport-type: $tabletl) {
+                        @media all and ($viewport-type: $tabletm) {
+                            bottom: inherit;
                             right: calc(#{$icon-width*0.5} - #{$icon-line-width*0.5} + #{$measure*3});
+                            transform: translateX(0%) translateY(-50%);
+                        }
+                        @media all and ($viewport-type: $tabletl) {
+                            bottom: $measure*7;
+                            right: 50%;
+                            transform: translateX(50%);
                         }
                     }
                 }
+         
             }
             &__wrapper {
-                @media all and ($viewport-type: $tabletl) {
-                    max-height: 0;
+                @media all and ($viewport-type: $tabletm) {
                     max-width: 100%;
-                    width: 100%;
                     transition: max-height $time-b linear;
                 }
-                &__content {
-                    @media all and ($viewport-type: $tabletl) {
-                        height: auto;
-                    }
+                @media all and ($viewport-type: $tabletl) {
+                    max-width: 0px;
+                    transition: max-width $time-b linear;
                 }
             }
         }

@@ -6,7 +6,7 @@
     <div class="f--container">
         <div class="f--row">
             <div class="f--col-12">
-                <div class="c--accordion-a">
+                <div class="c--accordion-a" data-breakpoint="810">
                 <?php
                         wp_reset_postdata();
                         $parent_args = array(

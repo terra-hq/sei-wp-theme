@@ -3,26 +3,27 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/global-components/btn/_g--btn-03" as *;
+@use "@scss/framework/components/content/_c--content-a" as *;
 
 .c--card-b {
     @extend .u--display-flex;
     @extend .u--width-100;
     background-color: map.get($color-options, d);
-    padding: $measure*7 $measure*6;
+    padding: $measure*4 $measure*3;
     gap: $measure*5 $measure*9;
     flex-wrap: wrap;
     @media all and ($viewport-type: $tabletl) {
-        padding: $measure*5 $measure*4;
+        padding: $measure*7 $measure*6;
     }
     @media all and ($viewport-type: $tabletm) {
-        padding: $measure*4 $measure*3;
+        padding: $measure*5 $measure*4;
     }
     &__wrapper {
         @extend .u--display-flex;
         flex-direction: column;
-        width: 50%;
+        width: 100%;
         @media all and ($viewport-type: $tabletl) {
-            width: 100%;
+            width: 50%;
         }
         &__title {
             @extend .f--font-f;
@@ -32,10 +33,9 @@
         &__content {
             @extend .u--overflow-auto;
             margin-bottom: $measure*5;
-            // max-height: 100%;
-            // @media all and ($viewport-type: $tabletl) {
-            //     max-height: 150px;
-            // }
+            @extend .c--content-a;
+            @extend .c--content-a--second-color;
+            @extend .c--content-a--second-text;
         }
         &__btn {
             margin-top: auto;
@@ -44,36 +44,38 @@
     }
     &__media-wrapper {
         @extend .u--display-flex;
-        @extend .u--justify-content-center;
         @extend .u--align-items-center;
-        width: calc(50% - #{$measure*9});
-        @media all and ($viewport-type: $tabletl) {
-            width: 100%;
-            order: -1;
-            justify-content: flex-start;
+        width: 100%;
+        order: -1;
+        justify-content: flex-start;
+        @media all and ($viewport-type: $tablets) {
             display: none;
         }
-        @media all and ($viewport-type: $tablets) {
+        @media all and ($viewport-type: $tabletl) {
+            width: calc(50% - #{$measure*9});
+            justify-content: center;
             display: block;
+            order: 0;
         }
+     
         &__media {
+            max-width: 200px;
+            max-height: 200px;
             width: 100%;
-            max-width: 400px;
             height: auto;
-            max-height: 400px;
             @media all and ($viewport-type: $tabletm) {
-                max-width: 200px;
-                max-height: 200px;
+                max-height: 400px;
+                max-width: 400px;
             }
         }
     }
-    &--second {}
     &--second & {
         &__wrapper {
             width: 100%;
             &__content {
                 @media all and ($viewport-type: $tabletl) {
                     max-height: none;
+                    width: 100%;
                 }
             }
         }
