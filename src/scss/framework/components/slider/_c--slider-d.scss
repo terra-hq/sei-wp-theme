@@ -4,20 +4,21 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 
 .c--slider-d {
-  overflow: hidden;
-  &__wrapper {
-    @extend .u--display-flex;
-    @extend .f--gap-c;
+  	overflow: hidden;
+	&__wrapper {
+		@extend .u--display-flex;
+		@extend .u--flex-direction-column;
+		@extend .f--gap-c;
 
-    @media all and ($viewport-type: $tabletm) {
-      flex-direction: column;
-    }
+		@media all and ($viewport-type: $tabletm) {
+			flex-direction: row;
+		}
 
-    &__item {
-      display: flex;
-    }
-  }
-  .tns-nav {
-    margin-top: $measure * 4;
-  }
+		&__item {
+			@extend .u--display-flex;
+		}
+	}
+	.tns-nav {
+		margin-top: $measure * 4;
+	}
 }

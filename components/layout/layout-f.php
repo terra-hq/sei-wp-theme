@@ -1,6 +1,6 @@
 <div class="c--layout-f">
     <div class="f--row f--gap-c">
-        <div class="f--col-8 f--col-laptop-7 f--col-tabletm-12 u--display-flex u--flex-direction-column u--pr-5 u--pr-tabletl-2">
+        <div class="f--col-12 f--col-tabletm-7 f--col-wide-8 u--display-flex u--flex-direction-column u--pr-tabletl-5">
 
             <?php if (!empty($title)) : ?>
                 <div class="c--layout-f__hd">
@@ -12,7 +12,7 @@
                 <div class="c--layout-f__bd">
                     <div class="f--row f--gap-c">
                         <?php if (!empty($columns_left_content)) : ?>
-                            <div class="f--col-6 f--col-laptop-12">
+                            <div class="f--col-12 f--col-laptop-6">
                                 <?php if (!empty($columns_left_label)) : ?>
                                     <p class="c--layout-f__bd__subtitle c--layout-f__bd__subtitle--second"><?= htmlspecialchars($columns_left_label, ENT_QUOTES); ?></p>
                                 <?php endif; ?>
@@ -22,7 +22,7 @@
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($columns_right_content)) : ?>
-                            <div class="f--col-6 f--col-laptop-12">
+                            <div class="f--col-12 f--col-laptop-6">
                                 <?php if (!empty($columns_right_label)) : ?>
                                     <p class="c--layout-f__bd__subtitle"><?= htmlspecialchars($columns_right_label, ENT_QUOTES); ?></p>
                                 <?php endif; ?>
@@ -63,9 +63,7 @@
 
         </div>
 
-        <div class="f--col-4 f--col-laptop-5 f--col-tabletm-12 u--display-flex u--flex-direction-column">
-
-
+        <div class="f--col-12 f--col-tabletm-5 f--col-laptop-4 u--display-flex u--flex-direction-column">
                 <div class="c--layout-f__media-wrapper">
                     <?php if (!empty($pills)) : ?>
                         <div class="c--layout-f__media-wrapper__overlay">
@@ -80,7 +78,7 @@
                         <?php
                             $image_tag_args = [
                                 'image' => $image,
-                                'sizes' => '580px',
+                                'sizes' => '(min-width: 811px) 33vw, 95vw',
                                 'class' => 'c--layout-f__media-wrapper__media',
                                 'isLazy' => false,
                                 'showAspectRatio' => false,
