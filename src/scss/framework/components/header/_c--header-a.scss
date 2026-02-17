@@ -8,8 +8,10 @@
     @extend .f--container--tabletm-fluid;
     @extend .u--position-relative;
     z-index: 5;
+    background-color: map.get($color-options, a);
+
     @media all and ($viewport-type: $tabletm) {
-        background-color: map.get($color-options, a);
+        background-color: transparent;
     }
 
     &__wrapper {
@@ -19,37 +21,44 @@
         @extend .u--position-relative;
         left: 50%;
         transform: translateX(-50%);
-        width: calc(100% + #{$measure*4}*2);
-        padding: $measure*2 $measure*4;
-        @media all and ($viewport-type: $laptop) {
-            width: calc(100% + #{$measure*2}*2);
-            padding: $measure*2;
-        }
+        width: 100%;
+        padding: $measure * 2 2.5vw;
+
         @media all and ($viewport-type: $tabletm) {
-            width: 100%;
-            padding: $measure*2 2.5vw;
+            width: calc(100% + #{$measure * 2} * 2);
+            padding: $measure * 2;
+        }
+
+        @media all and ($viewport-type: $laptop) {
+            width: calc(100% + #{$measure * 4} * 2);
+            padding: $measure * 2 $measure * 4;
         }
         
-        &__hd{
+        &__hd {
             @extend .u--display-flex;
             align-items: center;
-            &__link{
-                margin-right: $measure*8;
+
+            &__link {
+                margin-right: $measure * 8;
                 align-self: center;
-                &__media{
+
+                &__media {
                     display: block;
                 }
             }
         }
-        &__bd{
+
+        &__bd {
             @extend .u--display-flex;
             flex-grow: revert;
             flex-shrink: revert;
             align-items: center;
-            &__link{
-                margin-right: $measure*8;
+
+            &__link {
+                margin-right: $measure * 8;
                 align-self: center;
-                &__media{
+
+                &__media {
                     display: block;
                 }
             }

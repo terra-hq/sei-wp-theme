@@ -49,6 +49,8 @@
             ),
             ".g--form-input-icon-01__item": (
                 "padding-left": calc(1rem + #{$measure} + 18px),
+                "padding-top": $measure*.5,
+                "padding-bottom": $measure*.5
             ),
         ),
     );

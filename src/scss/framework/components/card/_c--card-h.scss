@@ -4,46 +4,60 @@
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/framework/foundation/font/make-font" as *;
 @use "@scss/paths.scss" as paths;
+
 .c--card-h {
     @extend .u--width-100;
     @extend .u--display-flex;
     @extend .u--justify-content-space-between;
     text-decoration: none;
-    background-color: rgba(map.get($color-options, h), .1);
-    padding: $measure*3;
+    background-color: transparent;
+    padding: 0 0 0 $measure*2;
+
     @media all and ($viewport-type: $tabletl) {
-        background-color: transparent;
-        padding: 0 0 0 $measure*2;
+        background-color: rgba(map.get($color-options, h), .1);
+        padding: $measure*3;
     }
+
     &__wrapper {
-        width: calc(100% - 52px - #{$measure*4});
+        width: 100%;
+
         @media all and ($viewport-type: $tabletl) {
-            width: 100%;
+            width: calc(100% - 52px - #{$measure*4});
         }
+
         &__title {
-            @extend .f--font-h;
+            @extend .f--font-i;
             @extend .f--color-k;
-            margin-bottom: $measure*2;
             transition: color $time-b $ease-standard-a;
+            margin-bottom: 0;
+            white-space: nowrap;
+
             @media all and ($viewport-type: $tabletl) {
-                @include make-font-i();
-                margin-bottom: 0;
-                white-space: nowrap;
+                @include make-font-h();
+                margin-bottom: $measure*2;
+                white-space: normal;
             }
         }
+
         &__subtitle {
             @extend .f--font-i;
             @extend .f--color-b;
             transition: color $time-b $ease-standard-a;
+            display: none;
+
             @media all and ($viewport-type: $tabletl) {
-                display: none;
+                display: block;
             }
         }
     }
+
     &__media-wrapper {
+        display: none;
+
         @media all and ($viewport-type: $tabletl) {
-            display: none;
+            display: block;
         }
+
         &__media {
             @extend .u--display-block;
             width: 52px;

@@ -5,19 +5,19 @@
 @use "@scss/paths.scss" as paths;
 
 .c--cta-d {
-    @extend .u--display-flex;
-    @extend .u--width-100;
-    @extend .u--position-relative;
-    @extend .u--align-items-center;
-    @extend .u--justify-content-center;
-    padding: $measure * 3;
-    text-decoration: none;
-    background-image: url(paths.asset-url("/assets/img/cta-d.webp"));
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    display: none;
     @media all and ($viewport-type: $tabletl) {
-        display: none;
+        display: flex;
+        width: 100%;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        padding: $measure * 3;
+        text-decoration: none;
+        background-image: url(paths.asset-url("/assets/img/cta-d.webp"));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
     &::before {
         content: '';

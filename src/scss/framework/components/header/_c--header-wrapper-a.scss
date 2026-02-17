@@ -1,18 +1,18 @@
 @use "@scss/framework/_var/_vars.scss" as *;
-@use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 
 .c--header-wrapper-a {
     @extend .u--position-fixed;
     @extend .u--width-100;
-    top: $measure*4;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
+    top: 0;
+    max-width: 100%;
 
     @media all and ($viewport-type: $tabletm) {
-        top: 0;
-        max-width: 100%;
+        top: $measure * 4;
+        max-width: none;
     }
 }

@@ -3,41 +3,46 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/global-components/btn/_g--btn-03" as *;
-@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/link/_g--link-01" as *;
+
 .c--sidenav-a {
     @extend .f--background-a;
     position: fixed;
     overflow: auto;
     right: -200%;
-    top: -($measure*4);
-    min-width: 350px;
     height: 100vh;
     z-index: 8;
-
-    @media all and ($viewport-type: $tabletm) {
-        top: 0;
-    }
+    top: 0;
+    width: 100%;
+    min-width: 0;
 
     @media all and ($viewport-type: $tablets) {
-        width: 100%;
-        min-width: 0;
+        width: auto;
+        min-width: 350px;
+    }
+
+    @media all and ($viewport-type: $tabletm) {
+        top: -($measure * 4);
     }
 
     &__link {
         position: absolute;
-        padding: $measure*4;
         right: 0;
-        top:20px;
+        top: 0;
+        padding: $measure * 2.5;
+
         @media all and ($viewport-type: $tabletm) {
-            top: 0;
-            padding: $measure*2.5;
+            top: 20px;
+            padding: $measure * 4;
         }
+
         svg {
             @extend .u--display-block;
             path {
                 transition: stroke $time-b $ease-standard-a;
             }
         }
+
         @media (hover: hover) {
             &:hover {
                 svg {
@@ -52,25 +57,30 @@
     &__list-group {
         @extend .u--display-flex;
         flex-direction: column;
-        gap: $measure*3;
-        padding: $measure*12 $measure*5 $measure*7 $measure*5;
+        gap: $measure * 3;
+        padding: $measure * 7 $measure * 2.5 $measure * 4;
+
         @media all and ($viewport-type: $tabletm) {
-            padding: $measure*7 $measure*2.5 $measure*4 !important;
+            padding: $measure * 12 $measure * 5 $measure * 7 $measure * 5;
         }
         
-        &__item{
+        &__item {
             @extend .u--position-relative;
-            &__link{
+
+            &__link {
                 @extend .f--font-h;
                 @extend .g--link-01;
+
                 &--second {
                     @extend .g--btn-03;
                     @extend .g--btn-03--second;
                     transition: background-color $time-b $ease-standard-a;
+
                     span {
                         @extend .f--color-a;
                         transition: color $time-b $ease-standard-a;
                     }
+
                     @media (hover: hover) {
                         &:hover {
                             span {
@@ -81,6 +91,5 @@
                 }
             }
         }
-
     }
 }

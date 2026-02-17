@@ -3,34 +3,35 @@
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/framework/foundation/font/make-font" as *;
-@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/link/_g--link-01" as *;
 
 .c--nav-b {
     @extend .u--display-flex;
-    @extend .u--align-items-center;
-    gap: $measure*4;
+    flex-direction: column;
+    align-items: start;
+    gap: $measure * 3;
 
     @media all and ($viewport-type: $tabletl) {
-
-        gap: $measure*3;
-        flex-direction: column;
-        align-items: start;
+        flex-direction: row; // TODO: Revisar si el comportamiento original era row en desktop
+        align-items: center;
+        gap: $measure * 4;
     }
 
     &__item {
+        position: relative;
+
         @media all and ($viewport-type: $tabletl) {
-            position: relative;
+            position: static; // TODO: Revisar si debe resetearse a static o mantener relative
         }
 
         &__link {
-            @extend .f--font-i;
-            @extend .u--font-semibold;
+            @extend .f--font-h;
             @extend .g--link-01;
 
             @media all and ($viewport-type: $tabletl) {
-                @include make-font-h();
+                @include make-font-i();
+                font-weight: 600;
             }
         }
     }
-
 }

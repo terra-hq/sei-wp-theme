@@ -2,83 +2,94 @@
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/link/_g--link-01" as *;
 
 .c--dropdown-a {
     @extend .f--background-a;
-    @extend .u--position-absolute;
     @extend .u--width-100;
+    position: relative;
+    top: auto;
     left: 0;
-    top: 100%;
-    max-height: 0;
+    max-height: none;
     overflow: auto;
-    //opacity: 0;
+
     @media all and ($viewport-type: $tabletl) {
-        max-height: none;
-        position: relative;
-        top: auto;
+        position: absolute;
+        top: 100%;
+        max-height: 0;
     }
 
     &__content {
-        @extend .u--display-flex;
-        @extend .u--justify-content-space-between;
-        padding: $measure*8 $measure*4 $measure*6;
-        row-gap: $measure*4;
-        flex-wrap: wrap;
+        @extend .u--display-grid;
+        grid-template-columns: repeat(1, auto);
+        gap: $measure * 2 $measure * 4;
+        padding: 0;
+
         @media all and ($viewport-type: $tabletl) {
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(1, auto);
-            gap: $measure*2 $measure*4;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: $measure * 8 $measure * 4 $measure * 6;
+            row-gap: $measure * 4;
         }
 
         &__item {
-            width: calc(33.33% - (#{$measure*4}*2 / 3));
-            min-height: 150px;
+            width: 100%;
+            min-height: auto;
+
             &:first-child {
-                padding-top: $measure*2;
+                padding-top: $measure * 2;
             }
             &:last-child {
-                padding-bottom: $measure*2;
+                padding-bottom: $measure * 2;
             }
+
             @media all and ($viewport-type: $tabletl) {
-                width: 100%;
-                min-height: auto;
+                width: calc(33.33% - (#{$measure * 4} * 2 / 3));
+                min-height: 150px;
             }
         }
-    
+
         &__wrapper {
             @extend .u--display-grid;
-            grid-template-columns: repeat(4, auto);
-            width: calc((100% / 5)*4 - #{$measure*4});
-            gap: $measure*2 $measure*4;
+            grid-template-columns: repeat(1, auto);
+            width: 100%;
+            gap: $measure * 2 $measure * 4;
+            padding: $measure * 2 $measure * 4 0 $measure * 2;
+            max-height: 350px;
+
             @media all and ($viewport-type: $tabletl) {
-                padding: $measure*2 $measure*4 0 $measure*2;
-                width: 100%;
-                grid-template-columns: repeat(1, auto);        
-                max-height: 350px;
+                grid-template-columns: repeat(4, auto);
+                width: calc((100% / 5) * 4 - #{$measure * 4});
+                padding: 0;
+                max-height: none;
             }
+
             &__item {
                 @extend .u--display-block;
                 @extend .g--link-01;
+                white-space: nowrap;
+
                 @media all and ($viewport-type: $tabletm) {
-                    white-space: nowrap;
+                    white-space: normal;
                 }
             }
         }
 
-        & .scrollbar-track-y{
-            width:5px;
+        & .scrollbar-track-y {
+            width: 5px;
         }
-        & .scrollbar-thumb-y{
-            width:5px;
+        & .scrollbar-thumb-y {
+            width: 5px;
         }
     }
 
     &--second & {
         &__content {
             &__item {
-                width: calc(100% / 5);
+                @media all and ($viewport-type: $tabletl) {
+                    width: calc(100% / 5);
+                }
             }
         }
     }
@@ -87,11 +98,13 @@
         position: relative;
         top: auto;
     }
+
     &--third & {
         &__content {
             padding: 0;
+
             &__wrapper {
-                padding: $measure*2 0 0 $measure*2;
+                padding: $measure * 2 0 0 $measure * 2;
                 width: 100%;
                 grid-template-columns: repeat(1, auto);
             }
