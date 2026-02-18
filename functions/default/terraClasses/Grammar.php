@@ -67,7 +67,7 @@ class Grammar {
      * @return string Full report card URL.
      */
     private function build_report_url(string $uuid, string $url): string {
-        return "https://www.spl.ing/report-card/?website={$website}&uuid={$uuid}";
+        return "https://www.spl.ing/report-card/?website={$url}&uuid={$uuid}";
     }
 
     /**
@@ -76,7 +76,6 @@ class Grammar {
     protected function init(): void {
         // Hook for posts/pages/CPTs
         add_action('transition_post_status', [$this, 'on_post_publish'], 10, 3);
-
     }
 
 
@@ -135,10 +134,133 @@ class Grammar {
         }
 
         if (!empty($response['uuid'])) {
-            $this->send_notification($post, $url, $response['uuid']);
+            // 🔧 Modified: Schedule report check instead of sending email immediately
+            $this->schedule_report_check($post->ID, $url, $response['uuid']);
         } else {
             error_log('Grammar: API response did not contain a UUID. Response: ' . wp_json_encode($response));
         }
+    }
+
+    // 🔧 Added: Schedule a delayed check for the report results
+    /**
+     * Schedule a WP cron event to check the report after a delay.
+     *
+     * @param int $post_id Post ID.
+     * @param string $url Checked URL.
+     * @param string $uuid Report UUID.
+     * @param int $attempt Current attempt number (default 1).
+     */
+    protected function schedule_report_check(int $post_id, string $url, string $uuid, int $attempt = 1): void {
+        $delay = 60; // seconds to wait before checking
+
+        wp_schedule_single_event(
+            time() + $delay,
+            'grammar_check_report',
+            [$post_id, $url, $uuid, $attempt]
+        );
+
+        error_log("Grammar: Scheduled report check for post ID {$post_id} (attempt {$attempt}, UUID: {$uuid})");
+    }
+
+    // 🔧 Added: Check report results and notify only if errors found
+    /**
+     * Check a Spling report for errors and send notification if issues are found.
+     * Called via WP cron after report creation.
+     *
+     * @param int $post_id Post ID.
+     * @param string $url Checked URL.
+     * @param string $uuid Report UUID.
+     * @param int $attempt Current attempt number.
+     */
+    public function check_report_and_notify(int $post_id, string $url, string $uuid, int $attempt = 1): void {
+        $max_attempts = 5;
+
+        $report = $this->api_get_request("get_report/{$uuid}");
+
+        if (is_wp_error($report)) {
+            error_log('Grammar: Error fetching report - ' . $report->get_error_message());
+            return;
+        }
+
+        // If report is still processing, reschedule
+        $status = $report['status'] ?? '';
+        if ($status === 'processing' || $status === 'pending') {
+            if ($attempt < $max_attempts) {
+                error_log("Grammar: Report still processing for post ID {$post_id} (attempt {$attempt}/{$max_attempts})");
+                $this->schedule_report_check($post_id, $url, $uuid, $attempt + 1);
+            } else {
+                error_log("Grammar: Max attempts reached for post ID {$post_id}. Report UUID: {$uuid}");
+            }
+            return;
+        }
+
+        // Check if report contains errors
+        $error_count = $this->count_report_errors($report);
+
+        if ($error_count === 0) {
+            error_log("Grammar: No errors found for post ID {$post_id}. Email not sent.");
+            return;
+        }
+
+        error_log("Grammar: {$error_count} error(s) found for post ID {$post_id}. Sending notification.");
+
+        $post = get_post($post_id);
+        if (!$post) {
+            error_log("Grammar: Post ID {$post_id} not found. Cannot send notification.");
+            return;
+        }
+
+        $this->send_notification($post, $url, $uuid, $error_count, $report);
+    }
+
+    // 🔧 Added: Count errors in a report
+    /**
+     * Count errors/issues in a Spling report.
+     *
+     * @param array $report Report data from API.
+     * @return int Number of errors found.
+     */
+    protected function count_report_errors(array $report): int {
+        $count = 0;
+
+        // Check for issues in pages array
+        if (!empty($report['pages']) && is_array($report['pages'])) {
+            foreach ($report['pages'] as $page) {
+                if (!empty($page['issues']) && is_array($page['issues'])) {
+                    $count += count($page['issues']);
+                }
+            }
+        }
+
+        // Fallback: check top-level issues or error_count
+        if ($count === 0 && isset($report['error_count'])) {
+            $count = (int) $report['error_count'];
+        }
+
+        if ($count === 0 && !empty($report['issues']) && is_array($report['issues'])) {
+            $count = count($report['issues']);
+        }
+
+        return $count;
+    }
+
+    // 🔧 Added: GET request method for fetching reports
+    /**
+     * Make a GET request to the Spling API.
+     *
+     * @param string $endpoint API endpoint (without base URL).
+     * @return array|WP_Error Response data or error.
+     */
+    protected function api_get_request(string $endpoint): array|\WP_Error {
+        $response = wp_remote_get(self::API_BASE_URL . '/' . $endpoint, [
+            'headers' => [
+                'Authorization' => $this->api_key,
+                'Content-Type' => 'application/json',
+            ],
+            'timeout' => 30,
+        ]);
+
+        return $this->parse_api_response($response);
     }
 
     /**
@@ -186,19 +308,22 @@ class Grammar {
         return $data ?? [];
     }
 
+    // 🔧 Modified: Added error_count and report parameters
     /**
      * Send email notification with the report link.
      *
      * @param WP_Post $post Post object.
      * @param string $url Checked URL.
      * @param string $uuid Report UUID.
+     * @param int $error_count Number of errors found.
+     * @param array $report Full report data.
      */
-    protected function send_notification(\WP_Post $post, string $url, string $uuid): void {
+    protected function send_notification(\WP_Post $post, string $url, string $uuid, int $error_count = 0, array $report = []): void {
         $report_url = $this->build_report_url($uuid, $url);
 
-        $subject = sprintf('[Grammar Check] %s', $post->post_title);
+        $subject = sprintf('[Grammar Check] %s - %d issue(s) found', $post->post_title, $error_count);
 
-        $message = $this->build_email_message($post, $url, $report_url);
+        $message = $this->build_email_message($post, $url, $report_url, $error_count);
 
         foreach ($this->notify_emails as $email) {
             new MailTo((object) [
@@ -211,15 +336,17 @@ class Grammar {
         error_log("Grammar: Report created for '{$post->post_title}' - {$report_url}");
     }
 
+    // 🔧 Modified: Added error_count parameter and display in email
     /**
      * Build the HTML email message.
      *
      * @param WP_Post $post Post object.
      * @param string $url Checked URL.
      * @param string $report_url Spling report URL.
+     * @param int $error_count Number of errors found.
      * @return string HTML message.
      */
-    protected function build_email_message(\WP_Post $post, string $url, string $report_url): string {
+    protected function build_email_message(\WP_Post $post, string $url, string $report_url, int $error_count = 0): string {
         return "
         <html>
         <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
@@ -242,6 +369,10 @@ class Grammar {
                 <tr>
                     <td style='padding: 8px; font-weight: bold;'>Author:</td>
                     <td style='padding: 8px;'>" . get_the_author_meta('display_name', $post->post_author) . "</td>
+                </tr>
+                <tr>
+                    <td style='padding: 8px; font-weight: bold;'>Issues Found:</td>
+                    <td style='padding: 8px; color: #d63638; font-weight: bold;'>{$error_count}</td>
                 </tr>
             </table>
 
