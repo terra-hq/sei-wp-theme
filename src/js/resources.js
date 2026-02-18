@@ -180,6 +180,9 @@ export const getModules = () => {
                 const { default: Lotties } = await import("@jsHandler/lottie/Lotties.js");
                 return Lotties;
             },
+            options: {
+                modifyHeight: true,
+            },
         },
 		{
             name: "Marquee",

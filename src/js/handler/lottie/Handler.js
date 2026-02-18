@@ -25,7 +25,6 @@ class Handler extends CoreHandler {
     events() {
         this.emitter.on("Lottie:load", async () => {
             this.DOM = this.updateTheDOM;
-            if (this.initialized === false) {
                 super.assignInstances({
                     elementGroups: [
                     {
@@ -35,12 +34,10 @@ class Handler extends CoreHandler {
                     },
                     ],
                 })
-            }
         });
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
 
-            if (this.initialized === false) {
                 super.assignInstances({
                     elementGroups: [
                     {
@@ -50,7 +47,6 @@ class Handler extends CoreHandler {
                     },
                     ],
                 })
-            }
             if (this.DOM.elementA.length) {
                 this.DOM.elementA.forEach((element) => {
                     this.boostify.observer({
@@ -86,6 +82,7 @@ class Handler extends CoreHandler {
                 super.destroyInstances();
                 this.initialized = false;
             }
+            this.initialized = false;
         });
     }
 }
