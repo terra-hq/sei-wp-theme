@@ -11,44 +11,53 @@
     @extend .u--overflow-hidden;
     min-height: 100vh;
     display: flex;
-    padding: $zoomPadingWide 0;
+    padding: $zoomPadingTabletm 0;
+
     @media all and ($viewport-type: $tabletm) {
-        padding: $zoomPadingTabletm 0;
+        padding: $zoomPadingWide 0;
     }
+
     &__ft-items {
         @extend .u--position-relative;
         @extend .u--display-flex;
         @extend .u--align-items-center;
         @extend .u--width-100;
         @extend .u--z-index-1;
-        padding: $measure*5 0;
+        padding: $measure * 3 0 $measure * 5;
+
         @media all and ($viewport-type: $tablets) {
-            padding: $measure*3 0 $measure*5;
+            padding: $measure * 5 0;
         }
+
         &__wrapper {
             margin-left: auto;
             margin-right: auto;
             text-align: center;
-            width: 90%;
+            width: 100%;
+
             @media all and ($viewport-type: $laptop) {
-                width: 100%;
+                width: 90%;
             }
+
             &__media {
                 @extend .u--display-block;
                 width: auto;
                 height: 48px;
-                margin: 0 auto $measure*5;
+                margin: 0 auto $measure * 5;
             }
+
             &__title {
                 @extend .f--font-a;
                 @extend .f--color-a;
                 @extend .u--text-center;
                 margin-bottom: $measure * 7;
-                &__artwork {
-                    font-family: $type-b;
-                    font-style: italic;
-                }
             }
+
+            &__title__artwork {
+                font-family: $type-b;
+                font-style: italic;
+            }
+
             &__btn {
                 @extend .g--btn-03;
                 margin: 0 auto;
