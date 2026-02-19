@@ -1,27 +1,31 @@
-
 @use "sass:map";
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
+
 .c--btn-a {
     @extend .u--display-flex;
     @extend .u--align-items-center;
     @extend .u--justify-content-center;
-    width: 78px;
-    height: 78px;
+    width: 61px;
+    height: 61px;
     border-radius: 100%;
     border: 1px solid map.get($color-options, a);
     background-color: transparent;
     transition: background-color $time-b $ease-standard-a, border-color $time-b $ease-standard-a;
+
     @media all and ($viewport-type: $tabletm) {
-        width: 61px;
-        height: 61px;
+        width: 78px;
+        height: 78px;
     }
+
     svg {
         height: 24px;
         width: auto;
+        
         path {}
     }
+
     @media (hover: hover) {
         &:hover {
             border-color: map.get($color-options, d);
@@ -33,13 +37,16 @@
         border-color: map.get($color-options, c);
         width: 56px;
         height: 56px;
+
         svg {
             height: 18px;
+
             path {
                 stroke: map.get($color-options, c);
                 transition: stroke $time-b $ease-standard-a;
             }
         }
+
         @media (hover: hover) {
             &:hover {
                 svg {

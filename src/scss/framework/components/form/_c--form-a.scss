@@ -1,192 +1,214 @@
-
 @use "sass:map";
 @use "@scss/paths.scss" as paths;
 @use "@scss/framework/components/btn/_c--btn-a" as *;
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
-@use  "@scss/global-components/link/_g--link-01" as *;
+@use "@scss/global-components/link/_g--link-01" as *;
 
 .c--form-a {
     @extend .u--width-100;
+
     .hs-form {
         @extend .u--width-100;
         @extend .u--display-flex;
         align-items: flex-end;
         flex-wrap: wrap;
         column-gap: $measure * 2;
-        .hs-form-field {
-            margin-bottom: $measure*4;
-            min-width: 50%;
+    }
+
+    .hs-form-field {
+        margin-bottom: $measure * 4;
+        min-width: 50%;
+        max-width: calc(100% - 61px - #{$measure*2});
+        width: calc(600px - 78px - 1rem);
+        position: relative;
+
+        @media all and ($viewport-type: $tabletm) {
             max-width: calc(100% - 78px - #{$measure*2});
-            width: calc(600px - 78px - 1rem);
-            position: relative;
-            @media all and ($viewport-type: $tabletm) {
-                max-width: calc(100% - 61px - #{$measure*2});
-            }
-            label {
+        }
+
+        label {
+            @extend .f--font-h;
+            @extend .f--color-a;
+            @extend .u--display-block;
+            margin-bottom: $measure * 4;
+
+            span {
                 @extend .f--font-h;
-                @extend .f--color-a;
-                @extend .u--display-block;
-                margin-bottom: $measure*4;
-                span {
-                    @extend .f--font-h;
-                    @extend .u--font-light;
-                }
-            }
-            .input {
-                input {
-                    @extend .u--display-block;
-                    @extend .u--width-100;
-                    padding: $measure*2;
-                    background-color: transparent !important;
-                    border-width: 0 0 1px;
-                    border-color: map.get($color-options, a);
-                    border-style: solid;
-                    border-radius: $border-radius-a;
-                    opacity: .6;
-                    color: map.get($color-options, h) !important;
-                    transition: opacity $time-b $ease-standard-a;
-                    @extend .f--font-g;
-                    @extend .u--font-light;
-                    &:-webkit-autofill,
-                    &:-webkit-autofill:hover,
-                    &:-webkit-autofill:focus {
-                        -webkit-text-fill-color: map.get($color-options, h);
-                        -webkit-box-shadow: 0 0 0px 1000px map.get($color-options, k) inset;
-                    }
-                    &::placeholder {
-                        @extend .f--font-g;
-                        @extend .f--color-h;
-                        @extend .u--font-light;
-                    }
-                    &:focus,
-                    &:not(:placeholder-shown) {
-                        opacity: 1;
-                    }
-                }
-                .inputs-list {
-                    @extend .u--display-flex;
-                    list-style: none;
-                    flex-wrap: wrap;
-                    .hs-form-booleancheckbox {
-                        label {
-                            @extend .u--position-relative;
-                            margin-bottom: 0;
-                            input {
-                                @extend .u--position-absolute;
-                                @extend .u--width-100;
-                                opacity: 0;
-                                cursor: pointer;
-                                left: 0;
-                                top: 0;
-                                @extend .u--height-100;
-                                z-index: 0;
-                                padding: 0;
-                                &:checked ~ span::after {
-                                    opacity: 1;
-                                }
-                            }
-                            span {
-                                @extend .u--position-relative;
-                                @extend .u--display-block;
-                                // @extend .u--align-items-center;
-                                @extend .f--font-j;
-                                cursor: pointer;
-                                padding-left: calc(#{$measure*1.5} + #{$measure*2});
-                                a {
-                                    @extend .g--link-01;
-                                    @extend .g--link-01--sixth;
-                                }
-                                .hs-form-required,
-                                span {
-                                    display: inline;
-                                    padding-left: 0;
-                                    &::before {
-                                        content: none;
-                                    }
-                                }
-                                &::before {
-                                    content: "";
-                                    @extend .u--position-absolute;
-                                    left: 0;
-                                    top: 50%;
-                                    transform: translateY(-50%);
-                                    border: 1px solid map.get($color-options, h);
-                                    height: $measure*2;
-                                    width: $measure*2;
-                                }
-                                &::after {
-                                    content: "";
-                                    opacity: 0;
-                                    @extend .u--position-absolute;
-                                    top: 50%;
-                                    transform: translate(-50%, -50%);
-                                    left: calc(#{$measure*2}*.5);
-                                    width: calc(#{$measure*2}*.6);
-                                    height: calc(#{$measure*2}*.6);
-                                    max-width: calc(#{$measure*2} - 4px);
-                                    max-height: calc(#{$measure*2} - 4px);
-                                    background-color: map.get($color-options, h);
-                                    transition: opacity $time-b $ease-standard-a;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .hs-error-msgs {
-                @extend .u--width-100;
-                @extend .u--position-absolute;
-                // top: calc(100% + #{$measure * 0.5});
-                // left: 0;
-                li {
-                    label {
-                        @extend .f--font-j;
-                        @extend .f--color-a;
-                        margin-bottom: 0;
-                        margin-top: $measure;
-                    }
-                }
-                & + .hs-error-msgs {
-                    @extend .u--display-none;
-                }
-            }
-            &.hs-fieldtype-booleancheckbox {
-                order: 1;
-                @media all and ($viewport-type:$tabletm) {
-                    max-width: 100%;
-                }
-            }
-            &.hs-recaptcha {
-                // width: 100%;
-                order: 1;
-                margin-bottom: 0;
+                @extend .u--font-light;
             }
         }
-        .hs_error_rollup {
-            @extend .u--display-none;
+
+        &.hs-fieldtype-booleancheckbox {
+            order: 1;
+            max-width: 100%;
+
+            @media all and ($viewport-type: $tabletm) {
+                max-width: calc(100% - 78px - #{$measure*2});
+            }
         }
-        .hs-submit {
-            margin-bottom: $measure*4;
-            .actions {
-                @extend .u--position-relative;
-                @extend .c--btn-a;
-                background-image: url(paths.asset-url("/assets/img/arrow.svg"));
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: auto 24px;
-                .hs-button {
-                    @extend .u--position-absolute;
-                    @extend .u--width-100;
-                    opacity: 0;
-                    left: 0;
-                    top: 0;
-                    @extend .u--height-100;
-                }
+
+        &.hs-recaptcha {
+            order: 1;
+            margin-bottom: 0;
+        }
+    }
+
+    .input {
+        input:not([type="checkbox"]):not([type="radio"]) {
+            @extend .u--display-block;
+            @extend .u--width-100;
+            padding: $measure * 2;
+            background-color: transparent !important;
+            border-width: 0 0 1px;
+            border-color: map.get($color-options, a);
+            border-style: solid;
+            border-radius: $border-radius-a;
+            opacity: .6;
+            color: map.get($color-options, h) !important;
+            transition: opacity $time-b $ease-standard-a;
+            @extend .f--font-g;
+            @extend .u--font-light;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-text-fill-color: map.get($color-options, h);
+                -webkit-box-shadow: 0 0 0px 1000px map.get($color-options, k) inset;
+            }
+
+            &::placeholder {
+                @extend .f--font-g;
+                @extend .f--color-h;
+                @extend .u--font-light;
+            }
+
+            &:focus,
+            &:not(:placeholder-shown) {
+                opacity: 1;
             }
         }
     }
+
+    .inputs-list {
+        @extend .u--display-flex;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+
+    .hs-form-booleancheckbox label {
+        @extend .u--position-relative;
+        margin-bottom: 0;
+
+        input {
+            @extend .u--position-absolute;
+            @extend .u--width-100;
+            opacity: 0 !important;
+            cursor: pointer;
+            left: 0;
+            top: 0;
+            @extend .u--height-100;
+            z-index: 0;
+            padding: 0;
+
+            &:checked ~ span::after {
+                opacity: 1;
+            }
+        }
+
+        span {
+            @extend .u--position-relative;
+            @extend .u--display-block;
+            @extend .f--font-j;
+            cursor: pointer;
+            padding-left: calc(#{$measure*1.5} + #{$measure*2});
+
+            a {
+                @extend .g--link-01;
+                @extend .g--link-01--sixth;
+            }
+
+            .hs-form-required,
+            span {
+                display: inline;
+                padding-left: 0;
+
+                &::before {
+                    content: none;
+                }
+            }
+
+            &::before {
+                content: "";
+                @extend .u--position-absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 1px solid map.get($color-options, h);
+                height: $measure * 2;
+                width: $measure * 2;
+            }
+
+            &::after {
+                content: "";
+                opacity: 0;
+                @extend .u--position-absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                left: calc(#{$measure*2}*.5);
+                width: calc(#{$measure*2}*.6);
+                height: calc(#{$measure*2}*.6);
+                max-width: calc(#{$measure*2} - 4px);
+                max-height: calc(#{$measure*2} - 4px);
+                background-color: map.get($color-options, h);
+                transition: opacity $time-b $ease-standard-a;
+            }
+        }
+    }
+
+    .hs-error-msgs {
+        @extend .u--width-100;
+        @extend .u--position-absolute;
+
+        li label {
+            @extend .f--font-j;
+            @extend .f--color-a;
+            margin-bottom: 0;
+            margin-top: $measure;
+        }
+
+        & + .hs-error-msgs {
+            @extend .u--display-none;
+        }
+    }
+
+    .hs_error_rollup {
+        @extend .u--display-none;
+    }
+
+    .hs-submit {
+        margin-bottom: $measure * 4;
+
+        .actions {
+            @extend .u--position-relative;
+            @extend .c--btn-a;
+            background-image: url(paths.asset-url("/assets/img/arrow.svg"));
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: auto 24px;
+
+            .hs-button {
+                @extend .u--position-absolute;
+                @extend .u--width-100;
+                opacity: 0;
+                left: 0;
+                top: 0;
+                @extend .u--height-100;
+            }
+        }
+    }
+
     .hbspt-form {
         .submitted-message {
             @extend .f--font-g;

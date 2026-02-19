@@ -1,20 +1,18 @@
-
 @use "@scss/framework/_var/_vars.scss" as *;
 @use "@scss/framework/utilities/utilities.scss" as *;
 @use "@scss/framework/foundation/foundation.scss" as *;
 @use "@scss/framework/components/icon/_c--icon-a" as *;
-
 
 .c--social-b {
     @extend .u--display-flex;
     @extend .u--flex-direction-column;
     @extend .u--justify-content-center;
     @extend .f--gap-f;
-    height: 100%;
+    margin-top: $measure * 7;
 
     @media all and ($viewport-type: $tabletl) {
-        margin-top: $measure * 7;
-        height: unset;
+        margin-top: 0;
+        height: 100%;
     }
 
     &__title {
@@ -26,6 +24,7 @@
     &__bd {
         @extend .u--display-flex;
         gap: $measure * 3;
+
         &__link {
             @extend .f--background-b;
             border-radius: 100%;
@@ -34,14 +33,14 @@
             &:hover {
                 @extend .f--background-c;
             }
+        }
 
-            &__artwork {
-                @extend .c--icon-a;
-                
-                &:hover {
-                    filter: brightness(0) invert(100%);
-                    background-color: transparent;
-                }
+        &__link__artwork {
+            @extend .c--icon-a;
+            
+            &:hover {
+                filter: brightness(0) invert(100%);
+                background-color: transparent;
             }
         }
     }
