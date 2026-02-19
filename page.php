@@ -8,8 +8,8 @@
 
     <div class="f--container">
         <div class="f--row">
-            <div class="f--col-9 f--col-tablets-12 u--pb-10 u--pb-tablets-7">
-                <h1 class="f--sp-c f--font-c"><?= $title ?></h1>
+            <div class="f--col-9 f--col-tablets-12 u--pb-6">
+                <h1 class="f--font-c"><?= $title ?></h1>
             </div>
 
             <div class="f--col-7 f--col-tabletl-10 f--col-tablets-12 u--pb-15 u--pb-tablets-10">
