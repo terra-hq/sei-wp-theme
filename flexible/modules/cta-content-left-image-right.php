@@ -3,7 +3,7 @@ $spacing = get_spacing($module['section_spacing']);
 $bg_color = $module['bg_color'];
 $modifierClass = '';
 if ($bg_color === 'f--background-c' || $bg_color === 'f--background-d') {
-    $modifierClass = 'g--card-34--second';
+    $modifierClass = 'c--card-n--second';
 }
 $should_be_a_slider = $module['should_be_a_slider'];
 
@@ -15,7 +15,8 @@ if (!$should_be_a_slider) {
         'type' => $module['type'],
         'first_image' => $module['first_image'],
         'second_image' => $module['second_image'],
-        'second_image_text' => $module['second_image_text']
+        'second_image_text' => $module['second_image_text'],
+        'center_image' => $module['center_image']
     ];
 }else{
     $items = $module['slider']; 
@@ -43,6 +44,7 @@ if (!$should_be_a_slider) {
                     $first_image = $item['first_image'];
                     $second_image = isset($item['second_image']) ? $item['second_image'] : null;
                     $second_image_text = isset($item['second_image_text']) ? $item['second_image_text'] : '';
+                    $center_image = $item['center_image'] ? 'c--card-n--third' : '';
                 ?>
                     <div class="c--slider-a__wrapper__item">
                         <?php include(locate_template('components/card/card-n.php', false, false)); ?>

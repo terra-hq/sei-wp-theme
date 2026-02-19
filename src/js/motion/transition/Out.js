@@ -1,11 +1,11 @@
-import gsap from "gsap";
-
 class Out {
-    constructor() {
+    constructor(payload) {
         this.DOM = {
             transitionPath: document.querySelector(".js--transition .c--transition-a__artwork path"),
             transitionMedia: document.querySelector(".js--transition .c--transition-a__media-wrapper__media"),
         };
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
 
         return this.init();
     }
@@ -15,7 +15,7 @@ class Out {
     }
 
     init() {
-        var tl = gsap.timeline({});
+        var tl = this.gsap.timeline({});
 
         tl.set(this.DOM.transitionPath, {
             attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }

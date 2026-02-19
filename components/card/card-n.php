@@ -1,4 +1,4 @@
-<div class="c--card-n <?= $modifierClass ?>">
+<div class="c--card-n <?= $modifierClass ?> <?= $center_image?>">
     <div class="c--card-n__wrapper">
         <h2 class="c--card-n__wrapper__item-primary"><?= $title ?></h2>
         <p class="c--card-n__wrapper__item-secondary"><?= $description ?></p>

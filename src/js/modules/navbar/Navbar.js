@@ -1,9 +1,8 @@
 import Burger from './Burger';
 import MenuItem from './MenuItem';
 import Search from './Search';
-import { gsap } from "gsap";
 import Flip from "gsap/Flip";
-gsap.registerPlugin(Flip);
+
 
 class Navbar {
     constructor(payload) {
@@ -20,6 +19,9 @@ class Navbar {
             listItems: document.querySelectorAll('.c--nav-a__list-group__item'),
         };
         this.menuItems = [];
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
+        this.gsap.registerPlugin(Flip);
 
         this.boostify = payload.boostify;
 
@@ -44,11 +46,12 @@ class Navbar {
             const dropdown = this.DOM.dropdown[index];
             this.menuItems.push(new MenuItem({
                 menuItem: menuItem,
-                dropdown: dropdown
+                dropdown: dropdown,
+                Manager: this.Manager,
             }));
         });
         //header fix for mobile flickering
-        gsap.to(this.DOM.header, { opacity: 1, duration: 2 });
+        this.gsap.to(this.DOM.header, { opacity: 1, duration: 2 });
 
         // Dynamically import the smooth-scrollbar function,
         // and store it in the window.lib object

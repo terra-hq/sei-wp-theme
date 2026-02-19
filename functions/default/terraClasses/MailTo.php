@@ -28,9 +28,8 @@ class MailTo {
         $this->message = $config->message;  // Set the email message from the configuration
         $this->email = $config->email;      // Set the recipient's email from the configuration
         $this->subject = $config->subject;  // Set the email subject from the configuration
+         $this->send_email_to();
 
-        // Hook to ensure the email is sent once WordPress is fully loaded
-        add_action('wp_loaded', array($this, 'send_email_to'), 10);
     }
 
     /**

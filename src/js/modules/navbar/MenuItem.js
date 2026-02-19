@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import axios from 'axios';
 
 class MenuItem {
@@ -10,32 +9,24 @@ class MenuItem {
       header: document.querySelector(".c--header-a"),
       overlay: document.querySelector(".c--overlay-b"), // Add overlay to DOM
     };
-    //this.isOpen = false; // Initialize as closed
     this.contentLoaded = false; // Track if the content has been loaded
     this.isLoading = false; // Track if the dropdown is currently loading
+    this.Manager = payload.Manager;
+    this.gsap = this.Manager.getLibrary("GSAP").gsap;
     this.init();
-    //console.log(this.DOM.dropdown);
   }
 
   init() {
     // Initial dropdown setting
-    gsap.set(this.DOM.dropdown, {
+    this.gsap.set(this.DOM.dropdown, {
       autoAlpha: 1,
       maxHeight: 0,
       visibility: "hidden",
     });
-    gsap.set(this.DOM.overlay, {
+    this.gsap.set(this.DOM.overlay, {
       autoAlpha: 0,
       visibility: "hidden",
     });
-
-    // this.DOM.menuItem.addEventListener("click", () => {
-    //   if (this.isOpen) {
-    //     this.collapse();
-    //   } else {
-    //     this.open();
-    //   }
-    // });
 
     //when overlay-b is clicked closes the dropdown
     this.DOM.overlay.addEventListener('click', () => {
@@ -61,10 +52,10 @@ class MenuItem {
 
   animateOpen() {
     //console.log("Opening menu...");
-    gsap.set(this.DOM.dropdown, {
+    this.gsap.set(this.DOM.dropdown, {
       overflow: "hidden",
     });
-    gsap.to(this.DOM.overlay, {
+    this.gsap.to(this.DOM.overlay, {
       // Animate overlay visibility first
       autoAlpha: 1,
       duration: 0.1,
@@ -74,13 +65,13 @@ class MenuItem {
         this.DOM.overlay.style.visibility = "visible";
       },
     });
-    gsap.to(this.DOM.dropdown, {
+    this.gsap.to(this.DOM.dropdown, {
       maxHeight: 500,
       visibility: "inherit",
       duration: 0.2,
       ease: "linear",
       onComplete: () => {
-        gsap.set(this.DOM.dropdown, { overflow: "auto" });
+        this.gsap.set(this.DOM.dropdown, { overflow: "auto" });
         this.DOM.header.classList.add("c--header-a--is-active"); // Add active class to header
         //console.log("Menu opened, active and visible classes added.");
         document.querySelectorAll('.js--nav-item').forEach(item => {
@@ -98,7 +89,7 @@ class MenuItem {
 
   collapse() {
     //console.log("Collapsing menu...");
-    gsap.to(this.DOM.dropdown, {
+    this.gsap.to(this.DOM.dropdown, {
       maxHeight: 0,
       duration: 0.1,
       ease: "power1.in",
@@ -108,7 +99,7 @@ class MenuItem {
         setTimeout(() => {
           // Add a delay before hiding the overlay
           if (!document.querySelector(".c--header-a--is-active")) {
-            gsap.to(this.DOM.overlay, {
+            this.gsap.to(this.DOM.overlay, {
               // Animate overlay visibility
               autoAlpha: 0,
               duration: 0.3,

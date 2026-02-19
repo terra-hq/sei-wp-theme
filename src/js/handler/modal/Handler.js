@@ -1,141 +1,101 @@
-import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
-
-class Handler {
+import CoreHandler from "../CoreHandler.js";
+class Handler extends CoreHandler {
     constructor(payload) {
-        var { emitter, instances, boostify, terraDebug, libManager } = payload;
-        this.boostify = boostify;
-        this.emitter = emitter;
-        this.instances = instances;
-        this.terraDebug = terraDebug;
-        this.libManager = libManager;
-        this.usedBoostify = false;
-
-        this.currentTrigger = null;
-        this.triggerClickHandler = null;
-
-        this.modalClassSelector= "#my-modal";
-
-        this.modalConfig = {
-            selector: this.modalClassSelector,
-            openTrigger: "data-modal-open",
-            closeTrigger: "data-modal-close",
-            openClass: "g--modal-01--is-open",
-            disableScroll: true,
-            awaitOpenAnimation: true,
-            awaitCloseAnimation: true
-        };
-
+        super(payload);
         this.init();
-        this.events();
-    }
+        this.triggerEl = null;
 
-    get updateTheDOM() {
-        return {
-            modalAElements: document.querySelectorAll(this.modalClassSelector),
-        };
-    }
-
-    init() {}
-
-    createModalInstance({ element, index }) {
-        const Modal = window['lib']['Modal'];
-
-        this.instances["Modal"][index] = new Modal({
-            selector: `#${element.id}`,
+        this.config = ({element}) => ({
+            selector: document.querySelector(".g--modal-01"),
             debug: this.terraDebug,
+            openClass: 'g--modal-01--is-open',
             ...this.modalConfig,
-            onShow: (modal) => {
-                if (!this.currentTrigger) return;
+            onShow: (element) => {
+                const trigger = this.triggerEl;
+                if (!trigger) return;
 
-                if (this.currentTrigger.getAttribute("data-modal-video-type") === "file") {
+                const type = trigger.getAttribute("data-modal-video-type");
+                const url = trigger.getAttribute("data-modal-video-url");
+                const wrapper = document.querySelector(".g--modal-01__wrapper__content");
+                if (!wrapper) return;
+                wrapper.innerHTML = "";
+
+                if (type === "file") {
                     this.boostify.videoPlayer({
-                        url: {
-                            mp4: this.currentTrigger.getAttribute("data-modal-video-url"),
-                        },
+                        url: { mp4: url },
                         style: { aspectRatio: "16/9", width: "100%", height: "100%" },
                         attributes: {
                             class: "video-file",
                             id: "MyVideo",
                             loop: false,
-                            muted: false,
+                            muted: true,
                             controls: true,
                             autoplay: true,
                             playsinline: true,
                         },
-                        appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
+                        appendTo: wrapper,
+                        
                     });
-                } else if (this.currentTrigger.getAttribute("data-modal-video-type") === "embed") {
+                } else if (type === "embed") {
                     this.boostify.videoEmbed({
-                        url: this.currentTrigger.getAttribute("data-modal-video-url"),
+                        url: url,
                         autoplay: true,
-                        appendTo: modal.querySelector(".g--modal-01__wrapper__content"),
+                        appendTo: wrapper,
                         style: { aspectRatio: "16/9", width: "100%", height: "100%" },
                     });
                 }
             },
-            onClose: (modal) => {
-                this.currentTrigger = null;
-                const content = modal.querySelector(".g--modal-01__wrapper__content");
-                if(content) content.innerHTML = "";
+            onClose: (element) => {
+                this.triggerEl = null;
+                const wrapper = document.querySelector(".g--modal-01__wrapper__content");
+                if(wrapper) wrapper.innerHTML = "";
+                this.eventSystem.destroyEvent({library: 'Modal', where: 'Modal'})
             },
         });
+       
+        this.events();
+    }
+
+    get updateTheDOM() {
+        return {
+            modalButton: document.querySelectorAll(".js--modal-btn"),
+        };
+    }
+
+    init() {
+        super.getLibraryName("Modal");
     }
 
     events() {
-        this.triggerClickHandler = (e) => {
-            const trigger = e.target.closest(`[${this.modalConfig.openTrigger}]`);
-            if (trigger) {
-                this.currentTrigger = trigger;
-            }
-        };
-        document.addEventListener("click", this.triggerClickHandler, true);
-
         this.emitter.on("MitterContentReplaced", async () => {
-            this.DOM = this.updateTheDOM;
+            this.DOM = this.updateTheDOM; // Re-query elements each time this is called
 
-            if (this.DOM.modalAElements.length > 0) {
-                this.instances["Modal"] = [];
-                this.usedBoostify = false;
-
-                if (!window['lib']['Modal']) {
-                    const { default: Modal } = await import("@terrahq/modal");
-                    window['lib']['Modal'] = Modal;
-                }
-
-                this.DOM.modalAElements.forEach((modal, index) => {
-                    if (isElementInViewport({ el: modal, debug: this.terraDebug })) {
-                        this.createModalInstance({ element: modal, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 10,
-                            name: "Modal",
-                            callback: async () => {
-                                try {
-                                    this.createModalInstance({ element: modal, index });
-                                } catch (error) {
-                                    this.terraDebug && console.error("Error creating Modal instance", error);
-                                }
-                            }
-                        });
-                    }
+            this.DOM.modalButton.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    this.triggerEl = btn;
                 });
-            }
+            });
+
+            super.assignInstances({
+                elementGroups: [
+                    {
+                        elements: this.DOM.modalButton,
+                        config: this.config,
+                        boostify: { method: 'click', distance: 30 },
+                    },
+                ],
+            });
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
-            this.DOM = this.updateTheDOM;
-            
-            if (this.DOM?.modalAElements?.length && this.instances["Modal"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 10, name: "Modal" });
-                }
-                this.DOM.modalAElements.forEach((_, index) => {
-                    if (this.instances["Modal"][index]?.destroy) {
-                        this.instances["Modal"][index].destroy();
-                    }
-                });
-                this.instances["Modal"] = [];
+            if (this.DOM.modalButton.length) {
+                super.destroyInstances();
+            }
+        });
+
+        this.emitter.on("Modal:destroy", () => {
+            if (this.DOM.modalButton.length) {
+                super.destroyInstances();
             }
         });
     }

@@ -1,16 +1,14 @@
-import gsap from "gsap";
-
 class HeaderA {
-    constructor() {
+    constructor(payload) {
         this.DOM = {
             header: document.querySelector(".c--header-a"),
         };
-        
-        return this.init();
+        this.Manager = payload.Manager;
+        this.gsap = this.Manager.getLibrary("GSAP").gsap;
     }
     init() {
 
-        var tl = gsap.timeline({
+        var tl = this.gsap.timeline({
             defaults: {
                 duration: 1,
                 ease: "power2.out",
@@ -23,8 +21,17 @@ class HeaderA {
             })
         }
         
-
+        this.timeline = tl
         return tl;
+    }
+    destroy() {
+        if (this.timeline) {
+            this.timeline.kill();
+            this.timeline = null;
+        }
+
+        this.DOM = null;
+        this.Manager = null;
     }
 
 }

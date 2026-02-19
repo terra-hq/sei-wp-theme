@@ -1,4 +1,4 @@
-import { isElementInViewport } from "@terrahq/helpers/isElementInViewport";
+import CoreHandler from "../CoreHandler";
 import { 
     sliderAConfig, 
     sliderBConfig, 
@@ -6,302 +6,99 @@ import {
     sliderDConfig, 
 } from "@jsHandler/slider/slidersConfig";
 
-class SliderHandler {
+class Handler extends CoreHandler {
     constructor(payload) {
-        var { boostify, emitter, instances, terraDebug } = payload;
-        this.boostify = boostify;
-        this.emitter = emitter;
-        this.instances = instances;
-        this.terraDebug = terraDebug;
-        this.usedBoostify = false;
+        super(payload);
+
+        this.configSliderA = ({element}) => {
+            return {
+                slider: element,
+                controls: element.nextElementSibling,
+                config: sliderAConfig,
+                windowName: "SliderA",
+                Manager: this.Manager,
+            };
+        };
+        this.configSliderB = ({element}) => {
+            return {
+                slider: element,
+                navcontainer: element.nextElementSibling,
+                config: sliderBConfig,
+                windowName: "SliderB",
+                Manager: this.Manager,
+            };
+        };
+        this.configSliderC = ({element}) => {
+            return {
+                slider: element,
+                config: sliderCConfig,
+                windowName: "SliderC",
+                Manager: this.Manager,
+            };
+        };
+        this.configSliderD = ({element}) => {
+            return {
+                slider: element,
+                controls: element.nextElementSibling,
+                config: sliderDConfig,
+                windowName: "SliderD",
+                Manager: this.Manager,
+            };
+        };
 
         this.init();
         this.events();
     }
 
-    init() {}
-
     get updateTheDOM() {
         return {
-            slidera: document.querySelectorAll('.js--slider-a'),
-            sliderb: document.querySelectorAll('.js--slider-b'),
-            sliderc: document.querySelectorAll('.js--slider-c'),
-            sliderd: document.querySelectorAll('.js--slider-d'),
-            slidere: document.querySelectorAll('.js--slider-e'),
+            sliderA: document.querySelectorAll('.js--slider-a'),
+            sliderB: document.querySelectorAll('.js--slider-b'),
+            sliderC: document.querySelectorAll('.js--slider-c'),
+            sliderD: document.querySelectorAll('.js--slider-d'),
         };
     }
 
-    createSliderAInstance({ slider, index }) {
-        const Slider = window['lib']['SliderA'];
-        this.instances["SliderA"][index] = new Slider({
-            slider: slider,
-            controls: slider.nextElementSibling,
-            config: sliderAConfig,
-            windowName: "SliderA",
-            index: index
-        });
-    }
-
-    createSliderBInstance({ slider, index }) {
-        const Slider = window['lib']['SliderB'];
-        this.instances["SliderB"][index] = new Slider({
-            slider: slider,
-            navcontainer: slider.nextElementSibling,
-            config: sliderBConfig,
-            windowName: "SliderB",
-            index: index
-        });
-    }
-
-    createSliderCInstance({ slider, index }) {
-        const Slider = window['lib']['SliderC'];
-        this.instances["SliderC"][index] = new Slider({
-            slider: slider,
-            config: sliderCConfig,
-            windowName: "SliderC",
-            index: index
-        });
-    }
-
-    createSliderDInstance({ slider, index }) {
-        const Slider = window['lib']['SliderD'];
-        this.instances["SliderD"][index] = new Slider({
-            slider: slider,
-            controls: slider.nextElementSibling,
-            config: sliderDConfig,
-            windowName: "SliderD",
-            index: index
-        });
-    }
-
-    createSliderEInstance({ slider, index }) {
-        const Slider = window['lib']['Slider'];
-        if (!this.instances["SliderE"]) this.instances["SliderE"] = [];
-
-        this.instances["SliderE"][index] = new Slider({
-            slider: slider,
-            navcontainer: slider.nextElementSibling,
-            config: sliderEConfig,
-            windowName: "SliderE",
-            index: index
-        });
+    init() {
+        super.getLibraryName("Slider");
     }
 
     events() {
         this.emitter.on("MitterContentReplaced", async () => {
             this.DOM = this.updateTheDOM;
 
-            // --- SLIDER A ---
-            if (this.DOM.slidera.length > 0) {
-                this.instances["SliderA"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['SliderA']) {
-                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['SliderA'] = Slider;
-                };
-
-                this.DOM.slidera.forEach((slider, index) => {
-                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
-                        this.createSliderAInstance({ slider, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 15,
-                            name: "SliderA",
-                            callback: async () => {
-                                try {
-                                    if (!this.instances["SliderA"]?.[index]) {
-                                        this.createSliderAInstance({ slider, index });
-                                    }
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading SliderA", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-
-            // --- SLIDER B ---
-            if (this.DOM.sliderb.length > 0) {
-                this.instances["SliderB"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['SliderB']) {
-                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['SliderB'] = Slider;
-                };
-
-                this.DOM.sliderb.forEach((slider, index) => {
-                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
-                        this.createSliderBInstance({ slider, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 15,
-                            name: "SliderB",
-                            callback: async () => {
-                                try {
-                                    if (!this.instances["SliderB"]?.[index]) {
-                                        this.createSliderBInstance({ slider, index });
-                                    }
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading SliderB", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-
-            // --- SLIDER C ---
-            if (this.DOM.sliderc.length > 0) {
-                this.instances["SliderC"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['SliderC']) {
-                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['SliderC'] = Slider;
-                };
-
-                this.DOM.sliderc.forEach((slider, index) => {
-                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
-                        this.createSliderCInstance({ slider, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 15,
-                            name: "SliderC",
-                            callback: async () => {
-                                try {
-                                    if (!this.instances["SliderC"]?.[index]) {
-                                        this.createSliderCInstance({ slider, index });
-                                    }
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading SliderC", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-
-            // --- SLIDER D ---
-            if (this.DOM.sliderd.length > 0) {
-                this.instances["SliderD"] = [];
-                this.usedBoostify = false;
-                if (!window['lib']['SliderD']) {
-                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['SliderD'] = Slider;
-                };
-
-                this.DOM.sliderd.forEach((slider, index) => {
-                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
-                        this.createSliderDInstance({ slider, index });
-                    } else {
-                        this.usedBoostify = true;
-                        this.boostify.scroll({
-                            distance: 15,
-                            name: "SliderD",
-                            callback: async () => {
-                                try {
-                                    if (!this.instances["SliderD"]?.[index]) {
-                                        this.createSliderDInstance({ slider, index });
-                                    }
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading SliderD", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-
-            // --- SLIDER E ---
-            if (this.DOM.slidere.length > 0) {
-                if (!window['lib'] || !window['lib']['Slider']) {
-                    if (!window['lib']) window['lib'] = {};
-                    const { default: Slider } = await import("@jsHandler/slider/Slider.js");
-                    window['lib']['Slider'] = Slider;
-                }
-
-                this.DOM.slidere.forEach((slider, index) => {
-                    if (isElementInViewport({ el: slider, debug: this.terraDebug })) {
-                        this.createSliderEInstance({ slider, index });
-                    } else {
-                        this.boostify.scroll({
-                            distance: 15,
-                            name: "SliderE",
-                            callback: async () => {
-                                try {
-                                    if (!this.instances["SliderE"]?.[index]) {
-                                        this.createSliderEInstance({ slider, index });
-                                    }
-                                } catch (error) {
-                                    this.terraDebug && console.log("Error loading SliderE", error);
-                                }
-                            }
-                        });
-                    }
-                });
-            }
+            super.assignInstances({
+                elementGroups: [
+                    {
+                        elements: this.DOM.sliderA,
+                        config: this.configSliderA,
+                        boostify: { distance: 30 },
+                    },
+                    {
+                        elements: this.DOM.sliderB,
+                        config: this.configSliderB,
+                        boostify: { distance: 30 },
+                    },
+                    {
+                        elements: this.DOM.sliderC,
+                        config: this.configSliderC,
+                        boostify: { distance: 30 },
+                    },
+                    {
+                        elements: this.DOM.sliderD,
+                        config: this.configSliderD,
+                        boostify: { distance: 30 },
+                    },
+                ],
+            });
         });
 
         this.emitter.on("MitterWillReplaceContent", () => {
-            this.DOM = this.updateTheDOM;
-
-            // --- DESTROY SLIDER A ---
-            if (this.DOM.slidera?.length && this.instances["SliderA"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 15, name: "SliderA" });
-                }
-                this.DOM.slidera.forEach((_, index) => {
-                    this.instances["SliderA"][index]?.destroy?.();
-                });
-                this.instances["SliderA"] = [];
-            }
-
-            // --- DESTROY SLIDER B ---
-            if (this.DOM.sliderb?.length && this.instances["SliderB"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 15, name: "SliderB" });
-                }
-                this.DOM.sliderb.forEach((_, index) => {
-                    this.instances["SliderB"][index]?.destroy?.();
-                });
-                this.instances["SliderB"] = [];
-            }
-
-            // --- DESTROY SLIDER C ---
-            if (this.DOM.sliderc?.length && this.instances["SliderC"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 15, name: "SliderC" });
-                }
-                this.DOM.sliderc.forEach((_, index) => {
-                    this.instances["SliderC"][index]?.destroy?.();
-                });
-                this.instances["SliderC"] = [];
-            }
-
-            // --- DESTROY SLIDER D ---
-            if (this.DOM.sliderd?.length && this.instances["SliderD"]?.length) {
-                if (this.usedBoostify) {
-                    this.boostify.destroyscroll({ distance: 15, name: "SliderD" });
-                }
-                this.DOM.sliderd.forEach((_, index) => {
-                    this.instances["SliderD"][index]?.destroy?.();
-                });
-                this.instances["SliderD"] = [];
-            }
-
-            // --- DESTROY SLIDER E ---
-            if (this.DOM.slidere?.length && this.instances["SliderE"]?.length) {
-                this.boostify.destroyscroll({ distance: 15, name: "SliderE" });
-                this.DOM.slidere.forEach((_, index) => {
-                    this.instances["SliderE"][index]?.destroy?.();
-                });
-                this.instances["SliderE"] = [];
+            if (this.DOM.sliderA.length || this.DOM.sliderB.length || this.DOM.sliderC.length || this.DOM.sliderD.length) {
+                super.destroyInstances();
             }
         });
     }
 }
 
-export default SliderHandler;
+export default Handler;

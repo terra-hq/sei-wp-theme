@@ -116,4 +116,11 @@
             }
         }
     }
+    &--third & {
+        &__media-wrapper {
+            &__media {
+                object-position: center;
+            }
+        }
+    }
 }
