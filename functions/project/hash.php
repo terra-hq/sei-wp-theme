@@ -11,6 +11,6 @@
  */
 
 
-define('hash', 'osg');
+define('hash', '2h6');
 
 ?>
