@@ -12,6 +12,7 @@ class Slider {
         this.config = payload.config;
         this.windowName = payload.windowName;
         this.index = payload.index;
+        this.onSlideTransitionEnd = payload.onSlideTransitionEnd;
         if (!this.DOM.slider) return;
         if (!this.config) return;
         this.init();
@@ -22,6 +23,11 @@ class Slider {
         this.config.navContainer = this.DOM.navcontainer;
         this.slider = tns(this.config);
         this.gsap.to(this.DOM.slider, { opacity: 1, duration: 0.5, ease: "power4.in"});
+        if (this.onSlideTransitionEnd && typeof this.onSlideTransitionEnd === 'function') { 
+            this.slider.events.on('transitionEnd', () => {
+                this.onSlideTransitionEnd();
+            });
+        }
     }
 
     isReady = async () => {

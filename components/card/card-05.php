@@ -35,7 +35,7 @@
                     'image' => $image,
                     'sizes' => '180px',
                     'class' => 'g--card-05__media-wrapper__media',
-                    'isLazy' => false,
+                    'isLazy' => true,
                     'lazyClass' => 'g--lazy-01',
                     'showAspectRatio' => true,
                     'decodingAsync' => true,

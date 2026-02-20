@@ -17,6 +17,11 @@ class Handler extends CoreHandler {
                 config: sliderAConfig,
                 windowName: "SliderA",
                 Manager: this.Manager,
+                onSlideTransitionEnd: () => {
+                    if (this.Manager.instances["Lazy"] && this.Manager.instances["Lazy"].length > 0) {
+                        this.Manager.instances["Lazy"][0].instance.revalidate();
+                    }
+                }
             };
         };
         this.configSliderB = ({element}) => {
@@ -26,6 +31,11 @@ class Handler extends CoreHandler {
                 config: sliderBConfig,
                 windowName: "SliderB",
                 Manager: this.Manager,
+                onSlideTransitionEnd: () => {
+                    if (this.Manager.instances["Lazy"] && this.Manager.instances["Lazy"].length > 0) {
+                        this.Manager.instances["Lazy"][0].instance.revalidate();
+                    }
+                }
             };
         };
         this.configSliderC = ({element}) => {
@@ -34,6 +44,11 @@ class Handler extends CoreHandler {
                 config: sliderCConfig,
                 windowName: "SliderC",
                 Manager: this.Manager,
+                onSlideTransitionEnd: () => {
+                    if (this.Manager.instances["Lazy"] && this.Manager.instances["Lazy"].length > 0) {
+                        this.Manager.instances["Lazy"][0].instance.revalidate();
+                    }
+                }
             };
         };
         this.configSliderD = ({element}) => {
@@ -43,6 +58,11 @@ class Handler extends CoreHandler {
                 config: sliderDConfig,
                 windowName: "SliderD",
                 Manager: this.Manager,
+                onSlideTransitionEnd: () => {
+                    if (this.Manager.instances["Lazy"] && this.Manager.instances["Lazy"].length > 0) {
+                        this.Manager.instances["Lazy"][0].instance.revalidate();
+                    }
+                }
             };
         };
 

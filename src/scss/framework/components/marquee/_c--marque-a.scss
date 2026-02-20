@@ -8,18 +8,23 @@
   @extend .u--justify-content-center;
   overflow: hidden;
 
-  &__item {
-    @extend .u--display-block;
-    height: 100%;
+  &__wrapper {
+
     max-width: 250px;
     width: 250px;
     min-height: 72px;
-    height: 100%;
-    object-fit: contain;
     padding-right: $measure*12;
+    flex-shrink: 0;
     @media all and ($viewport-type: $mobile) {
       max-width: 140px;
-      padding-right: $measure*5;
+      margin-right: $measure*5;
+    }
+    &__item {
+      @extend .u--display-block;
+      height: auto;
+      width: 100%;
+      min-height: 72px;
+      object-fit: contain;
     }
   }
 
@@ -32,13 +37,16 @@
   }
 
   &--second & {
-    &__item {
-      @extend .u--height-100;
-      padding-right: 0px;
-      max-width: 180px;
-      width: 180px;
-      @media all and ($viewport-type: $mobile) {
-        max-width: 140px;
+    &__wrapper {
+
+      &__item {
+        @extend .u--height-100;
+        padding-right: 0px;
+        max-width: 180px;
+        width: 180px;
+        @media all and ($viewport-type: $mobile) {
+          max-width: 140px;
+        }
       }
     }
   }

@@ -5,9 +5,8 @@ class Handler extends CoreHandler {
     constructor(payload) {
         super(payload);
        
-
         this.configMarqueeA = ({element}) => {
-            const itemCount = element.querySelectorAll(".c--marquee-a__item").length;
+            const itemCount = element.querySelectorAll(".c--marquee-a__wrapper").length;
             this.bk = breakpoints.reduce((target, inner) => Object.assign(target, inner), {});
 
             this.isMobile = window.innerWidth <= this.bk.mobile;
@@ -38,9 +37,11 @@ class Handler extends CoreHandler {
                 }
             }
         };
+        
         this.configMarqueeB = ({element}) => {
             return {
                 element: element,
+                Manager: this.Manager, // ✅ ¡Añadimos el Manager aquí para evitar que explote InfiniteMarquee!
                 speed: element.getAttribute("data-speed")
                 ? parseFloat(element.getAttribute("data-speed"))
                 : 1,

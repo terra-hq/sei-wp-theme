@@ -35,13 +35,13 @@ $case_studies = $module['case_studies'];
                                         <!-- IMAGEN -->
                                         <div class="f--col-4 f--col-tabletm-12">
                                             <a href="<?= esc_url($case_link) ?>" <?= $case_target ? 'target="'.esc_attr($case_target).'"' : '' ?> <?= $case_rel ? 'rel="'.esc_attr($case_rel).'"' : '' ?> class="u--overflow-hidden">
-                                                <div class="c--card-m__wrapper">
+                                                <div class="c--card-m__wrapper 1">
                                                     <?php
                                                     $image_tag_args = array(
                                                         'image' => $image_to_use,
                                                         'sizes' => '(max-width: 810px) 50vw, 100vw',
-                                                        'class' => 'c--card-m__wrapper__media',
-                                                        'isLazy' => false,
+                                                        'class' => 'c--card-m__wrapper__media g--lazy-01',
+                                                        'isLazy' => true,
                                                         'showAspectRatio' => true,
                                                         'decodingAsync' => true,
                                                         'fetchPriority' => false,

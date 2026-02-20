@@ -11,18 +11,20 @@
                 <div class="c--marquee-a js--marquee" data-speed="1" data-controls-on-hover="false" data-reversed=<?= $direction ?> >
                     <?php foreach($logos as $key => $logo): ?>
                         <?php if($logo): ?>
-                            <?php  $image_tag_args = array(
-                                    'image' => $logo['logo'],
-                                    'sizes' => 'large',
-                                    'class' => $key == 0 ? 'c--marquee-a__item c--marquee-a__item--initial' : 'c--marquee-a__item',
-                                    'isLazy' => false,
-                                    'showAspectRatio' => true,
-                                    'decodingAsync' => true,
-                                    'fetchPriority' => false,
-                                    'addFigcaption' => false,
-                                );
-                                generate_image_tag($image_tag_args); 
-                            ?>
+                            <div class="c--marquee-a__wrapper">
+                                <?php  $image_tag_args = array(
+                                        'image' => $logo['logo'],
+                                        'sizes' => 'large',
+                                        'class' => $key == 0 ? 'c--marquee-a__wrapper__item c--marquee-a__wrapper__item--initial' : 'c--marquee-a__wrapper__item',
+                                        'isLazy' => true,
+                                        'showAspectRatio' => true,
+                                        'decodingAsync' => true,
+                                        'fetchPriority' => false,
+                                        'addFigcaption' => false,
+                                    );
+                                    generate_image_tag($image_tag_args);
+                                ?>
+                            </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>

@@ -10,6 +10,9 @@
 @use "@scss/framework/components/header/_c--header-wrapper-a";
 @use "@scss/framework/components/header/_c--header-a";
 
+//* lazy
+@use "@scss/global-components/lazy/_g--lazy-01";
+
 //* accordion
 @use "@scss/framework/components/accordion/_c--accordion-a";
 @use "@scss/global-components/accordion/_g--accordion-02";
@@ -143,9 +146,6 @@
 @use "@scss/framework/components/layout/_c--layout-d";
 @use "@scss/framework/components/layout/_c--layout-e";
 @use "@scss/framework/components/layout/_c--layout-f";
-
-//* lazy
-@use "@scss/global-components/lazy/_g--lazy-01";
 
 //* link
 @use "@scss/framework/components/link/_c--link-a";
