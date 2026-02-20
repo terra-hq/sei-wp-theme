@@ -26,7 +26,7 @@ class Main extends Core {
 
         // Call the parent class (Core) constructor with specific configurations
         super({
-            blazy: {
+            lazy: {
                 enable: true, // Enable lazy loading for images or elements
                 selector: "g--lazy-01", // Selector for lazy loading elements
             },

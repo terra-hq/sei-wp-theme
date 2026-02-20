@@ -5,15 +5,15 @@ import SwupScriptsPlugin from "@swup/scripts-plugin";
 import SwupBodyClassPlugin from "@swup/body-class-plugin";
 import SwupJsPlugin from "@swup/js-plugin";
 import SwupScrollPlugin from "@swup/scroll-plugin";
-import Blazy from "blazy";
+import Lazy from '@terrahq/lazy';
 import { createTransitionOptions } from "@js/motion/transition/index.js";
 import TransitionTimings from "@js/utilities/TransitionTimings.js";
 class Core {
     constructor(payload) {
-        const { blazy, terraDebug, Manager, assetManager, debug, swup, form7, eventSystem } = payload;
+        const { lazy, terraDebug, Manager, assetManager, debug, swup, form7, eventSystem } = payload;
         
         this.eventSystem = eventSystem;
-        this.blazy = blazy;
+        this.lazy = lazy;
         this.terraDebug = terraDebug;
         this.Manager = Manager;
         this.debug = debug;
@@ -112,11 +112,11 @@ class Core {
         });
     }
     contentReplaced() {
-        if (this.blazy?.enable) {
-            const lazySelector = this.blazy?.selector ? this.blazy?.selector : "g--lazy-01";
+        if (this.lazy?.enable) {
+            const lazySelector = this.lazy?.selector ? this.lazy?.selector : "g--lazy-01";
             this.Manager.addInstance({
-                name: "Blazy",
-                instance: new Blazy({
+                name: "Lazy",
+                instance: new Lazy({
                     selector: "." + lazySelector,
                     successClass: `${lazySelector}--is-loaded`,
                     errorClass: `${lazySelector}--is-error`,
@@ -130,15 +130,15 @@ class Core {
     }
 
     willReplaceContent() {
-        if (this.blazy.enable) {
-            this.debug.instance(`❌ Destroy: Blazy`, { color: "red" });
+        if (this.lazy.enable) {
+            this.debug.instance(`❌ Destroy: Lazy`, { color: "red" });
 
-            if (this.Manager.instances["Blazy"]) {
-                this.Manager.instances["Blazy"].forEach((instance) => {
+            if (this.Manager.instances["Lazy"]) {
+                this.Manager.instances["Lazy"].forEach((instance) => {
                     instance.instance.destroy();
                 });
             }
-            this.Manager.cleanInstances("Blazy");
+            this.Manager.cleanInstances("Lazy");
         }
     }
 }
