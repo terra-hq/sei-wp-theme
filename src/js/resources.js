@@ -185,10 +185,10 @@ export const getModules = () => {
             },
         },
 		{
-            name: "Marquee",
+            name: "InfiniteMarquee",
             resource: async () => {
-                const { default: Marquee } = await import("@jsHandler/marquee/InfiniteMarquee");
-                return Marquee;
+                const { default: InfiniteMarquee } = await import("@jsHandler/marquee/InfiniteMarquee");
+                return InfiniteMarquee;
             },
         },
         {

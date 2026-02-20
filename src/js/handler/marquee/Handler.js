@@ -41,6 +41,7 @@ class Handler extends CoreHandler {
         this.configMarqueeB = ({element}) => {
             return {
                 element: element,
+                Manager: this.Manager,
                 speed: element.getAttribute("data-speed")
                 ? parseFloat(element.getAttribute("data-speed"))
                 : 1,
@@ -61,7 +62,7 @@ class Handler extends CoreHandler {
     }
 
     init() {
-        super.getLibraryName("Marquee");
+        super.getLibraryName("InfiniteMarquee");
     }
 
     events() {
